@@ -1,0 +1,89 @@
+Page URL,UI Feature,Expected API Endpoint(s),Auth Required (Y/N),CRUD verbs
+https://online.brxperformance.com/authentication,Authentication,/api/v4/users/sign_in; /api/v4/users/password,Y,Create
+https://online.brxperformance.com/authentication,Authentication,/api/v4/sign_out,Y,Delete
+https://online.brxperformance.com/appointments-management,User Management,/api/v4/users; /api/v4/users; /api/v4/users/{id}; /api/v4/users/{id},Y,"Delete, Read, Create"
+https://online.brxperformance.com/appointments-management,User Management,/api/v4/users/{id}/workout_exercises,Y,Read
+https://online.brxperformance.com/workouts,Workout Management,/api/v3/workout_blocks; /api/v3/workout_blocks; /api/v3/workout_blocks/{id}; /api/v3/workout_blocks/{id},Y,"Delete, Read, Create, Update"
+https://online.brxperformance.com/workouts,Workout Management,/api/v4/workout_exercises; /api/v4/workout_exercises; /api/v4/workout_exercises/{id}; /api/v4/workout_exercises/{id}; /api/v4/workout_exercises/{id},Y,"Delete, Read, Create, Update"
+https://online.brxperformance.com/workouts,Workout Management,/api/v4/plan_workouts; /api/v4/plan_workouts; /api/v4/plan_workouts/{id}; /api/v4/plan_workouts/{id}; /api/v4/plan_workouts/{id},Y,"Delete, Read, Create, Update"
+https://online.brxperformance.com/workouts,Workout Management,/api/v4/workout-plans; /api/v4/workout-plans; /api/v4/workout-plans/{id}; /api/v4/workout-plans/{id}; /api/v4/workout-plans/{id},Y,"Delete, Read, Create, Update"
+https://online.brxperformance.com/workouts,Workout Management,/api/v4/workout-plans/{id}/rep_maxes,Y,Read
+https://online.brxperformance.com/workouts,Workout Management,/api/v4/workouts; /api/v4/workouts; /api/v4/workouts/{id}; /api/v4/workouts/{id}; /api/v4/workouts/{id},Y,"Delete, Read, Create, Update"
+https://online.brxperformance.com/workout/{id},Workout Management,/api/v3/workout_blocks; /api/v3/workout_blocks; /api/v3/workout_blocks/{id}; /api/v3/workout_blocks/{id},Y,"Delete, Read, Create, Update"
+https://online.brxperformance.com/workout/{id},Workout Management,/api/v4/workout_exercises; /api/v4/workout_exercises; /api/v4/workout_exercises/{id}; /api/v4/workout_exercises/{id}; /api/v4/workout_exercises/{id},Y,"Delete, Read, Create, Update"
+https://online.brxperformance.com/workout/{id},Workout Management,/api/v4/plan_workouts; /api/v4/plan_workouts; /api/v4/plan_workouts/{id}; /api/v4/plan_workouts/{id}; /api/v4/plan_workouts/{id},Y,"Delete, Read, Create, Update"
+https://online.brxperformance.com/workout/{id},Workout Management,/api/v4/workout-plans; /api/v4/workout-plans; /api/v4/workout-plans/{id}; /api/v4/workout-plans/{id}; /api/v4/workout-plans/{id},Y,"Delete, Read, Create, Update"
+https://online.brxperformance.com/workout/{id},Workout Management,/api/v4/workout-plans/{id}/rep_maxes,Y,Read
+https://online.brxperformance.com/workout/{id},Workout Management,/api/v4/workouts; /api/v4/workouts; /api/v4/workouts/{id}; /api/v4/workouts/{id}; /api/v4/workouts/{id},Y,"Delete, Read, Create, Update"
+https://online.brxperformance.com/workout-plans,Workout Management,/api/v3/workout_blocks; /api/v3/workout_blocks; /api/v3/workout_blocks/{id}; /api/v3/workout_blocks/{id},Y,"Delete, Read, Create, Update"
+https://online.brxperformance.com/workout-plans,Workout Management,/api/v4/workout_exercises; /api/v4/workout_exercises; /api/v4/workout_exercises/{id}; /api/v4/workout_exercises/{id}; /api/v4/workout_exercises/{id},Y,"Delete, Read, Create, Update"
+https://online.brxperformance.com/workout-plans,Workout Management,/api/v4/plan_workouts; /api/v4/plan_workouts; /api/v4/plan_workouts/{id}; /api/v4/plan_workouts/{id}; /api/v4/plan_workouts/{id},Y,"Delete, Read, Create, Update"
+https://online.brxperformance.com/workout-plans,Workout Management,/api/v4/workout-plans; /api/v4/workout-plans; /api/v4/workout-plans/{id}; /api/v4/workout-plans/{id}; /api/v4/workout-plans/{id},Y,"Delete, Read, Create, Update"
+https://online.brxperformance.com/workout-plans,Workout Management,/api/v4/workout-plans/{id}/rep_maxes,Y,Read
+https://online.brxperformance.com/workout-plans,Workout Management,/api/v4/workouts; /api/v4/workouts; /api/v4/workouts/{id}; /api/v4/workouts/{id}; /api/v4/workouts/{id},Y,"Delete, Read, Create, Update"
+https://online.brxperformance.com/workout-plan/{id},Workout Management,/api/v3/workout_blocks; /api/v3/workout_blocks; /api/v3/workout_blocks/{id}; /api/v3/workout_blocks/{id},Y,"Delete, Read, Create, Update"
+https://online.brxperformance.com/workout-plan/{id},Workout Management,/api/v4/workout_exercises; /api/v4/workout_exercises; /api/v4/workout_exercises/{id}; /api/v4/workout_exercises/{id}; /api/v4/workout_exercises/{id},Y,"Delete, Read, Create, Update"
+https://online.brxperformance.com/workout-plan/{id},Workout Management,/api/v4/plan_workouts; /api/v4/plan_workouts; /api/v4/plan_workouts/{id}; /api/v4/plan_workouts/{id}; /api/v4/plan_workouts/{id},Y,"Delete, Read, Create, Update"
+https://online.brxperformance.com/workout-plan/{id},Workout Management,/api/v4/workout-plans; /api/v4/workout-plans; /api/v4/workout-plans/{id}; /api/v4/workout-plans/{id}; /api/v4/workout-plans/{id},Y,"Delete, Read, Create, Update"
+https://online.brxperformance.com/workout-plan/{id},Workout Management,/api/v4/workout-plans/{id}/rep_maxes,Y,Read
+https://online.brxperformance.com/workout-plan/{id},Workout Management,/api/v4/workouts; /api/v4/workouts; /api/v4/workouts/{id}; /api/v4/workouts/{id}; /api/v4/workouts/{id},Y,"Delete, Read, Create, Update"
+https://online.brxperformance.com/appointments-management,Workout Management,/api/v3/workout_blocks; /api/v3/workout_blocks; /api/v3/workout_blocks/{id}; /api/v3/workout_blocks/{id},Y,"Delete, Read, Create, Update"
+https://online.brxperformance.com/appointments-management,Workout Management,/api/v4/workout_exercises; /api/v4/workout_exercises; /api/v4/workout_exercises/{id}; /api/v4/workout_exercises/{id}; /api/v4/workout_exercises/{id},Y,"Delete, Read, Create, Update"
+https://online.brxperformance.com/appointments-management,Workout Management,/api/v4/plan_workouts; /api/v4/plan_workouts; /api/v4/plan_workouts/{id}; /api/v4/plan_workouts/{id}; /api/v4/plan_workouts/{id},Y,"Delete, Read, Create, Update"
+https://online.brxperformance.com/appointments-management,Workout Management,/api/v4/workout-plans; /api/v4/workout-plans; /api/v4/workout-plans/{id}; /api/v4/workout-plans/{id}; /api/v4/workout-plans/{id},Y,"Delete, Read, Create, Update"
+https://online.brxperformance.com/appointments-management,Workout Management,/api/v4/workout-plans/{id}/rep_maxes,Y,Read
+https://online.brxperformance.com/appointments-management,Workout Management,/api/v4/workouts; /api/v4/workouts; /api/v4/workouts/{id}; /api/v4/workouts/{id}; /api/v4/workouts/{id},Y,"Delete, Read, Create, Update"
+https://online.brxperformance.com/exercises,Exercise Management,/api/v4/exercises; /api/v4/exercises/{id}; /api/v4/exercises/{id},Y,"Read, Update"
+https://online.brxperformance.com/exercises,Exercise Management,/api/v4/exercises/,Y,Create
+https://online.brxperformance.com/exercise/{id},Exercise Management,/api/v4/exercises; /api/v4/exercises/{id}; /api/v4/exercises/{id},Y,"Read, Update"
+https://online.brxperformance.com/exercise/{id},Exercise Management,/api/v4/exercises/,Y,Create
+https://online.brxperformance.com/exercise-library,Exercise Management,/api/v4/exercises; /api/v4/exercises/{id}; /api/v4/exercises/{id},Y,"Read, Update"
+https://online.brxperformance.com/exercise-library,Exercise Management,/api/v4/exercises/,Y,Create
+https://online.brxperformance.com/appointments-management,Exercise Management,/api/v4/exercises; /api/v4/exercises/{id}; /api/v4/exercises/{id},Y,"Read, Update"
+https://online.brxperformance.com/appointments-management,Exercise Management,/api/v4/exercises/,Y,Create
+https://online.brxperformance.com/equipment,Equipment Management,/api/v3/equipment; /api/v3/equipment; /api/v3/equipment/{id}; /api/v3/equipment/{id},Y,"Delete, Read, Create, Update"
+https://online.brxperformance.com/gym-equipment,Equipment Management,/api/v3/equipment; /api/v3/equipment; /api/v3/equipment/{id}; /api/v3/equipment/{id},Y,"Delete, Read, Create, Update"
+https://online.brxperformance.com/appointments-management,Equipment Management,/api/v3/equipment; /api/v3/equipment; /api/v3/equipment/{id}; /api/v3/equipment/{id},Y,"Delete, Read, Create, Update"
+https://online.brxperformance.com/calendar/scheduling,Calendar/Scheduling,/api/v4/calendar; /api/v4/calendar/add; /api/v4/calendar/remove; /api/v4/calendar/move; /api/v4/calendar/schedule,Y,"Delete, Read, Create, Update"
+https://online.brxperformance.com/calendar/scheduling,Calendar/Scheduling,/api/v4/groups/calendars,Y,Read
+https://online.brxperformance.com/business,Business Management (FBM),/api/v4/fbm/appointments/{id}/check_eligibility; /api/v4/fbm/appointments/{id}/packages,Y,Read
+https://online.brxperformance.com/business,Business Management (FBM),/api/v4/fbm/appointments; /api/v4/fbm/appointments; /api/v4/fbm/locations; /api/v4/fbm/locations; /api/v4/fbm/scheduled_appointment_members; /api/v4/fbm/scheduled_appointment_members; /api/v4/fbm/scheduled_appointments; /api/v4/fbm/scheduled_appointments; /api/v4/fbm/schedules; /api/v4/fbm/schedules; /api/v4/fbm/services; /api/v4/fbm/services; /api/v4/fbm/visits; /api/v4/fbm/visits; /api/v4/fbm/waitlist_entries; /api/v4/fbm/waitlist_entries,Y,"Read, Create"
+https://online.brxperformance.com/business,Business Management (FBM),/api/v4/fbm/appointments/{id}; /api/v4/fbm/appointments/{id}; /api/v4/fbm/appointments/{id},Y,"Delete, Read, Update"
+https://online.brxperformance.com/business,Business Management (FBM),/api/v4/fbm/locations/{id}; /api/v4/fbm/locations/{id}; /api/v4/fbm/locations/{id},Y,"Delete, Read, Update"
+https://online.brxperformance.com/business,Business Management (FBM),/api/v4/fbm/scheduled_appointment_members/{id}; /api/v4/fbm/scheduled_appointment_members/{id}; /api/v4/fbm/scheduled_appointment_members/{id},Y,"Delete, Read, Update"
+https://online.brxperformance.com/business,Business Management (FBM),/api/v4/fbm/scheduled_appointments/{id}/check_eligibility,Y,Read
+https://online.brxperformance.com/business,Business Management (FBM),/api/v4/fbm/scheduled_appointments/{id}; /api/v4/fbm/scheduled_appointments/{id}; /api/v4/fbm/scheduled_appointments/{id},Y,"Delete, Read, Update"
+https://online.brxperformance.com/business,Business Management (FBM),/api/v4/fbm/schedules/{id}; /api/v4/fbm/schedules/{id}; /api/v4/fbm/schedules/{id},Y,"Delete, Read, Update"
+https://online.brxperformance.com/business,Business Management (FBM),/api/v4/fbm/services/{id}; /api/v4/fbm/services/{id}; /api/v4/fbm/services/{id},Y,"Delete, Read, Update"
+https://online.brxperformance.com/business,Business Management (FBM),/api/v4/fbm/visits/{id}; /api/v4/fbm/visits/{id}; /api/v4/fbm/visits/{id},Y,"Delete, Read, Update"
+https://online.brxperformance.com/business,Business Management (FBM),/api/v4/fbm/waitlist_entries/{id}; /api/v4/fbm/waitlist_entries/{id}; /api/v4/fbm/waitlist_entries/{id},Y,"Delete, Read, Update"
+https://online.brxperformance.com/appointments-management,Business Management (FBM),/api/v4/fbm/appointments/{id}/check_eligibility; /api/v4/fbm/appointments/{id}/packages,Y,Read
+https://online.brxperformance.com/appointments-management,Business Management (FBM),/api/v4/fbm/appointments; /api/v4/fbm/appointments; /api/v4/fbm/locations; /api/v4/fbm/locations; /api/v4/fbm/scheduled_appointment_members; /api/v4/fbm/scheduled_appointment_members; /api/v4/fbm/scheduled_appointments; /api/v4/fbm/scheduled_appointments; /api/v4/fbm/schedules; /api/v4/fbm/schedules; /api/v4/fbm/services; /api/v4/fbm/services; /api/v4/fbm/visits; /api/v4/fbm/visits; /api/v4/fbm/waitlist_entries; /api/v4/fbm/waitlist_entries,Y,"Read, Create"
+https://online.brxperformance.com/appointments-management,Business Management (FBM),/api/v4/fbm/appointments/{id}; /api/v4/fbm/appointments/{id}; /api/v4/fbm/appointments/{id},Y,"Delete, Read, Update"
+https://online.brxperformance.com/appointments-management,Business Management (FBM),/api/v4/fbm/locations/{id}; /api/v4/fbm/locations/{id}; /api/v4/fbm/locations/{id},Y,"Delete, Read, Update"
+https://online.brxperformance.com/appointments-management,Business Management (FBM),/api/v4/fbm/scheduled_appointment_members/{id}; /api/v4/fbm/scheduled_appointment_members/{id}; /api/v4/fbm/scheduled_appointment_members/{id},Y,"Delete, Read, Update"
+https://online.brxperformance.com/appointments-management,Business Management (FBM),/api/v4/fbm/scheduled_appointments/{id}/check_eligibility,Y,Read
+https://online.brxperformance.com/appointments-management,Business Management (FBM),/api/v4/fbm/scheduled_appointments/{id}; /api/v4/fbm/scheduled_appointments/{id}; /api/v4/fbm/scheduled_appointments/{id},Y,"Delete, Read, Update"
+https://online.brxperformance.com/appointments-management,Business Management (FBM),/api/v4/fbm/schedules/{id}; /api/v4/fbm/schedules/{id}; /api/v4/fbm/schedules/{id},Y,"Delete, Read, Update"
+https://online.brxperformance.com/appointments-management,Business Management (FBM),/api/v4/fbm/services/{id}; /api/v4/fbm/services/{id}; /api/v4/fbm/services/{id},Y,"Delete, Read, Update"
+https://online.brxperformance.com/appointments-management,Business Management (FBM),/api/v4/fbm/visits/{id}; /api/v4/fbm/visits/{id}; /api/v4/fbm/visits/{id},Y,"Delete, Read, Update"
+https://online.brxperformance.com/appointments-management,Business Management (FBM),/api/v4/fbm/waitlist_entries/{id}; /api/v4/fbm/waitlist_entries/{id}; /api/v4/fbm/waitlist_entries/{id},Y,"Delete, Read, Update"
+https://online.brxperformance.com/appointments-management,Groups/Team Management,/api/v4/groups/{id}/add_member,Y,Create
+https://online.brxperformance.com/appointments-management,Groups/Team Management,/api/v4/groups; /api/v4/groups; /api/v4/groups/{id}; /api/v4/groups/{id}; /api/v4/groups/{id},Y,"Delete, Read, Create, Update"
+https://online.brxperformance.com/resources/content,Resources/Content,/api/v4/group_resources; /api/v4/group_resources; /api/v4/group_resources/{id},Y,"Read, Create"
+https://online.brxperformance.com/resources/content,Resources/Content,/api/v4/resources; /api/v4/resources; /api/v4/resources/{id},Y,"Read, Create"
+https://online.brxperformance.com/communication,Communication,/api/v4/conversations/available_recipients; /api/v4/conversations; /api/v4/conversations; /api/v4/conversations/{id}; /api/v4/conversations/{id}; /api/v4/conversations/{id},Y,"Delete, Read, Create, Update"
+https://online.brxperformance.com/communication,Communication,/api/v4/conversations/{id}/reply_to; /api/v4/conversations/{id}/mark_read,Y,"Read, Update"
+https://online.brxperformance.com/payments/commerce,Payments/Commerce,/api/v4/carts/purchased_items,Y,Read
+https://online.brxperformance.com/payments/commerce,Payments/Commerce,/api/v4/coupons/check,Y,Create
+https://online.brxperformance.com/tags/organization,Tags/Organization,/api/v4/tags; /api/v4/tags; /api/v4/tags/{id}; /api/v4/tags/{id}; /api/v4/tags/{id}; /api/v4/tags/update_tag; /api/v4/tags/delete_tag,Y,"Delete, Read, Create, Update"
+https://online.brxperformance.com/favorites,Favorites,/api/v4/favorites,Y,Read
+https://online.brxperformance.com/other,Other,/api/v3/workout_exercise_sets; /api/v3/workout_exercise_sets/{id}; /api/v3/workout_exercise_sets/{id},Y,"Delete, Create, Update"
+https://online.brxperformance.com/other,Other,/api/v3/plan_blocks; /api/v3/plan_blocks/{id}; /api/v3/plan_blocks/{id},Y,"Delete, Create, Update"
+https://online.brxperformance.com/other,Other,/api/v3/plan_exercises; /api/v3/plan_exercises/{id}; /api/v3/plan_exercises/{id},Y,"Delete, Create, Update"
+https://online.brxperformance.com/other,Other,/api/v4/user_plans; /api/v4/user_plans; /api/v4/user_plans/{id}; /api/v4/user_plans/{id}; /api/v4/user_plans/{id},Y,"Delete, Read, Create, Update"
+https://online.brxperformance.com/other,Other,/api/v4/user_plans/{id}/pause; /api/v4/user_plans/{id}/next_workout,Y,"Read, Create"
+https://online.brxperformance.com/ (captured),Runtime API Call,/api/v2/platforms/current,Y,Read
+https://online.brxperformance.com/ (captured),Runtime API Call,/api/v4/users/me,Y,Read
+https://online.brxperformance.com/ (captured),Runtime API Call,/api/v4/users/226676,Y,Read
+https://online.brxperformance.com/ (captured),Runtime API Call,/api/v4/fbm/card_readers/connect_token,Y,Create/Update

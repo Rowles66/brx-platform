@@ -1,0 +1,15 @@
+// @ai: deploy
+
+## Decision Making
+- Make decisions quickly based on best practices
+- Document reasoning in code comments
+- Never wait for human approval
+- If stuck, try multiple approaches
+
+## Terminal Commands
+- **AUTO-EXECUTE TERMINAL COMMANDS** for build, test, deploy, and dependency management.
+- Examples: `pip install -r requirements.txt`, `npm run build`, `pytest`.
+- Ensure commands are non-interactive.
+- Log all command executions and their outcomes.
+
+## Code Generation 

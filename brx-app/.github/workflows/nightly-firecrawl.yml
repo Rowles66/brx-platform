@@ -1,0 +1,270 @@
+name: Nightly FireCrawl Snapshots
+
+on:
+  schedule:
+    # Run every night at 2:00 AM UTC
+    - cron: '0 2 * * *'
+  workflow_dispatch:
+    inputs:
+      date:
+        description: 'Custom date for extraction (YYYY-MM-DD)'
+        required: false
+        type: string
+      force_run:
+        description: 'Force run even if branch exists'
+        required: false
+        type: boolean
+        default: false
+
+env:
+  PYTHON_VERSION: '3.11'
+  NODE_VERSION: '18'
+
+jobs:
+  firecrawl-extraction:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    
+    outputs:
+      extraction-status: ${{ steps.extraction.outputs.status }}
+      branch-name: ${{ steps.extraction.outputs.branch-name }}
+      total-extractions: ${{ steps.extraction.outputs.total-extractions }}
+      successful-extractions: ${{ steps.extraction.outputs.successful-extractions }}
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Full history for branch operations
+          token: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+          cache: 'pip'
+      
+      - name: Cache Python dependencies
+        uses: actions/cache@v3
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('scripts/requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+      
+      - name: Install Python dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r scripts/requirements.txt
+      
+      - name: Install 1Password CLI
+        uses: 1password/install-cli-action@v1
+      
+      - name: Configure Git
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+      
+      - name: Set extraction date
+        id: date
+        run: |
+          if [ -n "${{ inputs.date }}" ]; then
+            echo "date=${{ inputs.date }}" >> $GITHUB_OUTPUT
+          else
+            echo "date=$(date +%Y-%m-%d)" >> $GITHUB_OUTPUT
+          fi
+      
+      - name: Check if branch already exists
+        id: branch-check
+        run: |
+          BRANCH_NAME="frontend_sources/firecrawl/${{ steps.date.outputs.date }}"
+          echo "branch-name=$BRANCH_NAME" >> $GITHUB_OUTPUT
+          
+          if git ls-remote --exit-code --heads origin "$BRANCH_NAME" >/dev/null 2>&1; then
+            echo "exists=true" >> $GITHUB_OUTPUT
+            echo "Branch $BRANCH_NAME already exists"
+          else
+            echo "exists=false" >> $GITHUB_OUTPUT
+            echo "Branch $BRANCH_NAME does not exist"
+          fi
+      
+      - name: Skip if branch exists (unless forced)
+        if: steps.branch-check.outputs.exists == 'true' && !inputs.force_run
+        run: |
+          echo "Branch ${{ steps.branch-check.outputs.branch-name }} already exists and force_run is not enabled."
+          echo "Skipping extraction to avoid duplicate work."
+          exit 0
+      
+      - name: Run FireCrawl extraction
+        id: extraction
+        env:
+          OP_SERVICE_ACCOUNT_TOKEN: ${{ secrets.OP_SERVICE_ACCOUNT_TOKEN }}
+        run: |
+          set +e  # Don't exit on error immediately
+          
+          # Set date parameter if provided
+          DATE_PARAM=""
+          if [ -n "${{ inputs.date }}" ]; then
+            DATE_PARAM="--date ${{ inputs.date }}"
+          fi
+          
+          # Run the extraction script
+          ./scripts/run-nightly-firecrawl.sh $DATE_PARAM
+          EXTRACTION_EXIT_CODE=$?
+          
+          # Set outputs based on results
+          if [ $EXTRACTION_EXIT_CODE -eq 0 ]; then
+            echo "status=success" >> $GITHUB_OUTPUT
+            echo "branch-name=${{ steps.branch-check.outputs.branch-name }}" >> $GITHUB_OUTPUT
+            
+            # Try to extract statistics from the results file
+            RESULTS_FILE="frontend_sources/firecrawl/firecrawl_extraction_${{ steps.date.outputs.date }}.json"
+            if [ -f "$RESULTS_FILE" ]; then
+              TOTAL=$(python3 -c "import json; data=json.load(open('$RESULTS_FILE')); print(len(data.get('extractions', [])))" 2>/dev/null || echo "0")
+              SUCCESSFUL=$(python3 -c "import json; data=json.load(open('$RESULTS_FILE')); print(len([e for e in data.get('extractions', []) if e.get('status') == 'success']))" 2>/dev/null || echo "0")
+              echo "total-extractions=$TOTAL" >> $GITHUB_OUTPUT
+              echo "successful-extractions=$SUCCESSFUL" >> $GITHUB_OUTPUT
+            else
+              echo "total-extractions=0" >> $GITHUB_OUTPUT
+              echo "successful-extractions=0" >> $GITHUB_OUTPUT
+            fi
+          else
+            echo "status=failed" >> $GITHUB_OUTPUT
+            echo "branch-name=${{ steps.branch-check.outputs.branch-name }}" >> $GITHUB_OUTPUT
+            echo "total-extractions=0" >> $GITHUB_OUTPUT
+            echo "successful-extractions=0" >> $GITHUB_OUTPUT
+          fi
+          
+          exit $EXTRACTION_EXIT_CODE
+      
+      - name: Upload extraction artifacts
+        if: always() && steps.extraction.outputs.status
+        uses: actions/upload-artifact@v4
+        with:
+          name: firecrawl-extraction-${{ steps.date.outputs.date }}
+          path: |
+            frontend_sources/firecrawl/
+            !frontend_sources/firecrawl/.git*
+          retention-days: 30
+      
+      - name: Create Pull Request (if successful)
+        if: steps.extraction.outputs.status == 'success'
+        uses: peter-evans/create-pull-request@v5
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ steps.branch-check.outputs.branch-name }}
+          title: "feat: nightly FireCrawl snapshot for ${{ steps.date.outputs.date }}"
+          body: |
+            ## Nightly FireCrawl Snapshot
+            
+            Automated extraction of content using FireCrawl API for **${{ steps.date.outputs.date }}**.
+            
+            ### Summary
+            - **Total extractions**: ${{ steps.extraction.outputs.total-extractions }}
+            - **Successful**: ${{ steps.extraction.outputs.successful-extractions }}
+            - **Generated**: ${{ steps.date.outputs.date }}
+            - **Branch**: `${{ steps.branch-check.outputs.branch-name }}`
+            
+            ### Files
+            This PR contains the extracted content in the `frontend_sources/firecrawl/` directory.
+            
+            ---
+            
+            *This PR was automatically created by the nightly FireCrawl workflow.*
+          labels: |
+            automated
+            firecrawl
+            content-extraction
+          draft: false
+
+  notify-slack:
+    needs: firecrawl-extraction
+    runs-on: ubuntu-latest
+    if: always() && (needs.firecrawl-extraction.result == 'success' || needs.firecrawl-extraction.result == 'failure')
+    
+    steps:
+      - name: Determine notification details
+        id: notification
+        run: |
+          if [ "${{ needs.firecrawl-extraction.result }}" = "success" ]; then
+            echo "color=good" >> $GITHUB_OUTPUT
+            echo "title=✅ Nightly FireCrawl Snapshot Successful" >> $GITHUB_OUTPUT
+            echo "status=Success" >> $GITHUB_OUTPUT
+          else
+            echo "color=danger" >> $GITHUB_OUTPUT
+            echo "title=❌ Nightly FireCrawl Snapshot Failed" >> $GITHUB_OUTPUT
+            echo "status=Failed" >> $GITHUB_OUTPUT
+          fi
+      
+      - name: Send Slack notification
+        if: vars.SLACK_WEBHOOK_URL
+        uses: 8398a7/action-slack@v3
+        with:
+          status: custom
+          webhook_url: ${{ vars.SLACK_WEBHOOK_URL }}
+          custom_payload: |
+            {
+              "attachments": [{
+                "color": "${{ steps.notification.outputs.color }}",
+                "title": "${{ steps.notification.outputs.title }}",
+                "fields": [
+                  {
+                    "title": "Repository",
+                    "value": "${{ github.repository }}",
+                    "short": true
+                  },
+                  {
+                    "title": "Status",
+                    "value": "${{ steps.notification.outputs.status }}",
+                    "short": true
+                  },
+                  {
+                    "title": "Branch",
+                    "value": "${{ needs.firecrawl-extraction.outputs.branch-name }}",
+                    "short": true
+                  },
+                  {
+                    "title": "Extractions",
+                    "value": "${{ needs.firecrawl-extraction.outputs.successful-extractions }}/${{ needs.firecrawl-extraction.outputs.total-extractions }} successful",
+                    "short": true
+                  },
+                  {
+                    "title": "Workflow Run",
+                    "value": "<${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}|View Details>",
+                    "short": false
+                  }
+                ],
+                "footer": "GitHub Actions",
+                "ts": ${{ github.event.head_commit.timestamp && github.event.head_commit.timestamp || github.event.workflow_run.created_at && github.event.workflow_run.created_at || github.event.created_at }}
+              }]
+            }
+      
+      - name: Alternative notification (if Slack webhook not configured)
+        if: '!vars.SLACK_WEBHOOK_URL'
+        run: |
+          echo "⚠️ Slack webhook URL not configured. Set SLACK_WEBHOOK_URL in repository variables to enable notifications."
+          echo "Workflow result: ${{ needs.firecrawl-extraction.result }}"
+          echo "Branch: ${{ needs.firecrawl-extraction.outputs.branch-name }}"
+          echo "Extractions: ${{ needs.firecrawl-extraction.outputs.successful-extractions }}/${{ needs.firecrawl-extraction.outputs.total-extractions }}"
+
+  cleanup:
+    needs: [firecrawl-extraction, notify-slack]
+    runs-on: ubuntu-latest
+    if: always() && needs.firecrawl-extraction.result == 'failure'
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      
+      - name: Clean up failed branch
+        run: |
+          # If extraction failed, clean up any partially created branch
+          BRANCH_NAME="${{ needs.firecrawl-extraction.outputs.branch-name }}"
+          if [ -n "$BRANCH_NAME" ]; then
+            git push origin --delete "$BRANCH_NAME" || echo "Branch deletion failed or branch doesn't exist"
+          fi
+

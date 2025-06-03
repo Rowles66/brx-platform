@@ -1,0 +1,168 @@
+// Enhanced Prisma Schema for BRX Performance App
+// Generated from: UI Forms, API Schemas, and Business Logic Analysis
+// Sources: Scraped forms (SignIn/SignUp), tRPC routers, existing models
+// Last updated: 2025-05-29
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// Core User model - merged from forms and API schemas
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique  // From SignIn/SignUp forms and API
+  name      String?             // From SignUp form and API
+  password  String              // From authentication forms
+  
+  // Authentication preferences
+  rememberMe Boolean @default(false) // From SignIn form
+  
+  // Relationships
+  workouts  Workout[]
+  exercises UserExercise[]
+  sessions  UserSession[]
+  
+  // Timestamps
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("users")
+}
+
+// Enhanced Exercise model with BRX Performance specifics
+model Exercise {
+  id          String   @id @default(cuid())
+  name        String
+  description String?
+  category    String?  // e.g., "Strength", "Cardio", "Flexibility"
+  difficulty  String?  // e.g., "Beginner", "Intermediate", "Advanced"
+  
+  // BRX Performance specific fields
+  muscleGroups String[] // Array of targeted muscle groups
+  equipment    String?  // Required equipment
+  instructions String?  // Step-by-step instructions
+  
+  // Media and resources
+  imageUrl     String?
+  videoUrl     String?
+  
+  // Relationships
+  userExercises UserExercise[]
+  workoutExercises WorkoutExercise[]
+  
+  // Timestamps
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@map("exercises")
+}
+
+// User's personalized exercise data
+model UserExercise {
+  id       String @id @default(cuid())
+  userId   String
+  exerciseId String
+  
+  // Personal records and preferences
+  personalBest Json?   // Store PR data as JSON
+  preferences  Json?   // User's exercise preferences
+  notes        String?
+  
+  // Relationships
+  user     User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  exercise Exercise @relation(fields: [exerciseId], references: [id], onDelete: Cascade)
+  
+  // Timestamps
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  
+  @@unique([userId, exerciseId])
+  @@map("user_exercises")
+}
+
+// Workout sessions
+model Workout {
+  id          String   @id @default(cuid())
+  userId      String
+  name        String
+  description String?
+  
+  // Workout metadata
+  duration    Int?     // Duration in minutes
+  status      WorkoutStatus @default(PLANNED)
+  
+  // Relationships
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  exercises   WorkoutExercise[]
+  
+  // Timestamps
+  scheduledAt DateTime?
+  completedAt DateTime?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@map("workouts")
+}
+
+// Many-to-many relationship between Workouts and Exercises
+model WorkoutExercise {
+  id         String @id @default(cuid())
+  workoutId  String
+  exerciseId String
+  
+  // Exercise session data
+  sets       Int?
+  reps       Int?
+  weight     Float?
+  duration   Int?   // Duration in seconds for time-based exercises
+  rest       Int?   // Rest time in seconds
+  
+  // Session notes and completion
+  notes      String?
+  completed  Boolean @default(false)
+  
+  // Relationships
+  workout    Workout  @relation(fields: [workoutId], references: [id], onDelete: Cascade)
+  exercise   Exercise @relation(fields: [exerciseId], references: [id], onDelete: Cascade)
+  
+  // Timestamps
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+  
+  @@unique([workoutId, exerciseId])
+  @@map("workout_exercises")
+}
+
+// Authentication and session management
+model UserSession {
+  id        String   @id @default(cuid())
+  userId    String
+  token     String   @unique
+  expiresAt DateTime
+  
+  // Session metadata
+  userAgent String?
+  ipAddress String?
+  
+  // Relationships
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  // Timestamps
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("user_sessions")
+}
+
+// Enums
+enum WorkoutStatus {
+  PLANNED
+  IN_PROGRESS
+  COMPLETED
+  CANCELLED
+}

@@ -1,0 +1,34 @@
+export const VALIDATION_LIMITS = {
+  WORKOUT: {
+    NAME_MIN: 3,
+    NAME_MAX: 50,
+    DURATION_MIN: 5,
+    DURATION_MAX: 240,
+  },
+  EXERCISE: {
+    SETS_MIN: 1,
+    SETS_MAX: 20,
+    REPS_MIN: 1,
+    REPS_MAX: 100,
+    WEIGHT_MIN: 0,
+    WEIGHT_MAX: 1000,
+    REST_MIN: 0,
+    REST_MAX: 300,
+  }
+} as const;
+
+export const ERROR_MESSAGES = {
+  WORKOUT: {
+    NAME_REQUIRED: 'Workout name is required',
+    NAME_LENGTH: `Name must be between ${VALIDATION_LIMITS.WORKOUT.NAME_MIN} and ${VALIDATION_LIMITS.WORKOUT.NAME_MAX} characters`,
+    DURATION_RANGE: `Duration must be between ${VALIDATION_LIMITS.WORKOUT.DURATION_MIN} and ${VALIDATION_LIMITS.WORKOUT.DURATION_MAX} minutes`,
+    NO_EXERCISES: 'Workout must have at least one exercise',
+  },
+  EXERCISE: {
+    SETS_RANGE: `Sets must be between ${VALIDATION_LIMITS.EXERCISE.SETS_MIN} and ${VALIDATION_LIMITS.EXERCISE.SETS_MAX}`,
+    REPS_RANGE: `Reps must be between ${VALIDATION_LIMITS.EXERCISE.REPS_MIN} and ${VALIDATION_LIMITS.EXERCISE.REPS_MAX}`,
+    WEIGHT_RANGE: `Weight must be between ${VALIDATION_LIMITS.EXERCISE.WEIGHT_MIN} and ${VALIDATION_LIMITS.EXERCISE.WEIGHT_MAX} kg`,
+    REST_RANGE: `Rest time must be between ${VALIDATION_LIMITS.EXERCISE.REST_MIN} and ${VALIDATION_LIMITS.EXERCISE.REST_MAX} seconds`,
+  }
+} as const;
+

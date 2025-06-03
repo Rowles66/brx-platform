@@ -1,0 +1,5704 @@
+{
+  "api_info": {
+    "title": "API V4",
+    "version": "v4"
+  },
+  "base_path": "",
+  "schemes": [],
+  "endpoints": {
+    "/api/v3/equipment": {
+      "get": {
+        "summary": "list equipment",
+        "description": "",
+        "tags": [
+          "Equipment"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful"
+          }
+        },
+        "security": [
+          {
+            "api_key": [],
+            "bearer": []
+          }
+        ]
+      },
+      "post": {
+        "summary": "create equipment",
+        "description": "",
+        "tags": [
+          "Equipment"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful"
+          }
+        },
+        "security": [
+          {
+            "api_key": [],
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/v3/equipment/{id}": {
+      "put": {
+        "summary": "update equipment",
+        "description": "",
+        "tags": [
+          "Equipment"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful"
+          }
+        },
+        "security": [
+          {
+            "api_key": [],
+            "bearer": []
+          }
+        ]
+      },
+      "delete": {
+        "summary": "delete equipment",
+        "description": "Deletes an Equipment",
+        "tags": [
+          "Equipment"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful"
+          }
+        },
+        "security": [
+          {
+            "api_key": [],
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/v3/workout_blocks": {
+      "get": {
+        "summary": "list workout_blocks",
+        "description": "",
+        "tags": [
+          "Workout Blocks"
+        ],
+        "parameters": [
+          {
+            "name": "workout_id",
+            "in": "query",
+            "required": true,
+            "description": "ID of Workout to which the workout block is assigned",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful"
+          }
+        },
+        "security": [
+          {
+            "api_key": [],
+            "bearer": []
+          }
+        ]
+      },
+      "post": {
+        "summary": "create workout_block",
+        "description": "",
+        "tags": [
+          "Workout Blocks"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful"
+          }
+        },
+        "security": [
+          {
+            "api_key": [],
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/v3/workout_blocks/{id}": {
+      "put": {
+        "summary": "update workout_block",
+        "description": "",
+        "tags": [
+          "Workout Blocks"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful"
+          }
+        },
+        "security": [
+          {
+            "api_key": [],
+            "bearer": []
+          }
+        ]
+      },
+      "delete": {
+        "summary": "delete workout_block",
+        "description": "Delete a Workout Block",
+        "tags": [
+          "Workout Blocks"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful"
+          }
+        },
+        "security": [
+          {
+            "api_key": [],
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/v3/workout_exercise_sets": {
+      "post": {
+        "summary": "create workout_exercise_set",
+        "description": "",
+        "tags": [
+          "Workout Exercise Sets"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful"
+          }
+        },
+        "security": [
+          {
+            "api_key": [],
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/v3/workout_exercise_sets/{id}": {
+      "put": {
+        "summary": "update workout_exercise_set",
+        "description": "",
+        "tags": [
+          "Workout Exercise Sets"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful"
+          }
+        },
+        "security": [
+          {
+            "api_key": [],
+            "bearer": []
+          }
+        ]
+      },
+      "delete": {
+        "summary": "delete workout_exercise_set",
+        "description": "",
+        "tags": [
+          "Workout Exercise Sets"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful"
+          }
+        },
+        "security": [
+          {
+            "api_key": [],
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/v3/plan_blocks": {
+      "post": {
+        "summary": "create plan_block",
+        "description": "Create a PlanBlock",
+        "tags": [
+          "Plan Blocks"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful"
+          }
+        },
+        "security": [
+          {
+            "api_key": [],
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/v3/plan_blocks/{id}": {
+      "put": {
+        "summary": "update plan_block",
+        "description": "Update a PlanBlock",
+        "tags": [
+          "Plan Blocks"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful"
+          }
+        },
+        "security": [
+          {
+            "api_key": [],
+            "bearer": []
+          }
+        ]
+      },
+      "delete": {
+        "summary": "delete plan_block",
+        "description": "Delete a PlanBlock.",
+        "tags": [
+          "Plan Blocks"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful"
+          }
+        },
+        "security": [
+          {
+            "api_key": [],
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/v3/plan_exercises": {
+      "post": {
+        "summary": "create plan_exercise",
+        "description": "Create a PlanExercise",
+        "tags": [
+          "Plan Exercises"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful"
+          }
+        },
+        "security": [
+          {
+            "api_key": [],
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/v3/plan_exercises/{id}": {
+      "put": {
+        "summary": "update plan_exercise",
+        "description": "Update a PlanExercise",
+        "tags": [
+          "Plan Exercises"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful"
+          }
+        },
+        "security": [
+          {
+            "api_key": [],
+            "bearer": []
+          }
+        ]
+      },
+      "delete": {
+        "summary": "delete plan_exercise",
+        "description": "Delete a PlanExercise",
+        "tags": [
+          "Plan Exercises"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful"
+          }
+        },
+        "security": [
+          {
+            "api_key": [],
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/v4/calendar": {
+      "get": {
+        "summary": "list calendar events",
+        "description": "get a list of events for a calendar",
+        "tags": [
+          "Calendar"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "properties": {
+                      "object_type": {
+                        "type": "string",
+                        "description": "one of: `assessment` (open in a webview), `habit` (open in a webview), `checkin` (open in a webview), `workout` (PlanWorkout), `logged-workout` (Workout), `required` (webview), `schedule` (availability schedule), `schedule_service` (availability schedule events), `appointment`, `scheduled_appointment` (instance of a recurring appointment)"
+                      },
+                      "object_id": {
+                        "type": "integer",
+                        "description": "ID of object based on `object_type`. Certain object_types do not have object_id"
+                      },
+                      "affinity": {
+                        "type": "string",
+                        "description": "the affinity of the event"
+                      },
+                      "actions": {
+                        "type": "object",
+                        "properties": {
+                          "move": {
+                            "type": "object",
+                            "description": "if present, object can be moved within a calendar"
+                          },
+                          "delete": {
+                            "type": "object",
+                            "description": "if present, object can be deleted from calendar"
+                          }
+                        }
+                      },
+                      "owner_id": {
+                        "type": [
+                          "array",
+                          "integer"
+                        ],
+                        "description": "User ID or comma separated IDs that owns the object."
+                      },
+                      "image": {
+                        "type": "string",
+                        "description": "optional image URL for the event"
+                      },
+                      "completed": {
+                        "type": "boolean",
+                        "description": "whether or not the event has been completed/logged/etc."
+                      },
+                      "date": {
+                        "type": "integer",
+                        "description": "Unix timestamp of the beginning of the day in UTC for this event."
+                      },
+                      "text": {
+                        "type": "string",
+                        "description": "title of the event."
+                      },
+                      "data": {
+                        "type": "object",
+                        "properties": {
+                          "workout_plan_id": {
+                            "type": "integer",
+                            "description": "for `workout` object_type, ID of the WorkoutPlan"
+                          },
+                          "copied_from_plan_workout_id": {
+                            "type": "integer",
+                            "description": "for `workout` object_type, ID of the PlanWorkout that this PlanWorkout was copied from."
+                          },
+                          "entry_type": {
+                            "type": "string",
+                            "description": "for `workout` object_type, entry_type of the PlanWorkout. Can be `no_block`, `block`, `text` or `text_with_exercises`"
+                          },
+                          "text": {
+                            "type": "string",
+                            "description": "for `workout` object_type, name of the PlanWorkout"
+                          },
+                          "updated_at": {
+                            "type": "integer",
+                            "description": "Unix timestamp of when the object was last updated"
+                          },
+                          "calendar_date": {
+                            "type": "string",
+                            "description": "Date string for the event in the format YYYY/MM/DD"
+                          },
+                          "calendar_type": {
+                            "type": "string",
+                            "description": "The type of calendar this event is on. `user` (personal calendar for `User``), `client` (`ClientAssociation` calendar that trainer can manage), `group` (`Group` calendar), `service` (`Service` calendar)"
+                          },
+                          "type_id": {
+                            "type": "integer",
+                            "description": "ID of the object specified in calendar_type"
+                          },
+                          "alternate_workouts": {
+                            "type": "array",
+                            "items": {
+                              "properties": {
+                                "id": {
+                                  "type": "integer",
+                                  "description": "ID of the alternate PlanWorkout"
+                                },
+                                "label": {
+                                  "type": "string",
+                                  "description": "name/label for the alternate PlanWorkout"
+                                },
+                                "image_url": {
+                                  "type": "string",
+                                  "description": "image URL for the alternate PlanWorkout"
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "api_key": [],
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/v4/calendar/add": {
+      "post": {
+        "summary": "add a PlanWorkout to a calendar",
+        "description": "add a PlanWorkout to the current user's calendar",
+        "tags": [
+          "Calendar"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "api_key": [],
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/v4/calendar/remove": {
+      "delete": {
+        "summary": "delete scheduled workout",
+        "description": "delete a PlanWorkout for the current user",
+        "tags": [
+          "Calendar"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "api_key": [],
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/v4/calendar/move": {
+      "put": {
+        "summary": "move a scheduled workout",
+        "description": "move a PlanWorkout or Workout to a specific date for the current user",
+        "tags": [
+          "Calendar"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "api_key": [],
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/v4/calendar/schedule": {
+      "post": {
+        "summary": "schdule a logged workout",
+        "description": "Copy a logged Workout and schedule it to the current user's calendar as a PlanWorkout",
+        "tags": [
+          "Calendar"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "api_key": [],
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/v4/carts/purchased_items": {
+      "get": {
+        "summary": "purchased_items cart",
+        "description": "",
+        "tags": [
+          "Purchased Items"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "properties": {
+                    "item_type": {
+                      "type": "string",
+                      "description": "Item of purchased item"
+                    },
+                    "item_id": {
+                      "type": "integer",
+                      "description": "Id of purchased item"
+                    },
+                    "payment_option": {
+                      "type": "object",
+                      "description": "Payment option object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "description": "Type of payment option, can be a purchase or a subscription"
+                        },
+                        "amount": {
+                          "type": "integer",
+                          "description": "Amount of the payment"
+                        },
+                        "name": {
+                          "type": "string",
+                          "description": "Name of the payment option"
+                        },
+                        "currency": {
+                          "type": "string",
+                          "description": "Currency of the payment"
+                        },
+                        "location": {
+                          "type": "string",
+                          "description": "Location of the payment"
+                        },
+                        "interval": {
+                          "type": "string",
+                          "description": "Interval of the payment, if subscription"
+                        },
+                        "interval_count": {
+                          "type": "integer",
+                          "description": "Interval count of the payment, if subscription"
+                        },
+                        "trial_period_days": {
+                          "type": "integer",
+                          "description": "Trial period days of the payment, if subscription"
+                        },
+                        "is_iap": {
+                          "type": "boolean",
+                          "description": "Is IAP of the payment, if subscription"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "api_key": [],
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/v4/conversations/available_recipients": {
+      "get": {
+        "summary": "available_recipients conversation",
+        "description": "List of all recipients you can send a conversation to",
+        "tags": [
+          "Conversations"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful"
+          }
+        },
+        "security": [
+          {
+            "api_key": [],
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/v4/conversations/{id}/reply_to": {
+      "put": {
+        "summary": "reply_to conversation",
+        "description": "Reply to a conversation",
+        "tags": [
+          "Conversations"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful"
+          }
+        },
+        "security": [
+          {
+            "api_key": [],
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/v4/conversations/{id}/mark_read": {
+      "get": {
+        "summary": "mark_read conversation",
+        "description": "Mark a conversation as read",
+        "tags": [
+          "Conversations"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful"
+          }
+        },
+        "security": [
+          {
+            "api_key": [],
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/v4/conversations": {
+      "get": {
+        "summary": "list conversations",
+        "description": "",
+        "tags": [
+          "Conversations"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful"
+          }
+        },
+        "security": [
+          {
+            "api_key": [],
+            "bearer": []
+          }
+        ]
+      },
+      "post": {
+        "summary": "create conversation",
+        "description": "",
+        "tags": [
+          "Conversations"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful"
+          }
+        },
+        "security": [
+          {
+            "api_key": [],
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/v4/conversations/{id}": {
+      "get": {
+        "summary": "show conversation",
+        "description": "",
+        "tags": [
+          "Conversations"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful"
+          }
+        },
+        "security": [
+          {
+            "api_key": [],
+            "bearer": []
+          }
+        ]
+      },
+      "put": {
+        "summary": "update conversation",
+        "description": "",
+        "tags": [
+          "Conversations"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful"
+          }
+        },
+        "security": [
+          {
+            "api_key": [],
+            "bearer": []
+          }
+        ]
+      },
+      "delete": {
+        "summary": "delete conversation",
+        "description": "",
+        "tags": [
+          "Conversations"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful"
+          }
+        },
+        "security": [
+          {
+            "api_key": [],
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/v4/coupons/check": {
+      "post": {
+        "summary": "check coupon",
+        "description": "validates a coupon code",
+        "tags": [
+          "Coupons"
+        ],
+        "parameters": [
+          {
+            "name": "type",
+            "in": "query",
+            "required": true,
+            "description": "one of purchase (if making a one-time purchase) or subscription (if starting a subscription)",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "purchaseable_id",
+            "in": "query",
+            "required": true,
+            "description": "The ID of the item being purchased",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "purchaseable_type",
+            "in": "query",
+            "required": true,
+            "description": "the type of the item being purchased. can be one of Group, Workout Plan, Fbm::Package, Exercisecom::Product, ClientAssociation, TrainerAssociation",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "coupon",
+            "in": "query",
+            "required": true,
+            "description": "the coupon code in question",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful"
+          },
+          "404": {
+            "description": "coupon not found"
+          }
+        },
+        "security": [
+          {
+            "api_key": [],
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/v4/exercises": {
+      "get": {
+        "summary": "list exercises",
+        "description": "",
+        "tags": [
+          "Exercises"
+        ],
+        "parameters": [
+          {
+            "name": "include_all",
+            "in": "query",
+            "description": "Ignore pagination and return everything (not recommended)",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "$ref": "#/components/parameters/per"
+          },
+          {
+            "$ref": "#/components/parameters/page"
+          },
+          {
+            "$ref": "#/components/parameters/q"
+          },
+          {
+            "$ref": "#/components/parameters/pluck_columns"
+          },
+          {
+            "$ref": "#/components/parameters/with_ids"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful"
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/v4/exercises/{id}": {
+      "get": {
+        "summary": "show exercise",
+        "description": "",
+        "tags": [
+          "Exercises"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "alternate_exercises": {
+                      "type": "array"
+                    },
+                    "archived_at": {
+                      "type": "integer"
+                    },
+                    "average_rep_time": {
+                      "type": "integer"
+                    },
+                    "cached_slug": {
+                      "type": "string"
+                    },
+                    "created_at": {
+                      "type": "integer"
+                    },
+                    "default_notes": {
+                      "type": "string"
+                    },
+                    "description": {
+                      "type": "string"
+                    },
+                    "difficulty_level": {
+                      "type": "string"
+                    },
+                    "difficulty_level_id": {
+                      "type": "integer"
+                    },
+                    "distance": {
+                      "type": "boolean",
+                      "description": "Does the exercise require distance measurement?"
+                    },
+                    "distance_measurement": {
+                      "type": "string",
+                      "description": "miles, feet, meters, etc."
+                    },
+                    "each_side": {
+                      "type": "boolean"
+                    },
+                    "embed_youtube_url": {
+                      "type": "string"
+                    },
+                    "equipment": {
+                      "type": "array"
+                    },
+                    "featured_plans": {
+                      "type": "array"
+                    },
+                    "force_type": {
+                      "type": "string"
+                    },
+                    "links": {
+                      "type": "object"
+                    },
+                    "mechanics_type": {
+                      "type": "string"
+                    },
+                    "mechanics_type_id": {
+                      "type": "integer"
+                    },
+                    "met": {
+                      "type": "integer"
+                    },
+                    "metric_type": {
+                      "type": "string"
+                    },
+                    "muscle_group": {
+                      "type": "string",
+                      "description": "The primary muscle group"
+                    },
+                    "muscle_groups": {
+                      "type": "array",
+                      "description": "All targeted muscle groups"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "other_names": {
+                      "type": "string"
+                    },
+                    "pace": {
+                      "type": "number"
+                    },
+                    "primary_muscle_group_id": {
+                      "type": "integer"
+                    },
+                    "public": {
+                      "type": "boolean"
+                    },
+                    "rank": {
+                      "type": "number"
+                    },
+                    "rating": {
+                      "type": "number"
+                    },
+                    "ratings_count": {
+                      "type": "integer"
+                    },
+                    "reps": {
+                      "type": "boolean"
+                    },
+                    "scoring_difficulty": {
+                      "type": "number"
+                    },
+                    "secondary_muscle_groups": {
+                      "type": "array"
+                    },
+                    "similar_exercises": {
+                      "type": "array"
+                    },
+                    "square_thumbnail": {
+                      "type": "string"
+                    },
+                    "steps": {
+                      "type": "array"
+                    },
+                    "steps_header_text": {
+                      "type": "string"
+                    },
+                    "stream_url": {
+                      "type": "array"
+                    },
+                    "sub_trainer_id": {
+                      "type": "integer"
+                    },
+                    "tags": {
+                      "type": "array"
+                    },
+                    "tempo": {
+                      "type": "number"
+                    },
+                    "thumbnail": {
+                      "type": "string"
+                    },
+                    "time": {
+                      "type": "boolean"
+                    },
+                    "tips": {
+                      "type": "array"
+                    },
+                    "trainer_id": {
+                      "type": "integer"
+                    },
+                    "type_ids": {
+                      "type": "array"
+                    },
+                    "types": {
+                      "type": "array"
+                    },
+                    "updated_at": {
+                      "type": "integer"
+                    },
+                    "variations": {
+                      "type": "array"
+                    },
+                    "video_embed_url": {
+                      "type": "string"
+                    },
+                    "video_html_url": {
+                      "type": "string"
+                    },
+                    "video_stream_url": {
+                      "type": "string"
+                    },
+                    "video_url": {
+                      "type": "integer"
+                    },
+                    "weight": {
+                      "type": "boolean"
+                    },
+                    "youtube_url": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      },
+      "put": {
+        "summary": "update exercise",
+        "description": "",
+        "tags": [
+          "Exercises"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful"
+          }
+        },
+        "security": []
+      }
+    },
+    "/api/v4/exercises/": {
+      "post": {
+        "summary": "create exercise",
+        "description": "",
+        "tags": [
+          "Exercises"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful"
+          }
+        },
+        "security": []
+      }
+    },
+    "/api/v4/favorites": {
+      "get": {
+        "summary": "list favorites",
+        "description": "",
+        "tags": [
+          "Favorites"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/per"
+          },
+          {
+            "$ref": "#/components/parameters/page"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful"
+          }
+        },
+        "security": [
+          {
+            "api_key": [],
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/v4/fbm/appointments/{id}/check_eligibility": {
+      "get": {
+        "summary": "check_eligibility appointment",
+        "description": "Checks if user can book a specific appointment.",
+        "tags": [
+          "Appointments"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "eligible": {
+                      "type": "boolean",
+                      "description": "Can user book this appointment"
+                    },
+                    "reason": {
+                      "type": "string",
+                      "description": "code symbol for why the user can not book.\\n- full\\n- closed\\n- signed_up\\n- limit_service_categories\\n- max_calendar_limit\\n- max_package_calendar_limit\\n- max_visits\\n- limited_booking\\n- limited_booking_package\\n- limited_booking_future\\n- same_time\\n- insufficient_funds\\n- overbooked\\n- unavailable\\n- new_accounts_only"
+                    },
+                    "data": {
+                      "type": "boolean",
+                      "description": "If error code max_calendar_limit, data is the service names that are limited. If error code max_package_calendar_limit, data is the user package name that is limited. If error code limit_service_categories, data is array of service categories limited for user (controlled by groups). If trainer_reason is same_time, data is the visit id of the conflicting visit"
+                    },
+                    "count": {
+                      "type": "integer",
+                      "description": "if error code max_calendar_limit, count is the max visits for the service for the interval acording to the platform limit booking services. if error code max_package_calendar_limit, count is the max visits for the package for the interval"
+                    },
+                    "interval": {
+                      "type": "boolean",
+                      "description": "interval of max visits per interval"
+                    },
+                    "trainer_reason": {
+                      "type": "string",
+                      "description": "if set, prefer trainer_reason over reason. code symbol for why the user can not book (Set if user is trainer)"
+                    },
+                    "reason_message": {
+                      "type": "string",
+                      "description": "user readable message for why user can not book"
+                    },
+                    "visits_remaining": {
+                      "type": "integer",
+                      "description": "number of bookable visits remaining for appointment (999 means unlimited)"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/api/v4/fbm/appointments/{id}/packages": {
+      "get": {
+        "summary": "packages appointment",
+        "description": "List packages that can be used for a specific appointment.\\nIf HTTP_WEB_CLIENT == v3, returns package serialized with v4 serializer. if HTTP_WEB_CLIENT != v3, returns package record converted to json with stripe payment plansplans.",
+        "tags": [
+          "Appointments"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/fbm_package"
+                    },
+                    {
+                      "$ref": "#/components/schemas/fbm_package_raw"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/api/v4/fbm/appointments": {
+      "get": {
+        "summary": "list appointments",
+        "description": "",
+        "tags": [
+          "Appointments"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/per"
+          },
+          {
+            "$ref": "#/components/parameters/page"
+          },
+          {
+            "$ref": "#/components/parameters/q"
+          },
+          {
+            "$ref": "#/components/parameters/pluck_columns"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "appointment": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/fbm_appointment"
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "properties": {
+                        "total": {
+                          "type": "integer"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      },
+      "post": {
+        "summary": "create appointment",
+        "description": "",
+        "tags": [
+          "Appointments"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/fbm_appointment"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/fbm_appointment"
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/api/v4/fbm/appointments/{id}": {
+      "get": {
+        "summary": "show appointment",
+        "description": "",
+        "tags": [
+          "Appointments"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/fbm_appointment"
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      },
+      "put": {
+        "summary": "update appointment",
+        "description": "",
+        "tags": [
+          "Appointments"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/fbm_appointment"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/fbm_appointment"
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      },
+      "delete": {
+        "summary": "delete appointment",
+        "description": "",
+        "tags": [
+          "Appointments"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/fbm_appointment"
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/api/v4/fbm/locations": {
+      "get": {
+        "summary": "list locations",
+        "description": "",
+        "tags": [
+          "Locations"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/per"
+          },
+          {
+            "$ref": "#/components/parameters/page"
+          },
+          {
+            "$ref": "#/components/parameters/q"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "location": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/fbm_location"
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "properties": {
+                        "total": {
+                          "type": "integer"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      },
+      "post": {
+        "summary": "create location",
+        "description": "",
+        "tags": [
+          "Locations"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/fbm_location"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/fbm_location"
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/api/v4/fbm/locations/{id}": {
+      "get": {
+        "summary": "show location",
+        "description": "",
+        "tags": [
+          "Locations"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/fbm_location"
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      },
+      "put": {
+        "summary": "update location",
+        "description": "",
+        "tags": [
+          "Locations"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/fbm_location"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/fbm_location"
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      },
+      "delete": {
+        "summary": "delete location",
+        "description": "",
+        "tags": [
+          "Locations"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/fbm_location"
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/api/v4/fbm/scheduled_appointment_members": {
+      "get": {
+        "summary": "list scheduled_appointment_members",
+        "description": "",
+        "tags": [
+          "Scheduled Appointment Members"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/per"
+          },
+          {
+            "$ref": "#/components/parameters/page"
+          },
+          {
+            "$ref": "#/components/parameters/q"
+          },
+          {
+            "$ref": "#/components/parameters/pluck_columns"
+          },
+          {
+            "name": "for_user",
+            "in": "query",
+            "description": "Filter by user",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "scheduled_appointment_id",
+            "in": "query",
+            "description": "all members of a scheduled appointment",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "appointment_id",
+            "in": "query",
+            "description": "Requires scheduled_appointment_id. Filter out users with deleted visits for appointment with id appointment_id",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "scheduled_appointment_member": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/fbm_scheduled_appointment_member"
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "properties": {
+                        "total": {
+                          "type": "integer"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      },
+      "post": {
+        "summary": "create scheduled_appointment_member",
+        "description": "",
+        "tags": [
+          "Scheduled Appointment Members"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/fbm_scheduled_appointment_member"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/fbm_scheduled_appointment_member"
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/api/v4/fbm/scheduled_appointment_members/{id}": {
+      "get": {
+        "summary": "show scheduled_appointment_member",
+        "description": "",
+        "tags": [
+          "Scheduled Appointment Members"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/fbm_scheduled_appointment_member"
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      },
+      "put": {
+        "summary": "update scheduled_appointment_member",
+        "description": "",
+        "tags": [
+          "Scheduled Appointment Members"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/fbm_scheduled_appointment_member"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/fbm_scheduled_appointment_member"
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      },
+      "delete": {
+        "summary": "delete scheduled_appointment_member",
+        "description": "",
+        "tags": [
+          "Scheduled Appointment Members"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/fbm_scheduled_appointment_member"
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/api/v4/fbm/scheduled_appointments/{id}/check_eligibility": {
+      "get": {
+        "summary": "check_eligibility scheduled_appointment",
+        "description": "",
+        "tags": [
+          "Sheduled Appointments"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful"
+          }
+        },
+        "security": []
+      }
+    },
+    "/api/v4/fbm/scheduled_appointments": {
+      "get": {
+        "summary": "list scheduled_appointments",
+        "description": "",
+        "tags": [
+          "Sheduled Appointments"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/per"
+          },
+          {
+            "$ref": "#/components/parameters/page"
+          },
+          {
+            "$ref": "#/components/parameters/q"
+          },
+          {
+            "$ref": "#/components/parameters/pluck_columns"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful"
+          }
+        },
+        "security": []
+      },
+      "post": {
+        "summary": "create scheduled_appointment",
+        "description": "",
+        "tags": [
+          "Sheduled Appointments"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/fbm_scheduled_appointment"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/fbm_scheduled_appointment"
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/api/v4/fbm/scheduled_appointments/{id}": {
+      "get": {
+        "summary": "show scheduled_appointment",
+        "description": "",
+        "tags": [
+          "Sheduled Appointments"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/fbm_scheduled_appointment"
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      },
+      "put": {
+        "summary": "update scheduled_appointment",
+        "description": "",
+        "tags": [
+          "Sheduled Appointments"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/fbm_scheduled_appointment"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/fbm_scheduled_appointment"
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      },
+      "delete": {
+        "summary": "delete scheduled_appointment",
+        "description": "",
+        "tags": [
+          "Sheduled Appointments"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/fbm_scheduled_appointment"
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/api/v4/fbm/schedules": {
+      "get": {
+        "summary": "list schedules",
+        "description": "",
+        "tags": [
+          "Schedules"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/per"
+          },
+          {
+            "$ref": "#/components/parameters/page"
+          },
+          {
+            "$ref": "#/components/parameters/q"
+          },
+          {
+            "$ref": "#/components/parameters/pluck_columns"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "schedule": {
+                          "type": "array",
+                          "items": {
+                            "$ref": "#/components/schemas/fbm_schedule"
+                          }
+                        },
+                        "meta": {
+                          "type": "object",
+                          "properties": {
+                            "total": {
+                              "type": "integer"
+                            }
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "$ref": "#/components/schemas/fbm_schedule"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      },
+      "post": {
+        "summary": "create schedule",
+        "description": "",
+        "tags": [
+          "Schedules"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/fbm_schedule"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/fbm_schedule"
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/api/v4/fbm/schedules/{id}": {
+      "get": {
+        "summary": "show schedule",
+        "description": "",
+        "tags": [
+          "Schedules"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/fbm_schedule"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful"
+          }
+        },
+        "security": []
+      },
+      "put": {
+        "summary": "update schedule",
+        "description": "",
+        "tags": [
+          "Schedules"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/fbm_schedule"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/fbm_schedule"
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      },
+      "delete": {
+        "summary": "delete schedule",
+        "description": "",
+        "tags": [
+          "Schedules"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/fbm_schedule"
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/api/v4/fbm/services": {
+      "get": {
+        "summary": "list services",
+        "description": "",
+        "tags": [
+          "Services"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/per"
+          },
+          {
+            "$ref": "#/components/parameters/page"
+          },
+          {
+            "$ref": "#/components/parameters/q"
+          },
+          {
+            "$ref": "#/components/parameters/pluck_columns"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "service": {
+                          "type": "array",
+                          "items": {
+                            "$ref": "#/components/schemas/fbm_service"
+                          }
+                        },
+                        "meta": {
+                          "type": "object",
+                          "properties": {
+                            "total": {
+                              "type": "integer"
+                            }
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "$ref": "#/components/schemas/fbm_service"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      },
+      "post": {
+        "summary": "create service",
+        "description": "",
+        "tags": [
+          "Services"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/fbm_service"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful"
+          }
+        },
+        "security": []
+      }
+    },
+    "/api/v4/fbm/services/{id}": {
+      "get": {
+        "summary": "show service",
+        "description": "",
+        "tags": [
+          "Services"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful"
+          }
+        },
+        "security": []
+      },
+      "put": {
+        "summary": "update service",
+        "description": "",
+        "tags": [
+          "Services"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/fbm_service"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/fbm_service"
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      },
+      "delete": {
+        "summary": "delete service",
+        "description": "",
+        "tags": [
+          "Services"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/fbm_service"
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/api/v4/fbm/visits": {
+      "get": {
+        "summary": "list visits",
+        "description": "list visits.<br>Note: the value of HTTP_WEB_CLIENT determines if v4 or v5 serializer is used. v5 is useded when HTTP_WEB_CLIENT is set to either \"v3\" or \"react\"",
+        "tags": [
+          "Visits"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/per"
+          },
+          {
+            "$ref": "#/components/parameters/page"
+          },
+          {
+            "$ref": "#/components/parameters/q"
+          },
+          {
+            "$ref": "#/components/parameters/pluck_columns"
+          },
+          {
+            "name": "for_user",
+            "in": "query",
+            "description": "retrieve the visits accessable for the user",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "with_ids",
+            "in": "query",
+            "description": "retrieve the visits accessable for the user",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "appointment_id",
+            "in": "query",
+            "description": "only show visits for this appointment",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "active_visits",
+            "in": "query",
+            "description": "only retreive finished visits for appointments and check-ins",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "visit": {
+                          "type": "array",
+                          "items": {
+                            "$ref": "#/components/schemas/v4_fbm_visit"
+                          }
+                        },
+                        "meta": {
+                          "type": "object",
+                          "properties": {
+                            "total": {
+                              "type": "integer"
+                            }
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "$ref": "#/components/schemas/v4_fbm_visit"
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "visit": {
+                          "type": "array",
+                          "items": {
+                            "$ref": "#/components/schemas/v5_fbm_visit"
+                          }
+                        },
+                        "meta": {
+                          "type": "object",
+                          "properties": {
+                            "total": {
+                              "type": "integer"
+                            }
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "$ref": "#/components/schemas/v5_fbm_visit"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      },
+      "post": {
+        "summary": "create visit",
+        "description": "",
+        "tags": [
+          "Visits"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/fbm_visit"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/v4_fbm_visit"
+                    },
+                    {
+                      "$ref": "#/components/schemas/v5_fbm_visit"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/api/v4/fbm/visits/{id}": {
+      "get": {
+        "summary": "show visit",
+        "description": "",
+        "tags": [
+          "Visits"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/v4_fbm_visit"
+                    },
+                    {
+                      "$ref": "#/components/schemas/v5_fbm_visit"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      },
+      "put": {
+        "summary": "update visit",
+        "description": "",
+        "tags": [
+          "Visits"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/fbm_visit"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/v4_fbm_visit"
+                    },
+                    {
+                      "$ref": "#/components/schemas/v5_fbm_visit"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      },
+      "delete": {
+        "summary": "delete visit",
+        "description": "",
+        "tags": [
+          "Visits"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/v4_fbm_visit"
+                    },
+                    {
+                      "$ref": "#/components/schemas/v5_fbm_visit"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/api/v4/fbm/waitlist_entries": {
+      "get": {
+        "summary": "list waitlist_entries",
+        "description": "",
+        "tags": [
+          "Waitlist Entries"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/per"
+          },
+          {
+            "$ref": "#/components/parameters/page"
+          },
+          {
+            "$ref": "#/components/parameters/q"
+          },
+          {
+            "$ref": "#/components/parameters/pluck_columns"
+          },
+          {
+            "name": "for_user",
+            "in": "query",
+            "description": "get entries for user where the appointment is in the future and the appointment is not cancelled and the appointment is not expired. results sorted by appointment start time",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "appointment_id",
+            "in": "query",
+            "description": "retrieve entries for a specific appointment. (NOT COMPATABLE WITH for_user)",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "waitlist_entry": {
+                          "type": "array",
+                          "items": {
+                            "$ref": "#/components/schemas/fbm_waitlist_entry"
+                          }
+                        },
+                        "meta": {
+                          "type": "object",
+                          "properties": {
+                            "total": {
+                              "type": "integer"
+                            }
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "$ref": "#/components/schemas/fbm_waitlist_entry"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      },
+      "post": {
+        "summary": "create waitlist_entry",
+        "description": "",
+        "tags": [
+          "Waitlist Entries"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/fbm_waitlist_entry"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/fbm_waitlist_entry"
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/api/v4/fbm/waitlist_entries/{id}": {
+      "get": {
+        "summary": "show waitlist_entry",
+        "description": "",
+        "tags": [
+          "Waitlist Entries"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/fbm_waitlist_entry"
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      },
+      "put": {
+        "summary": "update waitlist_entry",
+        "description": "",
+        "tags": [
+          "Waitlist Entries"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/fbm_waitlist_entry"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/fbm_waitlist_entry"
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      },
+      "delete": {
+        "summary": "delete waitlist_entry",
+        "description": "",
+        "tags": [
+          "Waitlist Entries"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/fbm_waitlist_entry"
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/api/v4/group_resources": {
+      "get": {
+        "summary": "list group_resources",
+        "description": "",
+        "tags": [
+          "Group Resources"
+        ],
+        "parameters": [
+          {
+            "name": "for_user",
+            "in": "query",
+            "description": "Fetch Resource Asset current user has access to",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "group_id",
+            "in": "query",
+            "description": "Fetch Resource Asset with given group id",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "description": "Fetch Resource Asset with given id",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "$ref": "#/components/parameters/per"
+          },
+          {
+            "$ref": "#/components/parameters/page"
+          },
+          {
+            "$ref": "#/components/parameters/q"
+          },
+          {
+            "$ref": "#/components/parameters/pluck_columns"
+          },
+          {
+            "$ref": "#/components/parameters/with_ids"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful"
+          }
+        },
+        "security": [
+          {
+            "api_key": [],
+            "bearer": []
+          }
+        ]
+      },
+      "post": {
+        "summary": "create group_resource",
+        "description": "",
+        "tags": [
+          "Group Resources"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful"
+          }
+        },
+        "security": [
+          {
+            "api_key": [],
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/v4/group_resources/{id}": {
+      "get": {
+        "summary": "show group_resource",
+        "description": "",
+        "tags": [
+          "Group Resources"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful"
+          }
+        },
+        "security": [
+          {
+            "api_key": [],
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/v4/groups/{id}/add_member": {
+      "post": {
+        "summary": "add_member group",
+        "description": "",
+        "tags": [
+          "Groups"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful"
+          }
+        },
+        "security": [
+          {
+            "api_key": [],
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/v4/groups/calendars": {
+      "get": {
+        "summary": "calendars group",
+        "description": "",
+        "tags": [
+          "Groups"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/per"
+          },
+          {
+            "$ref": "#/components/parameters/page"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful"
+          }
+        },
+        "security": []
+      }
+    },
+    "/api/v4/groups": {
+      "get": {
+        "summary": "list groups",
+        "description": "Group Types 1: Free Group, 2: Paid Group",
+        "tags": [
+          "Groups"
+        ],
+        "parameters": [
+          {
+            "name": "public",
+            "in": "query",
+            "required": false,
+            "description": "show groups user has permission to see and are not private. Cannot be used in conjunction with: for_user, member_only, for_user_id, ids, with_ids, admin_user",
+            "schema": {
+              "type": "bool"
+            }
+          },
+          {
+            "name": "for_user",
+            "in": "query",
+            "required": false,
+            "description": "show groups user has permission to see and are not private and have group type 1 (free group). Cannot be used in conjunction with: public, for_user_id, ids, with_ids, admin_user",
+            "schema": {
+              "type": "bool"
+            }
+          },
+          {
+            "name": "member_only",
+            "in": "query",
+            "required": false,
+            "description": "show groups user is a member of. Can only be included with for_user or for_user_id",
+            "schema": {
+              "type": "bool"
+            }
+          },
+          {
+            "name": "for_user_id",
+            "in": "query",
+            "required": false,
+            "description": "same as for_user but for a specific user. Cannot be used in conjunction with: public, for_user, ids, with_ids, admin_user",
+            "schema": {
+              "type": "bool"
+            }
+          },
+          {
+            "name": "ids",
+            "in": "query",
+            "required": false,
+            "description": "show groups with ids. Cannot be used in conjunction with: public, for_user, for_user_id, with_ids, admin_user",
+            "schema": {
+              "type": "bool"
+            }
+          },
+          {
+            "name": "with_ids",
+            "in": "query",
+            "required": false,
+            "description": "Fetch only the records that match the ids specified (comma delimited list).  Pagination is ignored if with_ids is specified. Cannot be used in conjunction with: public, for_user, for_user_id, ids, admin_user",
+            "schema": {
+              "type": "bool"
+            }
+          },
+          {
+            "name": "admin_user",
+            "in": "query",
+            "required": false,
+            "description": "return groups where admin_user is an admin. cannot be used in conjunction with: public, for_user, for_user_id, ids, with_ids",
+            "schema": {
+              "type": "bool"
+            }
+          },
+          {
+            "name": "pluck_columns",
+            "in": "query",
+            "required": false,
+            "description": "Returns only the specified properties in a comma separated list.  If not specified, all properties will be returned. Cannot be used in conjunction with: admin_user, for_user, for_user_id, ids, with_ids",
+            "schema": {
+              "type": "bool"
+            }
+          },
+          {
+            "name": "per",
+            "in": "query",
+            "required": false,
+            "description": "The number of records to return per page.  If set, the response will return a meta field with the total number of records. Cannot be used in conjunction with: admin_user, for_user, for_user_id, ids, with_ids",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "description": "The current page to return.  If set, the response will return a meta field with the total number of records. Cannot be used in conjunction with: admin_user, for_user, for_user_id, ids, with_ids",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "q",
+            "in": "query",
+            "required": false,
+            "description": "Filters the response. See Ransack link for specific documentation: https://github.com/activerecord-hackery/ransack. Cannot be used in conjunction with: admin_user, for_user, for_user_id, ids, with_ids",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful"
+          }
+        },
+        "security": [
+          {
+            "api_key": [],
+            "bearer": []
+          }
+        ]
+      },
+      "post": {
+        "summary": "create group",
+        "description": "",
+        "tags": [
+          "Groups"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful"
+          }
+        },
+        "security": [
+          {
+            "api_key": [],
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/v4/groups/{id}": {
+      "get": {
+        "summary": "show group",
+        "description": "",
+        "tags": [
+          "Groups"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful"
+          }
+        },
+        "security": [
+          {
+            "api_key": [],
+            "bearer": []
+          }
+        ]
+      },
+      "put": {
+        "summary": "update group",
+        "description": "",
+        "tags": [
+          "Groups"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful"
+          }
+        },
+        "security": [
+          {
+            "api_key": [],
+            "bearer": []
+          }
+        ]
+      },
+      "delete": {
+        "summary": "delete group",
+        "description": "",
+        "tags": [
+          "Groups"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful"
+          }
+        },
+        "security": [
+          {
+            "api_key": [],
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/v4/resources": {
+      "get": {
+        "summary": "list resources",
+        "description": "",
+        "tags": [
+          "Resources"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/per"
+          },
+          {
+            "$ref": "#/components/parameters/page"
+          },
+          {
+            "$ref": "#/components/parameters/q"
+          },
+          {
+            "$ref": "#/components/parameters/pluck_columns"
+          },
+          {
+            "$ref": "#/components/parameters/with_ids"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful"
+          }
+        },
+        "security": [
+          {
+            "api_key": [],
+            "bearer": []
+          }
+        ]
+      },
+      "post": {
+        "summary": "create resource",
+        "description": "",
+        "tags": [
+          "Resources"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful"
+          }
+        },
+        "security": [
+          {
+            "api_key": [],
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/v4/resources/{id}": {
+      "get": {
+        "summary": "show resource",
+        "description": "",
+        "tags": [
+          "Resources"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful"
+          }
+        },
+        "security": [
+          {
+            "api_key": [],
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/v4/users/sign_in": {
+      "post": {
+        "summary": "Sign in",
+        "description": "",
+        "tags": [
+          "Authentication"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean"
+                    },
+                    "auth_token": {
+                      "type": "string",
+                      "description": "Authentication token used on subsequent API requests to authenticate the user"
+                    },
+                    "email": {
+                      "type": "string"
+                    },
+                    "nickname": {
+                      "type": "string"
+                    },
+                    "id": {
+                      "type": "integer"
+                    },
+                    "api_base_url": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/v4/sign_out": {
+      "delete": {
+        "summary": "Sign out",
+        "description": "",
+        "tags": [
+          "Authentication"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "api_key": [],
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/v4/users/password": {
+      "post": {
+        "summary": "Reset Password",
+        "description": "",
+        "tags": [
+          "Authentication"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "integer",
+                      "description": "0 is failure to find the user, 1 is succesfully sent reset instructions"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "api_key": [],
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/v4/tags": {
+      "post": {
+        "summary": "create tag",
+        "description": "create tag",
+        "tags": [
+          "Tags"
+        ],
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "description": "name",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "tag_type",
+            "in": "query",
+            "description": "what is being tagged i.e. client, workout-plan, exercise, etc.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "description",
+            "in": "query",
+            "description": "tag description",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "collection_image_id",
+            "in": "query",
+            "description": "id of the image record",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sort_order",
+            "in": "query",
+            "description": "the order the tag shows for the user/trainer",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful"
+          }
+        },
+        "security": [
+          {
+            "api_key": []
+          }
+        ]
+      },
+      "get": {
+        "summary": "list tags",
+        "description": "list tag",
+        "tags": [
+          "Tags"
+        ],
+        "parameters": [
+          {
+            "name": "type",
+            "in": "query",
+            "description": "what is being tagged i.e. client, workout-plan, exercise, etc.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "$ref": "#/components/parameters/per"
+          },
+          {
+            "$ref": "#/components/parameters/page"
+          },
+          {
+            "$ref": "#/components/parameters/q"
+          },
+          {
+            "$ref": "#/components/parameters/pluck_columns"
+          },
+          {
+            "$ref": "#/components/parameters/with_ids"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful"
+          }
+        },
+        "security": [
+          {
+            "api_key": []
+          }
+        ]
+      }
+    },
+    "/api/v4/tags/{id}": {
+      "put": {
+        "summary": "update tag",
+        "description": "update tag",
+        "tags": [
+          "Tags"
+        ],
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "description": "name",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "tag_type",
+            "in": "query",
+            "description": "what is being tagged i.e. client, workout-plan, exercise, etc.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "description",
+            "in": "query",
+            "description": "tag description",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "collection_image_id",
+            "in": "query",
+            "description": "id of the image record",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sort_order",
+            "in": "query",
+            "description": "the order the tag shows for the user/trainer",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful"
+          }
+        },
+        "security": [
+          {
+            "api_key": []
+          }
+        ]
+      },
+      "get": {
+        "summary": "show tag",
+        "description": "get tag",
+        "tags": [
+          "Tags"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful"
+          }
+        },
+        "security": [
+          {
+            "api_key": []
+          }
+        ]
+      },
+      "delete": {
+        "summary": "delete tag",
+        "description": "delete tag",
+        "tags": [
+          "Tags"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful"
+          },
+          "401": {
+            "description": "unauthorized"
+          }
+        },
+        "security": [
+          {
+            "api_key": []
+          }
+        ]
+      }
+    },
+    "/api/v4/tags/update_tag": {
+      "post": {
+        "summary": "update tag",
+        "description": "update all instances of this tag",
+        "tags": [
+          "Tags"
+        ],
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "description": "new name for tag",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "original_name",
+            "in": "query",
+            "description": "original name of the tag",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "image",
+            "in": "query",
+            "description": "image url for tag",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "taggable_type",
+            "in": "query",
+            "description": "what is being tagged i.e. client, workout-plan, exercise, etc.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful"
+          }
+        },
+        "security": [
+          {
+            "api_key": []
+          }
+        ]
+      }
+    },
+    "/api/v4/tags/delete_tag": {
+      "post": {
+        "summary": "delete tag",
+        "description": "delete all instances of this tag",
+        "tags": [
+          "Tags"
+        ],
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "description": "name",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "taggable_type",
+            "in": "query",
+            "description": "what is being tagged i.e. client, workout-plan, exercise, etc.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful"
+          }
+        },
+        "security": [
+          {
+            "api_key": []
+          }
+        ]
+      }
+    },
+    "/api/v4/user_plans": {
+      "get": {
+        "summary": "list user_plans",
+        "description": "Returns a list of user plans",
+        "tags": [
+          "User Plans"
+        ],
+        "parameters": [
+          {
+            "name": "user_id",
+            "in": "query",
+            "required": true,
+            "description": "return plans for the user - used in conjunction with recent/current. If blank, defaults to current user",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "recent",
+            "in": "query",
+            "required": false,
+            "description": "return 5 most recently started plans",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "current",
+            "in": "query",
+            "required": false,
+            "description": "return all currently started user plans",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "include_stopped_paused",
+            "in": "query",
+            "required": false,
+            "description": "for each workout_plan return latest user plans that are active,paused, or stopped",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "include_paused",
+            "in": "query",
+            "required": false,
+            "description": "for each workout_plan return latest user plans that are active or paused",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "no_required_plans",
+            "in": "query",
+            "required": false,
+            "description": "prevent user plans required by system from being returned. (any value will be treated as true)",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "calendars",
+            "in": "query",
+            "required": false,
+            "description": "include user plans for workout plans that are calendar plans, excluded by default",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful"
+          }
+        },
+        "security": [
+          {
+            "api_key": [],
+            "bearer": []
+          }
+        ]
+      },
+      "post": {
+        "summary": "create user_plan",
+        "description": "",
+        "tags": [
+          "User Plans"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful"
+          }
+        },
+        "security": [
+          {
+            "api_key": [],
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/v4/user_plans/{id}": {
+      "get": {
+        "summary": "show user_plan",
+        "description": "",
+        "tags": [
+          "User Plans"
+        ],
+        "parameters": [
+          {
+            "name": "calendars",
+            "in": "query",
+            "required": false,
+            "description": "include user plans for wrokout plans that are calendar plans, excluded by default",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful"
+          }
+        },
+        "security": [
+          {
+            "api_key": [],
+            "bearer": []
+          }
+        ]
+      },
+      "put": {
+        "summary": "update user_plan",
+        "description": "",
+        "tags": [
+          "User Plans"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful"
+          }
+        },
+        "security": [
+          {
+            "api_key": [],
+            "bearer": []
+          }
+        ]
+      },
+      "delete": {
+        "summary": "delete user_plan",
+        "description": "Unfollows a workout plan",
+        "tags": [
+          "User Plans"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful"
+          }
+        },
+        "security": [
+          {
+            "api_key": [],
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/v4/user_plans/{id}/pause": {
+      "post": {
+        "summary": "pasue a user plan",
+        "description": "stops a user plan and stores next workout and paused at time in paused_data field on the user plan",
+        "tags": [
+          "User Plans"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful"
+          }
+        },
+        "security": [
+          {
+            "api_key": [],
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/v4/user_plans/{id}/next_workout": {
+      "get": {
+        "summary": "get next workout for resume",
+        "description": "get the stored resume on workout from the user plan",
+        "tags": [
+          "User Plans"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful"
+          }
+        },
+        "security": [
+          {
+            "api_key": [],
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/v4/users": {
+      "get": {
+        "summary": "list users",
+        "description": "",
+        "tags": [
+          "Users"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "ID for each client",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "per",
+            "in": "query",
+            "description": "Number of results per page",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Current page to fetch",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "started_at",
+            "in": "query",
+            "description": "Unix timestamp of user sign up date",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "ended_at",
+            "in": "query",
+            "description": "Unix timestamp of user removal date",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "user_id",
+            "in": "query",
+            "description": "ID for each user",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "trainer_id",
+            "in": "query",
+            "description": "ID of the head trainer assigned to the user",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "$ref": "#/components/parameters/per"
+          },
+          {
+            "$ref": "#/components/parameters/page"
+          },
+          {
+            "$ref": "#/components/parameters/q"
+          },
+          {
+            "$ref": "#/components/parameters/pluck_columns"
+          },
+          {
+            "$ref": "#/components/parameters/with_ids"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful"
+          }
+        },
+        "security": [
+          {
+            "api_key": [],
+            "bearer": []
+          }
+        ]
+      },
+      "post": {
+        "summary": "create user",
+        "description": "",
+        "tags": [
+          "Users"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful"
+          }
+        },
+        "security": [
+          {
+            "api_key": [],
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/v4/users/{id}/workout_exercises": {
+      "get": {
+        "summary": "show user's workout exercises",
+        "description": "Returns a paginated history of workout exercises for a user.  In some cases, you will want to use `pluck_columns` vs including all set data. Workout dates are stored on workouts, not the workout exercise object, so use `with_date` to return the date with the response",
+        "tags": [
+          "Users"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "description": "User ID"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "api_key": [],
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/v4/users/{id}": {
+      "get": {
+        "summary": "show user",
+        "description": "",
+        "tags": [
+          "Users"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "description": "User ID"
+                    },
+                    "about_me": {
+                      "type": "string",
+                      "description": "User custom information"
+                    },
+                    "android_download_link": {
+                      "type": "string",
+                      "description": "Download link - android"
+                    },
+                    "alternate_landing": {
+                      "type": "boolean",
+                      "description": "Alternate landing page toggle"
+                    },
+                    "brand": {
+                      "type": "string",
+                      "description": "Platform brand user belongs to"
+                    },
+                    "cached_slug": {
+                      "type": "string"
+                    },
+                    "current_frc_score": {
+                      "type": "integer"
+                    },
+                    "created_at": {
+                      "type": "integer",
+                      "description": "Timestamp for when User was created"
+                    },
+                    "classpass_connected": {
+                      "type": "boolean"
+                    },
+                    "client_app_image": {
+                      "type": "string",
+                      "description": "Client App Image Link"
+                    },
+                    "custom_signup": {
+                      "type": "boolean"
+                    },
+                    "contact_url": {
+                      "type": "string"
+                    },
+                    "disabled_tabs": {
+                      "type": "boolean"
+                    },
+                    "disable_rescheduling": {
+                      "type": "boolean",
+                      "description": "Is the user allowed to reschedule"
+                    },
+                    "dashboard_appointments_location": {
+                      "type": "string",
+                      "description": "Location for appointments from client dashboard"
+                    },
+                    "default_health_metrics": {
+                      "type": "array",
+                      "description": "Trainer platform default health metrics"
+                    },
+                    "default_measurements": {
+                      "type": "array",
+                      "description": "Trainer platform default measurements"
+                    },
+                    "dropdown_text_color": {
+                      "type": "string"
+                    },
+                    "enable_fbm": {
+                      "type": "boolean",
+                      "description": "FBM payment method is enabled for client?"
+                    },
+                    "first_name": {
+                      "type": "string",
+                      "description": "Client First Name"
+                    },
+                    "favorite_exercises": {
+                      "type": "array",
+                      "description": "Array of clients favorite exercises"
+                    },
+                    "favorite_workouts": {
+                      "type": "array",
+                      "description": "Array of clients favorite workouts"
+                    },
+                    "health_info_metrics": {
+                      "type": "array",
+                      "description": "Client health information statistics"
+                    },
+                    "hidden_measurements": {
+                      "type": "array"
+                    },
+                    "highlight_color": {
+                      "type": "string"
+                    },
+                    "hide_calendars": {
+                      "type": "boolean",
+                      "description": "Has trainer hidden clients calendar?"
+                    },
+                    "ios_download_link": {
+                      "type": "string",
+                      "description": "Download link- ios"
+                    },
+                    "last_name": {
+                      "type": "string",
+                      "description": "Client Last Name"
+                    },
+                    "level": {
+                      "type": "string"
+                    },
+                    "links": {
+                      "type": "object"
+                    },
+                    "link_color": {
+                      "type": "string"
+                    },
+                    "level_completion": {
+                      "type": "integer"
+                    },
+                    "main_nav_bg_color": {
+                      "type": "string"
+                    },
+                    "main_nav_text_color": {
+                      "type": "string"
+                    },
+                    "main_nav_highlight_color": {
+                      "type": "string"
+                    },
+                    "measurements_order": {
+                      "type": "array"
+                    },
+                    "measurement_colors": {
+                      "type": "array"
+                    },
+                    "nickname": {
+                      "type": "string",
+                      "description": "Client nickname"
+                    },
+                    "num_workouts": {
+                      "type": "integer",
+                      "description": "Number of workouts assigned to client"
+                    },
+                    "num_badges": {
+                      "type": "integer",
+                      "description": "Number of badges assigned to client"
+                    },
+                    "phone_number": {
+                      "type": "integer",
+                      "description": "Client Phone Number"
+                    },
+                    "platform_id": {
+                      "type": "integer",
+                      "description": "ID for the platform the client belongs to"
+                    },
+                    "points": {
+                      "type": "integer"
+                    },
+                    "profile_image": {
+                      "type": "string",
+                      "description": "Client Profile image link"
+                    },
+                    "primary_button_text_color": {
+                      "type": "string"
+                    },
+                    "primary_button_color": {
+                      "type": "string"
+                    },
+                    "points_until_next_level": {
+                      "type": "integer"
+                    },
+                    "rank": {
+                      "type": "integer"
+                    },
+                    "required_sequence": {
+                      "type": "boolean"
+                    },
+                    "required_assessment": {
+                      "type": "boolean"
+                    },
+                    "show_activity": {
+                      "type": "boolean"
+                    },
+                    "sub_nav_bg_color": {
+                      "type": "string"
+                    },
+                    "sub_nav_text_color": {
+                      "type": "string"
+                    },
+                    "tags": {
+                      "type": "array",
+                      "description": "Array of all/any tags assigned to the client"
+                    },
+                    "time_zone": {
+                      "type": "integer",
+                      "description": "Clients Timezone"
+                    },
+                    "total_calories": {
+                      "type": "integer"
+                    },
+                    "trainer_bio": {
+                      "type": "string"
+                    },
+                    "trainer_id": {
+                      "type": "integer",
+                      "description": "ID of the clients head trainer"
+                    },
+                    "trainer_association_id": {
+                      "type": "integer",
+                      "description": "Client ID on the head trainers client list"
+                    },
+                    "trainer_default_image": {
+                      "type": "string"
+                    },
+                    "trainer_exercise_image": {
+                      "type": "string"
+                    },
+                    "trainer_messaging_disabled": {
+                      "type": "boolean"
+                    },
+                    "trainer_profile_fields": {
+                      "type": "array"
+                    },
+                    "training_info_fields": {
+                      "type": "array"
+                    },
+                    "use_exercise_image": {
+                      "type": "string"
+                    },
+                    "use_nav_text_color_on_mobile": {
+                      "type": "string"
+                    },
+                    "website": {
+                      "type": "string",
+                      "description": "Website link if the client has a personal website"
+                    },
+                    "workout_plan_id": {
+                      "type": "integer",
+                      "description": "Workout Plan ID to which the client belongs to"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "api_key": [],
+            "bearer": []
+          }
+        ]
+      },
+      "delete": {
+        "summary": "delete user",
+        "description": "Delete a User",
+        "tags": [
+          "Users"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful"
+          }
+        },
+        "security": [
+          {
+            "api_key": [],
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/v4/workout_exercises": {
+      "get": {
+        "summary": "list workout_exercises",
+        "description": "",
+        "tags": [
+          "Workout Exercises"
+        ],
+        "parameters": [
+          {
+            "name": "workout_id",
+            "in": "query",
+            "required": true,
+            "description": "ID of Workout to which the workout exercise is assigned",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "$ref": "#/components/parameters/per"
+          },
+          {
+            "$ref": "#/components/parameters/page"
+          },
+          {
+            "$ref": "#/components/parameters/q"
+          },
+          {
+            "$ref": "#/components/parameters/pluck_columns"
+          },
+          {
+            "$ref": "#/components/parameters/with_ids"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful"
+          }
+        },
+        "security": [
+          {
+            "api_key": [],
+            "bearer": []
+          }
+        ]
+      },
+      "post": {
+        "summary": "create workout_exercise",
+        "description": "",
+        "tags": [
+          "Workout Exercises"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful"
+          }
+        },
+        "security": [
+          {
+            "api_key": [],
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/v4/workout_exercises/{id}": {
+      "get": {
+        "summary": "show workout_exercise",
+        "description": "",
+        "tags": [
+          "Workout Exercises"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful"
+          }
+        },
+        "security": [
+          {
+            "api_key": [],
+            "bearer": []
+          }
+        ]
+      },
+      "put": {
+        "summary": "update workout_exercise",
+        "description": "",
+        "tags": [
+          "Workout Exercises"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful"
+          }
+        },
+        "security": [
+          {
+            "api_key": [],
+            "bearer": []
+          }
+        ]
+      },
+      "delete": {
+        "summary": "delete workout_exercise",
+        "description": "",
+        "tags": [
+          "Workout Exercises"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful"
+          }
+        },
+        "security": [
+          {
+            "api_key": [],
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/v4/plan_workouts": {
+      "get": {
+        "summary": "list plan_workouts",
+        "description": "List PlanWorkouts",
+        "tags": [
+          "Plan Workouts"
+        ],
+        "parameters": [
+          {
+            "name": "for_user",
+            "in": "query",
+            "description": "Fetch Plan Workouts current user has access to",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "user_id",
+            "in": "query",
+            "description": "Fetch Plan Workouts user with id has access to. must be passed with for_user",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "client_id",
+            "in": "query",
+            "description": "Fetch Plan Workouts client with id has access to",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "default_workout_id",
+            "in": "query",
+            "description": "Fetch PlanWorkouts that have default_workout that matches the provided id",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "plan_id",
+            "in": "query",
+            "description": "Fetch PlanWorkouts associated with a specific plan",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "pluck_columns",
+            "in": "query",
+            "description": "Comma separated list of columns to pluck",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "$ref": "#/components/parameters/per"
+          },
+          {
+            "$ref": "#/components/parameters/page"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful"
+          }
+        },
+        "security": [
+          {
+            "api_key": [],
+            "bearer": []
+          }
+        ]
+      },
+      "post": {
+        "summary": "create plan_workout",
+        "description": "create a plan_workout.",
+        "tags": [
+          "Plan Workouts"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful"
+          }
+        },
+        "security": [
+          {
+            "api_key": [],
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/v4/plan_workouts/{id}": {
+      "put": {
+        "summary": "update workout_plan_workout",
+        "description": "Update PlanWorkouts",
+        "tags": [
+          "Plan Workouts"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful"
+          }
+        },
+        "security": [
+          {
+            "api_key": [],
+            "bearer": []
+          }
+        ]
+      },
+      "get": {
+        "summary": "show workout_plan_workout",
+        "description": "Fetch plan workout",
+        "tags": [
+          "Plan Workouts"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "workout_plan_id": {
+                      "type": "integer"
+                    },
+                    "group_id": {
+                      "type": "integer"
+                    },
+                    "week": {
+                      "type": "integer"
+                    },
+                    "sort_order": {
+                      "type": "integer"
+                    },
+                    "enable_block": {
+                      "type": "boolean"
+                    },
+                    "pdf": {
+                      "type": "object",
+                      "properties": {
+                        "base": {
+                          "type": "string"
+                        },
+                        "trainer": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "sub_trainer_id": {
+                      "type": "integer"
+                    },
+                    "calendar_date": {
+                      "type": "string"
+                    },
+                    "hide_workout": {
+                      "type": "boolean"
+                    },
+                    "links": {
+                      "type": "object",
+                      "properties": {
+                        "capabilities": {
+                          "type": "string"
+                        },
+                        "alternates": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "trainer_notes": {
+                      "type": "string"
+                    },
+                    "day_sort": {
+                      "type": "integer"
+                    },
+                    "blocks": {
+                      "type": "array",
+                      "items": {
+                        "properties": {
+                          "id": {
+                            "type": "integer"
+                          },
+                          "name": {
+                            "type": "string"
+                          },
+                          "block_type": {
+                            "type": "string"
+                          },
+                          "time": {
+                            "type": "integer"
+                          },
+                          "rounds": {
+                            "type": "integer"
+                          },
+                          "sort_order": {
+                            "type": "integer"
+                          },
+                          "notes": {
+                            "type": "string"
+                          },
+                          "instructions": {
+                            "type": "string"
+                          },
+                          "save_metric": {
+                            "type": "boolean"
+                          },
+                          "workout_id": {
+                            "type": "integer"
+                          },
+                          "created_at": {
+                            "type": "integer"
+                          },
+                          "updated_at": {
+                            "type": "integer"
+                          },
+                          "exercises": {
+                            "type": "array"
+                          }
+                        }
+                      }
+                    },
+                    "assessment_id": {
+                      "type": "integer"
+                    },
+                    "entry_type": {
+                      "type": "string"
+                    },
+                    "score_type": {
+                      "type": "string"
+                    },
+                    "time_limit": {
+                      "type": "integer"
+                    },
+                    "copied_from_plan_id": {
+                      "type": "integer"
+                    },
+                    "benchmark": {
+                      "type": "boolean"
+                    },
+                    "benchmark_id": {
+                      "type": "integer"
+                    },
+                    "day": {
+                      "type": "integer"
+                    },
+                    "alternate_workouts": {
+                      "type": "array"
+                    },
+                    "label": {
+                      "type": "object"
+                    },
+                    "default_workout_id": {
+                      "type": "integer"
+                    },
+                    "alternates_count": {
+                      "type": "integer"
+                    },
+                    "workout_description": {
+                      "type": "string"
+                    },
+                    "created_at": {
+                      "type": "integer"
+                    },
+                    "updated_at": {
+                      "type": "integer"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "api_key": [],
+            "bearer": []
+          }
+        ]
+      },
+      "delete": {
+        "summary": "delete plan_workout",
+        "description": "Delete PlanWorkouts",
+        "tags": [
+          "Plan Workouts"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful"
+          }
+        },
+        "security": [
+          {
+            "api_key": [],
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/v4/workout-plans": {
+      "get": {
+        "summary": "list workout_plans",
+        "description": "List non-calendar workout plans",
+        "tags": [
+          "Workout Plans"
+        ],
+        "parameters": [
+          {
+            "name": "for_user",
+            "in": "query",
+            "description": "limit search to workout plans assigned to current user",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "for_user_id",
+            "in": "query",
+            "description": "limit search to workout plans assigned to user with id",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "group_plans",
+            "in": "query",
+            "description": "Workout Plans assigned to groups the user has access to",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "available_to_group",
+            "in": "query",
+            "description": "Workout plans assigned to a specific group that is available to the user: must be passed with group_id",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "group_id",
+            "in": "query",
+            "description": "workouts plans assigned to a group with the id: only used if passed with available_to_group",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "user_created",
+            "in": "query",
+            "description": "return list of workout plans created by user",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "ids_only",
+            "in": "query",
+            "description": "render Workout Plan record without serializer",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "summary_only",
+            "in": "query",
+            "description": "do not include wokouts: TRUE IS REQUIRED FOR API TESTING. SET AS TRUE",
+            "required": true,
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "$ref": "#/components/parameters/per"
+          },
+          {
+            "$ref": "#/components/parameters/page"
+          },
+          {
+            "$ref": "#/components/parameters/q"
+          },
+          {
+            "$ref": "#/components/parameters/pluck_columns"
+          },
+          {
+            "$ref": "#/components/parameters/with_ids"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "meta": {
+                      "properties": {
+                        "total": {
+                          "type": "integer",
+                          "description": "total number of workouts found"
+                        }
+                      }
+                    },
+                    "workout_plan": {
+                      "type": "array",
+                      "items": {
+                        "properties": {
+                          "id": {
+                            "type": "integer",
+                            "description": "ID of the Plan Workout"
+                          },
+                          "name": {
+                            "type": "string",
+                            "description": "Name of the Plan Workout"
+                          },
+                          "recommended_days_per_week": {
+                            "type": "integer",
+                            "description": "recommended days per week"
+                          },
+                          "checkout_description": {
+                            "type": "string",
+                            "description": "description displayed on checkout"
+                          },
+                          "recommended_length": {
+                            "type": "integer",
+                            "description": "recommended plan length"
+                          },
+                          "diet_keyword": {
+                            "type": "string"
+                          },
+                          "diet_text": {
+                            "type": "string"
+                          },
+                          "diet_plan": {
+                            "type": "string"
+                          },
+                          "gender": {
+                            "type": "integer"
+                          },
+                          "premium": {
+                            "type": "boolean"
+                          },
+                          "video_url": {
+                            "type": "string"
+                          },
+                          "small_plan_image": {
+                            "type": "string"
+                          },
+                          "objectives": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            },
+                            "description": "objective tags"
+                          },
+                          "objective_ids": {
+                            "type": "array",
+                            "items": {
+                              "type": "integer"
+                            }
+                          },
+                          "difficulty_level": {
+                            "type": "string",
+                            "description": "difficulty tag"
+                          },
+                          "large_plan_image": {
+                            "type": "string",
+                            "description": "url for the workout plan large image"
+                          },
+                          "ios_large_plan_image": {
+                            "type": "string"
+                          },
+                          "ios_small_plan_image": {
+                            "type": "string"
+                          },
+                          "days": {
+                            "type": "array",
+                            "items": {
+                              "type": "integer"
+                            },
+                            "description": "days that the workout plan covers"
+                          },
+                          "difficulty_level_id": {
+                            "type": "integer",
+                            "description": "difficulty level id"
+                          },
+                          "featured": {
+                            "type": "boolean"
+                          },
+                          "certified": {
+                            "type": "boolean"
+                          },
+                          "wod": {
+                            "type": "boolean"
+                          },
+                          "client_ids": {
+                            "type": "array",
+                            "items": {
+                              "type": "integer"
+                            }
+                          },
+                          "user_id": {
+                            "type": "integer",
+                            "description": "the id of the user that created the workout plan"
+                          },
+                          "group": {
+                            "type": "integer",
+                            "description": "Id of group that the plan is assigned to"
+                          },
+                          "use_metric": {
+                            "type": "boolean"
+                          },
+                          "seller_id": {
+                            "type": "integer"
+                          },
+                          "price": {
+                            "type": "integer"
+                          },
+                          "why_purchase": {
+                            "type": "string"
+                          },
+                          "affiliate_amount": {
+                            "type": "integer"
+                          },
+                          "resources": {
+                            "type": "object"
+                          },
+                          "delay_interval": {
+                            "type": "integer"
+                          },
+                          "ratings_count": {
+                            "type": "integer"
+                          },
+                          "sub_trainer_id": {
+                            "type": "integer"
+                          },
+                          "start_date": {
+                            "type": "string"
+                          },
+                          "links": {
+                            "type": "object",
+                            "properties": {
+                              "planAssignments": {
+                                "type": "string"
+                              },
+                              "workouts": {
+                                "type": "string"
+                              },
+                              "capabilities": {
+                                "type": "string"
+                              },
+                              "habits": {
+                                "type": "string"
+                              },
+                              "upsells": {
+                                "type": "string"
+                              }
+                            }
+                          },
+                          "status": {
+                            "type": "string"
+                          },
+                          "tags": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          },
+                          "cta": {
+                            "type": "object",
+                            "properties": {
+                              "bgColor": {
+                                "type": "string"
+                              },
+                              "buttonUrl": {
+                                "type": "string"
+                              },
+                              "planTitle": {
+                                "type": "string"
+                              },
+                              "textColor": {
+                                "type": "string"
+                              },
+                              "buttonText": {
+                                "type": "string"
+                              },
+                              "buttonColor": {
+                                "type": "string"
+                              },
+                              "firstBullet": {
+                                "type": "string"
+                              },
+                              "thirdBullet": {
+                                "type": "string"
+                              },
+                              "secondBullet": {
+                                "type": "string"
+                              },
+                              "buttonTextColor": {
+                                "type": "string"
+                              }
+                            }
+                          },
+                          "alternate_for_sale": {
+                            "type": "boolean"
+                          },
+                          "welcome_message": {
+                            "type": "string"
+                          },
+                          "next_plan_id": {
+                            "type": "integer",
+                            "description": "Id of the workout plan that will start after this plan is completed"
+                          },
+                          "calendar_client_id": {
+                            "type": "integer"
+                          },
+                          "calendar_group_id": {
+                            "type": "integer"
+                          },
+                          "hide_from_finder": {
+                            "type": "boolean"
+                          },
+                          "calendar_user_id": {
+                            "type": "integer"
+                          },
+                          "assigned_plans": {
+                            "type": "array",
+                            "items": {
+                              "properties": {
+                                "id": {
+                                  "type": "integer"
+                                },
+                                "days": {
+                                  "type": "array"
+                                },
+                                "name": {
+                                  "type": "string"
+                                },
+                                "end_date": {
+                                  "type": "integer"
+                                },
+                                "copied_at": {
+                                  "type": "string"
+                                },
+                                "start_date": {
+                                  "type": "integer"
+                                },
+                                "all_workouts": {
+                                  "type": "array"
+                                },
+                                "repeat_count": {
+                                  "type": "integer"
+                                },
+                                "include_empty": {
+                                  "type": "boolean"
+                                },
+                                "schedule_next": {
+                                  "type": "boolean"
+                                },
+                                "prevent_next_workout": {
+                                  "type": "boolean"
+                                }
+                              }
+                            }
+                          },
+                          "prevent_next_workout": {
+                            "type": "boolean"
+                          },
+                          "assign_next_plan": {
+                            "type": "boolean"
+                          },
+                          "free_expiration": {
+                            "type": "string"
+                          },
+                          "hide_workout_days": {
+                            "type": "integer"
+                          },
+                          "hide_workout_week_day": {
+                            "type": "integer"
+                          },
+                          "hide_workout_week_hour": {
+                            "type": "integer"
+                          },
+                          "exercise_swaps": {
+                            "type": "array",
+                            "items": {
+                              "properties": {
+                                "exercise_id": {
+                                  "type": "integer"
+                                },
+                                "new_exercise_id": {
+                                  "type": "integer"
+                                }
+                              }
+                            }
+                          },
+                          "thank_you_message": {
+                            "type": "string"
+                          },
+                          "thank_you_page": {
+                            "type": "string"
+                          },
+                          "destination_id": {
+                            "type": "integer"
+                          },
+                          "destination_type": {
+                            "type": "string"
+                          },
+                          "last_published_at": {
+                            "type": "integer",
+                            "description": "unix timestamp of the last published date"
+                          },
+                          "uses_new_creator": {
+                            "type": "boolean",
+                            "description": "Workout Plan was created at or currently uses the new Workout Plan creator"
+                          },
+                          "allow_use_scheduled": {
+                            "type": "boolean",
+                            "description": "Workout Plan was created at or currently uses the new Workout Plan creator"
+                          },
+                          "num_weeks": {
+                            "type": "integer"
+                          },
+                          "calendar_service_id": {
+                            "type": "integer"
+                          },
+                          "share_image_url": {
+                            "type": "string"
+                          },
+                          "share_image_id": {
+                            "type": "string"
+                          },
+                          "payment_options": {
+                            "type": "array",
+                            "items": {
+                              "properties": {
+                                "type": {
+                                  "type": "string"
+                                },
+                                "amount": {
+                                  "type": "integer"
+                                },
+                                "name": {
+                                  "type": "string"
+                                },
+                                "currency": {
+                                  "type": "string"
+                                },
+                                "location": {
+                                  "type": "string"
+                                }
+                              }
+                            },
+                            "description": "Payment Options for purchasing the Workout Plan"
+                          },
+                          "use_new_checkout": {
+                            "type": "boolean"
+                          },
+                          "slug": {
+                            "type": "string"
+                          },
+                          "rating": {
+                            "type": "integer"
+                          },
+                          "plan_description": {
+                            "type": "string"
+                          },
+                          "alternate_exercise_video_tag": {
+                            "type": "string",
+                            "description": "The default video tag to use for the plan"
+                          },
+                          "created_at": {
+                            "type": "integer",
+                            "description": "Unix Timestamp of the date the Workout Plan was created"
+                          },
+                          "updated_at": {
+                            "type": "integer",
+                            "description": "Unix Timestamp of the date the Workout Plan was last updated"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      },
+      "post": {
+        "summary": "create workout_plan",
+        "description": "create a workout_plan.",
+        "tags": [
+          "Workout Plans"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful"
+          }
+        },
+        "security": [
+          {
+            "api_key": [],
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/v4/workout-plans/{id}": {
+      "get": {
+        "summary": "show workout_plan",
+        "description": "Fetch workout plan",
+        "tags": [
+          "Workout Plans"
+        ],
+        "parameters": [
+          {
+            "name": "workout_summary",
+            "in": "query",
+            "description": "do not include wokouts: TRUE IS REQUIRED FOR API TESTING. SET AS TRUE",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "exclude_workouts",
+            "in": "query",
+            "description": "if request is an app request, excludes workouts",
+            "required": true,
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "description": "ID of the Plan Workout"
+                    },
+                    "name": {
+                      "type": "string",
+                      "description": "Name of the Plan Workout"
+                    },
+                    "recommended_days_per_week": {
+                      "type": "integer",
+                      "description": "recommended days per week"
+                    },
+                    "checkout_description": {
+                      "type": "string",
+                      "description": "description displayed on checkout"
+                    },
+                    "recommended_length": {
+                      "type": "integer",
+                      "description": "recommended plan length"
+                    },
+                    "diet_keyword": {
+                      "type": "string"
+                    },
+                    "diet_text": {
+                      "type": "string"
+                    },
+                    "diet_plan": {
+                      "type": "string"
+                    },
+                    "gender": {
+                      "type": "integer"
+                    },
+                    "premium": {
+                      "type": "boolean"
+                    },
+                    "video_url": {
+                      "type": "string"
+                    },
+                    "small_plan_image": {
+                      "type": "string"
+                    },
+                    "objectives": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      },
+                      "description": "objective tags"
+                    },
+                    "objective_ids": {
+                      "type": "array",
+                      "items": {
+                        "type": "integer"
+                      }
+                    },
+                    "difficulty_level": {
+                      "type": "string",
+                      "description": "difficulty tag"
+                    },
+                    "large_plan_image": {
+                      "type": "string",
+                      "description": "url for the workout plan large image"
+                    },
+                    "ios_large_plan_image": {
+                      "type": "string"
+                    },
+                    "ios_small_plan_image": {
+                      "type": "string"
+                    },
+                    "days": {
+                      "type": "array",
+                      "items": {
+                        "type": "integer"
+                      },
+                      "description": "days that the workout plan covers"
+                    },
+                    "difficulty_level_id": {
+                      "type": "integer",
+                      "description": "difficulty level id"
+                    },
+                    "featured": {
+                      "type": "boolean"
+                    },
+                    "certified": {
+                      "type": "boolean"
+                    },
+                    "wod": {
+                      "type": "boolean"
+                    },
+                    "client_ids": {
+                      "type": "array",
+                      "items": {
+                        "type": "integer"
+                      }
+                    },
+                    "user_id": {
+                      "type": "integer",
+                      "description": "the id of the user that created the workout plan"
+                    },
+                    "group": {
+                      "type": "integer",
+                      "description": "Id of group that the plan is assigned to"
+                    },
+                    "use_metric": {
+                      "type": "boolean"
+                    },
+                    "seller_id": {
+                      "type": "integer"
+                    },
+                    "price": {
+                      "type": "integer"
+                    },
+                    "why_purchase": {
+                      "type": "string"
+                    },
+                    "affiliate_amount": {
+                      "type": "integer"
+                    },
+                    "resources": {
+                      "type": "object"
+                    },
+                    "delay_interval": {
+                      "type": "integer"
+                    },
+                    "ratings_count": {
+                      "type": "integer"
+                    },
+                    "sub_trainer_id": {
+                      "type": "integer"
+                    },
+                    "start_date": {
+                      "type": "string"
+                    },
+                    "links": {
+                      "type": "object",
+                      "properties": {
+                        "planAssignments": {
+                          "type": "string"
+                        },
+                        "workouts": {
+                          "type": "string"
+                        },
+                        "capabilities": {
+                          "type": "string"
+                        },
+                        "habits": {
+                          "type": "string"
+                        },
+                        "upsells": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "status": {
+                      "type": "string"
+                    },
+                    "tags": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "cta": {
+                      "type": "object",
+                      "properties": {
+                        "bgColor": {
+                          "type": "string"
+                        },
+                        "buttonUrl": {
+                          "type": "string"
+                        },
+                        "planTitle": {
+                          "type": "string"
+                        },
+                        "textColor": {
+                          "type": "string"
+                        },
+                        "buttonText": {
+                          "type": "string"
+                        },
+                        "buttonColor": {
+                          "type": "string"
+                        },
+                        "firstBullet": {
+                          "type": "string"
+                        },
+                        "thirdBullet": {
+                          "type": "string"
+                        },
+                        "secondBullet": {
+                          "type": "string"
+                        },
+                        "buttonTextColor": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "alternate_for_sale": {
+                      "type": "boolean"
+                    },
+                    "welcome_message": {
+                      "type": "string"
+                    },
+                    "next_plan_id": {
+                      "type": "integer",
+                      "description": "Id of the workout plan that will start after this plan is completed"
+                    },
+                    "calendar_client_id": {
+                      "type": "integer"
+                    },
+                    "calendar_group_id": {
+                      "type": "integer"
+                    },
+                    "hide_from_finder": {
+                      "type": "boolean"
+                    },
+                    "calendar_user_id": {
+                      "type": "integer"
+                    },
+                    "assigned_plans": {
+                      "type": "array",
+                      "items": {
+                        "properties": {
+                          "id": {
+                            "type": "integer"
+                          },
+                          "days": {
+                            "type": "array"
+                          },
+                          "name": {
+                            "type": "string"
+                          },
+                          "end_date": {
+                            "type": "integer"
+                          },
+                          "copied_at": {
+                            "type": "string"
+                          },
+                          "start_date": {
+                            "type": "integer"
+                          },
+                          "all_workouts": {
+                            "type": "array"
+                          },
+                          "repeat_count": {
+                            "type": "integer"
+                          },
+                          "include_empty": {
+                            "type": "boolean"
+                          },
+                          "schedule_next": {
+                            "type": "boolean"
+                          },
+                          "prevent_next_workout": {
+                            "type": "boolean"
+                          }
+                        }
+                      }
+                    },
+                    "prevent_next_workout": {
+                      "type": "boolean"
+                    },
+                    "assign_next_plan": {
+                      "type": "boolean"
+                    },
+                    "free_expiration": {
+                      "type": "string"
+                    },
+                    "hide_workout_days": {
+                      "type": "integer"
+                    },
+                    "hide_workout_week_day": {
+                      "type": "integer"
+                    },
+                    "hide_workout_week_hour": {
+                      "type": "integer"
+                    },
+                    "exercise_swaps": {
+                      "type": "array",
+                      "items": {
+                        "properties": {
+                          "exercise_id": {
+                            "type": "integer"
+                          },
+                          "new_exercise_id": {
+                            "type": "integer"
+                          }
+                        }
+                      }
+                    },
+                    "thank_you_message": {
+                      "type": "string"
+                    },
+                    "thank_you_page": {
+                      "type": "string"
+                    },
+                    "destination_id": {
+                      "type": "integer"
+                    },
+                    "destination_type": {
+                      "type": "string"
+                    },
+                    "last_published_at": {
+                      "type": "integer",
+                      "description": "unix timestamp of the last published date"
+                    },
+                    "uses_new_creator": {
+                      "type": "boolean",
+                      "description": "Workout Plan was created at or currently uses the new Workout Plan creator"
+                    },
+                    "allow_use_scheduled": {
+                      "type": "boolean",
+                      "description": "Workout Plan was created at or currently uses the new Workout Plan creator"
+                    },
+                    "num_weeks": {
+                      "type": "integer"
+                    },
+                    "calendar_service_id": {
+                      "type": "integer"
+                    },
+                    "share_image_url": {
+                      "type": "string"
+                    },
+                    "share_image_id": {
+                      "type": "string"
+                    },
+                    "payment_options": {
+                      "type": "array",
+                      "items": {
+                        "properties": {
+                          "type": {
+                            "type": "string"
+                          },
+                          "amount": {
+                            "type": "integer"
+                          },
+                          "name": {
+                            "type": "string"
+                          },
+                          "currency": {
+                            "type": "string"
+                          },
+                          "location": {
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "description": "Payment Options for purchasing the Workout Plan"
+                    },
+                    "use_new_checkout": {
+                      "type": "boolean"
+                    },
+                    "slug": {
+                      "type": "string"
+                    },
+                    "rating": {
+                      "type": "integer"
+                    },
+                    "plan_description": {
+                      "type": "string"
+                    },
+                    "created_at": {
+                      "type": "integer",
+                      "description": "Unix Timestamp of the date the Workout Plan was created"
+                    },
+                    "updated_at": {
+                      "type": "integer",
+                      "description": "Unix Timestamp of the date the Workout Plan was last updated"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      },
+      "put": {
+        "summary": "update workout_plan",
+        "description": "update a workout_plan.",
+        "tags": [
+          "Workout Plans"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful"
+          }
+        },
+        "security": [
+          {
+            "api_key": [],
+            "bearer": []
+          }
+        ]
+      },
+      "delete": {
+        "summary": "delete workout_plan",
+        "description": "delete a workout_plan.",
+        "tags": [
+          "Workout Plans"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful"
+          }
+        },
+        "security": [
+          {
+            "api_key": [],
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/v4/workout-plans/{id}/rep_maxes": {
+      "get": {
+        "summary": "user rep rep maxes associated with a plan",
+        "description": "return all rep maxes associated with a plan",
+        "tags": [
+          "Workout Plans"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful"
+          }
+        },
+        "security": []
+      }
+    },
+    "/api/v4/workouts": {
+      "get": {
+        "summary": "list workouts",
+        "description": "list logged workouts",
+        "tags": [
+          "Workouts"
+        ],
+        "parameters": [
+          {
+            "name": "user_id",
+            "in": "query",
+            "required": false,
+            "description": "Returns completed workouts for this User. By default, returns completed workouts for the current User",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "for_trainer",
+            "in": "query",
+            "required": false,
+            "description": "Returns all completed workouts for the platform if the current_user is a trainer.",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "group_id",
+            "in": "query",
+            "required": false,
+            "description": "if `for_trainer` is `true`, returns completed workouts for members of this group.",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "start_date",
+            "in": "query",
+            "required": false,
+            "description": "Returns completed workouts after this start date. Must be used in conjunction with `end_date`",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "end_date",
+            "in": "query",
+            "required": false,
+            "description": "Returns completed workouts before this end date. Must be used in conjunction with `start_date`",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "all_fields",
+            "in": "query",
+            "required": false,
+            "description": "If true, returns all workout attributes including blocks, exercises, etc.",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "$ref": "#/components/parameters/per"
+          },
+          {
+            "$ref": "#/components/parameters/page"
+          },
+          {
+            "$ref": "#/components/parameters/q"
+          },
+          {
+            "$ref": "#/components/parameters/pluck_columns"
+          },
+          {
+            "$ref": "#/components/parameters/with_ids"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful"
+          }
+        },
+        "security": [
+          {
+            "api_key": [],
+            "bearer": []
+          }
+        ]
+      },
+      "post": {
+        "summary": "create workout",
+        "description": "create a logged workout.",
+        "tags": [
+          "Workouts"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful"
+          }
+        },
+        "security": [
+          {
+            "api_key": [],
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/v4/workouts/{id}": {
+      "get": {
+        "summary": "show workout",
+        "description": "fetch a logged workout for the current user.",
+        "tags": [
+          "Workouts"
+        ],
+        "parameters": [
+          {
+            "name": "all_fields",
+            "in": "query",
+            "required": false,
+            "description": "If true, returns all workout attributes including blocks, exercises, etc.",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful"
+          }
+        },
+        "security": [
+          {
+            "api_key": [],
+            "bearer": []
+          }
+        ]
+      },
+      "put": {
+        "summary": "update workout",
+        "description": "update a logged workout for the current user.",
+        "tags": [
+          "Workouts"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful"
+          }
+        },
+        "security": [
+          {
+            "api_key": [],
+            "bearer": []
+          }
+        ]
+      },
+      "delete": {
+        "summary": "delete workout",
+        "description": "delete a logged workout for the current user.",
+        "tags": [
+          "Workouts"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful"
+          }
+        },
+        "security": [
+          {
+            "api_key": [],
+            "bearer": []
+          }
+        ]
+      }
+    }
+  },
+  "models": {},
+  "security": {}
+}

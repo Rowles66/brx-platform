@@ -1,0 +1,123 @@
+# UI-to-API Mapping Matrix Summary
+
+## Overview
+This document summarizes the Page-to-Endpoint Mapping Matrix generated for the BRX Performance app, connecting UI features to their corresponding API endpoints.
+
+## Generation Details
+- **Script**: `scripts/generate_ui_api_matrix.py`
+- **Total Mappings**: 88
+- **Unique Features**: 15
+- **Total API Endpoints Analyzed**: 136
+- **Network Requests Captured**: 17
+- **Source Data**:
+  - Swagger analysis (full_analysis.json, endpoint_summary.json)
+  - Frontend extraction report
+  - Captured network requests
+
+## Feature Categories and Endpoint Counts
+
+| Feature Category | Mappings | Description |
+|------------------|----------|-------------|
+| **Workout Management** | 30 | Core workout functionality - plans, exercises, blocks, execution |
+| **Business Management (FBM)** | 22 | Facility/business management - appointments, locations, services, schedules |
+| **Exercise Management** | 8 | Exercise library, creation, and management |
+| **Other** | 5 | Miscellaneous endpoints (user plans, workout exercise sets, plan blocks) |
+| **Runtime API Call** | 4 | API calls captured during frontend execution |
+| **Equipment Management** | 3 | Gym equipment tracking and management |
+| **User Management** | 2 | User profiles, accounts, and related data |
+| **Resources/Content** | 2 | Educational content, group resources |
+| **Payments/Commerce** | 2 | Billing, subscriptions, coupons, purchased items |
+| **Groups/Team Management** | 2 | Group/team organization and member management |
+| **Communication** | 2 | Messaging, conversations between users |
+| **Calendar/Scheduling** | 2 | Calendar events, workout scheduling |
+| **Authentication** | 2 | Sign in/out, password management |
+| **Tags/Organization** | 1 | Content tagging and organization |
+| **Favorites** | 1 | User bookmarks and favorites |
+
+## Key Findings
+
+### Authentication Requirements
+- **88/88 mappings** require authentication (100%)
+- All API endpoints expect authenticated users except initial platform/auth calls
+
+### CRUD Operation Distribution
+- Most feature areas support full CRUD operations (Create, Read, Update, Delete)
+- Some specialized endpoints are read-only (e.g., rep maxes, eligibility checks)
+- Runtime API calls primarily focus on data retrieval
+
+### Page URL Patterns
+The mapping includes both:
+1. **Known pages** from extraction report (/, /login, /contact)
+2. **Inferred pages** based on API functionality patterns:
+   - `/workouts`, `/workout/{id}`, `/workout-plans`
+   - `/exercises`, `/exercise/{id}`, `/exercise-library`
+   - `/business`, `/appointments-management`
+   - `/calendar`, `/groups`, `/communication`
+   - And more...
+
+### API Endpoint Highlights
+
+#### Core Workout Features
+- **v3/v4 API mix**: Some workout functionality uses v3 APIs (equipment, workout blocks)
+- **Multiple workout types**: Regular workouts, plan workouts, workout blocks
+- **Exercise management**: Both standalone exercises and workout-specific exercises
+
+#### Business Management (FBM)
+- **Comprehensive facility management**: Locations, services, schedules
+- **Appointment system**: Booking, member management, waitlists
+- **Eligibility checking**: Built-in business rule validation
+
+#### Advanced Features
+- **Real-time capabilities**: Card reader integration (Stripe Terminal)
+- **Conversation system**: User-to-user messaging
+- **Resource sharing**: Group-based content management
+- **Flexible tagging**: Content organization system
+
+## Files Generated
+
+1. **`ui_api_mapping_matrix.csv`** - Main mapping table with columns:
+   - Page URL
+   - UI Feature
+   - Expected API Endpoint(s)
+   - Auth Required (Y/N)
+   - CRUD verbs
+
+2. **`ui_api_mapping_detailed.json`** - Detailed analysis including:
+   - Full mapping matrix with metadata
+   - Categorized endpoints by feature
+   - Captured API calls
+   - Generation information
+
+3. **`scripts/generate_ui_api_matrix.py`** - The generator script for future updates
+
+## Usage Recommendations
+
+### For Development Planning
+- Use the matrix to understand which UI pages need which API integrations
+- Identify authentication requirements early in development
+- Plan API client architecture based on feature groupings
+
+### For Testing
+- Ensure each UI feature tests its corresponding API endpoints
+- Validate CRUD operations match expected UI functionality
+- Test authentication flows for all identified endpoints
+
+### For Documentation
+- Map user workflows to technical API sequences
+- Create feature-specific integration guides
+- Plan API versioning strategy (note v3/v4 mix)
+
+## Next Steps
+
+1. **Validate mappings** against actual frontend implementation
+2. **Enhance with request/response schemas** from Swagger analysis
+3. **Add error handling patterns** for each endpoint group
+4. **Create integration tests** based on the mappings
+5. **Document user workflows** that span multiple endpoints
+
+---
+
+*Generated by: `scripts/generate_ui_api_matrix.py`*  
+*Data sources: Swagger analysis, frontend extraction, network capture*  
+*Last updated: Step 2 of BRX App Analysis Plan*
+

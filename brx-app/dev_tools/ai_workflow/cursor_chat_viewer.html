@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cursor Chat History Viewer</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            display: flex;
+            height: 100vh;
+        }
+        
+        .sidebar {
+            width: 300px;
+            background: white;
+            border-right: 1px solid #e0e0e0;
+            overflow-y: auto;
+            flex-shrink: 0;
+        }
+        
+        .main-content {
+            flex: 1;
+            background: white;
+            overflow-y: auto;
+            padding: 20px;
+        }
+        
+        .header {
+            padding: 20px;
+            background: #2196f3;
+            color: white;
+            text-align: center;
+        }
+        
+        .search-box {
+            padding: 10px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .search-box input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        
+        .conversation-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .conversation-item {
+            padding: 15px;
+            border-bottom: 1px solid #f0f0f0;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        
+        .conversation-item:hover {
+            background-color: #f5f5f5;
+        }
+        
+        .conversation-item.active {
+            background-color: #e3f2fd;
+            border-left: 3px solid #2196f3;
+        }
+        
+        .conversation-date {
+            font-size: 12px;
+            color: #666;
+        }
+        
+        .conversation-preview {
+            font-size: 13px;
+            color: #333;
+            margin-top: 5px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        
+        .message {
+            margin-bottom: 20px;
+            padding: 15px;
+            border-radius: 8px;
+            background-color: #f5f5f5;
+        }
+        
+        .message.user {
+            background-color: #e3f2fd;
+            border-left: 4px solid #2196f3;
+        }
+        
+        .message.assistant {
+            background-color: #f5f5f5;
+            border-left: 4px solid #4caf50;
+        }
+        
+        .message-header {
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #666;
+        }
+        
+        .message-content {
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+        
+        .file-list {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #fff;
+            border-radius: 4px;
+            font-size: 13px;
+        }
+        
+        .file-list strong {
+            color: #666;
+        }
+        
+        .no-selection {
+            text-align: center;
+            color: #999;
+            padding: 40px;
+        }
+        
+        .load-button {
+            padding: 10px 20px;
+            background-color: #2196f3;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 20px;
+            display: block;
+        }
+        
+        .load-button:hover {
+            background-color: #1976d2;
+        }
+        
+        #fileInput {
+            display: none;
+        }
+        
+        .stats {
+            padding: 10px 20px;
+            background-color: #fafafa;
+            border-bottom: 1px solid #e0e0e0;
+            font-size: 13px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <div class="header">
+            <h2>Cursor Chat History</h2>
+        </div>
+        <button class="load-button" onclick="document.getElementById('fileInput').click()">
+            Load Chat Export
+        </button>
+        <input type="file" id="fileInput" accept=".json" onchange="loadChatExport(this)">
+        <div class="stats" id="stats"></div>
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="Search conversations..." onkeyup="filterConversations()">
+        </div>
+        <ul class="conversation-list" id="conversationList"></ul>
+    </div>
+    
+    <div class="main-content" id="mainContent">
+        <div class="no-selection">
+            <h3>Welcome to Cursor Chat Viewer</h3>
+            <p>Load a chat export JSON file to view your conversations</p>
+            <p>Use the backup script to create exports:</p>
+            <code>python3 cursor_chat_backup.py export</code>
+        </div>
+    </div>
+    
+    <script>
+        let conversations = {};
+        let currentConversation = null;
+        
+        function loadChatExport(input) {
+            const file = input.files[0];
+            if (!file) return;
+            
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                try {
+                    conversations = JSON.parse(e.target.result);
+                    displayConversations();
+                    updateStats();
+                } catch (error) {
+                    alert('Error loading file: ' + error.message);
+                }
+            };
+            reader.readAsText(file);
+        }
+        
+        function updateStats() {
+            const totalConversations = Object.keys(conversations).length;
+            const totalMessages = Object.values(conversations).reduce((sum, conv) => sum + conv.messages.length, 0);
+            document.getElementById('stats').innerHTML = `
+                <strong>Total Conversations:</strong> ${totalConversations} | 
+                <strong>Total Messages:</strong> ${totalMessages}
+            `;
+        }
+        
+        function displayConversations() {
+            const list = document.getElementById('conversationList');
+            list.innerHTML = '';
+            
+            const sortedConversations = Object.entries(conversations).sort((a, b) => {
+                return (b[1].created_at || 0) - (a[1].created_at || 0);
+            });
+            
+            sortedConversations.forEach(([id, conv]) => {
+                const li = document.createElement('li');
+                li.className = 'conversation-item';
+                li.onclick = () => displayConversation(id);
+                
+                const date = new Date(conv.created_at);
+                const dateStr = isNaN(date) ? 'Unknown Date' : date.toLocaleString();
+                
+                // Get first message preview
+                let preview = 'No messages';
+                if (conv.messages && conv.messages.length > 0) {
+                    const firstUserMessage = conv.messages.find(m => m.type === 'user');
+                    if (firstUserMessage && firstUserMessage.data) {
+                        preview = firstUserMessage.data.text || 
+                                 firstUserMessage.data.richText || 
+                                 'Message content not available';
+                        preview = preview.substring(0, 100) + '...';
+                    }
+                }
+                
+                li.innerHTML = `
+                    <div class="conversation-date">${dateStr}</div>
+                    <div class="conversation-preview">${preview}</div>
+                    <div style="font-size: 11px; color: #999; margin-top: 5px;">
+                        ${conv.messages.length} messages
+                    </div>
+                `;
+                
+                li.dataset.text = (dateStr + ' ' + preview).toLowerCase();
+                list.appendChild(li);
+            });
+        }
+        
+        function displayConversation(conversationId) {
+            currentConversation = conversationId;
+            const conv = conversations[conversationId];
+            const mainContent = document.getElementById('mainContent');
+            
+            // Update active state
+            document.querySelectorAll('.conversation-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            event.currentTarget.classList.add('active');
+            
+            let html = `<h2>Conversation</h2>`;
+            html += `<p style="color: #666;">Started: ${new Date(conv.created_at).toLocaleString()}</p>`;
+            
+            conv.messages.forEach((msg, index) => {
+                const messageClass = msg.type === 'user' ? 'user' : 'assistant';
+                const messageLabel = msg.type === 'user' ? 'You' : 'Assistant';
+                
+                html += `<div class="message ${messageClass}">`;
+                html += `<div class="message-header">${messageLabel} - Message ${index + 1}</div>`;
+                
+                // Extract message content
+                let content = '';
+                if (msg.data) {
+                    if (msg.data.text) {
+                        content = msg.data.text;
+                    } else if (msg.data.richText) {
+                        try {
+                            const richText = typeof msg.data.richText === 'string' 
+                                ? JSON.parse(msg.data.richText) 
+                                : msg.data.richText;
+                            content = extractTextFromRichText(richText);
+                        } catch (e) {
+                            content = msg.data.richText;
+                        }
+                    }
+                }
+                
+                html += `<div class="message-content">${escapeHtml(content || 'No content available')}</div>`;
+                
+                // Show relevant files if any
+                if (msg.data && msg.data.relevantFiles && msg.data.relevantFiles.length > 0) {
+                    html += `<div class="file-list">`;
+                    html += `<strong>Relevant files:</strong> ${msg.data.relevantFiles.join(', ')}`;
+                    html += `</div>`;
+                }
+                
+                html += `</div>`;
+            });
+            
+            mainContent.innerHTML = html;
+        }
+        
+        function extractTextFromRichText(richText) {
+            let text = '';
+            
+            function traverse(node) {
+                if (node && typeof node === 'object') {
+                    if (node.text) {
+                        text += node.text;
+                    }
+                    if (node.children && Array.isArray(node.children)) {
+                        node.children.forEach(traverse);
+                    }
+                }
+            }
+            
+            if (richText.root) {
+                traverse(richText.root);
+            }
+            
+            return text || JSON.stringify(richText);
+        }
+        
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+        
+        function filterConversations() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            const items = document.querySelectorAll('.conversation-item');
+            
+            items.forEach(item => {
+                const text = item.dataset.text;
+                if (text.includes(searchTerm)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html> 

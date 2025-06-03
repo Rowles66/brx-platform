@@ -1,0 +1,17 @@
+Feature Category,API Endpoints Count,UI Pages Count,Runtime Calls,Evidence Type,Base Reach,Base Impact,Base Confidence,Base Effort,Weight Multiplier,Weighted Confidence,Final RICE Score,Priority Level,Phase Recommendation,Gap Flags
+Authentication,3,1,0,API + UI,10,9,6,2,1.5,9,405,High,Phase 1,None
+Workout Management,25,8,0,API + UI,9,9,7,5,1.3,9,146,High,Phase 1,None
+User Management,5,2,2,API + UI + Runtime,8,7,6,3,1.5,9,149,High,Phase 1,None
+Exercise Management,4,8,0,API + UI,7,8,6,4,1.3,8,112,High,Phase 2,None
+Business Management (FBM),40,22,1,API + UI + Runtime,8,8,6,6,1.5,9,85,High,Phase 2,Complex Dependencies
+Calendar/Scheduling,6,2,0,API + UI,6,7,5,4,1.3,7,73,Medium,Phase 3,None
+Communication,8,2,0,API + UI,5,6,5,3,1.3,7,70,Medium,Phase 3,None
+Groups/Team Management,6,2,0,API + UI,5,6,5,3,1.3,7,70,Medium,Phase 3,None
+Equipment Management,4,3,0,API + UI,4,5,5,2,1.3,7,70,Medium,Phase 3,None
+Resources/Content,6,2,0,API + UI,4,5,5,2,1.3,7,70,Medium,Phase 3,None
+Payments/Commerce,2,2,0,API + UI,3,7,5,3,1.3,7,49,Low,Future,None
+Tags/Organization,7,1,0,API + UI,3,4,5,2,1.3,7,42,Low,Future,None
+Favorites,1,1,0,API + UI,2,3,5,1,1.3,7,42,Low,Future,None
+Runtime API Calls,4,0,4,Runtime Only,10,5,9,1,1.0,9,450,System,Infrastructure,UI Missing
+Other (Legacy),12,1,0,API Only,2,3,4,2,0.8,3,15,Low,Future,API Only - Investigate
+
