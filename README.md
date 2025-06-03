@@ -1,4 +1,17 @@
-# BRX Platform - Unified Structure
+# BRX Platform & Application Guide
+
+## Introduction
+
+Welcome to the `brx-platform` repository! This monorepo houses the BRX Performance platform, a modern, AI-powered fitness business solution aimed at enabling strength coaches to deliver superior training outcomes.
+
+This document serves as the main guide to the platform, its structure, and the primary application (`brx-app`).
+
+### Key Project Documents
+
+For a complete understanding of the project, please refer to the following key documents:
+
+*   **Project Charter & Vision**: See [`BRX_App_Migration_Project_Overview_README.md`](./BRX_App_Migration_Project_Overview_README.md) for the mission, strategic objectives, and high-level migration plan.
+*   **Application Architecture & Technical Plan**: See [`Project_Plan_BRX_Performance_App.md`](./Project_Plan_BRX_Performance_App.md) for a detailed technical dive into the `brx-app` (the main Next.js application).
 
 ## 🏗️ Repository Structure After Merge
 
