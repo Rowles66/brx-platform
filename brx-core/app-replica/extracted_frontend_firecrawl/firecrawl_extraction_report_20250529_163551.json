@@ -1,0 +1,88 @@
+{
+  "extraction_method": "FireCrawl API",
+  "extraction_timestamp": "20250529_163551",
+  "base_url": "https://online.brxperformance.com",
+  "successful_extractions": 3,
+  "total_attempted": 9,
+  "success_rate": "33.3%",
+  "extracted_pages": {
+    "homepage": {
+      "success": true,
+      "url": "https://online.brxperformance.com",
+      "title": null,
+      "html_length": 12934,
+      "markdown_length": 619,
+      "links_count": 0,
+      "files": {
+        "html": "pages/homepage.html",
+        "markdown": "markdown/homepage.md",
+        "metadata": "metadata/homepage_metadata.json"
+      }
+    },
+    "login": {
+      "success": true,
+      "url": "https://online.brxperformance.com/login",
+      "title": null,
+      "html_length": 12112,
+      "markdown_length": 343,
+      "links_count": 0,
+      "files": {
+        "html": "pages/login.html",
+        "markdown": "markdown/login.md",
+        "metadata": "metadata/login_metadata.json"
+      }
+    },
+    "dashboard": {
+      "success": true,
+      "url": "https://online.brxperformance.com/dashboard",
+      "title": null,
+      "html_length": 13214,
+      "markdown_length": 722,
+      "links_count": 0,
+      "files": {
+        "html": "pages/dashboard.html",
+        "markdown": "markdown/dashboard.md",
+        "metadata": "metadata/dashboard_metadata.json"
+      }
+    },
+    "workouts": {
+      "success": false,
+      "url": "https://online.brxperformance.com/workouts"
+    },
+    "exercises": {
+      "success": false,
+      "url": "https://online.brxperformance.com/exercises"
+    },
+    "clients": {
+      "success": false,
+      "url": "https://online.brxperformance.com/clients"
+    },
+    "programs": {
+      "success": false,
+      "url": "https://online.brxperformance.com/programs"
+    },
+    "analytics": {
+      "success": false,
+      "url": "https://online.brxperformance.com/analytics"
+    },
+    "settings": {
+      "success": false,
+      "url": "https://online.brxperformance.com/settings"
+    }
+  },
+  "output_directories": {
+    "pages": "../extracted_frontend_firecrawl/pages",
+    "markdown": "../extracted_frontend_firecrawl/markdown",
+    "structured": "../extracted_frontend_firecrawl/structured_data",
+    "screenshots": "../extracted_frontend_firecrawl/screenshots",
+    "metadata": "../extracted_frontend_firecrawl/metadata"
+  },
+  "firecrawl_features_used": [
+    "HTML extraction",
+    "Markdown conversion",
+    "Screenshot capture",
+    "Metadata extraction",
+    "Link discovery",
+    "Dynamic content waiting"
+  ]
+}

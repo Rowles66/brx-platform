@@ -1,0 +1,142 @@
+{
+  "extraction_method": "FireCrawl API",
+  "extraction_timestamp": "20250529_162854",
+  "base_url": "https://online.brxperformance.com",
+  "successful_extractions": 9,
+  "total_attempted": 9,
+  "success_rate": "100.0%",
+  "extracted_pages": {
+    "homepage": {
+      "success": true,
+      "url": "https://online.brxperformance.com",
+      "title": null,
+      "html_length": 12934,
+      "markdown_length": 619,
+      "links_count": 0,
+      "files": {
+        "html": "pages/homepage.html",
+        "markdown": "markdown/homepage.md",
+        "metadata": "metadata/homepage_metadata.json"
+      }
+    },
+    "login": {
+      "success": true,
+      "url": "https://online.brxperformance.com/login",
+      "title": null,
+      "html_length": 12112,
+      "markdown_length": 343,
+      "links_count": 0,
+      "files": {
+        "html": "pages/login.html",
+        "markdown": "markdown/login.md",
+        "metadata": "metadata/login_metadata.json"
+      }
+    },
+    "dashboard": {
+      "success": true,
+      "url": "https://online.brxperformance.com/dashboard",
+      "title": null,
+      "html_length": 12993,
+      "markdown_length": 678,
+      "links_count": 0,
+      "files": {
+        "html": "pages/dashboard.html",
+        "markdown": "markdown/dashboard.md",
+        "metadata": "metadata/dashboard_metadata.json"
+      }
+    },
+    "workouts": {
+      "success": true,
+      "url": "https://online.brxperformance.com/workouts",
+      "title": null,
+      "html_length": 431,
+      "markdown_length": 118,
+      "links_count": 0,
+      "files": {
+        "html": "pages/workouts.html",
+        "markdown": "markdown/workouts.md",
+        "metadata": "metadata/workouts_metadata.json"
+      }
+    },
+    "exercises": {
+      "success": true,
+      "url": "https://online.brxperformance.com/exercises",
+      "title": null,
+      "html_length": 40596,
+      "markdown_length": 6790,
+      "links_count": 0,
+      "files": {
+        "html": "pages/exercises.html",
+        "markdown": "markdown/exercises.md",
+        "metadata": "metadata/exercises_metadata.json"
+      }
+    },
+    "clients": {
+      "success": true,
+      "url": "https://online.brxperformance.com/clients",
+      "title": null,
+      "html_length": 431,
+      "markdown_length": 118,
+      "links_count": 0,
+      "files": {
+        "html": "pages/clients.html",
+        "markdown": "markdown/clients.md",
+        "metadata": "metadata/clients_metadata.json"
+      }
+    },
+    "programs": {
+      "success": true,
+      "url": "https://online.brxperformance.com/programs",
+      "title": null,
+      "html_length": 431,
+      "markdown_length": 118,
+      "links_count": 0,
+      "files": {
+        "html": "pages/programs.html",
+        "markdown": "markdown/programs.md",
+        "metadata": "metadata/programs_metadata.json"
+      }
+    },
+    "analytics": {
+      "success": true,
+      "url": "https://online.brxperformance.com/analytics",
+      "title": null,
+      "html_length": 431,
+      "markdown_length": 118,
+      "links_count": 0,
+      "files": {
+        "html": "pages/analytics.html",
+        "markdown": "markdown/analytics.md",
+        "metadata": "metadata/analytics_metadata.json"
+      }
+    },
+    "settings": {
+      "success": true,
+      "url": "https://online.brxperformance.com/settings",
+      "title": null,
+      "html_length": 431,
+      "markdown_length": 118,
+      "links_count": 0,
+      "files": {
+        "html": "pages/settings.html",
+        "markdown": "markdown/settings.md",
+        "metadata": "metadata/settings_metadata.json"
+      }
+    }
+  },
+  "output_directories": {
+    "pages": "../extracted_frontend_firecrawl/pages",
+    "markdown": "../extracted_frontend_firecrawl/markdown",
+    "structured": "../extracted_frontend_firecrawl/structured_data",
+    "screenshots": "../extracted_frontend_firecrawl/screenshots",
+    "metadata": "../extracted_frontend_firecrawl/metadata"
+  },
+  "firecrawl_features_used": [
+    "HTML extraction",
+    "Markdown conversion",
+    "Screenshot capture",
+    "Metadata extraction",
+    "Link discovery",
+    "Dynamic content waiting"
+  ]
+}
