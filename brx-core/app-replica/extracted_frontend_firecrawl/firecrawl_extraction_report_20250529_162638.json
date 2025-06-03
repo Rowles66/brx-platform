@@ -1,0 +1,61 @@
+{
+  "extraction_method": "FireCrawl API",
+  "extraction_timestamp": "20250529_162638",
+  "base_url": "https://online.brxperformance.com",
+  "successful_extractions": 0,
+  "total_attempted": 9,
+  "success_rate": "0.0%",
+  "extracted_pages": {
+    "homepage": {
+      "success": false,
+      "url": "https://online.brxperformance.com"
+    },
+    "login": {
+      "success": false,
+      "url": "https://online.brxperformance.com/login"
+    },
+    "dashboard": {
+      "success": false,
+      "url": "https://online.brxperformance.com/dashboard"
+    },
+    "workouts": {
+      "success": false,
+      "url": "https://online.brxperformance.com/workouts"
+    },
+    "exercises": {
+      "success": false,
+      "url": "https://online.brxperformance.com/exercises"
+    },
+    "clients": {
+      "success": false,
+      "url": "https://online.brxperformance.com/clients"
+    },
+    "programs": {
+      "success": false,
+      "url": "https://online.brxperformance.com/programs"
+    },
+    "analytics": {
+      "success": false,
+      "url": "https://online.brxperformance.com/analytics"
+    },
+    "settings": {
+      "success": false,
+      "url": "https://online.brxperformance.com/settings"
+    }
+  },
+  "output_directories": {
+    "pages": "../extracted_frontend_firecrawl/pages",
+    "markdown": "../extracted_frontend_firecrawl/markdown",
+    "structured": "../extracted_frontend_firecrawl/structured_data",
+    "screenshots": "../extracted_frontend_firecrawl/screenshots",
+    "metadata": "../extracted_frontend_firecrawl/metadata"
+  },
+  "firecrawl_features_used": [
+    "HTML extraction",
+    "Markdown conversion",
+    "Screenshot capture",
+    "Metadata extraction",
+    "Link discovery",
+    "Dynamic content waiting"
+  ]
+}

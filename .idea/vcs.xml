@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="$PROJECT_DIR$/brand-guidelines" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/brx-core/api-docs" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/brx-core/app-replica/brx-app-replica" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/brx-core/custom-dev" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/financial-models" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/workspace-config" vcs="Git" />
+  </component>
+</project>
