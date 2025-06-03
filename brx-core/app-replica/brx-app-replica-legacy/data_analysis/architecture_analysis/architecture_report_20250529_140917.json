@@ -1,0 +1,783 @@
+{
+  "frontend_analysis": {
+    "status": "Login failed or skipped"
+  },
+  "api_analysis": {
+    "total_endpoints": 76,
+    "methods_used": [
+      "DELETE",
+      "GET",
+      "PARAMETERS",
+      "POST",
+      "PUT"
+    ],
+    "data_models": [
+      "fbm_waitlist_entry",
+      "v5_fbm_visit",
+      "v4_fbm_visit",
+      "zoom",
+      "zoom_meeting",
+      "fbm_schedule",
+      "fbm_scheduled_appointment",
+      "fbm_appointment",
+      "fbm_location",
+      "fbm_scheduled_appointment_member",
+      "fbm_package_raw",
+      "fbm_service",
+      "fbm_package",
+      "payment_option",
+      "payment_option_as_purchase",
+      "payment_option_as_subscription",
+      "service_count",
+      "stripe_plan"
+    ],
+    "security_schemes": [
+      "api_key",
+      "bearer"
+    ],
+    "endpoints_by_category": {
+      "v3": [
+        {
+          "path": "/api/v3/equipment",
+          "method": "GET"
+        },
+        {
+          "path": "/api/v3/equipment",
+          "method": "POST"
+        },
+        {
+          "path": "/api/v3/equipment/{id}",
+          "method": "PARAMETERS"
+        },
+        {
+          "path": "/api/v3/equipment/{id}",
+          "method": "PUT"
+        },
+        {
+          "path": "/api/v3/equipment/{id}",
+          "method": "DELETE"
+        },
+        {
+          "path": "/api/v3/workout_blocks",
+          "method": "GET"
+        },
+        {
+          "path": "/api/v3/workout_blocks",
+          "method": "POST"
+        },
+        {
+          "path": "/api/v3/workout_blocks/{id}",
+          "method": "PARAMETERS"
+        },
+        {
+          "path": "/api/v3/workout_blocks/{id}",
+          "method": "PUT"
+        },
+        {
+          "path": "/api/v3/workout_blocks/{id}",
+          "method": "DELETE"
+        },
+        {
+          "path": "/api/v3/workout_exercise_sets",
+          "method": "POST"
+        },
+        {
+          "path": "/api/v3/workout_exercise_sets/{id}",
+          "method": "PARAMETERS"
+        },
+        {
+          "path": "/api/v3/workout_exercise_sets/{id}",
+          "method": "PUT"
+        },
+        {
+          "path": "/api/v3/workout_exercise_sets/{id}",
+          "method": "DELETE"
+        },
+        {
+          "path": "/api/v3/plan_blocks",
+          "method": "POST"
+        },
+        {
+          "path": "/api/v3/plan_blocks/{id}",
+          "method": "PARAMETERS"
+        },
+        {
+          "path": "/api/v3/plan_blocks/{id}",
+          "method": "PUT"
+        },
+        {
+          "path": "/api/v3/plan_blocks/{id}",
+          "method": "DELETE"
+        },
+        {
+          "path": "/api/v3/plan_exercises",
+          "method": "POST"
+        },
+        {
+          "path": "/api/v3/plan_exercises/{id}",
+          "method": "PARAMETERS"
+        },
+        {
+          "path": "/api/v3/plan_exercises/{id}",
+          "method": "PUT"
+        },
+        {
+          "path": "/api/v3/plan_exercises/{id}",
+          "method": "DELETE"
+        }
+      ],
+      "v4": [
+        {
+          "path": "/api/v4/calendar",
+          "method": "PARAMETERS"
+        },
+        {
+          "path": "/api/v4/calendar",
+          "method": "GET"
+        },
+        {
+          "path": "/api/v4/calendar/add",
+          "method": "PARAMETERS"
+        },
+        {
+          "path": "/api/v4/calendar/add",
+          "method": "POST"
+        },
+        {
+          "path": "/api/v4/calendar/remove",
+          "method": "PARAMETERS"
+        },
+        {
+          "path": "/api/v4/calendar/remove",
+          "method": "DELETE"
+        },
+        {
+          "path": "/api/v4/calendar/move",
+          "method": "PARAMETERS"
+        },
+        {
+          "path": "/api/v4/calendar/move",
+          "method": "PUT"
+        },
+        {
+          "path": "/api/v4/calendar/schedule",
+          "method": "PARAMETERS"
+        },
+        {
+          "path": "/api/v4/calendar/schedule",
+          "method": "POST"
+        },
+        {
+          "path": "/api/v4/carts/purchased_items",
+          "method": "PARAMETERS"
+        },
+        {
+          "path": "/api/v4/carts/purchased_items",
+          "method": "GET"
+        },
+        {
+          "path": "/api/v4/conversations/available_recipients",
+          "method": "GET"
+        },
+        {
+          "path": "/api/v4/conversations/{id}/reply_to",
+          "method": "PARAMETERS"
+        },
+        {
+          "path": "/api/v4/conversations/{id}/reply_to",
+          "method": "PUT"
+        },
+        {
+          "path": "/api/v4/conversations/{id}/mark_read",
+          "method": "PARAMETERS"
+        },
+        {
+          "path": "/api/v4/conversations/{id}/mark_read",
+          "method": "GET"
+        },
+        {
+          "path": "/api/v4/conversations",
+          "method": "GET"
+        },
+        {
+          "path": "/api/v4/conversations",
+          "method": "POST"
+        },
+        {
+          "path": "/api/v4/conversations/{id}",
+          "method": "PARAMETERS"
+        },
+        {
+          "path": "/api/v4/conversations/{id}",
+          "method": "GET"
+        },
+        {
+          "path": "/api/v4/conversations/{id}",
+          "method": "PUT"
+        },
+        {
+          "path": "/api/v4/conversations/{id}",
+          "method": "DELETE"
+        },
+        {
+          "path": "/api/v4/coupons/check",
+          "method": "POST"
+        },
+        {
+          "path": "/api/v4/exercises",
+          "method": "GET"
+        },
+        {
+          "path": "/api/v4/exercises/{id}",
+          "method": "PARAMETERS"
+        },
+        {
+          "path": "/api/v4/exercises/{id}",
+          "method": "GET"
+        },
+        {
+          "path": "/api/v4/exercises/{id}",
+          "method": "PUT"
+        },
+        {
+          "path": "/api/v4/exercises/",
+          "method": "POST"
+        },
+        {
+          "path": "/api/v4/favorites",
+          "method": "GET"
+        },
+        {
+          "path": "/api/v4/fbm/appointments/{id}/check_eligibility",
+          "method": "PARAMETERS"
+        },
+        {
+          "path": "/api/v4/fbm/appointments/{id}/check_eligibility",
+          "method": "GET"
+        },
+        {
+          "path": "/api/v4/fbm/appointments/{id}/packages",
+          "method": "PARAMETERS"
+        },
+        {
+          "path": "/api/v4/fbm/appointments/{id}/packages",
+          "method": "GET"
+        },
+        {
+          "path": "/api/v4/fbm/appointments",
+          "method": "GET"
+        },
+        {
+          "path": "/api/v4/fbm/appointments",
+          "method": "POST"
+        },
+        {
+          "path": "/api/v4/fbm/appointments/{id}",
+          "method": "PARAMETERS"
+        },
+        {
+          "path": "/api/v4/fbm/appointments/{id}",
+          "method": "GET"
+        },
+        {
+          "path": "/api/v4/fbm/appointments/{id}",
+          "method": "PUT"
+        },
+        {
+          "path": "/api/v4/fbm/appointments/{id}",
+          "method": "DELETE"
+        },
+        {
+          "path": "/api/v4/fbm/locations",
+          "method": "GET"
+        },
+        {
+          "path": "/api/v4/fbm/locations",
+          "method": "POST"
+        },
+        {
+          "path": "/api/v4/fbm/locations/{id}",
+          "method": "PARAMETERS"
+        },
+        {
+          "path": "/api/v4/fbm/locations/{id}",
+          "method": "GET"
+        },
+        {
+          "path": "/api/v4/fbm/locations/{id}",
+          "method": "PUT"
+        },
+        {
+          "path": "/api/v4/fbm/locations/{id}",
+          "method": "DELETE"
+        },
+        {
+          "path": "/api/v4/fbm/scheduled_appointment_members",
+          "method": "GET"
+        },
+        {
+          "path": "/api/v4/fbm/scheduled_appointment_members",
+          "method": "POST"
+        },
+        {
+          "path": "/api/v4/fbm/scheduled_appointment_members/{id}",
+          "method": "PARAMETERS"
+        },
+        {
+          "path": "/api/v4/fbm/scheduled_appointment_members/{id}",
+          "method": "GET"
+        },
+        {
+          "path": "/api/v4/fbm/scheduled_appointment_members/{id}",
+          "method": "PUT"
+        },
+        {
+          "path": "/api/v4/fbm/scheduled_appointment_members/{id}",
+          "method": "DELETE"
+        },
+        {
+          "path": "/api/v4/fbm/scheduled_appointments/{id}/check_eligibility",
+          "method": "PARAMETERS"
+        },
+        {
+          "path": "/api/v4/fbm/scheduled_appointments/{id}/check_eligibility",
+          "method": "GET"
+        },
+        {
+          "path": "/api/v4/fbm/scheduled_appointments",
+          "method": "GET"
+        },
+        {
+          "path": "/api/v4/fbm/scheduled_appointments",
+          "method": "POST"
+        },
+        {
+          "path": "/api/v4/fbm/scheduled_appointments/{id}",
+          "method": "PARAMETERS"
+        },
+        {
+          "path": "/api/v4/fbm/scheduled_appointments/{id}",
+          "method": "GET"
+        },
+        {
+          "path": "/api/v4/fbm/scheduled_appointments/{id}",
+          "method": "PUT"
+        },
+        {
+          "path": "/api/v4/fbm/scheduled_appointments/{id}",
+          "method": "DELETE"
+        },
+        {
+          "path": "/api/v4/fbm/schedules",
+          "method": "GET"
+        },
+        {
+          "path": "/api/v4/fbm/schedules",
+          "method": "POST"
+        },
+        {
+          "path": "/api/v4/fbm/schedules/{id}",
+          "method": "PARAMETERS"
+        },
+        {
+          "path": "/api/v4/fbm/schedules/{id}",
+          "method": "GET"
+        },
+        {
+          "path": "/api/v4/fbm/schedules/{id}",
+          "method": "PUT"
+        },
+        {
+          "path": "/api/v4/fbm/schedules/{id}",
+          "method": "DELETE"
+        },
+        {
+          "path": "/api/v4/fbm/services",
+          "method": "GET"
+        },
+        {
+          "path": "/api/v4/fbm/services",
+          "method": "POST"
+        },
+        {
+          "path": "/api/v4/fbm/services/{id}",
+          "method": "PARAMETERS"
+        },
+        {
+          "path": "/api/v4/fbm/services/{id}",
+          "method": "GET"
+        },
+        {
+          "path": "/api/v4/fbm/services/{id}",
+          "method": "PUT"
+        },
+        {
+          "path": "/api/v4/fbm/services/{id}",
+          "method": "DELETE"
+        },
+        {
+          "path": "/api/v4/fbm/visits",
+          "method": "GET"
+        },
+        {
+          "path": "/api/v4/fbm/visits",
+          "method": "POST"
+        },
+        {
+          "path": "/api/v4/fbm/visits/{id}",
+          "method": "PARAMETERS"
+        },
+        {
+          "path": "/api/v4/fbm/visits/{id}",
+          "method": "GET"
+        },
+        {
+          "path": "/api/v4/fbm/visits/{id}",
+          "method": "PUT"
+        },
+        {
+          "path": "/api/v4/fbm/visits/{id}",
+          "method": "DELETE"
+        },
+        {
+          "path": "/api/v4/fbm/waitlist_entries",
+          "method": "GET"
+        },
+        {
+          "path": "/api/v4/fbm/waitlist_entries",
+          "method": "POST"
+        },
+        {
+          "path": "/api/v4/fbm/waitlist_entries/{id}",
+          "method": "PARAMETERS"
+        },
+        {
+          "path": "/api/v4/fbm/waitlist_entries/{id}",
+          "method": "GET"
+        },
+        {
+          "path": "/api/v4/fbm/waitlist_entries/{id}",
+          "method": "PUT"
+        },
+        {
+          "path": "/api/v4/fbm/waitlist_entries/{id}",
+          "method": "DELETE"
+        },
+        {
+          "path": "/api/v4/group_resources",
+          "method": "GET"
+        },
+        {
+          "path": "/api/v4/group_resources",
+          "method": "POST"
+        },
+        {
+          "path": "/api/v4/group_resources/{id}",
+          "method": "PARAMETERS"
+        },
+        {
+          "path": "/api/v4/group_resources/{id}",
+          "method": "GET"
+        },
+        {
+          "path": "/api/v4/groups/{id}/add_member",
+          "method": "PARAMETERS"
+        },
+        {
+          "path": "/api/v4/groups/{id}/add_member",
+          "method": "POST"
+        },
+        {
+          "path": "/api/v4/groups/calendars",
+          "method": "GET"
+        },
+        {
+          "path": "/api/v4/groups",
+          "method": "GET"
+        },
+        {
+          "path": "/api/v4/groups",
+          "method": "POST"
+        },
+        {
+          "path": "/api/v4/groups/{id}",
+          "method": "PARAMETERS"
+        },
+        {
+          "path": "/api/v4/groups/{id}",
+          "method": "GET"
+        },
+        {
+          "path": "/api/v4/groups/{id}",
+          "method": "PUT"
+        },
+        {
+          "path": "/api/v4/groups/{id}",
+          "method": "DELETE"
+        },
+        {
+          "path": "/api/v4/resources",
+          "method": "GET"
+        },
+        {
+          "path": "/api/v4/resources",
+          "method": "POST"
+        },
+        {
+          "path": "/api/v4/resources/{id}",
+          "method": "PARAMETERS"
+        },
+        {
+          "path": "/api/v4/resources/{id}",
+          "method": "GET"
+        },
+        {
+          "path": "/api/v4/users/sign_in",
+          "method": "POST"
+        },
+        {
+          "path": "/api/v4/sign_out",
+          "method": "DELETE"
+        },
+        {
+          "path": "/api/v4/users/password",
+          "method": "POST"
+        },
+        {
+          "path": "/api/v4/tags",
+          "method": "POST"
+        },
+        {
+          "path": "/api/v4/tags",
+          "method": "GET"
+        },
+        {
+          "path": "/api/v4/tags/{id}",
+          "method": "PARAMETERS"
+        },
+        {
+          "path": "/api/v4/tags/{id}",
+          "method": "PUT"
+        },
+        {
+          "path": "/api/v4/tags/{id}",
+          "method": "GET"
+        },
+        {
+          "path": "/api/v4/tags/{id}",
+          "method": "DELETE"
+        },
+        {
+          "path": "/api/v4/tags/update_tag",
+          "method": "POST"
+        },
+        {
+          "path": "/api/v4/tags/delete_tag",
+          "method": "POST"
+        },
+        {
+          "path": "/api/v4/user_plans",
+          "method": "GET"
+        },
+        {
+          "path": "/api/v4/user_plans",
+          "method": "POST"
+        },
+        {
+          "path": "/api/v4/user_plans/{id}",
+          "method": "PARAMETERS"
+        },
+        {
+          "path": "/api/v4/user_plans/{id}",
+          "method": "GET"
+        },
+        {
+          "path": "/api/v4/user_plans/{id}",
+          "method": "PUT"
+        },
+        {
+          "path": "/api/v4/user_plans/{id}",
+          "method": "DELETE"
+        },
+        {
+          "path": "/api/v4/user_plans/{id}/pause",
+          "method": "PARAMETERS"
+        },
+        {
+          "path": "/api/v4/user_plans/{id}/pause",
+          "method": "POST"
+        },
+        {
+          "path": "/api/v4/user_plans/{id}/next_workout",
+          "method": "PARAMETERS"
+        },
+        {
+          "path": "/api/v4/user_plans/{id}/next_workout",
+          "method": "GET"
+        },
+        {
+          "path": "/api/v4/users",
+          "method": "GET"
+        },
+        {
+          "path": "/api/v4/users",
+          "method": "POST"
+        },
+        {
+          "path": "/api/v4/users/{id}/workout_exercises",
+          "method": "PARAMETERS"
+        },
+        {
+          "path": "/api/v4/users/{id}/workout_exercises",
+          "method": "GET"
+        },
+        {
+          "path": "/api/v4/users/{id}",
+          "method": "PARAMETERS"
+        },
+        {
+          "path": "/api/v4/users/{id}",
+          "method": "GET"
+        },
+        {
+          "path": "/api/v4/users/{id}",
+          "method": "DELETE"
+        },
+        {
+          "path": "/api/v4/workout_exercises",
+          "method": "GET"
+        },
+        {
+          "path": "/api/v4/workout_exercises",
+          "method": "POST"
+        },
+        {
+          "path": "/api/v4/workout_exercises/{id}",
+          "method": "PARAMETERS"
+        },
+        {
+          "path": "/api/v4/workout_exercises/{id}",
+          "method": "GET"
+        },
+        {
+          "path": "/api/v4/workout_exercises/{id}",
+          "method": "PUT"
+        },
+        {
+          "path": "/api/v4/workout_exercises/{id}",
+          "method": "DELETE"
+        },
+        {
+          "path": "/api/v4/plan_workouts",
+          "method": "GET"
+        },
+        {
+          "path": "/api/v4/plan_workouts",
+          "method": "POST"
+        },
+        {
+          "path": "/api/v4/plan_workouts/{id}",
+          "method": "PARAMETERS"
+        },
+        {
+          "path": "/api/v4/plan_workouts/{id}",
+          "method": "PUT"
+        },
+        {
+          "path": "/api/v4/plan_workouts/{id}",
+          "method": "GET"
+        },
+        {
+          "path": "/api/v4/plan_workouts/{id}",
+          "method": "DELETE"
+        },
+        {
+          "path": "/api/v4/workout-plans",
+          "method": "GET"
+        },
+        {
+          "path": "/api/v4/workout-plans",
+          "method": "POST"
+        },
+        {
+          "path": "/api/v4/workout-plans/{id}",
+          "method": "PARAMETERS"
+        },
+        {
+          "path": "/api/v4/workout-plans/{id}",
+          "method": "GET"
+        },
+        {
+          "path": "/api/v4/workout-plans/{id}",
+          "method": "PUT"
+        },
+        {
+          "path": "/api/v4/workout-plans/{id}",
+          "method": "DELETE"
+        },
+        {
+          "path": "/api/v4/workout-plans/{id}/rep_maxes",
+          "method": "PARAMETERS"
+        },
+        {
+          "path": "/api/v4/workout-plans/{id}/rep_maxes",
+          "method": "GET"
+        },
+        {
+          "path": "/api/v4/workouts",
+          "method": "GET"
+        },
+        {
+          "path": "/api/v4/workouts",
+          "method": "POST"
+        },
+        {
+          "path": "/api/v4/workouts/{id}",
+          "method": "PARAMETERS"
+        },
+        {
+          "path": "/api/v4/workouts/{id}",
+          "method": "GET"
+        },
+        {
+          "path": "/api/v4/workouts/{id}",
+          "method": "PUT"
+        },
+        {
+          "path": "/api/v4/workouts/{id}",
+          "method": "DELETE"
+        }
+      ]
+    }
+  },
+  "database_analysis": {},
+  "integrations": {
+    "hubspot": {
+      "type": "CRM",
+      "configured": true
+    },
+    "exercise_com": {
+      "type": "Platform",
+      "configured": true
+    },
+    "google_cloud": {
+      "type": "Infrastructure",
+      "configured": true
+    },
+    "1password": {
+      "type": "Security",
+      "configured": true
+    }
+  },
+  "infrastructure": {
+    "gcloud_config": {
+      "core": {
+        "disable_usage_reporting": "True"
+      }
+    },
+    "enabled_services": [],
+    "project_id": "N/A"
+  },
+  "security": {},
+  "performance": {}
+}

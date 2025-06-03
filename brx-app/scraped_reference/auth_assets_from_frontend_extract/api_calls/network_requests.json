@@ -1,0 +1,217 @@
+[
+  {
+    "url": "https://online.brxperformance.com/",
+    "method": "GET",
+    "resource_type": "document",
+    "headers": {
+      "upgrade-insecure-requests": "1",
+      "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/136.0.7103.25 Safari/537.36",
+      "sec-ch-ua": "\"Chromium\";v=\"136\", \"HeadlessChrome\";v=\"136\", \"Not.A/Brand\";v=\"99\"",
+      "sec-ch-ua-mobile": "?0",
+      "sec-ch-ua-platform": "\"macOS\""
+    }
+  },
+  {
+    "url": "https://online.brxperformance.com/users/sign_in/",
+    "method": "GET",
+    "resource_type": "document",
+    "headers": {
+      "upgrade-insecure-requests": "1",
+      "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/136.0.7103.25 Safari/537.36",
+      "sec-ch-ua": "\"Chromium\";v=\"136\", \"HeadlessChrome\";v=\"136\", \"Not.A/Brand\";v=\"99\"",
+      "sec-ch-ua-mobile": "?0",
+      "sec-ch-ua-platform": "\"macOS\""
+    }
+  },
+  {
+    "url": "https://online.brxperformance.com/ex4/login?redirect_to=",
+    "method": "GET",
+    "resource_type": "document",
+    "headers": {
+      "upgrade-insecure-requests": "1",
+      "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/136.0.7103.25 Safari/537.36",
+      "sec-ch-ua": "\"Chromium\";v=\"136\", \"HeadlessChrome\";v=\"136\", \"Not.A/Brand\";v=\"99\"",
+      "sec-ch-ua-mobile": "?0",
+      "sec-ch-ua-platform": "\"macOS\""
+    }
+  },
+  {
+    "url": "https://online.brxperformance.com/ex4/assets/index-10d56997.js",
+    "method": "GET",
+    "resource_type": "script",
+    "headers": {
+      "origin": "https://online.brxperformance.com",
+      "sec-ch-ua-platform": "\"macOS\"",
+      "referer": "https://online.brxperformance.com/ex4/login?redirect_to=",
+      "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/136.0.7103.25 Safari/537.36",
+      "sec-ch-ua": "\"Chromium\";v=\"136\", \"HeadlessChrome\";v=\"136\", \"Not.A/Brand\";v=\"99\"",
+      "sec-ch-ua-mobile": "?0"
+    }
+  },
+  {
+    "url": "https://online.brxperformance.com/ex4/assets/index-98b4e731.css",
+    "method": "GET",
+    "resource_type": "stylesheet",
+    "headers": {
+      "sec-ch-ua-platform": "\"macOS\"",
+      "referer": "https://online.brxperformance.com/ex4/login?redirect_to=",
+      "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/136.0.7103.25 Safari/537.36",
+      "sec-ch-ua": "\"Chromium\";v=\"136\", \"HeadlessChrome\";v=\"136\", \"Not.A/Brand\";v=\"99\"",
+      "sec-ch-ua-mobile": "?0"
+    }
+  },
+  {
+    "url": "https://js.stripe.com/terminal/v1",
+    "method": "GET",
+    "resource_type": "script",
+    "headers": {
+      "sec-ch-ua-platform": "\"macOS\"",
+      "referer": "https://online.brxperformance.com/",
+      "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/136.0.7103.25 Safari/537.36",
+      "sec-ch-ua": "\"Chromium\";v=\"136\", \"HeadlessChrome\";v=\"136\", \"Not.A/Brand\";v=\"99\"",
+      "sec-ch-ua-mobile": "?0"
+    }
+  },
+  {
+    "url": "https://js.stripe.com/v3",
+    "method": "GET",
+    "resource_type": "script",
+    "headers": {
+      "sec-ch-ua-platform": "\"macOS\"",
+      "referer": "https://online.brxperformance.com/",
+      "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/136.0.7103.25 Safari/537.36",
+      "sec-ch-ua": "\"Chromium\";v=\"136\", \"HeadlessChrome\";v=\"136\", \"Not.A/Brand\";v=\"99\"",
+      "sec-ch-ua-mobile": "?0"
+    }
+  },
+  {
+    "url": "https://online.brxperformance.com/api/v2/platforms/current",
+    "method": "GET",
+    "resource_type": "xhr",
+    "headers": {
+      "sec-ch-ua-platform": "\"macOS\"",
+      "referer": "https://online.brxperformance.com/ex4/login?redirect_to=",
+      "web-client": "react",
+      "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/136.0.7103.25 Safari/537.36",
+      "accept": "application/json, text/plain, */*",
+      "sec-ch-ua": "\"Chromium\";v=\"136\", \"HeadlessChrome\";v=\"136\", \"Not.A/Brand\";v=\"99\"",
+      "sec-ch-ua-mobile": "?0"
+    }
+  },
+  {
+    "url": "https://online.brxperformance.com/api/v4/users/me?auth_token=",
+    "method": "GET",
+    "resource_type": "xhr",
+    "headers": {
+      "sec-ch-ua-platform": "\"macOS\"",
+      "referer": "https://online.brxperformance.com/ex4/login?redirect_to=",
+      "web-client": "react",
+      "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/136.0.7103.25 Safari/537.36",
+      "accept": "application/json, text/plain, */*",
+      "sec-ch-ua": "\"Chromium\";v=\"136\", \"HeadlessChrome\";v=\"136\", \"Not.A/Brand\";v=\"99\"",
+      "sec-ch-ua-mobile": "?0"
+    }
+  },
+  {
+    "url": "https://res.cloudinary.com/brandpad/image/upload/c_scale,dpr_auto,f_auto,w_1536/v1/13578/colorblack-fill",
+    "method": "GET",
+    "resource_type": "image",
+    "headers": {
+      "sec-ch-ua-platform": "\"macOS\"",
+      "referer": "https://online.brxperformance.com/",
+      "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/136.0.7103.25 Safari/537.36",
+      "sec-ch-ua": "\"Chromium\";v=\"136\", \"HeadlessChrome\";v=\"136\", \"Not.A/Brand\";v=\"99\"",
+      "sec-ch-ua-mobile": "?0"
+    }
+  },
+  {
+    "url": "https://online.brxperformance.com/ex4/assets/sawtonindustrial-regular-webfont-4aeb2561.woff2",
+    "method": "GET",
+    "resource_type": "font",
+    "headers": {
+      "origin": "https://online.brxperformance.com",
+      "sec-ch-ua-platform": "\"macOS\"",
+      "referer": "https://online.brxperformance.com/ex4/assets/index-98b4e731.css",
+      "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/136.0.7103.25 Safari/537.36",
+      "sec-ch-ua": "\"Chromium\";v=\"136\", \"HeadlessChrome\";v=\"136\", \"Not.A/Brand\";v=\"99\"",
+      "sec-ch-ua-mobile": "?0"
+    }
+  },
+  {
+    "url": "https://online.brxperformance.com/ex4/assets/sawtonindustrial-light-webfont-48dfcc45.woff2",
+    "method": "GET",
+    "resource_type": "font",
+    "headers": {
+      "origin": "https://online.brxperformance.com",
+      "sec-ch-ua-platform": "\"macOS\"",
+      "referer": "https://online.brxperformance.com/ex4/assets/index-98b4e731.css",
+      "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/136.0.7103.25 Safari/537.36",
+      "sec-ch-ua": "\"Chromium\";v=\"136\", \"HeadlessChrome\";v=\"136\", \"Not.A/Brand\";v=\"99\"",
+      "sec-ch-ua-mobile": "?0"
+    }
+  },
+  {
+    "url": "https://cdn.exercise.com/images/1154147/6f7da32581c89ca25d665dc3aae533e4f14fe3ef_original.svg",
+    "method": "GET",
+    "resource_type": "image",
+    "headers": {
+      "sec-ch-ua-platform": "\"macOS\"",
+      "referer": "https://online.brxperformance.com/",
+      "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/136.0.7103.25 Safari/537.36",
+      "sec-ch-ua": "\"Chromium\";v=\"136\", \"HeadlessChrome\";v=\"136\", \"Not.A/Brand\";v=\"99\"",
+      "sec-ch-ua-mobile": "?0"
+    }
+  },
+  {
+    "url": "https://cdn.exercise.com/assets/exercisecom/app-store-image.svg",
+    "method": "GET",
+    "resource_type": "image",
+    "headers": {
+      "sec-ch-ua-platform": "\"macOS\"",
+      "referer": "https://online.brxperformance.com/",
+      "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/136.0.7103.25 Safari/537.36",
+      "sec-ch-ua": "\"Chromium\";v=\"136\", \"HeadlessChrome\";v=\"136\", \"Not.A/Brand\";v=\"99\"",
+      "sec-ch-ua-mobile": "?0"
+    }
+  },
+  {
+    "url": "https://cdn.exercise.com/assets/exercisecom/play_store.png",
+    "method": "GET",
+    "resource_type": "image",
+    "headers": {
+      "sec-ch-ua-platform": "\"macOS\"",
+      "referer": "https://online.brxperformance.com/",
+      "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/136.0.7103.25 Safari/537.36",
+      "sec-ch-ua": "\"Chromium\";v=\"136\", \"HeadlessChrome\";v=\"136\", \"Not.A/Brand\";v=\"99\"",
+      "sec-ch-ua-mobile": "?0"
+    }
+  },
+  {
+    "url": "https://online.brxperformance.com/api/v4/users/226676",
+    "method": "GET",
+    "resource_type": "xhr",
+    "headers": {
+      "sec-ch-ua-platform": "\"macOS\"",
+      "referer": "https://online.brxperformance.com/ex4/login?redirect_to=",
+      "web-client": "react",
+      "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/136.0.7103.25 Safari/537.36",
+      "accept": "application/json, text/plain, */*",
+      "sec-ch-ua": "\"Chromium\";v=\"136\", \"HeadlessChrome\";v=\"136\", \"Not.A/Brand\";v=\"99\"",
+      "sec-ch-ua-mobile": "?0"
+    }
+  },
+  {
+    "url": "https://online.brxperformance.com/api/v4/fbm/card_readers/connect_token",
+    "method": "POST",
+    "resource_type": "xhr",
+    "headers": {
+      "sec-ch-ua-platform": "\"macOS\"",
+      "referer": "https://online.brxperformance.com/ex4/login?redirect_to=",
+      "web-client": "react",
+      "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/136.0.7103.25 Safari/537.36",
+      "accept": "application/json, text/plain, */*",
+      "sec-ch-ua": "\"Chromium\";v=\"136\", \"HeadlessChrome\";v=\"136\", \"Not.A/Brand\";v=\"99\"",
+      "sec-ch-ua-mobile": "?0"
+    }
+  }
+]

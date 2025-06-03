@@ -1,0 +1,1951 @@
+{
+  "generation_info": {
+    "source_files": {
+      "extraction_report": "frontend_sources/firecrawl/20250529/extraction_report_20250529_141716.json",
+      "swagger_analysis": "data_analysis/swagger_analysis/full_analysis.json",
+      "endpoint_summary": "data_analysis/swagger_analysis/endpoint_summary.json",
+      "network_requests": "frontend_sources/firecrawl/20250529/api_calls/network_requests.json"
+    },
+    "total_endpoints_analyzed": 136,
+    "total_network_requests": 17,
+    "total_mappings_generated": 88
+  },
+  "mapping_matrix": [
+    {
+      "Page URL": "https://online.brxperformance.com/authentication",
+      "UI Feature": "Authentication",
+      "Expected API Endpoint(s)": "/api/v4/users/sign_in; /api/v4/users/password",
+      "Auth Required (Y/N)": "Y",
+      "CRUD verbs": "Create",
+      "Page Status": "inferred",
+      "Endpoint Count": 2
+    },
+    {
+      "Page URL": "https://online.brxperformance.com/authentication",
+      "UI Feature": "Authentication",
+      "Expected API Endpoint(s)": "/api/v4/sign_out",
+      "Auth Required (Y/N)": "Y",
+      "CRUD verbs": "Delete",
+      "Page Status": "inferred",
+      "Endpoint Count": 1
+    },
+    {
+      "Page URL": "https://online.brxperformance.com/appointments-management",
+      "UI Feature": "User Management",
+      "Expected API Endpoint(s)": "/api/v4/users; /api/v4/users; /api/v4/users/{id}; /api/v4/users/{id}",
+      "Auth Required (Y/N)": "Y",
+      "CRUD verbs": "Delete, Read, Create",
+      "Page Status": "inferred",
+      "Endpoint Count": 4
+    },
+    {
+      "Page URL": "https://online.brxperformance.com/appointments-management",
+      "UI Feature": "User Management",
+      "Expected API Endpoint(s)": "/api/v4/users/{id}/workout_exercises",
+      "Auth Required (Y/N)": "Y",
+      "CRUD verbs": "Read",
+      "Page Status": "inferred",
+      "Endpoint Count": 1
+    },
+    {
+      "Page URL": "https://online.brxperformance.com/workouts",
+      "UI Feature": "Workout Management",
+      "Expected API Endpoint(s)": "/api/v3/workout_blocks; /api/v3/workout_blocks; /api/v3/workout_blocks/{id}; /api/v3/workout_blocks/{id}",
+      "Auth Required (Y/N)": "Y",
+      "CRUD verbs": "Delete, Read, Create, Update",
+      "Page Status": "inferred",
+      "Endpoint Count": 4
+    },
+    {
+      "Page URL": "https://online.brxperformance.com/workouts",
+      "UI Feature": "Workout Management",
+      "Expected API Endpoint(s)": "/api/v4/workout_exercises; /api/v4/workout_exercises; /api/v4/workout_exercises/{id}; /api/v4/workout_exercises/{id}; /api/v4/workout_exercises/{id}",
+      "Auth Required (Y/N)": "Y",
+      "CRUD verbs": "Delete, Read, Create, Update",
+      "Page Status": "inferred",
+      "Endpoint Count": 5
+    },
+    {
+      "Page URL": "https://online.brxperformance.com/workouts",
+      "UI Feature": "Workout Management",
+      "Expected API Endpoint(s)": "/api/v4/plan_workouts; /api/v4/plan_workouts; /api/v4/plan_workouts/{id}; /api/v4/plan_workouts/{id}; /api/v4/plan_workouts/{id}",
+      "Auth Required (Y/N)": "Y",
+      "CRUD verbs": "Delete, Read, Create, Update",
+      "Page Status": "inferred",
+      "Endpoint Count": 5
+    },
+    {
+      "Page URL": "https://online.brxperformance.com/workouts",
+      "UI Feature": "Workout Management",
+      "Expected API Endpoint(s)": "/api/v4/workout-plans; /api/v4/workout-plans; /api/v4/workout-plans/{id}; /api/v4/workout-plans/{id}; /api/v4/workout-plans/{id}",
+      "Auth Required (Y/N)": "Y",
+      "CRUD verbs": "Delete, Read, Create, Update",
+      "Page Status": "inferred",
+      "Endpoint Count": 5
+    },
+    {
+      "Page URL": "https://online.brxperformance.com/workouts",
+      "UI Feature": "Workout Management",
+      "Expected API Endpoint(s)": "/api/v4/workout-plans/{id}/rep_maxes",
+      "Auth Required (Y/N)": "Y",
+      "CRUD verbs": "Read",
+      "Page Status": "inferred",
+      "Endpoint Count": 1
+    },
+    {
+      "Page URL": "https://online.brxperformance.com/workouts",
+      "UI Feature": "Workout Management",
+      "Expected API Endpoint(s)": "/api/v4/workouts; /api/v4/workouts; /api/v4/workouts/{id}; /api/v4/workouts/{id}; /api/v4/workouts/{id}",
+      "Auth Required (Y/N)": "Y",
+      "CRUD verbs": "Delete, Read, Create, Update",
+      "Page Status": "inferred",
+      "Endpoint Count": 5
+    },
+    {
+      "Page URL": "https://online.brxperformance.com/workout/{id}",
+      "UI Feature": "Workout Management",
+      "Expected API Endpoint(s)": "/api/v3/workout_blocks; /api/v3/workout_blocks; /api/v3/workout_blocks/{id}; /api/v3/workout_blocks/{id}",
+      "Auth Required (Y/N)": "Y",
+      "CRUD verbs": "Delete, Read, Create, Update",
+      "Page Status": "inferred",
+      "Endpoint Count": 4
+    },
+    {
+      "Page URL": "https://online.brxperformance.com/workout/{id}",
+      "UI Feature": "Workout Management",
+      "Expected API Endpoint(s)": "/api/v4/workout_exercises; /api/v4/workout_exercises; /api/v4/workout_exercises/{id}; /api/v4/workout_exercises/{id}; /api/v4/workout_exercises/{id}",
+      "Auth Required (Y/N)": "Y",
+      "CRUD verbs": "Delete, Read, Create, Update",
+      "Page Status": "inferred",
+      "Endpoint Count": 5
+    },
+    {
+      "Page URL": "https://online.brxperformance.com/workout/{id}",
+      "UI Feature": "Workout Management",
+      "Expected API Endpoint(s)": "/api/v4/plan_workouts; /api/v4/plan_workouts; /api/v4/plan_workouts/{id}; /api/v4/plan_workouts/{id}; /api/v4/plan_workouts/{id}",
+      "Auth Required (Y/N)": "Y",
+      "CRUD verbs": "Delete, Read, Create, Update",
+      "Page Status": "inferred",
+      "Endpoint Count": 5
+    },
+    {
+      "Page URL": "https://online.brxperformance.com/workout/{id}",
+      "UI Feature": "Workout Management",
+      "Expected API Endpoint(s)": "/api/v4/workout-plans; /api/v4/workout-plans; /api/v4/workout-plans/{id}; /api/v4/workout-plans/{id}; /api/v4/workout-plans/{id}",
+      "Auth Required (Y/N)": "Y",
+      "CRUD verbs": "Delete, Read, Create, Update",
+      "Page Status": "inferred",
+      "Endpoint Count": 5
+    },
+    {
+      "Page URL": "https://online.brxperformance.com/workout/{id}",
+      "UI Feature": "Workout Management",
+      "Expected API Endpoint(s)": "/api/v4/workout-plans/{id}/rep_maxes",
+      "Auth Required (Y/N)": "Y",
+      "CRUD verbs": "Read",
+      "Page Status": "inferred",
+      "Endpoint Count": 1
+    },
+    {
+      "Page URL": "https://online.brxperformance.com/workout/{id}",
+      "UI Feature": "Workout Management",
+      "Expected API Endpoint(s)": "/api/v4/workouts; /api/v4/workouts; /api/v4/workouts/{id}; /api/v4/workouts/{id}; /api/v4/workouts/{id}",
+      "Auth Required (Y/N)": "Y",
+      "CRUD verbs": "Delete, Read, Create, Update",
+      "Page Status": "inferred",
+      "Endpoint Count": 5
+    },
+    {
+      "Page URL": "https://online.brxperformance.com/workout-plans",
+      "UI Feature": "Workout Management",
+      "Expected API Endpoint(s)": "/api/v3/workout_blocks; /api/v3/workout_blocks; /api/v3/workout_blocks/{id}; /api/v3/workout_blocks/{id}",
+      "Auth Required (Y/N)": "Y",
+      "CRUD verbs": "Delete, Read, Create, Update",
+      "Page Status": "inferred",
+      "Endpoint Count": 4
+    },
+    {
+      "Page URL": "https://online.brxperformance.com/workout-plans",
+      "UI Feature": "Workout Management",
+      "Expected API Endpoint(s)": "/api/v4/workout_exercises; /api/v4/workout_exercises; /api/v4/workout_exercises/{id}; /api/v4/workout_exercises/{id}; /api/v4/workout_exercises/{id}",
+      "Auth Required (Y/N)": "Y",
+      "CRUD verbs": "Delete, Read, Create, Update",
+      "Page Status": "inferred",
+      "Endpoint Count": 5
+    },
+    {
+      "Page URL": "https://online.brxperformance.com/workout-plans",
+      "UI Feature": "Workout Management",
+      "Expected API Endpoint(s)": "/api/v4/plan_workouts; /api/v4/plan_workouts; /api/v4/plan_workouts/{id}; /api/v4/plan_workouts/{id}; /api/v4/plan_workouts/{id}",
+      "Auth Required (Y/N)": "Y",
+      "CRUD verbs": "Delete, Read, Create, Update",
+      "Page Status": "inferred",
+      "Endpoint Count": 5
+    },
+    {
+      "Page URL": "https://online.brxperformance.com/workout-plans",
+      "UI Feature": "Workout Management",
+      "Expected API Endpoint(s)": "/api/v4/workout-plans; /api/v4/workout-plans; /api/v4/workout-plans/{id}; /api/v4/workout-plans/{id}; /api/v4/workout-plans/{id}",
+      "Auth Required (Y/N)": "Y",
+      "CRUD verbs": "Delete, Read, Create, Update",
+      "Page Status": "inferred",
+      "Endpoint Count": 5
+    },
+    {
+      "Page URL": "https://online.brxperformance.com/workout-plans",
+      "UI Feature": "Workout Management",
+      "Expected API Endpoint(s)": "/api/v4/workout-plans/{id}/rep_maxes",
+      "Auth Required (Y/N)": "Y",
+      "CRUD verbs": "Read",
+      "Page Status": "inferred",
+      "Endpoint Count": 1
+    },
+    {
+      "Page URL": "https://online.brxperformance.com/workout-plans",
+      "UI Feature": "Workout Management",
+      "Expected API Endpoint(s)": "/api/v4/workouts; /api/v4/workouts; /api/v4/workouts/{id}; /api/v4/workouts/{id}; /api/v4/workouts/{id}",
+      "Auth Required (Y/N)": "Y",
+      "CRUD verbs": "Delete, Read, Create, Update",
+      "Page Status": "inferred",
+      "Endpoint Count": 5
+    },
+    {
+      "Page URL": "https://online.brxperformance.com/workout-plan/{id}",
+      "UI Feature": "Workout Management",
+      "Expected API Endpoint(s)": "/api/v3/workout_blocks; /api/v3/workout_blocks; /api/v3/workout_blocks/{id}; /api/v3/workout_blocks/{id}",
+      "Auth Required (Y/N)": "Y",
+      "CRUD verbs": "Delete, Read, Create, Update",
+      "Page Status": "inferred",
+      "Endpoint Count": 4
+    },
+    {
+      "Page URL": "https://online.brxperformance.com/workout-plan/{id}",
+      "UI Feature": "Workout Management",
+      "Expected API Endpoint(s)": "/api/v4/workout_exercises; /api/v4/workout_exercises; /api/v4/workout_exercises/{id}; /api/v4/workout_exercises/{id}; /api/v4/workout_exercises/{id}",
+      "Auth Required (Y/N)": "Y",
+      "CRUD verbs": "Delete, Read, Create, Update",
+      "Page Status": "inferred",
+      "Endpoint Count": 5
+    },
+    {
+      "Page URL": "https://online.brxperformance.com/workout-plan/{id}",
+      "UI Feature": "Workout Management",
+      "Expected API Endpoint(s)": "/api/v4/plan_workouts; /api/v4/plan_workouts; /api/v4/plan_workouts/{id}; /api/v4/plan_workouts/{id}; /api/v4/plan_workouts/{id}",
+      "Auth Required (Y/N)": "Y",
+      "CRUD verbs": "Delete, Read, Create, Update",
+      "Page Status": "inferred",
+      "Endpoint Count": 5
+    },
+    {
+      "Page URL": "https://online.brxperformance.com/workout-plan/{id}",
+      "UI Feature": "Workout Management",
+      "Expected API Endpoint(s)": "/api/v4/workout-plans; /api/v4/workout-plans; /api/v4/workout-plans/{id}; /api/v4/workout-plans/{id}; /api/v4/workout-plans/{id}",
+      "Auth Required (Y/N)": "Y",
+      "CRUD verbs": "Delete, Read, Create, Update",
+      "Page Status": "inferred",
+      "Endpoint Count": 5
+    },
+    {
+      "Page URL": "https://online.brxperformance.com/workout-plan/{id}",
+      "UI Feature": "Workout Management",
+      "Expected API Endpoint(s)": "/api/v4/workout-plans/{id}/rep_maxes",
+      "Auth Required (Y/N)": "Y",
+      "CRUD verbs": "Read",
+      "Page Status": "inferred",
+      "Endpoint Count": 1
+    },
+    {
+      "Page URL": "https://online.brxperformance.com/workout-plan/{id}",
+      "UI Feature": "Workout Management",
+      "Expected API Endpoint(s)": "/api/v4/workouts; /api/v4/workouts; /api/v4/workouts/{id}; /api/v4/workouts/{id}; /api/v4/workouts/{id}",
+      "Auth Required (Y/N)": "Y",
+      "CRUD verbs": "Delete, Read, Create, Update",
+      "Page Status": "inferred",
+      "Endpoint Count": 5
+    },
+    {
+      "Page URL": "https://online.brxperformance.com/appointments-management",
+      "UI Feature": "Workout Management",
+      "Expected API Endpoint(s)": "/api/v3/workout_blocks; /api/v3/workout_blocks; /api/v3/workout_blocks/{id}; /api/v3/workout_blocks/{id}",
+      "Auth Required (Y/N)": "Y",
+      "CRUD verbs": "Delete, Read, Create, Update",
+      "Page Status": "inferred",
+      "Endpoint Count": 4
+    },
+    {
+      "Page URL": "https://online.brxperformance.com/appointments-management",
+      "UI Feature": "Workout Management",
+      "Expected API Endpoint(s)": "/api/v4/workout_exercises; /api/v4/workout_exercises; /api/v4/workout_exercises/{id}; /api/v4/workout_exercises/{id}; /api/v4/workout_exercises/{id}",
+      "Auth Required (Y/N)": "Y",
+      "CRUD verbs": "Delete, Read, Create, Update",
+      "Page Status": "inferred",
+      "Endpoint Count": 5
+    },
+    {
+      "Page URL": "https://online.brxperformance.com/appointments-management",
+      "UI Feature": "Workout Management",
+      "Expected API Endpoint(s)": "/api/v4/plan_workouts; /api/v4/plan_workouts; /api/v4/plan_workouts/{id}; /api/v4/plan_workouts/{id}; /api/v4/plan_workouts/{id}",
+      "Auth Required (Y/N)": "Y",
+      "CRUD verbs": "Delete, Read, Create, Update",
+      "Page Status": "inferred",
+      "Endpoint Count": 5
+    },
+    {
+      "Page URL": "https://online.brxperformance.com/appointments-management",
+      "UI Feature": "Workout Management",
+      "Expected API Endpoint(s)": "/api/v4/workout-plans; /api/v4/workout-plans; /api/v4/workout-plans/{id}; /api/v4/workout-plans/{id}; /api/v4/workout-plans/{id}",
+      "Auth Required (Y/N)": "Y",
+      "CRUD verbs": "Delete, Read, Create, Update",
+      "Page Status": "inferred",
+      "Endpoint Count": 5
+    },
+    {
+      "Page URL": "https://online.brxperformance.com/appointments-management",
+      "UI Feature": "Workout Management",
+      "Expected API Endpoint(s)": "/api/v4/workout-plans/{id}/rep_maxes",
+      "Auth Required (Y/N)": "Y",
+      "CRUD verbs": "Read",
+      "Page Status": "inferred",
+      "Endpoint Count": 1
+    },
+    {
+      "Page URL": "https://online.brxperformance.com/appointments-management",
+      "UI Feature": "Workout Management",
+      "Expected API Endpoint(s)": "/api/v4/workouts; /api/v4/workouts; /api/v4/workouts/{id}; /api/v4/workouts/{id}; /api/v4/workouts/{id}",
+      "Auth Required (Y/N)": "Y",
+      "CRUD verbs": "Delete, Read, Create, Update",
+      "Page Status": "inferred",
+      "Endpoint Count": 5
+    },
+    {
+      "Page URL": "https://online.brxperformance.com/exercises",
+      "UI Feature": "Exercise Management",
+      "Expected API Endpoint(s)": "/api/v4/exercises; /api/v4/exercises/{id}; /api/v4/exercises/{id}",
+      "Auth Required (Y/N)": "Y",
+      "CRUD verbs": "Read, Update",
+      "Page Status": "inferred",
+      "Endpoint Count": 3
+    },
+    {
+      "Page URL": "https://online.brxperformance.com/exercises",
+      "UI Feature": "Exercise Management",
+      "Expected API Endpoint(s)": "/api/v4/exercises/",
+      "Auth Required (Y/N)": "Y",
+      "CRUD verbs": "Create",
+      "Page Status": "inferred",
+      "Endpoint Count": 1
+    },
+    {
+      "Page URL": "https://online.brxperformance.com/exercise/{id}",
+      "UI Feature": "Exercise Management",
+      "Expected API Endpoint(s)": "/api/v4/exercises; /api/v4/exercises/{id}; /api/v4/exercises/{id}",
+      "Auth Required (Y/N)": "Y",
+      "CRUD verbs": "Read, Update",
+      "Page Status": "inferred",
+      "Endpoint Count": 3
+    },
+    {
+      "Page URL": "https://online.brxperformance.com/exercise/{id}",
+      "UI Feature": "Exercise Management",
+      "Expected API Endpoint(s)": "/api/v4/exercises/",
+      "Auth Required (Y/N)": "Y",
+      "CRUD verbs": "Create",
+      "Page Status": "inferred",
+      "Endpoint Count": 1
+    },
+    {
+      "Page URL": "https://online.brxperformance.com/exercise-library",
+      "UI Feature": "Exercise Management",
+      "Expected API Endpoint(s)": "/api/v4/exercises; /api/v4/exercises/{id}; /api/v4/exercises/{id}",
+      "Auth Required (Y/N)": "Y",
+      "CRUD verbs": "Read, Update",
+      "Page Status": "inferred",
+      "Endpoint Count": 3
+    },
+    {
+      "Page URL": "https://online.brxperformance.com/exercise-library",
+      "UI Feature": "Exercise Management",
+      "Expected API Endpoint(s)": "/api/v4/exercises/",
+      "Auth Required (Y/N)": "Y",
+      "CRUD verbs": "Create",
+      "Page Status": "inferred",
+      "Endpoint Count": 1
+    },
+    {
+      "Page URL": "https://online.brxperformance.com/appointments-management",
+      "UI Feature": "Exercise Management",
+      "Expected API Endpoint(s)": "/api/v4/exercises; /api/v4/exercises/{id}; /api/v4/exercises/{id}",
+      "Auth Required (Y/N)": "Y",
+      "CRUD verbs": "Read, Update",
+      "Page Status": "inferred",
+      "Endpoint Count": 3
+    },
+    {
+      "Page URL": "https://online.brxperformance.com/appointments-management",
+      "UI Feature": "Exercise Management",
+      "Expected API Endpoint(s)": "/api/v4/exercises/",
+      "Auth Required (Y/N)": "Y",
+      "CRUD verbs": "Create",
+      "Page Status": "inferred",
+      "Endpoint Count": 1
+    },
+    {
+      "Page URL": "https://online.brxperformance.com/equipment",
+      "UI Feature": "Equipment Management",
+      "Expected API Endpoint(s)": "/api/v3/equipment; /api/v3/equipment; /api/v3/equipment/{id}; /api/v3/equipment/{id}",
+      "Auth Required (Y/N)": "Y",
+      "CRUD verbs": "Delete, Read, Create, Update",
+      "Page Status": "inferred",
+      "Endpoint Count": 4
+    },
+    {
+      "Page URL": "https://online.brxperformance.com/gym-equipment",
+      "UI Feature": "Equipment Management",
+      "Expected API Endpoint(s)": "/api/v3/equipment; /api/v3/equipment; /api/v3/equipment/{id}; /api/v3/equipment/{id}",
+      "Auth Required (Y/N)": "Y",
+      "CRUD verbs": "Delete, Read, Create, Update",
+      "Page Status": "inferred",
+      "Endpoint Count": 4
+    },
+    {
+      "Page URL": "https://online.brxperformance.com/appointments-management",
+      "UI Feature": "Equipment Management",
+      "Expected API Endpoint(s)": "/api/v3/equipment; /api/v3/equipment; /api/v3/equipment/{id}; /api/v3/equipment/{id}",
+      "Auth Required (Y/N)": "Y",
+      "CRUD verbs": "Delete, Read, Create, Update",
+      "Page Status": "inferred",
+      "Endpoint Count": 4
+    },
+    {
+      "Page URL": "https://online.brxperformance.com/calendar/scheduling",
+      "UI Feature": "Calendar/Scheduling",
+      "Expected API Endpoint(s)": "/api/v4/calendar; /api/v4/calendar/add; /api/v4/calendar/remove; /api/v4/calendar/move; /api/v4/calendar/schedule",
+      "Auth Required (Y/N)": "Y",
+      "CRUD verbs": "Delete, Read, Create, Update",
+      "Page Status": "inferred",
+      "Endpoint Count": 5
+    },
+    {
+      "Page URL": "https://online.brxperformance.com/calendar/scheduling",
+      "UI Feature": "Calendar/Scheduling",
+      "Expected API Endpoint(s)": "/api/v4/groups/calendars",
+      "Auth Required (Y/N)": "Y",
+      "CRUD verbs": "Read",
+      "Page Status": "inferred",
+      "Endpoint Count": 1
+    },
+    {
+      "Page URL": "https://online.brxperformance.com/business",
+      "UI Feature": "Business Management (FBM)",
+      "Expected API Endpoint(s)": "/api/v4/fbm/appointments/{id}/check_eligibility; /api/v4/fbm/appointments/{id}/packages",
+      "Auth Required (Y/N)": "Y",
+      "CRUD verbs": "Read",
+      "Page Status": "inferred",
+      "Endpoint Count": 2
+    },
+    {
+      "Page URL": "https://online.brxperformance.com/business",
+      "UI Feature": "Business Management (FBM)",
+      "Expected API Endpoint(s)": "/api/v4/fbm/appointments; /api/v4/fbm/appointments; /api/v4/fbm/locations; /api/v4/fbm/locations; /api/v4/fbm/scheduled_appointment_members; /api/v4/fbm/scheduled_appointment_members; /api/v4/fbm/scheduled_appointments; /api/v4/fbm/scheduled_appointments; /api/v4/fbm/schedules; /api/v4/fbm/schedules; /api/v4/fbm/services; /api/v4/fbm/services; /api/v4/fbm/visits; /api/v4/fbm/visits; /api/v4/fbm/waitlist_entries; /api/v4/fbm/waitlist_entries",
+      "Auth Required (Y/N)": "Y",
+      "CRUD verbs": "Read, Create",
+      "Page Status": "inferred",
+      "Endpoint Count": 16
+    },
+    {
+      "Page URL": "https://online.brxperformance.com/business",
+      "UI Feature": "Business Management (FBM)",
+      "Expected API Endpoint(s)": "/api/v4/fbm/appointments/{id}; /api/v4/fbm/appointments/{id}; /api/v4/fbm/appointments/{id}",
+      "Auth Required (Y/N)": "Y",
+      "CRUD verbs": "Delete, Read, Update",
+      "Page Status": "inferred",
+      "Endpoint Count": 3
+    },
+    {
+      "Page URL": "https://online.brxperformance.com/business",
+      "UI Feature": "Business Management (FBM)",
+      "Expected API Endpoint(s)": "/api/v4/fbm/locations/{id}; /api/v4/fbm/locations/{id}; /api/v4/fbm/locations/{id}",
+      "Auth Required (Y/N)": "Y",
+      "CRUD verbs": "Delete, Read, Update",
+      "Page Status": "inferred",
+      "Endpoint Count": 3
+    },
+    {
+      "Page URL": "https://online.brxperformance.com/business",
+      "UI Feature": "Business Management (FBM)",
+      "Expected API Endpoint(s)": "/api/v4/fbm/scheduled_appointment_members/{id}; /api/v4/fbm/scheduled_appointment_members/{id}; /api/v4/fbm/scheduled_appointment_members/{id}",
+      "Auth Required (Y/N)": "Y",
+      "CRUD verbs": "Delete, Read, Update",
+      "Page Status": "inferred",
+      "Endpoint Count": 3
+    },
+    {
+      "Page URL": "https://online.brxperformance.com/business",
+      "UI Feature": "Business Management (FBM)",
+      "Expected API Endpoint(s)": "/api/v4/fbm/scheduled_appointments/{id}/check_eligibility",
+      "Auth Required (Y/N)": "Y",
+      "CRUD verbs": "Read",
+      "Page Status": "inferred",
+      "Endpoint Count": 1
+    },
+    {
+      "Page URL": "https://online.brxperformance.com/business",
+      "UI Feature": "Business Management (FBM)",
+      "Expected API Endpoint(s)": "/api/v4/fbm/scheduled_appointments/{id}; /api/v4/fbm/scheduled_appointments/{id}; /api/v4/fbm/scheduled_appointments/{id}",
+      "Auth Required (Y/N)": "Y",
+      "CRUD verbs": "Delete, Read, Update",
+      "Page Status": "inferred",
+      "Endpoint Count": 3
+    },
+    {
+      "Page URL": "https://online.brxperformance.com/business",
+      "UI Feature": "Business Management (FBM)",
+      "Expected API Endpoint(s)": "/api/v4/fbm/schedules/{id}; /api/v4/fbm/schedules/{id}; /api/v4/fbm/schedules/{id}",
+      "Auth Required (Y/N)": "Y",
+      "CRUD verbs": "Delete, Read, Update",
+      "Page Status": "inferred",
+      "Endpoint Count": 3
+    },
+    {
+      "Page URL": "https://online.brxperformance.com/business",
+      "UI Feature": "Business Management (FBM)",
+      "Expected API Endpoint(s)": "/api/v4/fbm/services/{id}; /api/v4/fbm/services/{id}; /api/v4/fbm/services/{id}",
+      "Auth Required (Y/N)": "Y",
+      "CRUD verbs": "Delete, Read, Update",
+      "Page Status": "inferred",
+      "Endpoint Count": 3
+    },
+    {
+      "Page URL": "https://online.brxperformance.com/business",
+      "UI Feature": "Business Management (FBM)",
+      "Expected API Endpoint(s)": "/api/v4/fbm/visits/{id}; /api/v4/fbm/visits/{id}; /api/v4/fbm/visits/{id}",
+      "Auth Required (Y/N)": "Y",
+      "CRUD verbs": "Delete, Read, Update",
+      "Page Status": "inferred",
+      "Endpoint Count": 3
+    },
+    {
+      "Page URL": "https://online.brxperformance.com/business",
+      "UI Feature": "Business Management (FBM)",
+      "Expected API Endpoint(s)": "/api/v4/fbm/waitlist_entries/{id}; /api/v4/fbm/waitlist_entries/{id}; /api/v4/fbm/waitlist_entries/{id}",
+      "Auth Required (Y/N)": "Y",
+      "CRUD verbs": "Delete, Read, Update",
+      "Page Status": "inferred",
+      "Endpoint Count": 3
+    },
+    {
+      "Page URL": "https://online.brxperformance.com/appointments-management",
+      "UI Feature": "Business Management (FBM)",
+      "Expected API Endpoint(s)": "/api/v4/fbm/appointments/{id}/check_eligibility; /api/v4/fbm/appointments/{id}/packages",
+      "Auth Required (Y/N)": "Y",
+      "CRUD verbs": "Read",
+      "Page Status": "inferred",
+      "Endpoint Count": 2
+    },
+    {
+      "Page URL": "https://online.brxperformance.com/appointments-management",
+      "UI Feature": "Business Management (FBM)",
+      "Expected API Endpoint(s)": "/api/v4/fbm/appointments; /api/v4/fbm/appointments; /api/v4/fbm/locations; /api/v4/fbm/locations; /api/v4/fbm/scheduled_appointment_members; /api/v4/fbm/scheduled_appointment_members; /api/v4/fbm/scheduled_appointments; /api/v4/fbm/scheduled_appointments; /api/v4/fbm/schedules; /api/v4/fbm/schedules; /api/v4/fbm/services; /api/v4/fbm/services; /api/v4/fbm/visits; /api/v4/fbm/visits; /api/v4/fbm/waitlist_entries; /api/v4/fbm/waitlist_entries",
+      "Auth Required (Y/N)": "Y",
+      "CRUD verbs": "Read, Create",
+      "Page Status": "inferred",
+      "Endpoint Count": 16
+    },
+    {
+      "Page URL": "https://online.brxperformance.com/appointments-management",
+      "UI Feature": "Business Management (FBM)",
+      "Expected API Endpoint(s)": "/api/v4/fbm/appointments/{id}; /api/v4/fbm/appointments/{id}; /api/v4/fbm/appointments/{id}",
+      "Auth Required (Y/N)": "Y",
+      "CRUD verbs": "Delete, Read, Update",
+      "Page Status": "inferred",
+      "Endpoint Count": 3
+    },
+    {
+      "Page URL": "https://online.brxperformance.com/appointments-management",
+      "UI Feature": "Business Management (FBM)",
+      "Expected API Endpoint(s)": "/api/v4/fbm/locations/{id}; /api/v4/fbm/locations/{id}; /api/v4/fbm/locations/{id}",
+      "Auth Required (Y/N)": "Y",
+      "CRUD verbs": "Delete, Read, Update",
+      "Page Status": "inferred",
+      "Endpoint Count": 3
+    },
+    {
+      "Page URL": "https://online.brxperformance.com/appointments-management",
+      "UI Feature": "Business Management (FBM)",
+      "Expected API Endpoint(s)": "/api/v4/fbm/scheduled_appointment_members/{id}; /api/v4/fbm/scheduled_appointment_members/{id}; /api/v4/fbm/scheduled_appointment_members/{id}",
+      "Auth Required (Y/N)": "Y",
+      "CRUD verbs": "Delete, Read, Update",
+      "Page Status": "inferred",
+      "Endpoint Count": 3
+    },
+    {
+      "Page URL": "https://online.brxperformance.com/appointments-management",
+      "UI Feature": "Business Management (FBM)",
+      "Expected API Endpoint(s)": "/api/v4/fbm/scheduled_appointments/{id}/check_eligibility",
+      "Auth Required (Y/N)": "Y",
+      "CRUD verbs": "Read",
+      "Page Status": "inferred",
+      "Endpoint Count": 1
+    },
+    {
+      "Page URL": "https://online.brxperformance.com/appointments-management",
+      "UI Feature": "Business Management (FBM)",
+      "Expected API Endpoint(s)": "/api/v4/fbm/scheduled_appointments/{id}; /api/v4/fbm/scheduled_appointments/{id}; /api/v4/fbm/scheduled_appointments/{id}",
+      "Auth Required (Y/N)": "Y",
+      "CRUD verbs": "Delete, Read, Update",
+      "Page Status": "inferred",
+      "Endpoint Count": 3
+    },
+    {
+      "Page URL": "https://online.brxperformance.com/appointments-management",
+      "UI Feature": "Business Management (FBM)",
+      "Expected API Endpoint(s)": "/api/v4/fbm/schedules/{id}; /api/v4/fbm/schedules/{id}; /api/v4/fbm/schedules/{id}",
+      "Auth Required (Y/N)": "Y",
+      "CRUD verbs": "Delete, Read, Update",
+      "Page Status": "inferred",
+      "Endpoint Count": 3
+    },
+    {
+      "Page URL": "https://online.brxperformance.com/appointments-management",
+      "UI Feature": "Business Management (FBM)",
+      "Expected API Endpoint(s)": "/api/v4/fbm/services/{id}; /api/v4/fbm/services/{id}; /api/v4/fbm/services/{id}",
+      "Auth Required (Y/N)": "Y",
+      "CRUD verbs": "Delete, Read, Update",
+      "Page Status": "inferred",
+      "Endpoint Count": 3
+    },
+    {
+      "Page URL": "https://online.brxperformance.com/appointments-management",
+      "UI Feature": "Business Management (FBM)",
+      "Expected API Endpoint(s)": "/api/v4/fbm/visits/{id}; /api/v4/fbm/visits/{id}; /api/v4/fbm/visits/{id}",
+      "Auth Required (Y/N)": "Y",
+      "CRUD verbs": "Delete, Read, Update",
+      "Page Status": "inferred",
+      "Endpoint Count": 3
+    },
+    {
+      "Page URL": "https://online.brxperformance.com/appointments-management",
+      "UI Feature": "Business Management (FBM)",
+      "Expected API Endpoint(s)": "/api/v4/fbm/waitlist_entries/{id}; /api/v4/fbm/waitlist_entries/{id}; /api/v4/fbm/waitlist_entries/{id}",
+      "Auth Required (Y/N)": "Y",
+      "CRUD verbs": "Delete, Read, Update",
+      "Page Status": "inferred",
+      "Endpoint Count": 3
+    },
+    {
+      "Page URL": "https://online.brxperformance.com/appointments-management",
+      "UI Feature": "Groups/Team Management",
+      "Expected API Endpoint(s)": "/api/v4/groups/{id}/add_member",
+      "Auth Required (Y/N)": "Y",
+      "CRUD verbs": "Create",
+      "Page Status": "inferred",
+      "Endpoint Count": 1
+    },
+    {
+      "Page URL": "https://online.brxperformance.com/appointments-management",
+      "UI Feature": "Groups/Team Management",
+      "Expected API Endpoint(s)": "/api/v4/groups; /api/v4/groups; /api/v4/groups/{id}; /api/v4/groups/{id}; /api/v4/groups/{id}",
+      "Auth Required (Y/N)": "Y",
+      "CRUD verbs": "Delete, Read, Create, Update",
+      "Page Status": "inferred",
+      "Endpoint Count": 5
+    },
+    {
+      "Page URL": "https://online.brxperformance.com/resources/content",
+      "UI Feature": "Resources/Content",
+      "Expected API Endpoint(s)": "/api/v4/group_resources; /api/v4/group_resources; /api/v4/group_resources/{id}",
+      "Auth Required (Y/N)": "Y",
+      "CRUD verbs": "Read, Create",
+      "Page Status": "inferred",
+      "Endpoint Count": 3
+    },
+    {
+      "Page URL": "https://online.brxperformance.com/resources/content",
+      "UI Feature": "Resources/Content",
+      "Expected API Endpoint(s)": "/api/v4/resources; /api/v4/resources; /api/v4/resources/{id}",
+      "Auth Required (Y/N)": "Y",
+      "CRUD verbs": "Read, Create",
+      "Page Status": "inferred",
+      "Endpoint Count": 3
+    },
+    {
+      "Page URL": "https://online.brxperformance.com/communication",
+      "UI Feature": "Communication",
+      "Expected API Endpoint(s)": "/api/v4/conversations/available_recipients; /api/v4/conversations; /api/v4/conversations; /api/v4/conversations/{id}; /api/v4/conversations/{id}; /api/v4/conversations/{id}",
+      "Auth Required (Y/N)": "Y",
+      "CRUD verbs": "Delete, Read, Create, Update",
+      "Page Status": "inferred",
+      "Endpoint Count": 6
+    },
+    {
+      "Page URL": "https://online.brxperformance.com/communication",
+      "UI Feature": "Communication",
+      "Expected API Endpoint(s)": "/api/v4/conversations/{id}/reply_to; /api/v4/conversations/{id}/mark_read",
+      "Auth Required (Y/N)": "Y",
+      "CRUD verbs": "Read, Update",
+      "Page Status": "inferred",
+      "Endpoint Count": 2
+    },
+    {
+      "Page URL": "https://online.brxperformance.com/payments/commerce",
+      "UI Feature": "Payments/Commerce",
+      "Expected API Endpoint(s)": "/api/v4/carts/purchased_items",
+      "Auth Required (Y/N)": "Y",
+      "CRUD verbs": "Read",
+      "Page Status": "inferred",
+      "Endpoint Count": 1
+    },
+    {
+      "Page URL": "https://online.brxperformance.com/payments/commerce",
+      "UI Feature": "Payments/Commerce",
+      "Expected API Endpoint(s)": "/api/v4/coupons/check",
+      "Auth Required (Y/N)": "Y",
+      "CRUD verbs": "Create",
+      "Page Status": "inferred",
+      "Endpoint Count": 1
+    },
+    {
+      "Page URL": "https://online.brxperformance.com/tags/organization",
+      "UI Feature": "Tags/Organization",
+      "Expected API Endpoint(s)": "/api/v4/tags; /api/v4/tags; /api/v4/tags/{id}; /api/v4/tags/{id}; /api/v4/tags/{id}; /api/v4/tags/update_tag; /api/v4/tags/delete_tag",
+      "Auth Required (Y/N)": "Y",
+      "CRUD verbs": "Delete, Read, Create, Update",
+      "Page Status": "inferred",
+      "Endpoint Count": 7
+    },
+    {
+      "Page URL": "https://online.brxperformance.com/favorites",
+      "UI Feature": "Favorites",
+      "Expected API Endpoint(s)": "/api/v4/favorites",
+      "Auth Required (Y/N)": "Y",
+      "CRUD verbs": "Read",
+      "Page Status": "inferred",
+      "Endpoint Count": 1
+    },
+    {
+      "Page URL": "https://online.brxperformance.com/other",
+      "UI Feature": "Other",
+      "Expected API Endpoint(s)": "/api/v3/workout_exercise_sets; /api/v3/workout_exercise_sets/{id}; /api/v3/workout_exercise_sets/{id}",
+      "Auth Required (Y/N)": "Y",
+      "CRUD verbs": "Delete, Create, Update",
+      "Page Status": "inferred",
+      "Endpoint Count": 3
+    },
+    {
+      "Page URL": "https://online.brxperformance.com/other",
+      "UI Feature": "Other",
+      "Expected API Endpoint(s)": "/api/v3/plan_blocks; /api/v3/plan_blocks/{id}; /api/v3/plan_blocks/{id}",
+      "Auth Required (Y/N)": "Y",
+      "CRUD verbs": "Delete, Create, Update",
+      "Page Status": "inferred",
+      "Endpoint Count": 3
+    },
+    {
+      "Page URL": "https://online.brxperformance.com/other",
+      "UI Feature": "Other",
+      "Expected API Endpoint(s)": "/api/v3/plan_exercises; /api/v3/plan_exercises/{id}; /api/v3/plan_exercises/{id}",
+      "Auth Required (Y/N)": "Y",
+      "CRUD verbs": "Delete, Create, Update",
+      "Page Status": "inferred",
+      "Endpoint Count": 3
+    },
+    {
+      "Page URL": "https://online.brxperformance.com/other",
+      "UI Feature": "Other",
+      "Expected API Endpoint(s)": "/api/v4/user_plans; /api/v4/user_plans; /api/v4/user_plans/{id}; /api/v4/user_plans/{id}; /api/v4/user_plans/{id}",
+      "Auth Required (Y/N)": "Y",
+      "CRUD verbs": "Delete, Read, Create, Update",
+      "Page Status": "inferred",
+      "Endpoint Count": 5
+    },
+    {
+      "Page URL": "https://online.brxperformance.com/other",
+      "UI Feature": "Other",
+      "Expected API Endpoint(s)": "/api/v4/user_plans/{id}/pause; /api/v4/user_plans/{id}/next_workout",
+      "Auth Required (Y/N)": "Y",
+      "CRUD verbs": "Read, Create",
+      "Page Status": "inferred",
+      "Endpoint Count": 2
+    },
+    {
+      "Page URL": "https://online.brxperformance.com/ (captured)",
+      "UI Feature": "Runtime API Call",
+      "Expected API Endpoint(s)": "/api/v2/platforms/current",
+      "Auth Required (Y/N)": "Y",
+      "CRUD verbs": "Read",
+      "Page Status": "network-captured",
+      "Endpoint Count": 1
+    },
+    {
+      "Page URL": "https://online.brxperformance.com/ (captured)",
+      "UI Feature": "Runtime API Call",
+      "Expected API Endpoint(s)": "/api/v4/users/me",
+      "Auth Required (Y/N)": "Y",
+      "CRUD verbs": "Read",
+      "Page Status": "network-captured",
+      "Endpoint Count": 1
+    },
+    {
+      "Page URL": "https://online.brxperformance.com/ (captured)",
+      "UI Feature": "Runtime API Call",
+      "Expected API Endpoint(s)": "/api/v4/users/226676",
+      "Auth Required (Y/N)": "Y",
+      "CRUD verbs": "Read",
+      "Page Status": "network-captured",
+      "Endpoint Count": 1
+    },
+    {
+      "Page URL": "https://online.brxperformance.com/ (captured)",
+      "UI Feature": "Runtime API Call",
+      "Expected API Endpoint(s)": "/api/v4/fbm/card_readers/connect_token",
+      "Auth Required (Y/N)": "Y",
+      "CRUD verbs": "Create/Update",
+      "Page Status": "network-captured",
+      "Endpoint Count": 1
+    }
+  ],
+  "categorized_endpoints": {
+    "Authentication": [
+      {
+        "path": "/api/v4/users/sign_in",
+        "method": "POST",
+        "summary": "Sign in",
+        "tags": [
+          "Authentication"
+        ]
+      },
+      {
+        "path": "/api/v4/sign_out",
+        "method": "DELETE",
+        "summary": "Sign out",
+        "tags": [
+          "Authentication"
+        ]
+      },
+      {
+        "path": "/api/v4/users/password",
+        "method": "POST",
+        "summary": "Reset Password",
+        "tags": [
+          "Authentication"
+        ]
+      }
+    ],
+    "User Management": [
+      {
+        "path": "/api/v4/users",
+        "method": "GET",
+        "summary": "list users",
+        "tags": [
+          "Users"
+        ]
+      },
+      {
+        "path": "/api/v4/users",
+        "method": "POST",
+        "summary": "create user",
+        "tags": [
+          "Users"
+        ]
+      },
+      {
+        "path": "/api/v4/users/{id}/workout_exercises",
+        "method": "GET",
+        "summary": "show user's workout exercises",
+        "tags": [
+          "Users"
+        ]
+      },
+      {
+        "path": "/api/v4/users/{id}",
+        "method": "GET",
+        "summary": "show user",
+        "tags": [
+          "Users"
+        ]
+      },
+      {
+        "path": "/api/v4/users/{id}",
+        "method": "DELETE",
+        "summary": "delete user",
+        "tags": [
+          "Users"
+        ]
+      }
+    ],
+    "Workout Management": [
+      {
+        "path": "/api/v3/workout_blocks",
+        "method": "GET",
+        "summary": "list workout_blocks",
+        "tags": [
+          "Workout Blocks"
+        ]
+      },
+      {
+        "path": "/api/v3/workout_blocks",
+        "method": "POST",
+        "summary": "create workout_block",
+        "tags": [
+          "Workout Blocks"
+        ]
+      },
+      {
+        "path": "/api/v3/workout_blocks/{id}",
+        "method": "PUT",
+        "summary": "update workout_block",
+        "tags": [
+          "Workout Blocks"
+        ]
+      },
+      {
+        "path": "/api/v3/workout_blocks/{id}",
+        "method": "DELETE",
+        "summary": "delete workout_block",
+        "tags": [
+          "Workout Blocks"
+        ]
+      },
+      {
+        "path": "/api/v4/workout_exercises",
+        "method": "GET",
+        "summary": "list workout_exercises",
+        "tags": [
+          "Workout Exercises"
+        ]
+      },
+      {
+        "path": "/api/v4/workout_exercises",
+        "method": "POST",
+        "summary": "create workout_exercise",
+        "tags": [
+          "Workout Exercises"
+        ]
+      },
+      {
+        "path": "/api/v4/workout_exercises/{id}",
+        "method": "GET",
+        "summary": "show workout_exercise",
+        "tags": [
+          "Workout Exercises"
+        ]
+      },
+      {
+        "path": "/api/v4/workout_exercises/{id}",
+        "method": "PUT",
+        "summary": "update workout_exercise",
+        "tags": [
+          "Workout Exercises"
+        ]
+      },
+      {
+        "path": "/api/v4/workout_exercises/{id}",
+        "method": "DELETE",
+        "summary": "delete workout_exercise",
+        "tags": [
+          "Workout Exercises"
+        ]
+      },
+      {
+        "path": "/api/v4/plan_workouts",
+        "method": "GET",
+        "summary": "list plan_workouts",
+        "tags": [
+          "Plan Workouts"
+        ]
+      },
+      {
+        "path": "/api/v4/plan_workouts",
+        "method": "POST",
+        "summary": "create plan_workout",
+        "tags": [
+          "Plan Workouts"
+        ]
+      },
+      {
+        "path": "/api/v4/plan_workouts/{id}",
+        "method": "PUT",
+        "summary": "update workout_plan_workout",
+        "tags": [
+          "Plan Workouts"
+        ]
+      },
+      {
+        "path": "/api/v4/plan_workouts/{id}",
+        "method": "GET",
+        "summary": "show workout_plan_workout",
+        "tags": [
+          "Plan Workouts"
+        ]
+      },
+      {
+        "path": "/api/v4/plan_workouts/{id}",
+        "method": "DELETE",
+        "summary": "delete plan_workout",
+        "tags": [
+          "Plan Workouts"
+        ]
+      },
+      {
+        "path": "/api/v4/workout-plans",
+        "method": "GET",
+        "summary": "list workout_plans",
+        "tags": [
+          "Workout Plans"
+        ]
+      },
+      {
+        "path": "/api/v4/workout-plans",
+        "method": "POST",
+        "summary": "create workout_plan",
+        "tags": [
+          "Workout Plans"
+        ]
+      },
+      {
+        "path": "/api/v4/workout-plans/{id}",
+        "method": "GET",
+        "summary": "show workout_plan",
+        "tags": [
+          "Workout Plans"
+        ]
+      },
+      {
+        "path": "/api/v4/workout-plans/{id}",
+        "method": "PUT",
+        "summary": "update workout_plan",
+        "tags": [
+          "Workout Plans"
+        ]
+      },
+      {
+        "path": "/api/v4/workout-plans/{id}",
+        "method": "DELETE",
+        "summary": "delete workout_plan",
+        "tags": [
+          "Workout Plans"
+        ]
+      },
+      {
+        "path": "/api/v4/workout-plans/{id}/rep_maxes",
+        "method": "GET",
+        "summary": "user rep rep maxes associated with a plan",
+        "tags": [
+          "Workout Plans"
+        ]
+      },
+      {
+        "path": "/api/v4/workouts",
+        "method": "GET",
+        "summary": "list workouts",
+        "tags": [
+          "Workouts"
+        ]
+      },
+      {
+        "path": "/api/v4/workouts",
+        "method": "POST",
+        "summary": "create workout",
+        "tags": [
+          "Workouts"
+        ]
+      },
+      {
+        "path": "/api/v4/workouts/{id}",
+        "method": "GET",
+        "summary": "show workout",
+        "tags": [
+          "Workouts"
+        ]
+      },
+      {
+        "path": "/api/v4/workouts/{id}",
+        "method": "PUT",
+        "summary": "update workout",
+        "tags": [
+          "Workouts"
+        ]
+      },
+      {
+        "path": "/api/v4/workouts/{id}",
+        "method": "DELETE",
+        "summary": "delete workout",
+        "tags": [
+          "Workouts"
+        ]
+      }
+    ],
+    "Exercise Management": [
+      {
+        "path": "/api/v4/exercises",
+        "method": "GET",
+        "summary": "list exercises",
+        "tags": [
+          "Exercises"
+        ]
+      },
+      {
+        "path": "/api/v4/exercises/{id}",
+        "method": "GET",
+        "summary": "show exercise",
+        "tags": [
+          "Exercises"
+        ]
+      },
+      {
+        "path": "/api/v4/exercises/{id}",
+        "method": "PUT",
+        "summary": "update exercise",
+        "tags": [
+          "Exercises"
+        ]
+      },
+      {
+        "path": "/api/v4/exercises/",
+        "method": "POST",
+        "summary": "create exercise",
+        "tags": [
+          "Exercises"
+        ]
+      }
+    ],
+    "Equipment Management": [
+      {
+        "path": "/api/v3/equipment",
+        "method": "GET",
+        "summary": "list equipment",
+        "tags": [
+          "Equipment"
+        ]
+      },
+      {
+        "path": "/api/v3/equipment",
+        "method": "POST",
+        "summary": "create equipment",
+        "tags": [
+          "Equipment"
+        ]
+      },
+      {
+        "path": "/api/v3/equipment/{id}",
+        "method": "PUT",
+        "summary": "update equipment",
+        "tags": [
+          "Equipment"
+        ]
+      },
+      {
+        "path": "/api/v3/equipment/{id}",
+        "method": "DELETE",
+        "summary": "delete equipment",
+        "tags": [
+          "Equipment"
+        ]
+      }
+    ],
+    "Calendar/Scheduling": [
+      {
+        "path": "/api/v4/calendar",
+        "method": "GET",
+        "summary": "list calendar events",
+        "tags": [
+          "Calendar"
+        ]
+      },
+      {
+        "path": "/api/v4/calendar/add",
+        "method": "POST",
+        "summary": "add a PlanWorkout to a calendar",
+        "tags": [
+          "Calendar"
+        ]
+      },
+      {
+        "path": "/api/v4/calendar/remove",
+        "method": "DELETE",
+        "summary": "delete scheduled workout",
+        "tags": [
+          "Calendar"
+        ]
+      },
+      {
+        "path": "/api/v4/calendar/move",
+        "method": "PUT",
+        "summary": "move a scheduled workout",
+        "tags": [
+          "Calendar"
+        ]
+      },
+      {
+        "path": "/api/v4/calendar/schedule",
+        "method": "POST",
+        "summary": "schdule a logged workout",
+        "tags": [
+          "Calendar"
+        ]
+      },
+      {
+        "path": "/api/v4/groups/calendars",
+        "method": "GET",
+        "summary": "calendars group",
+        "tags": [
+          "Groups"
+        ]
+      }
+    ],
+    "Business Management (FBM)": [
+      {
+        "path": "/api/v4/fbm/appointments/{id}/check_eligibility",
+        "method": "GET",
+        "summary": "check_eligibility appointment",
+        "tags": [
+          "Appointments"
+        ]
+      },
+      {
+        "path": "/api/v4/fbm/appointments/{id}/packages",
+        "method": "GET",
+        "summary": "packages appointment",
+        "tags": [
+          "Appointments"
+        ]
+      },
+      {
+        "path": "/api/v4/fbm/appointments",
+        "method": "GET",
+        "summary": "list appointments",
+        "tags": [
+          "Appointments"
+        ]
+      },
+      {
+        "path": "/api/v4/fbm/appointments",
+        "method": "POST",
+        "summary": "create appointment",
+        "tags": [
+          "Appointments"
+        ]
+      },
+      {
+        "path": "/api/v4/fbm/appointments/{id}",
+        "method": "GET",
+        "summary": "show appointment",
+        "tags": [
+          "Appointments"
+        ]
+      },
+      {
+        "path": "/api/v4/fbm/appointments/{id}",
+        "method": "PUT",
+        "summary": "update appointment",
+        "tags": [
+          "Appointments"
+        ]
+      },
+      {
+        "path": "/api/v4/fbm/appointments/{id}",
+        "method": "DELETE",
+        "summary": "delete appointment",
+        "tags": [
+          "Appointments"
+        ]
+      },
+      {
+        "path": "/api/v4/fbm/locations",
+        "method": "GET",
+        "summary": "list locations",
+        "tags": [
+          "Locations"
+        ]
+      },
+      {
+        "path": "/api/v4/fbm/locations",
+        "method": "POST",
+        "summary": "create location",
+        "tags": [
+          "Locations"
+        ]
+      },
+      {
+        "path": "/api/v4/fbm/locations/{id}",
+        "method": "GET",
+        "summary": "show location",
+        "tags": [
+          "Locations"
+        ]
+      },
+      {
+        "path": "/api/v4/fbm/locations/{id}",
+        "method": "PUT",
+        "summary": "update location",
+        "tags": [
+          "Locations"
+        ]
+      },
+      {
+        "path": "/api/v4/fbm/locations/{id}",
+        "method": "DELETE",
+        "summary": "delete location",
+        "tags": [
+          "Locations"
+        ]
+      },
+      {
+        "path": "/api/v4/fbm/scheduled_appointment_members",
+        "method": "GET",
+        "summary": "list scheduled_appointment_members",
+        "tags": [
+          "Scheduled Appointment Members"
+        ]
+      },
+      {
+        "path": "/api/v4/fbm/scheduled_appointment_members",
+        "method": "POST",
+        "summary": "create scheduled_appointment_member",
+        "tags": [
+          "Scheduled Appointment Members"
+        ]
+      },
+      {
+        "path": "/api/v4/fbm/scheduled_appointment_members/{id}",
+        "method": "GET",
+        "summary": "show scheduled_appointment_member",
+        "tags": [
+          "Scheduled Appointment Members"
+        ]
+      },
+      {
+        "path": "/api/v4/fbm/scheduled_appointment_members/{id}",
+        "method": "PUT",
+        "summary": "update scheduled_appointment_member",
+        "tags": [
+          "Scheduled Appointment Members"
+        ]
+      },
+      {
+        "path": "/api/v4/fbm/scheduled_appointment_members/{id}",
+        "method": "DELETE",
+        "summary": "delete scheduled_appointment_member",
+        "tags": [
+          "Scheduled Appointment Members"
+        ]
+      },
+      {
+        "path": "/api/v4/fbm/scheduled_appointments/{id}/check_eligibility",
+        "method": "GET",
+        "summary": "check_eligibility scheduled_appointment",
+        "tags": [
+          "Sheduled Appointments"
+        ]
+      },
+      {
+        "path": "/api/v4/fbm/scheduled_appointments",
+        "method": "GET",
+        "summary": "list scheduled_appointments",
+        "tags": [
+          "Sheduled Appointments"
+        ]
+      },
+      {
+        "path": "/api/v4/fbm/scheduled_appointments",
+        "method": "POST",
+        "summary": "create scheduled_appointment",
+        "tags": [
+          "Sheduled Appointments"
+        ]
+      },
+      {
+        "path": "/api/v4/fbm/scheduled_appointments/{id}",
+        "method": "GET",
+        "summary": "show scheduled_appointment",
+        "tags": [
+          "Sheduled Appointments"
+        ]
+      },
+      {
+        "path": "/api/v4/fbm/scheduled_appointments/{id}",
+        "method": "PUT",
+        "summary": "update scheduled_appointment",
+        "tags": [
+          "Sheduled Appointments"
+        ]
+      },
+      {
+        "path": "/api/v4/fbm/scheduled_appointments/{id}",
+        "method": "DELETE",
+        "summary": "delete scheduled_appointment",
+        "tags": [
+          "Sheduled Appointments"
+        ]
+      },
+      {
+        "path": "/api/v4/fbm/schedules",
+        "method": "GET",
+        "summary": "list schedules",
+        "tags": [
+          "Schedules"
+        ]
+      },
+      {
+        "path": "/api/v4/fbm/schedules",
+        "method": "POST",
+        "summary": "create schedule",
+        "tags": [
+          "Schedules"
+        ]
+      },
+      {
+        "path": "/api/v4/fbm/schedules/{id}",
+        "method": "GET",
+        "summary": "show schedule",
+        "tags": [
+          "Schedules"
+        ]
+      },
+      {
+        "path": "/api/v4/fbm/schedules/{id}",
+        "method": "PUT",
+        "summary": "update schedule",
+        "tags": [
+          "Schedules"
+        ]
+      },
+      {
+        "path": "/api/v4/fbm/schedules/{id}",
+        "method": "DELETE",
+        "summary": "delete schedule",
+        "tags": [
+          "Schedules"
+        ]
+      },
+      {
+        "path": "/api/v4/fbm/services",
+        "method": "GET",
+        "summary": "list services",
+        "tags": [
+          "Services"
+        ]
+      },
+      {
+        "path": "/api/v4/fbm/services",
+        "method": "POST",
+        "summary": "create service",
+        "tags": [
+          "Services"
+        ]
+      },
+      {
+        "path": "/api/v4/fbm/services/{id}",
+        "method": "GET",
+        "summary": "show service",
+        "tags": [
+          "Services"
+        ]
+      },
+      {
+        "path": "/api/v4/fbm/services/{id}",
+        "method": "PUT",
+        "summary": "update service",
+        "tags": [
+          "Services"
+        ]
+      },
+      {
+        "path": "/api/v4/fbm/services/{id}",
+        "method": "DELETE",
+        "summary": "delete service",
+        "tags": [
+          "Services"
+        ]
+      },
+      {
+        "path": "/api/v4/fbm/visits",
+        "method": "GET",
+        "summary": "list visits",
+        "tags": [
+          "Visits"
+        ]
+      },
+      {
+        "path": "/api/v4/fbm/visits",
+        "method": "POST",
+        "summary": "create visit",
+        "tags": [
+          "Visits"
+        ]
+      },
+      {
+        "path": "/api/v4/fbm/visits/{id}",
+        "method": "GET",
+        "summary": "show visit",
+        "tags": [
+          "Visits"
+        ]
+      },
+      {
+        "path": "/api/v4/fbm/visits/{id}",
+        "method": "PUT",
+        "summary": "update visit",
+        "tags": [
+          "Visits"
+        ]
+      },
+      {
+        "path": "/api/v4/fbm/visits/{id}",
+        "method": "DELETE",
+        "summary": "delete visit",
+        "tags": [
+          "Visits"
+        ]
+      },
+      {
+        "path": "/api/v4/fbm/waitlist_entries",
+        "method": "GET",
+        "summary": "list waitlist_entries",
+        "tags": [
+          "Waitlist Entries"
+        ]
+      },
+      {
+        "path": "/api/v4/fbm/waitlist_entries",
+        "method": "POST",
+        "summary": "create waitlist_entry",
+        "tags": [
+          "Waitlist Entries"
+        ]
+      },
+      {
+        "path": "/api/v4/fbm/waitlist_entries/{id}",
+        "method": "GET",
+        "summary": "show waitlist_entry",
+        "tags": [
+          "Waitlist Entries"
+        ]
+      },
+      {
+        "path": "/api/v4/fbm/waitlist_entries/{id}",
+        "method": "PUT",
+        "summary": "update waitlist_entry",
+        "tags": [
+          "Waitlist Entries"
+        ]
+      },
+      {
+        "path": "/api/v4/fbm/waitlist_entries/{id}",
+        "method": "DELETE",
+        "summary": "delete waitlist_entry",
+        "tags": [
+          "Waitlist Entries"
+        ]
+      }
+    ],
+    "Groups/Team Management": [
+      {
+        "path": "/api/v4/groups/{id}/add_member",
+        "method": "POST",
+        "summary": "add_member group",
+        "tags": [
+          "Groups"
+        ]
+      },
+      {
+        "path": "/api/v4/groups",
+        "method": "GET",
+        "summary": "list groups",
+        "tags": [
+          "Groups"
+        ]
+      },
+      {
+        "path": "/api/v4/groups",
+        "method": "POST",
+        "summary": "create group",
+        "tags": [
+          "Groups"
+        ]
+      },
+      {
+        "path": "/api/v4/groups/{id}",
+        "method": "GET",
+        "summary": "show group",
+        "tags": [
+          "Groups"
+        ]
+      },
+      {
+        "path": "/api/v4/groups/{id}",
+        "method": "PUT",
+        "summary": "update group",
+        "tags": [
+          "Groups"
+        ]
+      },
+      {
+        "path": "/api/v4/groups/{id}",
+        "method": "DELETE",
+        "summary": "delete group",
+        "tags": [
+          "Groups"
+        ]
+      }
+    ],
+    "Resources/Content": [
+      {
+        "path": "/api/v4/group_resources",
+        "method": "GET",
+        "summary": "list group_resources",
+        "tags": [
+          "Group Resources"
+        ]
+      },
+      {
+        "path": "/api/v4/group_resources",
+        "method": "POST",
+        "summary": "create group_resource",
+        "tags": [
+          "Group Resources"
+        ]
+      },
+      {
+        "path": "/api/v4/group_resources/{id}",
+        "method": "GET",
+        "summary": "show group_resource",
+        "tags": [
+          "Group Resources"
+        ]
+      },
+      {
+        "path": "/api/v4/resources",
+        "method": "GET",
+        "summary": "list resources",
+        "tags": [
+          "Resources"
+        ]
+      },
+      {
+        "path": "/api/v4/resources",
+        "method": "POST",
+        "summary": "create resource",
+        "tags": [
+          "Resources"
+        ]
+      },
+      {
+        "path": "/api/v4/resources/{id}",
+        "method": "GET",
+        "summary": "show resource",
+        "tags": [
+          "Resources"
+        ]
+      }
+    ],
+    "Communication": [
+      {
+        "path": "/api/v4/conversations/available_recipients",
+        "method": "GET",
+        "summary": "available_recipients conversation",
+        "tags": [
+          "Conversations"
+        ]
+      },
+      {
+        "path": "/api/v4/conversations/{id}/reply_to",
+        "method": "PUT",
+        "summary": "reply_to conversation",
+        "tags": [
+          "Conversations"
+        ]
+      },
+      {
+        "path": "/api/v4/conversations/{id}/mark_read",
+        "method": "GET",
+        "summary": "mark_read conversation",
+        "tags": [
+          "Conversations"
+        ]
+      },
+      {
+        "path": "/api/v4/conversations",
+        "method": "GET",
+        "summary": "list conversations",
+        "tags": [
+          "Conversations"
+        ]
+      },
+      {
+        "path": "/api/v4/conversations",
+        "method": "POST",
+        "summary": "create conversation",
+        "tags": [
+          "Conversations"
+        ]
+      },
+      {
+        "path": "/api/v4/conversations/{id}",
+        "method": "GET",
+        "summary": "show conversation",
+        "tags": [
+          "Conversations"
+        ]
+      },
+      {
+        "path": "/api/v4/conversations/{id}",
+        "method": "PUT",
+        "summary": "update conversation",
+        "tags": [
+          "Conversations"
+        ]
+      },
+      {
+        "path": "/api/v4/conversations/{id}",
+        "method": "DELETE",
+        "summary": "delete conversation",
+        "tags": [
+          "Conversations"
+        ]
+      }
+    ],
+    "Payments/Commerce": [
+      {
+        "path": "/api/v4/carts/purchased_items",
+        "method": "GET",
+        "summary": "purchased_items cart",
+        "tags": [
+          "Purchased Items"
+        ]
+      },
+      {
+        "path": "/api/v4/coupons/check",
+        "method": "POST",
+        "summary": "check coupon",
+        "tags": [
+          "Coupons"
+        ]
+      }
+    ],
+    "Tags/Organization": [
+      {
+        "path": "/api/v4/tags",
+        "method": "POST",
+        "summary": "create tag",
+        "tags": [
+          "Tags"
+        ]
+      },
+      {
+        "path": "/api/v4/tags",
+        "method": "GET",
+        "summary": "list tags",
+        "tags": [
+          "Tags"
+        ]
+      },
+      {
+        "path": "/api/v4/tags/{id}",
+        "method": "PUT",
+        "summary": "update tag",
+        "tags": [
+          "Tags"
+        ]
+      },
+      {
+        "path": "/api/v4/tags/{id}",
+        "method": "GET",
+        "summary": "show tag",
+        "tags": [
+          "Tags"
+        ]
+      },
+      {
+        "path": "/api/v4/tags/{id}",
+        "method": "DELETE",
+        "summary": "delete tag",
+        "tags": [
+          "Tags"
+        ]
+      },
+      {
+        "path": "/api/v4/tags/update_tag",
+        "method": "POST",
+        "summary": "update tag",
+        "tags": [
+          "Tags"
+        ]
+      },
+      {
+        "path": "/api/v4/tags/delete_tag",
+        "method": "POST",
+        "summary": "delete tag",
+        "tags": [
+          "Tags"
+        ]
+      }
+    ],
+    "Favorites": [
+      {
+        "path": "/api/v4/favorites",
+        "method": "GET",
+        "summary": "list favorites",
+        "tags": [
+          "Favorites"
+        ]
+      }
+    ],
+    "Other": [
+      {
+        "path": "/api/v3/workout_exercise_sets",
+        "method": "POST",
+        "summary": "create workout_exercise_set",
+        "tags": [
+          "Workout Exercise Sets"
+        ]
+      },
+      {
+        "path": "/api/v3/workout_exercise_sets/{id}",
+        "method": "PUT",
+        "summary": "update workout_exercise_set",
+        "tags": [
+          "Workout Exercise Sets"
+        ]
+      },
+      {
+        "path": "/api/v3/workout_exercise_sets/{id}",
+        "method": "DELETE",
+        "summary": "delete workout_exercise_set",
+        "tags": [
+          "Workout Exercise Sets"
+        ]
+      },
+      {
+        "path": "/api/v3/plan_blocks",
+        "method": "POST",
+        "summary": "create plan_block",
+        "tags": [
+          "Plan Blocks"
+        ]
+      },
+      {
+        "path": "/api/v3/plan_blocks/{id}",
+        "method": "PUT",
+        "summary": "update plan_block",
+        "tags": [
+          "Plan Blocks"
+        ]
+      },
+      {
+        "path": "/api/v3/plan_blocks/{id}",
+        "method": "DELETE",
+        "summary": "delete plan_block",
+        "tags": [
+          "Plan Blocks"
+        ]
+      },
+      {
+        "path": "/api/v3/plan_exercises",
+        "method": "POST",
+        "summary": "create plan_exercise",
+        "tags": [
+          "Plan Exercises"
+        ]
+      },
+      {
+        "path": "/api/v3/plan_exercises/{id}",
+        "method": "PUT",
+        "summary": "update plan_exercise",
+        "tags": [
+          "Plan Exercises"
+        ]
+      },
+      {
+        "path": "/api/v3/plan_exercises/{id}",
+        "method": "DELETE",
+        "summary": "delete plan_exercise",
+        "tags": [
+          "Plan Exercises"
+        ]
+      },
+      {
+        "path": "/api/v4/user_plans",
+        "method": "GET",
+        "summary": "list user_plans",
+        "tags": [
+          "User Plans"
+        ]
+      },
+      {
+        "path": "/api/v4/user_plans",
+        "method": "POST",
+        "summary": "create user_plan",
+        "tags": [
+          "User Plans"
+        ]
+      },
+      {
+        "path": "/api/v4/user_plans/{id}",
+        "method": "GET",
+        "summary": "show user_plan",
+        "tags": [
+          "User Plans"
+        ]
+      },
+      {
+        "path": "/api/v4/user_plans/{id}",
+        "method": "PUT",
+        "summary": "update user_plan",
+        "tags": [
+          "User Plans"
+        ]
+      },
+      {
+        "path": "/api/v4/user_plans/{id}",
+        "method": "DELETE",
+        "summary": "delete user_plan",
+        "tags": [
+          "User Plans"
+        ]
+      },
+      {
+        "path": "/api/v4/user_plans/{id}/pause",
+        "method": "POST",
+        "summary": "pasue a user plan",
+        "tags": [
+          "User Plans"
+        ]
+      },
+      {
+        "path": "/api/v4/user_plans/{id}/next_workout",
+        "method": "GET",
+        "summary": "get next workout for resume",
+        "tags": [
+          "User Plans"
+        ]
+      }
+    ]
+  },
+  "captured_api_calls": [
+    {
+      "endpoint": "/api/v2/platforms/current",
+      "method": "GET",
+      "full_url": "https://online.brxperformance.com/api/v2/platforms/current",
+      "resource_type": "xhr"
+    },
+    {
+      "endpoint": "/api/v4/users/me",
+      "method": "GET",
+      "full_url": "https://online.brxperformance.com/api/v4/users/me?auth_token=",
+      "resource_type": "xhr"
+    },
+    {
+      "endpoint": "/api/v4/users/226676",
+      "method": "GET",
+      "full_url": "https://online.brxperformance.com/api/v4/users/226676",
+      "resource_type": "xhr"
+    },
+    {
+      "endpoint": "/api/v4/fbm/card_readers/connect_token",
+      "method": "POST",
+      "full_url": "https://online.brxperformance.com/api/v4/fbm/card_readers/connect_token",
+      "resource_type": "xhr"
+    }
+  ]
+}

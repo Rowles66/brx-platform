@@ -1,0 +1,16 @@
+[
+  {
+    "id": "client123",
+    "name": "John Doe",
+    "profileUrl": "/ex4/dashboard/trainer/clients/client123/",
+    "status": "Active",
+    "lastActive": "2025-05-25T14:30:00Z"
+  },
+  {
+    "id": "client456",
+    "name": "Jane Smith",
+    "profileUrl": "/ex4/dashboard/trainer/clients/client456/",
+    "status": "Inactive",
+    "lastActive": "2025-05-20T09:15:00Z"
+  }
+]

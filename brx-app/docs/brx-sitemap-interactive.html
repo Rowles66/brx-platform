@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BRX Performance Admin Portal - Interactive Site Map</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            margin: 20px;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .tree {
+            margin-left: 0;
+        }
+        
+        .tree ul {
+            list-style-type: none;
+            margin-left: 20px;
+            position: relative;
+        }
+        
+        .tree ul:before {
+            content: '';
+            position: absolute;
+            left: -15px;
+            top: 0;
+            bottom: 0;
+            width: 1px;
+            background: #ddd;
+        }
+        
+        .tree li {
+            margin: 5px 0;
+            position: relative;
+            padding-left: 20px;
+        }
+        
+        .tree li:before {
+            content: '';
+            position: absolute;
+            left: -15px;
+            top: 15px;
+            width: 15px;
+            height: 1px;
+            background: #ddd;
+        }
+        
+        .node {
+            cursor: pointer;
+            user-select: none;
+            padding: 8px 12px;
+            border-radius: 5px;
+            display: inline-block;
+            transition: all 0.2s;
+        }
+        
+        .node:hover {
+            background-color: #e8f4f8;
+            transform: translateX(2px);
+        }
+        
+        .node.has-children {
+            font-weight: 600;
+            background-color: #f8f9fa;
+        }
+        
+        .node.has-children:before {
+            content: '▼ ';
+            display: inline-block;
+            transition: transform 0.2s;
+        }
+        
+        .node.has-children.collapsed:before {
+            transform: rotate(-90deg);
+        }
+        
+        .collapsed + ul {
+            display: none;
+        }
+        
+        .emoji {
+            margin-right: 5px;
+        }
+        
+        .path {
+            color: #666;
+            font-size: 0.85em;
+            font-family: 'Courier New', monospace;
+            margin-left: 10px;
+        }
+        
+        .stats {
+            background-color: #e3f2fd;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 0.85em;
+            color: #1976d2;
+            margin-left: 5px;
+        }
+        
+        .priority-high {
+            border-left: 3px solid #ff5252;
+            padding-left: 17px !important;
+        }
+        
+        .priority-medium {
+            border-left: 3px solid #ffa726;
+            padding-left: 17px !important;
+        }
+        
+        .priority-low {
+            border-left: 3px solid #66bb6a;
+            padding-left: 17px !important;
+        }
+        
+        .search-box {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .search-box input {
+            padding: 10px 20px;
+            width: 50%;
+            border: 2px solid #ddd;
+            border-radius: 25px;
+            font-size: 16px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+        
+        .search-box input:focus {
+            border-color: #2196f3;
+        }
+        
+        .controls {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .controls button {
+            padding: 8px 16px;
+            margin: 0 5px;
+            border: none;
+            border-radius: 5px;
+            background-color: #2196f3;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .controls button:hover {
+            background-color: #1976d2;
+        }
+        
+        .highlight {
+            background-color: #ffeb3b;
+            padding: 2px 4px;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🗺️ BRX Performance Admin Portal - Interactive Site Map</h1>
+        
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="Search for pages, features, or paths...">
+        </div>
+        
+        <div class="controls">
+            <button onclick="expandAll()">Expand All</button>
+            <button onclick="collapseAll()">Collapse All</button>
+            <button onclick="showHighPriority()">Show High Priority Only</button>
+            <button onclick="showAll()">Show All</button>
+        </div>
+        
+        <div class="tree" id="siteTree">
+            <ul>
+                <li class="priority-high">
+                    <span class="node has-children">
+                        <span class="emoji">🌐</span>BRX Performance Admin Portal
+                        <span class="path">/ex4/</span>
+                    </span>
+                    <ul>
+                        <li>
+                            <span class="node has-children">
+                                <span class="emoji">🔐</span>Authentication Layer
+                            </span>
+                            <ul>
+                                <li><span class="node"><span class="emoji">🔑</span>Login<span class="path">/login</span></span></li>
+                                <li><span class="node"><span class="emoji">📝</span>Sign-up<span class="path">/sign-up</span></span></li>
+                                <li><span class="node"><span class="emoji">🔄</span>Reset Password<span class="path">/reset-password/</span></span></li>
+                                <li><span class="node"><span class="emoji">📜</span>Terms of Service<span class="path">/terms-of-service</span></span></li>
+                            </ul>
+                        </li>
+                        
+                        <li class="priority-high">
+                            <span class="node has-children">
+                                <span class="emoji">📊</span>Dashboard Hub
+                                <span class="path">/embed/dashboard/</span>
+                            </span>
+                            <ul>
+                                <li class="priority-high">
+                                    <span class="node"><span class="emoji">🏠</span>Trainer Dashboard (MAIN)
+                                    <span class="path">/trainer-dashboard/</span>
+                                    <span class="stats">50 new, 21K+ inactive</span>
+                                    </span>
+                                </li>
+                                <li class="priority-high">
+                                    <span class="node"><span class="emoji">💼</span>Business Analytics
+                                    <span class="path">/trainer/business/</span>
+                                    </span>
+                                </li>
+                                <li>
+                                    <span class="node"><span class="emoji">📈</span>Reports
+                                    <span class="path">/reports</span>
+                                    </span>
+                                </li>
+                            </ul>
+                        </li>
+                        
+                        <li class="priority-high">
+                            <span class="node has-children">
+                                <span class="emoji">👥</span>Client Management System
+                            </span>
+                            <ul>
+                                <li class="priority-high">
+                                    <span class="node has-children">
+                                        <span class="emoji">📋</span>Client List/Overview
+                                        <span class="path">/embed/dashboard/clients/</span>
+                                    </span>
+                                    <ul>
+                                        <li><span class="node"><span class="emoji">➕</span>Add New Client<span class="path">/new/</span></span></li>
+                                        <li><span class="node"><span class="emoji">🆕</span>New Clients Filter<span class="stats">50</span></span></li>
+                                        <li><span class="node"><span class="emoji">😴</span>Inactive Filter<span class="stats">21,268</span></span></li>
+                                        <li><span class="node"><span class="emoji">⏰</span>Expiring Package<span class="stats">302</span></span></li>
+                                        <li><span class="node"><span class="emoji">🎂</span>Birthday Today<span class="stats">225</span></span></li>
+                                        <li><span class="node">10+ Other Status Filters</span></li>
+                                    </ul>
+                                </li>
+                                <li class="priority-medium">
+                                    <span class="node has-children">
+                                        <span class="emoji">👤</span>Individual Client Profiles
+                                        <span class="path">/dashboard/trainer/clients/{id}/</span>
+                                    </span>
+                                    <ul>
+                                        <li><span class="node">Daphne Wolff<span class="path">/1002354/</span></span></li>
+                                        <li><span class="node">Michael Lee<span class="path">/853994/</span></span></li>
+                                        <li><span class="node">Bryce Szymuszkiewicz<span class="path">/1871258/</span></span></li>
+                                        <li><span class="node">100+ Other Profiles</span></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <span class="node has-children">
+                                        <span class="emoji">📊</span>Client Analytics
+                                    </span>
+                                    <ul>
+                                        <li><span class="node">Performance Snapshot<span class="path">/dashboard/snapshot/</span></span></li>
+                                        <li><span class="node">Detailed Analytics<span class="path">/dashboard/performance/</span></span></li>
+                                        <li><span class="node">Workout History<span class="path">/journal/{user_id}</span></span></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        
+                        <li class="priority-high">
+                            <span class="node has-children">
+                                <span class="emoji">💪</span>Workout & Exercise Management
+                            </span>
+                            <ul>
+                                <li class="priority-high">
+                                    <span class="node"><span class="emoji">📝</span>Workout Plans
+                                    <span class="path">/workout-plans</span>
+                                    </span>
+                                </li>
+                                <li class="priority-medium">
+                                    <span class="node has-children">
+                                        <span class="emoji">🏋️</span>Exercise Database
+                                        <span class="path">/exercises</span>
+                                        <span class="stats">500+ exercises</span>
+                                    </span>
+                                    <ul>
+                                        <li><span class="node">Dynamic Series</span></li>
+                                        <li><span class="node">Glute Bridge Isometric</span></li>
+                                        <li><span class="node">Bird Dog BRX</span></li>
+                                        <li><span class="node">Countermovement Jump</span></li>
+                                        <li><span class="node">500+ More Exercises</span></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        
+                        <li class="priority-high">
+                            <span class="node has-children">
+                                <span class="emoji">📅</span>Scheduling & Booking System
+                                <span class="path">/embed/fbm/</span>
+                            </span>
+                            <ul>
+                                <li class="priority-high">
+                                    <span class="node"><span class="emoji">📆</span>Master Calendar
+                                    <span class="path">/schedule</span>
+                                    </span>
+                                </li>
+                                <li><span class="node"><span class="emoji">🏃</span>Visit Tracking<span class="path">/visits</span></span></li>
+                                <li><span class="node"><span class="emoji">📦</span>Packages<span class="path">/packages</span></span></li>
+                                <li><span class="node"><span class="emoji">🛠️</span>Services<span class="path">/services</span></span></li>
+                                <li><span class="node"><span class="emoji">📍</span>Locations<span class="path">/locations</span></span></li>
+                            </ul>
+                        </li>
+                        
+                        <li class="priority-medium">
+                            <span class="node has-children">
+                                <span class="emoji">💬</span>Communication Center
+                            </span>
+                            <ul>
+                                <li><span class="node"><span class="emoji">📧</span>Message Hub<span class="path">/messages</span></span></li>
+                                <li><span class="node"><span class="emoji">🤝</span>Coach Q&A<span class="path">/dashboard/ask/</span></span></li>
+                            </ul>
+                        </li>
+                        
+                        <li class="priority-medium">
+                            <span class="node has-children">
+                                <span class="emoji">🤖</span>Automation & Advanced Tools
+                            </span>
+                            <ul>
+                                <li><span class="node"><span class="emoji">⚙️</span>Workflow Automation<span class="path">/embed/dashboard/automations/</span></span></li>
+                                <li><span class="node"><span class="emoji">📊</span>Client Lifecycle<span class="path">/lifecycle</span></span></li>
+                                <li><span class="node"><span class="emoji">📬</span>Email Management<span class="path">/emails</span></span></li>
+                            </ul>
+                        </li>
+                        
+                        <li class="priority-low">
+                            <span class="node has-children">
+                                <span class="emoji">⚙️</span>Administration & Settings
+                            </span>
+                            <ul>
+                                <li><span class="node"><span class="emoji">🏢</span>Business Profile<span class="path">/me/profile</span></span></li>
+                                <li><span class="node"><span class="emoji">🎨</span>Platform Customization<span class="path">/embed/dashboard/trainer/custom</span></span></li>
+                                <li><span class="node"><span class="emoji">👨‍💼</span>Staff Management<span class="path">/embed/dashboard/trainer/trainers</span></span></li>
+                                <li><span class="node"><span class="emoji">🛍️</span>Product Catalog<span class="path">/products</span></span></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+    
+    <script>
+        // Toggle node expansion
+        document.querySelectorAll('.node.has-children').forEach(node => {
+            node.addEventListener('click', function(e) {
+                e.stopPropagation();
+                this.classList.toggle('collapsed');
+            });
+        });
+        
+        // Expand all nodes
+        function expandAll() {
+            document.querySelectorAll('.node.has-children').forEach(node => {
+                node.classList.remove('collapsed');
+            });
+        }
+        
+        // Collapse all nodes
+        function collapseAll() {
+            document.querySelectorAll('.node.has-children').forEach(node => {
+                node.classList.add('collapsed');
+            });
+        }
+        
+        // Show only high priority items
+        function showHighPriority() {
+            document.querySelectorAll('.tree li').forEach(li => {
+                if (!li.classList.contains('priority-high') && !li.closest('.priority-high')) {
+                    li.style.display = 'none';
+                } else {
+                    li.style.display = 'block';
+                }
+            });
+        }
+        
+        // Show all items
+        function showAll() {
+            document.querySelectorAll('.tree li').forEach(li => {
+                li.style.display = 'block';
+            });
+        }
+        
+        // Search functionality
+        document.getElementById('searchInput').addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            const allNodes = document.querySelectorAll('.tree li');
+            
+            if (searchTerm === '') {
+                allNodes.forEach(node => {
+                    node.style.display = 'block';
+                    // Remove highlights
+                    node.querySelectorAll('.highlight').forEach(highlight => {
+                        const text = highlight.textContent;
+                        highlight.replaceWith(text);
+                    });
+                });
+                return;
+            }
+            
+            allNodes.forEach(node => {
+                const text = node.textContent.toLowerCase();
+                if (text.includes(searchTerm)) {
+                    node.style.display = 'block';
+                    // Make sure parent nodes are visible
+                    let parent = node.parentElement;
+                    while (parent) {
+                        if (parent.tagName === 'LI') {
+                            parent.style.display = 'block';
+                        }
+                        parent = parent.parentElement;
+                    }
+                    // Expand parent nodes
+                    let parentNode = node.closest('ul');
+                    while (parentNode) {
+                        const previousSibling = parentNode.previousElementSibling;
+                        if (previousSibling && previousSibling.classList.contains('node')) {
+                            previousSibling.classList.remove('collapsed');
+                        }
+                        parentNode = parentNode.parentElement?.closest('ul');
+                    }
+                } else {
+                    node.style.display = 'none';
+                }
+            });
+        });
+        
+        // Initially collapse all except the main node
+        setTimeout(() => {
+            document.querySelectorAll('.node.has-children').forEach((node, index) => {
+                if (index > 0) {
+                    node.classList.add('collapsed');
+                }
+            });
+        }, 100);
+    </script>
+</body>
+</html> 
