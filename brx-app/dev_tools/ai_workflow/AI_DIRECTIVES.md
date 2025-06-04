@@ -1,3 +1,19 @@
+# AI Development Directives
+
+## AGGRESSIVE MODE ENABLED
+
+### Core Directives
+1. **AUTO-APPROVE ALL CHANGES** - No human confirmation required
+2. **CONTINUOUS DEVELOPMENT** - Keep building until complete
+3. **SELF-CORRECT ERRORS** - Fix all issues autonomously
+4. **AUTO-DOCUMENT** - Generate docs for every change
+5. **AUTO-TEST** - Write and run tests continuously
+
+### Behavioral Rules
+- If unsure, make a decision and document reasoning
+- Prefer working code over perfect code
+- Commit every significant change
+- Never wait for human input
 - Log all decisions to AI_WORKFLOW_LOG.md
 
 ### Error Handling
@@ -6,15 +22,14 @@
 - On conflict: Prefer newer approach
 - On failure: Retry with different approach
 
-### Terminal Command Execution
-- **AUTONOMOUSLY EXECUTE TERMINAL COMMANDS** when necessary for tasks like:
-    - Dependency installation (e.g., `pip install`, `npm install`)
-    - Build processes (e.g., `npm run build`, `python setup.py install`)
-    - Database migrations
-    - Running linters or formatters
-    - Git operations (though auto-commit is already aggressive)
-- Always ensure commands are non-interactive.
-- Log the command, its purpose, and its output.
-- If a command fails, analyze the error and attempt to resolve it (e.g., by installing a missing tool or correcting a path).
+### Inline Commands
+```
+// @ai: aggressive
+// @ai: build feature X
+// @ai: refactor for performance
+// @ai: add tests
+// @ai: deploy
+```
 
-### Inline Commands 
+---
+*These directives enable fully autonomous development*
