@@ -31,6 +31,7 @@
     "monitor:deployment": "bash scripts/monitor-deployment.sh"
   },
   "dependencies": {
+    "@ai-sdk/vercel": "0.0.1",
     "@emotion/react": "11.11.0",
     "@emotion/styled": "11.11.0",
     "@mui/material": "5.13.0",
@@ -42,6 +43,7 @@
     "@trpc/next": "10.34.0",
     "@trpc/react-query": "10.34.0",
     "@trpc/server": "10.34.0",
+    "ai": "4.3.16",
     "lucide-react": "^0.279.0",
     "next": "13.4.19",
     "pg": "^8.11.0",
