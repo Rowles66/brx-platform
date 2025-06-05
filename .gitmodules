@@ -1,0 +1,12 @@
+[submodule "workspace-config"]
+	path = workspace-config
+	url = git@github.com:Rowles66/google-workspace-config.git
+[submodule "brx-core/custom-dev"]
+	path = brx-core/custom-dev
+	url = git@github.com:Rowles66/brx-custom-development.git
+[submodule "brx-core/api-docs"]
+	path = brx-core/api-docs
+	url = git@github.com:Rowles66/BRX-api-docs.git
+[submodule "brand-guidelines"]
+	path = brand-guidelines
+	url = git@github.com:Rowles66/brand-guidelines.git
