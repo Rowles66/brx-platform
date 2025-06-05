@@ -1,0 +1,25 @@
+{
+  "timestamp": "2025-06-05T02:52:24.209Z",
+  "tests": [
+    {
+      "name": "Home vs Dashboard",
+      "description": "Comparison between different pages (should be different)",
+      "diffPixels": 3091,
+      "totalPixels": 2073600,
+      "diffPercentage": 0.15,
+      "visualSimilarity": 99.85,
+      "overallScore": 9.9,
+      "diffImagePath": "audit-results/diffs/home-vs-dashboard-diff.png"
+    },
+    {
+      "name": "Dashboard Consistency",
+      "description": "Same page reloaded (should be identical)",
+      "diffPixels": 0,
+      "totalPixels": 2073600,
+      "diffPercentage": 0,
+      "visualSimilarity": 100,
+      "overallScore": 10,
+      "diffImagePath": "audit-results/diffs/dashboard-consistency-diff.png"
+    }
+  ]
+}

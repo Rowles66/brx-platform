@@ -8,7 +8,7 @@ export default function HomePage() {
 
   useEffect(() => {
     // Skip authentication and go directly to dashboard
-    router.push('/dashboard');
+    router.push('/dashboard-replica');
   }, [router]);
 
   return (

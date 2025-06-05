@@ -1,0 +1,29 @@
+{
+  "pages": [
+    {
+      "name": "Home Page",
+      "local": "http://localhost:3000/",
+      "live": "https://online.brxperformance.com/",
+      "waitFor": null,
+      "priority": "critical"
+    },
+    {
+      "name": "Dashboard",
+      "local": "http://localhost:3000/dashboard",
+      "live": "https://online.brxperformance.com/dashboard",
+      "waitFor": null,
+      "priority": "critical"
+    }
+  ],
+  "viewports": [
+    { "name": "Desktop", "width": 1920, "height": 1080 }
+  ],
+  "auditSettings": {
+    "screenshotDelay": 5000,
+    "networkIdle": true,
+    "fullPage": true,
+    "aiModel": "gpt-4-vision-preview",
+    "diffThreshold": 0.1
+  }
+}
+
