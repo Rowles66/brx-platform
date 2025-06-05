@@ -37,7 +37,7 @@ export function useWorkoutValidation() {
             return true;
           })
           .map(err => ({
-            path: err.path,
+            path: err.path.map(String),
             message: err.message,
             type: 'error' as const,
             field: err.path.join('.'),
@@ -98,7 +98,7 @@ export function useExerciseValidation() {
             return true;
           })
           .map(err => ({
-            path: err.path,
+            path: err.path.map(String),
             message: err.message,
             type: 'error' as const,
             field: err.path.join('.'),

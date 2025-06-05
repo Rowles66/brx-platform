@@ -2,8 +2,6 @@
 
 import { useState } from 'react';
 import { Trash2, ChevronUp, ChevronDown, Edit, X, AlertCircle, CheckCircle } from 'lucide-react';
-import { ValidationResult, getFieldErrorMessage, hasFieldError, getArrayFieldErrors } from '@/utils/validation';
-import { ValidationFieldStatus } from '@/components/ui/ValidationFieldStatus';
 
 interface WorkoutExercise {
   id: string;
@@ -20,81 +18,43 @@ interface WorkoutData {
   description: string;
   type: string;
   difficulty: string;
-  estimatedDuration: number;
   exercises: WorkoutExercise[];
+  estimatedDuration: number;
 }
 
 interface WorkoutPreviewProps {
   workout: WorkoutData;
-  onWorkoutChange: (updates: Partial<WorkoutData>) => void;
-  validationResult?: ValidationResult;
+  onWorkoutChange: (workout: WorkoutData) => void;
+  validationResult?: any;
 }
 
 export function WorkoutPreview({ workout, onWorkoutChange, validationResult }: WorkoutPreviewProps) {
   const [editingExerciseId, setEditingExerciseId] = useState<string | null>(null);
-  
-  // Mock data for exercise names - in a real app, this would come from API
-  const exerciseNames: Record<string, string> = {
-    '1': 'Barbell Squat',
-    '2': 'Bench Press',
-    '3': 'Deadlift',
-    '4': 'Pull-up',
-    '5': 'Dumbbell Curl',
+
+  const handleExerciseUpdate = (id: string, updates: Partial<WorkoutExercise>) => {
+    const updatedExercises = workout.exercises.map(ex => 
+      ex.id === id ? { ...ex, ...updates } : ex
+    );
+    onWorkoutChange({ ...workout, exercises: updatedExercises });
+  };
+
+  const handleExerciseRemove = (id: string) => {
+    const updatedExercises = workout.exercises.filter(ex => ex.id !== id);
+    onWorkoutChange({ ...workout, exercises: updatedExercises });
   };
 
   const moveExercise = (index: number, direction: 'up' | 'down') => {
     const newIndex = direction === 'up' ? index - 1 : index + 1;
     if (newIndex < 0 || newIndex >= workout.exercises.length) return;
     
-    const newExercises = [...workout.exercises];
-    const [moved] = newExercises.splice(index, 1);
-    newExercises.splice(newIndex, 0, moved);
-    
-    onWorkoutChange({ exercises: newExercises });
-  };
-
-  const handleExerciseRemove = (exerciseId: string) => {
-    onWorkoutChange({
-      exercises: workout.exercises.filter(exercise => exercise.id !== exerciseId)
-    });
-  };
-
-  const handleExerciseUpdate = (id: string, updates: Partial<WorkoutExercise>) => {
-    onWorkoutChange({
-      exercises: workout.exercises.map(exercise => 
-        exercise.id === id ? { ...exercise, ...updates } : exercise
-      )
-    });
-  };
-
-  // Helper to check for exercise validation errors
-  const hasExerciseError = (exerciseIndex: number, field: string) => {
-    if (!validationResult) return false;
-    return hasFieldError(validationResult, ['exercises', exerciseIndex.toString(), field]);
-  };
-
-  // Get error message for a specific exercise field
-  const getExerciseErrorMessage = (exerciseIndex: number, field: string) => {
-    if (!validationResult) return undefined;
-    return getFieldErrorMessage(validationResult, ['exercises', exerciseIndex.toString(), field]);
+    const updatedExercises = [...workout.exercises];
+    [updatedExercises[index], updatedExercises[newIndex]] = [updatedExercises[newIndex], updatedExercises[index]];
+    onWorkoutChange({ ...workout, exercises: updatedExercises });
   };
 
   return (
-    <div className="bg-white shadow rounded-lg p-6 sticky top-6">
-      <div className="flex justify-between items-center mb-4">
-        <h2 className="text-lg font-medium">Workout Preview</h2>
-        {validationResult && getArrayFieldErrors(validationResult, 'exercises').length > 0 ? (
-          <div className="flex items-center text-red-500 text-sm">
-            <AlertCircle className="h-4 w-4 mr-1" />
-            <span>Fix exercise errors</span>
-          </div>
-        ) : workout.exercises.length > 0 && validationResult && validationResult.isValid ? (
-          <div className="flex items-center text-green-500 text-sm">
-            <CheckCircle className="h-4 w-4 mr-1" />
-            <span>All exercises valid</span>
-          </div>
-        ) : null}
-      </div>
+    <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+      <h2 className="text-lg font-semibold text-gray-900 mb-4">Workout Preview</h2>
       
       {workout.exercises.length === 0 ? (
         <div className="text-center py-8 text-gray-500">
@@ -108,17 +68,56 @@ export function WorkoutPreview({ workout, onWorkoutChange, validationResult }: W
               key={exercise.id}
               className="border border-gray-200 rounded-md p-3"
             >
-              {editingExerciseId === exercise.id ? (
-                <div className="space-y-3">
-                  <div className="flex justify-between items-center">
-                    <h4 className="font-medium">{exerciseNames[exercise.exerciseId] || 'Exercise'}</h4>
-                    <button 
-                      onClick={() => setEditingExerciseId(null)}
-                      className="text-gray-400 hover:text-gray-600"
+              <div className="flex items-center justify-between">
+                <div className="flex-1">
+                  <h4 className="font-medium text-gray-900">Exercise #{index + 1}</h4>
+                  <div className="mt-2 grid grid-cols-2 gap-4 text-sm text-gray-600">
+                    <div>Sets: {exercise.sets}</div>
+                    <div>Reps: {exercise.reps}</div>
+                    <div>Weight: {exercise.weight} lbs</div>
+                    <div>Rest: {exercise.restTime}s</div>
+                  </div>
+                  {exercise.notes && (
+                    <div className="mt-2 text-sm text-gray-600">
+                      Notes: {exercise.notes}
+                    </div>
+                  )}
+                </div>
+                
+                <div className="flex items-center space-x-2 ml-4">
+                  <div className="flex flex-col space-y-1">
+                    <button
+                      onClick={() => moveExercise(index, 'up')}
+                      disabled={index === 0}
+                      className={`p-1 ${index === 0 ? 'text-gray-300' : 'text-gray-400 hover:text-gray-600'}`}
                     >
-                      <X size={18} />
+                      <ChevronUp size={16} />
+                    </button>
+                    <button
+                      onClick={() => moveExercise(index, 'down')}
+                      disabled={index === workout.exercises.length - 1}
+                      className={`p-1 ${index === workout.exercises.length - 1 ? 'text-gray-300' : 'text-gray-400 hover:text-gray-600'}`}
+                    >
+                      <ChevronDown size={16} />
                     </button>
                   </div>
+                  <button 
+                    onClick={() => setEditingExerciseId(editingExerciseId === exercise.id ? null : exercise.id)}
+                    className="p-1 text-gray-400 hover:text-blue-600"
+                  >
+                    <Edit size={16} />
+                  </button>
+                  <button 
+                    onClick={() => handleExerciseRemove(exercise.id)}
+                    className="p-1 text-gray-400 hover:text-red-600"
+                  >
+                    <Trash2 size={16} />
+                  </button>
+                </div>
+              </div>
+              
+              {editingExerciseId === exercise.id && (
+                <div className="mt-3 pt-3 border-t border-gray-100">
                   <div className="grid grid-cols-2 gap-3">
                     <div>
                       <label className="block text-xs font-medium text-gray-700 mb-1">Sets</label>
@@ -126,166 +125,58 @@ export function WorkoutPreview({ workout, onWorkoutChange, validationResult }: W
                         type="number" 
                         value={exercise.sets}
                         onChange={(e) => handleExerciseUpdate(exercise.id, { sets: parseInt(e.target.value) || 0 })}
-                        className="w-full p-1 text-sm border border-gray-300 rounded-md"
+                        className="w-full p-2 text-sm border border-gray-300 rounded-md"
                         min="1"
                       />
                     </div>
                     <div>
                       <label className="block text-xs font-medium text-gray-700 mb-1">Reps</label>
-                      <div className="relative">
-                        <input 
-                          type="number" 
-                          value={exercise.reps}
-                          onChange={(e) => handleExerciseUpdate(exercise.id, { reps: parseInt(e.target.value) || 0 })}
-                          className={`w-full p-1 pr-6 text-sm border rounded-md ${
-                            hasExerciseError(index, 'reps')
-                              ? 'border-red-500'
-                              : validationResult && !hasExerciseError(index, 'reps')
-                              ? 'border-green-500'
-                              : 'border-gray-300'
-                          }`}
-                          min="1"
-                        />
-                        {validationResult && !hasExerciseError(index, 'reps') && (
-                          <CheckCircle className="absolute right-1 top-1.5 h-3 w-3 text-green-500" />
-                        )}
-                      </div>
-                      {validationResult && (
-                        <ValidationFieldStatus
-                          validationResult={validationResult}
-                          field={['exercises', index.toString(), 'reps']}
-                        />
-                      )}
+                      <input 
+                        type="number" 
+                        value={exercise.reps}
+                        onChange={(e) => handleExerciseUpdate(exercise.id, { reps: parseInt(e.target.value) || 0 })}
+                        className="w-full p-2 text-sm border border-gray-300 rounded-md"
+                        min="1"
+                      />
                     </div>
                     <div>
-                      <label className="block text-xs font-medium text-gray-700 mb-1">Weight (kg)</label>
-                      <div className="relative">
-                        <input 
-                          type="number" 
-                          value={exercise.weight}
-                          onChange={(e) => handleExerciseUpdate(exercise.id, { weight: parseInt(e.target.value) || 0 })}
-                          className={`w-full p-1 pr-6 text-sm border rounded-md ${
-                            hasExerciseError(index, 'weight')
-                              ? 'border-red-500'
-                              : validationResult && !hasExerciseError(index, 'weight')
-                              ? 'border-green-500'
-                              : 'border-gray-300'
-                          }`}
-                          min="0"
-                        />
-                        {validationResult && !hasExerciseError(index, 'weight') && (
-                          <CheckCircle className="absolute right-1 top-1.5 h-3 w-3 text-green-500" />
-                        )}
-                      </div>
-                      {validationResult && (
-                        <ValidationFieldStatus
-                          validationResult={validationResult}
-                          field={['exercises', index.toString(), 'weight']}
-                        />
-                      )}
-      />
-                        {validationResult && !hasExerciseError(index, 'sets') && (
-                          <CheckCircle className="absolute right-1 top-1.5 h-3 w-3 text-green-500" />
-                        )}
-                      </div>
-                      {validationResult && (
-                        <ValidationFieldStatus
-                          validationResult={validationResult}
-                          field={['exercises', index.toString(), 'sets']}
-                        />
-                      )}
+                      <label className="block text-xs font-medium text-gray-700 mb-1">Weight (lbs)</label>
+                      <input 
+                        type="number" 
+                        value={exercise.weight}
+                        onChange={(e) => handleExerciseUpdate(exercise.id, { weight: parseInt(e.target.value) || 0 })}
+                        className="w-full p-2 text-sm border border-gray-300 rounded-md"
+                        min="0"
+                      />
                     </div>
                     <div>
-                      <label className="block text-xs font-medium text-gray-700 mb-1">Rest (sec)</label>
-                      <div className="relative">
-                        <input 
-                          type="number" 
-                          value={exercise.restTime}
-                          onChange={(e) => handleExerciseUpdate(exercise.id, { restTime: parseInt(e.target.value) || 0 })}
-                          className={`w-full p-1 pr-6 text-sm border rounded-md ${
-                            hasExerciseError(index, 'restTime')
-                              ? 'border-red-500'
-                              : validationResult && !hasExerciseError(index, 'restTime')
-                              ? 'border-green-500'
-                              : 'border-gray-300'
-                          }`}
-                          min="0"
-                        />
-                        {validationResult && !hasExerciseError(index, 'restTime') && (
-                          <CheckCircle className="absolute right-1 top-1.5 h-3 w-3 text-green-500" />
-                        )}
-                      </div>
-                      {validationResult && (
-                        <ValidationFieldStatus
-                          validationResult={validationResult}
-                          field={['exercises', index.toString(), 'restTime']}
-                        />
-                      )}
+                      <label className="block text-xs font-medium text-gray-700 mb-1">Rest (seconds)</label>
+                      <input 
+                        type="number" 
+                        value={exercise.restTime}
+                        onChange={(e) => handleExerciseUpdate(exercise.id, { restTime: parseInt(e.target.value) || 0 })}
+                        className="w-full p-2 text-sm border border-gray-300 rounded-md"
+                        min="0"
+                      />
                     </div>
                   </div>
-                  <div>
+                  <div className="mt-3">
                     <label className="block text-xs font-medium text-gray-700 mb-1">Notes</label>
                     <textarea 
                       value={exercise.notes}
                       onChange={(e) => handleExerciseUpdate(exercise.id, { notes: e.target.value })}
-                      className="w-full p-1 text-sm border border-gray-300 rounded-md"
+                      className="w-full p-2 text-sm border border-gray-300 rounded-md"
                       rows={2}
+                      placeholder="Add any notes for this exercise..."
                     />
                   </div>
                   <button
                     onClick={() => setEditingExerciseId(null)}
-                    className="w-full py-1 mt-2 bg-indigo-600 text-white text-sm rounded-md hover:bg-indigo-700"
+                    className="w-full py-2 mt-3 text-white text-sm rounded-md transition-colors"
+                    style={{ backgroundColor: '#fe3f00' }}
                   >
                     Save Changes
                   </button>
-                </div>
-              ) : (
-                <div className="flex items-center">
-                  <div className="flex flex-col items-center mr-3">
-                    <button
-                      onClick={() => moveExercise(index, 'up')}
-                      disabled={index === 0}
-                      className={`p-1 ${index === 0 ? 'text-gray-300' : 'text-gray-400 hover:text-gray-600'}`}
-                    >
-                      <ChevronUp size={18} />
-                    </button>
-                    <button
-                      onClick={() => moveExercise(index, 'down')}
-                      disabled={index === workout.exercises.length - 1}
-                      className={`p-1 ${index === workout.exercises.length - 1 ? 'text-gray-300' : 'text-gray-400 hover:text-gray-600'}`}
-                    >
-                      <ChevronDown size={18} />
-                    </button>
-                  </div>
-                  
-                  <div className="flex-1">
-                    <h4 className="font-medium">{exerciseNames[exercise.exerciseId] || 'Exercise'}</h4>
-                    <div className="flex items-center">
-                      <p className={`text-sm ${validationResult && getArrayFieldErrors(validationResult, ['exercises', index.toString()]).length > 0 
-                        ? 'text-red-500' 
-                        : 'text-gray-500'}`}>
-                        {exercise.sets} sets × {exercise.reps} reps{exercise.weight > 0 ? ` × ${exercise.weight}kg` : ''}
-                      </p>
-                      {validationResult && getArrayFieldErrors(validationResult, ['exercises', index.toString()]).length > 0 && (
-                        <AlertCircle className="h-3 w-3 text-red-500 ml-1" />
-                      )}
-                    </div>
-                  </div>
-                  
-                  <div className="flex space-x-1">
-                    <button 
-                      onClick={() => setEditingExerciseId(exercise.id)}
-                      className="p-1 text-gray-400 hover:text-gray-600"
-                    >
-                      <Edit size={18} />
-                    </button>
-                    <button 
-                      onClick={() => handleExerciseRemove(exercise.id)}
-                      className="p-1 text-gray-400 hover:text-red-600"
-                    >
-                      <Trash2 size={18} />
-                    </button>
-                  </div>
                 </div>
               )}
             </div>
@@ -294,7 +185,7 @@ export function WorkoutPreview({ workout, onWorkoutChange, validationResult }: W
       )}
       
       {workout.exercises.length > 0 && (
-        <div className="mt-4 border-t pt-4">
+        <div className="mt-6 border-t pt-4">
           <div className="flex justify-between text-sm">
             <span className="font-medium">Total Exercises:</span>
             <span>{workout.exercises.length}</span>
@@ -308,4 +199,3 @@ export function WorkoutPreview({ workout, onWorkoutChange, validationResult }: W
     </div>
   );
 }
-
