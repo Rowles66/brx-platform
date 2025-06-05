@@ -10,10 +10,9 @@ export default function WorkoutsPage() {
   const router = useRouter();
   const [statusFilter, setStatusFilter] = useState<'all' | 'scheduled' | 'completed' | 'missed'>('all');
 
-  const { data, isLoading, error } = trpc.workout.getWorkouts.useQuery({
-    status: statusFilter,
-    page: 1,
-    perPage: 10,
+  const { data, isLoading, error } = trpc.workouts.getAll.useQuery({
+    limit: 10,
+    offset: 0,
   });
 
   const formatDate = (date: Date) => {
@@ -119,7 +118,7 @@ export default function WorkoutsPage() {
                         <div className="flex items-center space-x-4 mt-1">
                           <div className="flex items-center space-x-1 text-sm text-slate-600">
                             <Calendar size={14} />
-                            <span>{formatDate(workout.date)}</span>
+                            <span>{formatDate(workout.createdAt)}</span>
                           </div>
                           <div className="flex items-center space-x-1 text-sm text-slate-600">
                             <Clock size={14} />
@@ -138,7 +137,7 @@ export default function WorkoutsPage() {
                 {/* Exercise Preview */}
                 <div className="mt-4 pt-4 border-t border-slate-100">
                   <p className="text-sm text-slate-600">
-                    {workout.exercises.length} exercises: {workout.exercises.slice(0, 3).map(e => e.name).join(', ')}
+                    {workout.exercises.length} exercises: {workout.exercises.slice(0, 3).map(e => e.exerciseName).join(', ')}
                     {workout.exercises.length > 3 && '...'}
                   </p>
                 </div>
