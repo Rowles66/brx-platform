@@ -1,0 +1,28 @@
+{
+  "auditDate": "2025-06-05T02:32:53.629Z",
+  "totalTests": 2,
+  "successfulTests": 0,
+  "averageScore": 0,
+  "criticalIssues": [],
+  "pageResults": [
+    {
+      "page": "Home Page",
+      "viewport": "Desktop",
+      "priority": "critical",
+      "error": "Failed to authenticate to live site",
+      "timestamp": "2025-06-05T02:32:36.075Z"
+    },
+    {
+      "page": "Dashboard",
+      "viewport": "Desktop",
+      "priority": "critical",
+      "error": "Failed to authenticate to live site",
+      "timestamp": "2025-06-05T02:32:53.599Z"
+    }
+  ],
+  "summary": {
+    "excellent": 0,
+    "good": 0,
+    "needsWork": 0
+  }
+}

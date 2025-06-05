@@ -1,0 +1,771 @@
+{
+  "valid_files": [
+    {
+      "page_name": "dashboard",
+      "files": {
+        "html": {
+          "path": "scraped_reference/auth_assets_from_auth_extract/html/dashboard.html",
+          "exists": true,
+          "valid": true,
+          "reason": "Valid HTML with content",
+          "metadata": {
+            "file_size": 64136,
+            "content_length": 64136,
+            "has_errors": false,
+            "has_content": true,
+            "error_found": [],
+            "content_found": [
+              "MuiBox-root",
+              "class=",
+              "<div",
+              "<script"
+            ]
+          }
+        },
+        "raw_html": {
+          "path": "scraped_reference/auth_assets_from_auth_extract/raw_pages/dashboard_raw.html",
+          "exists": true,
+          "valid": true,
+          "reason": "Valid HTML with content",
+          "metadata": {
+            "file_size": 64136,
+            "content_length": 64136,
+            "has_errors": false,
+            "has_content": true,
+            "error_found": [],
+            "content_found": [
+              "MuiBox-root",
+              "class=",
+              "<div",
+              "<script"
+            ]
+          }
+        },
+        "screenshot": {
+          "path": "scraped_reference/auth_assets_from_auth_extract/screenshots/dashboard.png",
+          "exists": true,
+          "valid": true,
+          "reason": "Valid screenshot with content",
+          "metadata": {
+            "file_size": 149004,
+            "width": 1920,
+            "height": 1080,
+            "avg_color": [
+              251.1472337962963,
+              248.58612027391976,
+              248.06577015817902
+            ],
+            "color_variance": 780.6579719655339,
+            "is_mostly_white": true
+          }
+        }
+      },
+      "overall_status": "good",
+      "issues": [],
+      "valid_files_count": 3,
+      "total_expected_files": 4
+    },
+    {
+      "page_name": "exercises",
+      "files": {
+        "html": {
+          "path": "scraped_reference/auth_assets_from_auth_extract/html/exercises.html",
+          "exists": true,
+          "valid": true,
+          "reason": "Valid HTML with content",
+          "metadata": {
+            "file_size": 106844,
+            "content_length": 106843,
+            "has_errors": false,
+            "has_content": true,
+            "error_found": [],
+            "content_found": [
+              "class=",
+              "<nav",
+              "<div",
+              "<script"
+            ]
+          }
+        },
+        "raw_html": {
+          "path": "scraped_reference/auth_assets_from_auth_extract/raw_pages/exercises_raw.html",
+          "exists": true,
+          "valid": true,
+          "reason": "Valid HTML with content",
+          "metadata": {
+            "file_size": 106844,
+            "content_length": 106843,
+            "has_errors": false,
+            "has_content": true,
+            "error_found": [],
+            "content_found": [
+              "class=",
+              "<nav",
+              "<div",
+              "<script"
+            ]
+          }
+        },
+        "screenshot": {
+          "path": "scraped_reference/auth_assets_from_auth_extract/screenshots/exercises.png",
+          "exists": true,
+          "valid": true,
+          "reason": "Valid screenshot with content",
+          "metadata": {
+            "file_size": 1430169,
+            "width": 1905,
+            "height": 1861,
+            "avg_color": [
+              224.4059567782399,
+              225.8520311237291,
+              221.40968716900716
+            ],
+            "color_variance": 3472.273883113874,
+            "is_mostly_white": false
+          }
+        }
+      },
+      "overall_status": "good",
+      "issues": [],
+      "valid_files_count": 3,
+      "total_expected_files": 4
+    }
+  ],
+  "corrupted_files": [
+    {
+      "page_name": "analytics",
+      "files": {
+        "html": {
+          "path": "scraped_reference/auth_assets_from_auth_extract/html/analytics.html",
+          "exists": false,
+          "valid": false,
+          "reason": "File does not exist",
+          "metadata": {}
+        },
+        "raw_html": {
+          "path": "scraped_reference/auth_assets_from_auth_extract/raw_pages/analytics_raw.html",
+          "exists": false,
+          "valid": false,
+          "reason": "File does not exist",
+          "metadata": {}
+        },
+        "screenshot": {
+          "path": "scraped_reference/auth_assets_from_auth_extract/screenshots/analytics.png",
+          "exists": true,
+          "valid": true,
+          "reason": "Valid screenshot with content",
+          "metadata": {
+            "file_size": 33881,
+            "width": 1920,
+            "height": 1080,
+            "avg_color": [
+              253.13913194444444,
+              253.14190393518518,
+              253.14468557098766
+            ],
+            "color_variance": 416.2306410387006,
+            "is_mostly_white": true
+          }
+        }
+      },
+      "overall_status": "partial",
+      "issues": [],
+      "valid_files_count": 1,
+      "total_expected_files": 4
+    },
+    {
+      "page_name": "clients",
+      "files": {
+        "html": {
+          "path": "scraped_reference/auth_assets_from_auth_extract/html/clients.html",
+          "exists": false,
+          "valid": false,
+          "reason": "File does not exist",
+          "metadata": {}
+        },
+        "raw_html": {
+          "path": "scraped_reference/auth_assets_from_auth_extract/raw_pages/clients_raw.html",
+          "exists": false,
+          "valid": false,
+          "reason": "File does not exist",
+          "metadata": {}
+        },
+        "screenshot": {
+          "path": "scraped_reference/auth_assets_from_auth_extract/screenshots/clients.png",
+          "exists": true,
+          "valid": true,
+          "reason": "Valid screenshot with content",
+          "metadata": {
+            "file_size": 33881,
+            "width": 1920,
+            "height": 1080,
+            "avg_color": [
+              253.13913194444444,
+              253.14190393518518,
+              253.14468557098766
+            ],
+            "color_variance": 416.2306410387006,
+            "is_mostly_white": true
+          }
+        }
+      },
+      "overall_status": "partial",
+      "issues": [],
+      "valid_files_count": 1,
+      "total_expected_files": 4
+    },
+    {
+      "page_name": "profile",
+      "files": {
+        "html": {
+          "path": "scraped_reference/auth_assets_from_auth_extract/html/profile.html",
+          "exists": false,
+          "valid": false,
+          "reason": "File does not exist",
+          "metadata": {}
+        },
+        "raw_html": {
+          "path": "scraped_reference/auth_assets_from_auth_extract/raw_pages/profile_raw.html",
+          "exists": false,
+          "valid": false,
+          "reason": "File does not exist",
+          "metadata": {}
+        },
+        "screenshot": {
+          "path": "scraped_reference/auth_assets_from_auth_extract/screenshots/profile.png",
+          "exists": true,
+          "valid": true,
+          "reason": "Valid screenshot with content",
+          "metadata": {
+            "file_size": 33881,
+            "width": 1920,
+            "height": 1080,
+            "avg_color": [
+              253.13913194444444,
+              253.14190393518518,
+              253.14468557098766
+            ],
+            "color_variance": 416.2306410387006,
+            "is_mostly_white": true
+          }
+        }
+      },
+      "overall_status": "partial",
+      "issues": [],
+      "valid_files_count": 1,
+      "total_expected_files": 4
+    },
+    {
+      "page_name": "programs",
+      "files": {
+        "html": {
+          "path": "scraped_reference/auth_assets_from_auth_extract/html/programs.html",
+          "exists": false,
+          "valid": false,
+          "reason": "File does not exist",
+          "metadata": {}
+        },
+        "raw_html": {
+          "path": "scraped_reference/auth_assets_from_auth_extract/raw_pages/programs_raw.html",
+          "exists": false,
+          "valid": false,
+          "reason": "File does not exist",
+          "metadata": {}
+        },
+        "screenshot": {
+          "path": "scraped_reference/auth_assets_from_auth_extract/screenshots/programs.png",
+          "exists": true,
+          "valid": true,
+          "reason": "Valid screenshot with content",
+          "metadata": {
+            "file_size": 33881,
+            "width": 1920,
+            "height": 1080,
+            "avg_color": [
+              253.13913194444444,
+              253.14190393518518,
+              253.14468557098766
+            ],
+            "color_variance": 416.2306410387006,
+            "is_mostly_white": true
+          }
+        }
+      },
+      "overall_status": "partial",
+      "issues": [],
+      "valid_files_count": 1,
+      "total_expected_files": 4
+    },
+    {
+      "page_name": "settings",
+      "files": {
+        "html": {
+          "path": "scraped_reference/auth_assets_from_auth_extract/html/settings.html",
+          "exists": false,
+          "valid": false,
+          "reason": "File does not exist",
+          "metadata": {}
+        },
+        "raw_html": {
+          "path": "scraped_reference/auth_assets_from_auth_extract/raw_pages/settings_raw.html",
+          "exists": false,
+          "valid": false,
+          "reason": "File does not exist",
+          "metadata": {}
+        },
+        "screenshot": {
+          "path": "scraped_reference/auth_assets_from_auth_extract/screenshots/settings.png",
+          "exists": true,
+          "valid": true,
+          "reason": "Valid screenshot with content",
+          "metadata": {
+            "file_size": 33881,
+            "width": 1920,
+            "height": 1080,
+            "avg_color": [
+              253.13913194444444,
+              253.14190393518518,
+              253.14468557098766
+            ],
+            "color_variance": 416.2306410387006,
+            "is_mostly_white": true
+          }
+        }
+      },
+      "overall_status": "partial",
+      "issues": [],
+      "valid_files_count": 1,
+      "total_expected_files": 4
+    },
+    {
+      "page_name": "workouts",
+      "files": {
+        "html": {
+          "path": "scraped_reference/auth_assets_from_auth_extract/html/workouts.html",
+          "exists": false,
+          "valid": false,
+          "reason": "File does not exist",
+          "metadata": {}
+        },
+        "raw_html": {
+          "path": "scraped_reference/auth_assets_from_auth_extract/raw_pages/workouts_raw.html",
+          "exists": false,
+          "valid": false,
+          "reason": "File does not exist",
+          "metadata": {}
+        },
+        "screenshot": {
+          "path": "scraped_reference/auth_assets_from_auth_extract/screenshots/workouts.png",
+          "exists": true,
+          "valid": true,
+          "reason": "Valid screenshot with content",
+          "metadata": {
+            "file_size": 33881,
+            "width": 1920,
+            "height": 1080,
+            "avg_color": [
+              253.13913194444444,
+              253.14190393518518,
+              253.14468557098766
+            ],
+            "color_variance": 416.2306410387006,
+            "is_mostly_white": true
+          }
+        }
+      },
+      "overall_status": "partial",
+      "issues": [],
+      "valid_files_count": 1,
+      "total_expected_files": 4
+    }
+  ],
+  "missing_files": [],
+  "blank_screenshots": [],
+  "error_pages": [],
+  "summary": {
+    "total_pages": 8,
+    "good_pages": 2,
+    "corrupted_pages": 6,
+    "blank_screenshots": 0,
+    "error_pages": 0,
+    "audit_timestamp": "2025-06-05T13:58:09.340372"
+  },
+  "detailed_results": [
+    {
+      "page_name": "analytics",
+      "files": {
+        "html": {
+          "path": "scraped_reference/auth_assets_from_auth_extract/html/analytics.html",
+          "exists": false,
+          "valid": false,
+          "reason": "File does not exist",
+          "metadata": {}
+        },
+        "raw_html": {
+          "path": "scraped_reference/auth_assets_from_auth_extract/raw_pages/analytics_raw.html",
+          "exists": false,
+          "valid": false,
+          "reason": "File does not exist",
+          "metadata": {}
+        },
+        "screenshot": {
+          "path": "scraped_reference/auth_assets_from_auth_extract/screenshots/analytics.png",
+          "exists": true,
+          "valid": true,
+          "reason": "Valid screenshot with content",
+          "metadata": {
+            "file_size": 33881,
+            "width": 1920,
+            "height": 1080,
+            "avg_color": [
+              253.13913194444444,
+              253.14190393518518,
+              253.14468557098766
+            ],
+            "color_variance": 416.2306410387006,
+            "is_mostly_white": true
+          }
+        }
+      },
+      "overall_status": "partial",
+      "issues": [],
+      "valid_files_count": 1,
+      "total_expected_files": 4
+    },
+    {
+      "page_name": "clients",
+      "files": {
+        "html": {
+          "path": "scraped_reference/auth_assets_from_auth_extract/html/clients.html",
+          "exists": false,
+          "valid": false,
+          "reason": "File does not exist",
+          "metadata": {}
+        },
+        "raw_html": {
+          "path": "scraped_reference/auth_assets_from_auth_extract/raw_pages/clients_raw.html",
+          "exists": false,
+          "valid": false,
+          "reason": "File does not exist",
+          "metadata": {}
+        },
+        "screenshot": {
+          "path": "scraped_reference/auth_assets_from_auth_extract/screenshots/clients.png",
+          "exists": true,
+          "valid": true,
+          "reason": "Valid screenshot with content",
+          "metadata": {
+            "file_size": 33881,
+            "width": 1920,
+            "height": 1080,
+            "avg_color": [
+              253.13913194444444,
+              253.14190393518518,
+              253.14468557098766
+            ],
+            "color_variance": 416.2306410387006,
+            "is_mostly_white": true
+          }
+        }
+      },
+      "overall_status": "partial",
+      "issues": [],
+      "valid_files_count": 1,
+      "total_expected_files": 4
+    },
+    {
+      "page_name": "dashboard",
+      "files": {
+        "html": {
+          "path": "scraped_reference/auth_assets_from_auth_extract/html/dashboard.html",
+          "exists": true,
+          "valid": true,
+          "reason": "Valid HTML with content",
+          "metadata": {
+            "file_size": 64136,
+            "content_length": 64136,
+            "has_errors": false,
+            "has_content": true,
+            "error_found": [],
+            "content_found": [
+              "MuiBox-root",
+              "class=",
+              "<div",
+              "<script"
+            ]
+          }
+        },
+        "raw_html": {
+          "path": "scraped_reference/auth_assets_from_auth_extract/raw_pages/dashboard_raw.html",
+          "exists": true,
+          "valid": true,
+          "reason": "Valid HTML with content",
+          "metadata": {
+            "file_size": 64136,
+            "content_length": 64136,
+            "has_errors": false,
+            "has_content": true,
+            "error_found": [],
+            "content_found": [
+              "MuiBox-root",
+              "class=",
+              "<div",
+              "<script"
+            ]
+          }
+        },
+        "screenshot": {
+          "path": "scraped_reference/auth_assets_from_auth_extract/screenshots/dashboard.png",
+          "exists": true,
+          "valid": true,
+          "reason": "Valid screenshot with content",
+          "metadata": {
+            "file_size": 149004,
+            "width": 1920,
+            "height": 1080,
+            "avg_color": [
+              251.1472337962963,
+              248.58612027391976,
+              248.06577015817902
+            ],
+            "color_variance": 780.6579719655339,
+            "is_mostly_white": true
+          }
+        }
+      },
+      "overall_status": "good",
+      "issues": [],
+      "valid_files_count": 3,
+      "total_expected_files": 4
+    },
+    {
+      "page_name": "exercises",
+      "files": {
+        "html": {
+          "path": "scraped_reference/auth_assets_from_auth_extract/html/exercises.html",
+          "exists": true,
+          "valid": true,
+          "reason": "Valid HTML with content",
+          "metadata": {
+            "file_size": 106844,
+            "content_length": 106843,
+            "has_errors": false,
+            "has_content": true,
+            "error_found": [],
+            "content_found": [
+              "class=",
+              "<nav",
+              "<div",
+              "<script"
+            ]
+          }
+        },
+        "raw_html": {
+          "path": "scraped_reference/auth_assets_from_auth_extract/raw_pages/exercises_raw.html",
+          "exists": true,
+          "valid": true,
+          "reason": "Valid HTML with content",
+          "metadata": {
+            "file_size": 106844,
+            "content_length": 106843,
+            "has_errors": false,
+            "has_content": true,
+            "error_found": [],
+            "content_found": [
+              "class=",
+              "<nav",
+              "<div",
+              "<script"
+            ]
+          }
+        },
+        "screenshot": {
+          "path": "scraped_reference/auth_assets_from_auth_extract/screenshots/exercises.png",
+          "exists": true,
+          "valid": true,
+          "reason": "Valid screenshot with content",
+          "metadata": {
+            "file_size": 1430169,
+            "width": 1905,
+            "height": 1861,
+            "avg_color": [
+              224.4059567782399,
+              225.8520311237291,
+              221.40968716900716
+            ],
+            "color_variance": 3472.273883113874,
+            "is_mostly_white": false
+          }
+        }
+      },
+      "overall_status": "good",
+      "issues": [],
+      "valid_files_count": 3,
+      "total_expected_files": 4
+    },
+    {
+      "page_name": "profile",
+      "files": {
+        "html": {
+          "path": "scraped_reference/auth_assets_from_auth_extract/html/profile.html",
+          "exists": false,
+          "valid": false,
+          "reason": "File does not exist",
+          "metadata": {}
+        },
+        "raw_html": {
+          "path": "scraped_reference/auth_assets_from_auth_extract/raw_pages/profile_raw.html",
+          "exists": false,
+          "valid": false,
+          "reason": "File does not exist",
+          "metadata": {}
+        },
+        "screenshot": {
+          "path": "scraped_reference/auth_assets_from_auth_extract/screenshots/profile.png",
+          "exists": true,
+          "valid": true,
+          "reason": "Valid screenshot with content",
+          "metadata": {
+            "file_size": 33881,
+            "width": 1920,
+            "height": 1080,
+            "avg_color": [
+              253.13913194444444,
+              253.14190393518518,
+              253.14468557098766
+            ],
+            "color_variance": 416.2306410387006,
+            "is_mostly_white": true
+          }
+        }
+      },
+      "overall_status": "partial",
+      "issues": [],
+      "valid_files_count": 1,
+      "total_expected_files": 4
+    },
+    {
+      "page_name": "programs",
+      "files": {
+        "html": {
+          "path": "scraped_reference/auth_assets_from_auth_extract/html/programs.html",
+          "exists": false,
+          "valid": false,
+          "reason": "File does not exist",
+          "metadata": {}
+        },
+        "raw_html": {
+          "path": "scraped_reference/auth_assets_from_auth_extract/raw_pages/programs_raw.html",
+          "exists": false,
+          "valid": false,
+          "reason": "File does not exist",
+          "metadata": {}
+        },
+        "screenshot": {
+          "path": "scraped_reference/auth_assets_from_auth_extract/screenshots/programs.png",
+          "exists": true,
+          "valid": true,
+          "reason": "Valid screenshot with content",
+          "metadata": {
+            "file_size": 33881,
+            "width": 1920,
+            "height": 1080,
+            "avg_color": [
+              253.13913194444444,
+              253.14190393518518,
+              253.14468557098766
+            ],
+            "color_variance": 416.2306410387006,
+            "is_mostly_white": true
+          }
+        }
+      },
+      "overall_status": "partial",
+      "issues": [],
+      "valid_files_count": 1,
+      "total_expected_files": 4
+    },
+    {
+      "page_name": "settings",
+      "files": {
+        "html": {
+          "path": "scraped_reference/auth_assets_from_auth_extract/html/settings.html",
+          "exists": false,
+          "valid": false,
+          "reason": "File does not exist",
+          "metadata": {}
+        },
+        "raw_html": {
+          "path": "scraped_reference/auth_assets_from_auth_extract/raw_pages/settings_raw.html",
+          "exists": false,
+          "valid": false,
+          "reason": "File does not exist",
+          "metadata": {}
+        },
+        "screenshot": {
+          "path": "scraped_reference/auth_assets_from_auth_extract/screenshots/settings.png",
+          "exists": true,
+          "valid": true,
+          "reason": "Valid screenshot with content",
+          "metadata": {
+            "file_size": 33881,
+            "width": 1920,
+            "height": 1080,
+            "avg_color": [
+              253.13913194444444,
+              253.14190393518518,
+              253.14468557098766
+            ],
+            "color_variance": 416.2306410387006,
+            "is_mostly_white": true
+          }
+        }
+      },
+      "overall_status": "partial",
+      "issues": [],
+      "valid_files_count": 1,
+      "total_expected_files": 4
+    },
+    {
+      "page_name": "workouts",
+      "files": {
+        "html": {
+          "path": "scraped_reference/auth_assets_from_auth_extract/html/workouts.html",
+          "exists": false,
+          "valid": false,
+          "reason": "File does not exist",
+          "metadata": {}
+        },
+        "raw_html": {
+          "path": "scraped_reference/auth_assets_from_auth_extract/raw_pages/workouts_raw.html",
+          "exists": false,
+          "valid": false,
+          "reason": "File does not exist",
+          "metadata": {}
+        },
+        "screenshot": {
+          "path": "scraped_reference/auth_assets_from_auth_extract/screenshots/workouts.png",
+          "exists": true,
+          "valid": true,
+          "reason": "Valid screenshot with content",
+          "metadata": {
+            "file_size": 33881,
+            "width": 1920,
+            "height": 1080,
+            "avg_color": [
+              253.13913194444444,
+              253.14190393518518,
+              253.14468557098766
+            ],
+            "color_variance": 416.2306410387006,
+            "is_mostly_white": true
+          }
+        }
+      },
+      "overall_status": "partial",
+      "issues": [],
+      "valid_files_count": 1,
+      "total_expected_files": 4
+    }
+  ]
+}
