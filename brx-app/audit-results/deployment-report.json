@@ -1,0 +1,20 @@
+{
+  "deployment": {
+    "url": "https://brx-app-replica-ofg86p1vc-brx-performance.vercel.app",
+    "timestamp": "2025-06-06T00:51:52.458Z",
+    "status": "success"
+  },
+  "audit": {
+    "completed": true,
+    "screenshotsPath": "audit-results/screenshots/",
+    "reportPath": "audit-results/vercel-audit-report.json"
+  },
+  "apis": {
+    "visualAudit": "https://brx-app-replica-ofg86p1vc-brx-performance.vercel.app/api/visual-audit?action=audit",
+    "screenshot": "https://brx-app-replica-ofg86p1vc-brx-performance.vercel.app/api/visual-audit?action=screenshot&page=dashboard"
+  },
+  "pages": {
+    "dashboard": "https://brx-app-replica-ofg86p1vc-brx-performance.vercel.app/dashboard-replica",
+    "exercises": "https://brx-app-replica-ofg86p1vc-brx-performance.vercel.app/exercises-replica"
+  }
+}
