@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "brx-platform": {
+      "command": "node",
+      "args": ["/Users/joshrowles/github/brx-platform/mcp-server/src/index.js"],
+      "env": {
+        "NODE_ENV": "development"
+      }
+    }
+  }
+}

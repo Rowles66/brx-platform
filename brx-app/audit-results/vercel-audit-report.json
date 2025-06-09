@@ -1,0 +1,9 @@
+[
+  {
+    "page": "dashboard",
+    "url": "https://brx-app-replica-ofg86p1vc-brx-performance.vercel.app/dashboard-replica",
+    "screenshot": "audit-results/screenshots/vercel-dashboard.png",
+    "reference": "scraped_reference/auth_assets_from_auth_extract/screenshots/dashboard.png",
+    "timestamp": "2025-06-06T00:51:52.421Z"
+  }
+]

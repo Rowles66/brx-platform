@@ -31,7 +31,14 @@
     "monitor:deployment": "bash scripts/monitor-deployment.sh",
     "audit:ai": "node scripts/ai-audit/run-audit.js",
     "audit:visual": "playwright test --grep visual",
-    "audit:playwright": "node scripts/ai-audit/run-playwright-audit.js"
+    "audit:playwright": "node scripts/ai-audit/run-playwright-audit.js",
+    "audit:vercel": "node vercel-visual-audit.js",
+    "deploy:audit": "node deploy-with-audit.js",
+    "deploy:prod": "vercel --prod",
+    "deploy:preview": "vercel",
+    "quick:screenshot": "node quick-screenshot.js",
+    "audit:api": "curl -s https://brx-app-replica-brx-performance.vercel.app/api/visual-audit?action=audit | jq",
+    "test:deployment": "node test-deployment.js"
   },
   "dependencies": {
     "@ai-sdk/vercel": "0.0.1",
