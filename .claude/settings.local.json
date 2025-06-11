@@ -16,7 +16,10 @@
       "Bash(cat:*)",
       "Bash(npm install)",
       "Bash(timeout:*)",
-      "Bash(grep:*)"
+      "Bash(grep:*)",
+      "Bash(docker:*)",
+      "Bash(find:*)",
+      "Bash(chmod:*)"
     ],
     "deny": []
   }

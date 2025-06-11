@@ -1,6 +1,21 @@
 {
   "mcpServers": {
     "brx-platform": {
+      "command": "docker",
+      "args": [
+        "compose",
+        "-f",
+        "/Users/joshrowles/github/brx-platform/mcp-server/docker-compose.yml",
+        "run",
+        "--rm",
+        "-i",
+        "brx-mcp-server"
+      ],
+      "env": {
+        "NODE_ENV": "development"
+      }
+    },
+    "brx-platform-local": {
       "command": "node",
       "args": ["/Users/joshrowles/github/brx-platform/mcp-server/src/index.js"],
       "env": {

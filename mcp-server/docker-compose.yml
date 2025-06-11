@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  brx-mcp-server:
+    build: .
+    container_name: brx-mcp-server
+    image: brx-mcp-server:latest
+    environment:
+      - NODE_ENV=development
+    volumes:
+      # Mount the entire project for the MCP server to analyze
+      - ../:/workspace:ro
+      # Mount source code for development
+      - ./src:/app/src:ro
+    stdin_open: true
+    tty: true
+    # MCP servers need to stay running
+    command: node src/index.js
+    labels:
+      - "com.docker.compose.service=brx-mcp-server"
+      - "mcp.server=true"
