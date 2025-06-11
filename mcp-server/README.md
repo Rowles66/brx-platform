@@ -63,6 +63,57 @@ Parameters:
 ### get_development_context
 Get current development context and project status.
 
+## Docker Setup
+
+### Building and Running with Docker
+
+```bash
+# Build the Docker image
+docker-compose build
+
+# Run the MCP server
+docker-compose up -d
+
+# View logs
+docker-compose logs -f
+
+# Stop the server
+docker-compose down
+```
+
+### Important Notes about MCP Servers
+
+MCP servers communicate via stdio (standard input/output), not HTTP. This means:
+
+1. **You cannot directly connect to the Docker container via HTTP**
+2. **The server needs to be connected through Claude Desktop app**
+3. **Docker is useful for consistent environments but requires special configuration**
+
+### Connecting Docker MCP Server to Claude
+
+Since MCP servers use stdio, connecting a Dockerized MCP server to Claude Desktop requires a bridge. Here are the options:
+
+1. **Run locally instead** (Recommended): The simplest approach
+   ```bash
+   npm install
+   npm start
+   ```
+
+2. **Use Docker with a stdio bridge**: Create a local script that bridges Docker stdio
+   ```bash
+   #!/bin/bash
+   docker run -i --rm -v $(pwd)/../:/workspace:ro brx-mcp-server
+   ```
+
+3. **Use the native setup**: Configure in Claude Desktop's settings with the local path
+
 ## Testing
 
-You can test the MCP server by running it and sending JSON-RPC requests via stdio, or by connecting it through Claude Code with the provided configuration.
+You can test the MCP server by running it and sending JSON-RPC requests via stdio:
+
+```bash
+# Test the server directly
+echo '{"jsonrpc": "2.0", "method": "tools/list", "id": 1}' | node src/index.js
+```
+
+Or by connecting it through Claude Code with the provided configuration.
