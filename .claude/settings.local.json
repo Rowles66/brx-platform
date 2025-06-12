@@ -32,7 +32,9 @@
       "Bash(rm:*)",
       "Bash(unzip:*)",
       "Bash(cp:*)",
-      "Bash(true)"
+      "Bash(true)",
+      "mcp__ide__getDiagnostics",
+      "mcp__ide__executeCode"
     ],
     "deny": []
   }
