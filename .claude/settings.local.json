@@ -19,7 +19,10 @@
       "Bash(grep:*)",
       "Bash(docker:*)",
       "Bash(find:*)",
-      "Bash(chmod:*)"
+      "Bash(chmod:*)",
+      "Bash(./google-cloud-sdk/install.sh:*)",
+      "Bash(~/google-cloud-sdk/install.sh --screen-reader=true)",
+      "Bash(gcloud:*)"
     ],
     "deny": []
   }
