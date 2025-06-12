@@ -22,7 +22,17 @@
       "Bash(chmod:*)",
       "Bash(./google-cloud-sdk/install.sh:*)",
       "Bash(~/google-cloud-sdk/install.sh --screen-reader=true)",
-      "Bash(gcloud:*)"
+      "Bash(gcloud:*)",
+      "Bash(npm run build:*)",
+      "Bash(npm run:*)",
+      "Bash(vercel:*)",
+      "Bash(npm install:*)",
+      "Bash(npx shadcn:*)",
+      "WebFetch(domain:v0.dev)",
+      "Bash(rm:*)",
+      "Bash(unzip:*)",
+      "Bash(cp:*)",
+      "Bash(true)"
     ],
     "deny": []
   }
