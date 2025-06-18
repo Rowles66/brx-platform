@@ -1,5 +1,33 @@
 # macOS
 .DS_Store
+.cursorrules
 
 # IDE files
 /.idea/ 
+
+# Environment and credential files
+.env
+.env.local
+.env.production
+.env.*.local
+*.env
+!.env.example
+!.env.*.template
+!.env.1password.template
+
+# 1Password files
+*.1pif
+1password-backup/
+op-session-*
+
+# Credential dumps
+*credentials*.txt
+*secrets*.txt
+*tokens*.txt
+*keys*.json
+*keys*.txt
+
+# Service account files
+*service-account*.json
+gcp-credentials.json
+firebase-adminsdk*.json 
