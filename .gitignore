@@ -14,10 +14,9 @@
 !.env.example
 !.env.*.template
 !.env.1password.template
-.env.1password
-.env.1password.*
-!.env.1password.example
-!.env.1password.complete
+# 1Password reference files are SAFE to commit (they contain references, not secrets)
+!.env.1password
+!.env.1password.*
 
 # 1Password files
 *.1pif
