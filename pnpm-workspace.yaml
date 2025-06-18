@@ -1,22 +1,5 @@
 packages:
-  # Main application packages
+  # all packages in subdirs of apps - e.g. apps/brx-app
   - 'brx-app'
-  - 'brx-core'
-  - 'brand-guidelines'
-  
-  # Shared packages and libraries
-  - 'packages/*'
-  
-  # Development and tooling
-  - 'dev_tools/*'
-  - 'scripts/*'
-  
-  # Documentation
-  - 'docs/*'
-  
-  # Exclude certain directories
-  - '!**/test-results'
-  - '!**/node_modules'
-  - '!**/dist'
-  - '!**/build'
-  - '!**/.next'
+  # all packages in subdirs of packages - e.g. packages/ui
+  - 'packages/*' 
