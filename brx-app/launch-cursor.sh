@@ -1,25 +1,25 @@
 #!/bin/bash
 
-# Launch Cursor with environment variables for BRX Platform development
-# This script exports necessary environment variables before launching Cursor
+# Launch Cursor with 1Password credentials
 
-echo "Setting up BRX Platform environment variables..."
+echo "🔐 Launching Cursor with 1Password credentials..."
 
-# Export database URL (replace with your actual credentials)
-export DATABASE_URL="postgresql://user:password@localhost:5432/brx_local"
+# Check for .env.1password
+if [ -f "../.env.1password" ]; then
+    ENV_FILE="../.env.1password"
+elif [ -f ".env.1password" ]; then
+    ENV_FILE=".env.1password"
+else
+    echo "⚠️  No .env.1password file found"
+    echo "Create one with: cp .env.1password.example .env.1password"
+    echo "Then edit it to point to your 1Password items"
+    echo ""
+    echo "Launching Cursor anyway..."
+    cursor .
+    exit 0
+fi
 
-# Export development environment
-export NODE_ENV="development"
-
-# If you're not using 1Password, uncomment and set these:
-# export FIRECRAWL_API_KEY="your-firecrawl-api-key"
-# export BRX_API_TOKEN="your-brx-api-token"
-# export BRX_BEARER_TOKEN="your-brx-bearer-token"
-
-echo "Environment variables set. Launching Cursor..."
-
-# Launch Cursor in the current directory
-cursor .
-
-echo "Cursor launched with BRX Platform environment."
+# Launch with 1Password
+echo "Using credentials from: $ENV_FILE"
+op run --env-file="$ENV_FILE" -- cursor .
 
