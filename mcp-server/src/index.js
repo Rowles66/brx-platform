@@ -10,6 +10,7 @@ import {
 import fs from 'fs/promises';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { OnePasswordTools } from './1password-tools.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -31,6 +32,9 @@ class BRXMCPServer {
       }
     );
 
+    // Initialize 1Password tools
+    this.onePasswordTools = new OnePasswordTools();
+
     this.setupToolHandlers();
     this.setupErrorHandling();
   }
@@ -46,51 +50,54 @@ class BRXMCPServer {
   setupToolHandlers() {
     // List available tools
     this.server.setRequestHandler(ListToolsRequestSchema, async () => {
-      return {
-        tools: [
-          {
-            name: 'get_project_info',
-            description: 'Get information about the BRX platform project structure and status',
-            inputSchema: {
-              type: 'object',
-              properties: {
-                section: {
-                  type: 'string',
-                  description: 'Specific section to get info about (architecture, dependencies, scripts, etc.)',
-                  enum: ['architecture', 'dependencies', 'scripts', 'status', 'all']
-                }
+      const brxTools = [
+        {
+          name: 'get_project_info',
+          description: 'Get information about the BRX platform project structure and status',
+          inputSchema: {
+            type: 'object',
+            properties: {
+              section: {
+                type: 'string',
+                description: 'Specific section to get info about (architecture, dependencies, scripts, etc.)',
+                enum: ['architecture', 'dependencies', 'scripts', 'status', 'all']
               }
             }
-          },
-          {
-            name: 'analyze_codebase',
-            description: 'Analyze the codebase for patterns, components, or specific functionality',
-            inputSchema: {
-              type: 'object',
-              properties: {
-                type: {
-                  type: 'string',
-                  description: 'Type of analysis to perform',
-                  enum: ['components', 'apis', 'tests', 'patterns', 'dependencies']
-                },
-                pattern: {
-                  type: 'string',
-                  description: 'Optional pattern to search for'
-                }
-              },
-              required: ['type']
-            }
-          },
-          {
-            name: 'get_development_context',
-            description: 'Get current development context including recent commits, changes, and project status',
-            inputSchema: {
-              type: 'object',
-              properties: {}
-            }
           }
-        ]
-      };
+        },
+        {
+          name: 'analyze_codebase',
+          description: 'Analyze the codebase for patterns, components, or specific functionality',
+          inputSchema: {
+            type: 'object',
+            properties: {
+              type: {
+                type: 'string',
+                description: 'Type of analysis to perform',
+                enum: ['components', 'apis', 'tests', 'patterns', 'dependencies']
+              },
+              pattern: {
+                type: 'string',
+                description: 'Optional pattern to search for'
+              }
+            },
+            required: ['type']
+          }
+        },
+        {
+          name: 'get_development_context',
+          description: 'Get current development context including recent commits, changes, and project status',
+          inputSchema: {
+            type: 'object',
+            properties: {}
+          }
+        }
+      ];
+
+      // Combine BRX tools with 1Password tools
+      const allTools = [...brxTools, ...this.onePasswordTools.getTools()];
+
+      return { tools: allTools };
     });
 
     // Handle tool calls
@@ -98,6 +105,13 @@ class BRXMCPServer {
       const { name, arguments: args } = request.params;
 
       try {
+        // Check if it's a 1Password tool
+        const onePasswordToolNames = this.onePasswordTools.getTools().map(t => t.name);
+        if (onePasswordToolNames.includes(name)) {
+          return await this.onePasswordTools.handleToolCall(name, args);
+        }
+
+        // Handle BRX-specific tools
         switch (name) {
           case 'get_project_info':
             return await this.getProjectInfo(args.section || 'all');
@@ -293,7 +307,8 @@ class BRXMCPServer {
               'Exercise library with search and filtering',
               'Program management and scheduling',
               'Progress tracking and analytics',
-              'AI-powered automation features'
+              'AI-powered automation features',
+              '1Password integration for secure credential management'
             ]
           }, null, 2)
         }
@@ -304,7 +319,7 @@ class BRXMCPServer {
   async run() {
     const transport = new StdioServerTransport();
     await this.server.connect(transport);
-    console.error('BRX MCP Server running on stdio');
+    console.error('BRX MCP Server running on stdio with 1Password integration');
   }
 }
 
