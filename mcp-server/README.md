@@ -9,6 +9,11 @@ The MCP server provides the following tools:
 - **get_project_info**: Get information about the BRX platform project structure and status
 - **analyze_codebase**: Analyze the codebase for patterns, components, or specific functionality  
 - **get_development_context**: Get current development context including project status
+- **search_1password**: Search for items in your 1Password vault
+- **get_1password_reference**: Get reference string for 1Password items
+- **analyze_env_requirements**: Find required environment variables in code
+- **generate_env_from_1password**: Auto-generate .env files with 1Password references
+- **convert_env_to_1password**: Convert existing .env to use 1Password
 
 ## Setup
 
@@ -63,6 +68,34 @@ Parameters:
 ### get_development_context
 Get current development context and project status.
 
+### 1Password Tools
+
+#### search_1password
+Search your 1Password vault for items.
+
+Parameters:
+- `query` (required): Search query for 1Password items
+
+#### get_1password_reference
+Get the reference string for a specific 1Password item.
+
+Parameters:
+- `item_name` (required): Name of the 1Password item
+- `field_name` (optional): Field name (default: password)
+
+#### analyze_env_requirements
+Analyze project to find required environment variables.
+
+Parameters:
+- `project_path` (optional): Path to analyze (default: brx-app)
+
+#### generate_env_from_1password
+Generate .env file with 1Password references based on project analysis.
+
+Parameters:
+- `output_file` (optional): Output filename (default: .env.1password)
+- `project_path` (optional): Project path to analyze (default: brx-app)
+
 ## Docker Setup
 
 ### Building and Running with Docker
@@ -80,6 +113,15 @@ docker-compose logs -f
 # Stop the server
 docker-compose down
 ```
+
+### 1Password Integration
+
+For 1Password features to work:
+1. Install 1Password CLI on host: `brew install 1password-cli`
+2. Sign in: `eval $(op signin)`
+3. Start with: `./start-with-1password.sh`
+
+Or use the docker-bridge.sh for Claude Desktop integration.
 
 ### Important Notes about MCP Servers
 
@@ -114,6 +156,12 @@ You can test the MCP server by running it and sending JSON-RPC requests via stdi
 ```bash
 # Test the server directly
 echo '{"jsonrpc": "2.0", "method": "tools/list", "id": 1}' | node src/index.js
+
+# Test 1Password integration
+./test-1password.sh
+
+# Quick verification
+./verify-mcp.sh
 ```
 
 Or by connecting it through Claude Code with the provided configuration.
