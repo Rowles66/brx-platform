@@ -1,0 +1,6 @@
+packages:
+  # all packages in subdirs of apps - e.g. apps/brx-app
+  - 'brx-app'
+  - 'v0-recreate-visual-design'
+  # all packages in subdirs of packages - e.g. packages/ui
+  - 'packages/*' 
