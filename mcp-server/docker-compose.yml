@@ -7,11 +7,14 @@ services:
     image: brx-mcp-server:latest
     environment:
       - NODE_ENV=development
+      - OP_SESSION_my=${OP_SESSION}
     volumes:
       # Mount the entire project for the MCP server to analyze
       - ../:/workspace:ro
       # Mount source code for development
       - ./src:/app/src:ro
+      # Mount 1Password socket if available (macOS)
+      - ~/.config/op:/root/.config/op:ro
     stdin_open: true
     tty: true
     # MCP servers need to stay running

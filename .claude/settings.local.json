@@ -34,7 +34,13 @@
       "Bash(cp:*)",
       "Bash(true)",
       "mcp__ide__getDiagnostics",
-      "mcp__ide__executeCode"
+      "mcp__ide__executeCode",
+      "Bash(op:*)",
+      "Bash(./scripts/test-1password-integration.sh:*)",
+      "Bash(./scripts/ai-agent-setup.sh:*)",
+      "Bash(./scripts/op-workflow.sh status:*)",
+      "Bash(pkill:*)",
+      "Bash(./verify-mcp.sh:*)"
     ],
     "deny": []
   }

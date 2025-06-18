@@ -10,6 +10,7 @@ import {
 import fs from 'fs/promises';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { OnePasswordTools } from './1password-tools.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -31,6 +32,7 @@ class BRXMCPServer {
       }
     );
 
+    this.onePassword = new OnePasswordTools();
     this.setupToolHandlers();
     this.setupErrorHandling();
   }
@@ -46,50 +48,54 @@ class BRXMCPServer {
   setupToolHandlers() {
     // List available tools
     this.server.setRequestHandler(ListToolsRequestSchema, async () => {
-      return {
-        tools: [
-          {
-            name: 'get_project_info',
-            description: 'Get information about the BRX platform project structure and status',
-            inputSchema: {
-              type: 'object',
-              properties: {
-                section: {
-                  type: 'string',
-                  description: 'Specific section to get info about (architecture, dependencies, scripts, etc.)',
-                  enum: ['architecture', 'dependencies', 'scripts', 'status', 'all']
-                }
+      const projectTools = [
+        {
+          name: 'get_project_info',
+          description: 'Get information about the BRX platform project structure and status',
+          inputSchema: {
+            type: 'object',
+            properties: {
+              section: {
+                type: 'string',
+                description: 'Specific section to get info about (architecture, dependencies, scripts, etc.)',
+                enum: ['architecture', 'dependencies', 'scripts', 'status', 'all']
               }
             }
-          },
-          {
-            name: 'analyze_codebase',
-            description: 'Analyze the codebase for patterns, components, or specific functionality',
-            inputSchema: {
-              type: 'object',
-              properties: {
-                type: {
-                  type: 'string',
-                  description: 'Type of analysis to perform',
-                  enum: ['components', 'apis', 'tests', 'patterns', 'dependencies']
-                },
-                pattern: {
-                  type: 'string',
-                  description: 'Optional pattern to search for'
-                }
-              },
-              required: ['type']
-            }
-          },
-          {
-            name: 'get_development_context',
-            description: 'Get current development context including recent commits, changes, and project status',
-            inputSchema: {
-              type: 'object',
-              properties: {}
-            }
           }
-        ]
+        },
+        {
+          name: 'analyze_codebase',
+          description: 'Analyze the codebase for patterns, components, or specific functionality',
+          inputSchema: {
+            type: 'object',
+            properties: {
+              type: {
+                type: 'string',
+                description: 'Type of analysis to perform',
+                enum: ['components', 'apis', 'tests', 'patterns', 'dependencies']
+              },
+              pattern: {
+                type: 'string',
+                description: 'Optional pattern to search for'
+              }
+            },
+            required: ['type']
+          }
+        },
+        {
+          name: 'get_development_context',
+          description: 'Get current development context including recent commits, changes, and project status',
+          inputSchema: {
+            type: 'object',
+            properties: {}
+          }
+        }
+      ];
+
+      const onePasswordTools = this.onePassword.getMCPTools();
+      
+      return {
+        tools: [...projectTools, ...onePasswordTools]
       };
     });
 
@@ -98,6 +104,20 @@ class BRXMCPServer {
       const { name, arguments: args } = request.params;
 
       try {
+        // Handle 1Password tools
+        if (name.startsWith('op_')) {
+          const result = await this.onePassword.handleToolCall(name, args);
+          return {
+            content: [
+              {
+                type: 'text',
+                text: JSON.stringify(result, null, 2)
+              }
+            ]
+          };
+        }
+
+        // Handle project tools
         switch (name) {
           case 'get_project_info':
             return await this.getProjectInfo(args.section || 'all');

@@ -1,0 +1,114 @@
+# Cursor AI Rules for BRX Platform - Maximum Autonomy Configuration
+# Designed for 20+ year development guru workflow optimization
+
+# 1Password Integration Rules
+1password_integration:
+  - ALWAYS use 1Password CLI for secret management
+  - NEVER hardcode secrets or API keys in any file
+  - Use `op run --env-file=.env.local --` prefix for ALL commands that need secrets
+  - Environment files MUST use 1Password secret references: "op://vault/item/field"
+  - If secrets are needed, automatically run the op-workflow.sh script first
+
+# Development Workflow Automation
+development_workflow:
+  - Before ANY development task, run: `./scripts/op-workflow.sh init`
+  - Use `npm run dev` (which includes 1Password integration) for development
+  - ALWAYS validate credentials before starting work: `./scripts/op-workflow.sh validate`
+  - Log all 1Password operations for audit trail
+  - Use the AI agent configuration in .ai-agent-config.json
+
+# Security-First Approach
+security_rules:
+  - SSH-based authentication is preferred for AI agents
+  - All secrets MUST be stored in 1Password vaults
+  - Use different vaults for different environments (dev/staging/prod)
+  - Rotate development credentials monthly (use op-workflow.sh rotate)
+  - Monitor all secret access and log to logs/op-workflow.log
+
+# AI Agent Autonomy Rules
+ai_agent_behavior:
+  - Autonomous access to development secrets is ENABLED
+  - Can read, inject, and validate credentials without approval
+  - Must use structured logging for all operations
+  - Session timeout: 2 hours (auto-refresh at 5 min threshold)
+  - Allowed operations: read_secrets, inject_env_vars, validate_credentials, start_development
+  - Restricted operations: production deployment, vault management, credential deletion
+
+# Development Commands
+preferred_commands:
+  development_start: "./scripts/op-workflow.sh start"
+  inject_env_vars: "./scripts/op-workflow.sh inject development"
+  run_with_secrets: "./scripts/op-workflow.sh run <command>"
+  validate_all: "./scripts/op-workflow.sh validate"
+  check_status: "./scripts/op-workflow.sh status"
+
+# File Structure Rules
+file_organization:
+  - All 1Password scripts in /scripts/ directory
+  - Configuration files in project root
+  - Environment files MUST be .env.local (not .env)
+  - Logs stored in /logs/ directory
+  - AI configuration in .ai-agent-config.json
+
+# Emergency Procedures
+emergency_access:
+  - If 1Password session expires, run: `op signin`
+  - For urgent development without secrets: use *:unsafe npm scripts
+  - Emergency credential access: use 1Password GUI application
+  - Backup authentication method: SSH key authentication
+
+# Performance Optimization
+performance_rules:
+  - Cache 1Password sessions for 2 hours
+  - Batch secret retrievals when possible
+  - Use lazy loading for non-critical secrets
+  - Validate only required credentials during development
+  - Refresh session 5 minutes before expiry
+
+# Integration Points
+external_integrations:
+  database: "Use DATABASE_URL from 1Password for all DB connections"
+  apis: "All API keys fetched from Development Credentials vault"
+  deployment: "Production secrets from Production Credentials vault"
+  testing: "Test credentials isolated in separate vault section"
+
+# Monitoring and Logging
+monitoring:
+  - All 1Password operations logged to logs/op-workflow.log
+  - Track session duration and refresh cycles
+  - Monitor credential validation success rates
+  - Alert on failed secret retrievals
+  - Audit all secret access patterns
+
+# Development Environment
+environment_setup:
+  - Node.js with 1Password CLI v2.0+
+  - Environment files auto-generated from 1Password
+  - All npm scripts use 1Password integration by default
+  - Fallback 'unsafe' scripts for emergency use only
+
+# AI Code Generation Rules
+code_generation:
+  - Never generate hardcoded secrets or API keys
+  - Always use 1Password references in config files
+  - Include 1Password validation in all new scripts
+  - Add proper error handling for secret retrieval
+  - Document all new secret requirements
+
+# Collaboration Rules
+team_workflow:
+  - Each developer has their own 1Password vaults
+  - Shared secrets in team vaults with appropriate permissions
+  - All secret changes must be auditable
+  - Use semantic versioning for vault schema changes
+  - Document all vault structure modifications
+
+# Testing Rules
+testing_integration:
+  - Test environment uses separate vault or vault section
+  - Mock secrets for unit tests (no real credentials)
+  - Integration tests use dedicated test credentials
+  - E2E tests can use development vault with test data
+  - Never use production secrets in any tests
+
+This configuration maximizes AI agent autonomy while maintaining enterprise-grade security standards.

@@ -1,0 +1,13 @@
+2025-06-18 14:46:29 [INFO] [0;34m📊 1Password Integration Status[0m
+2025-06-18 14:46:29 [INFO] [0;34m🔐 Ensuring 1Password session...[0m
+2025-06-18 14:46:30 [SUCCESS] [0;32m✅ Already signed in to 1Password[0m
+2025-06-18 14:46:30 [INFO] [0;34m💉 Injecting environment variables for: development[0m
+2025-06-18 14:46:30 [INFO] [0;34m📝 Creating development environment file: /Users/joshrowles/github/brx-platform/brx-app/.env.local[0m
+2025-06-18 14:46:30 [SUCCESS] [0;32m✅ Development environment variables injected[0m
+2025-06-18 14:49:40 [INFO] [0;34m📊 1Password Integration Status[0m
+2025-06-18 14:49:40 [INFO] [0;34m🔐 Ensuring 1Password session...[0m
+2025-06-18 14:49:40 [SUCCESS] [0;32m✅ Already signed in to 1Password[0m
+2025-06-18 14:49:40 [INFO] [0;34m💉 Injecting environment variables for: development[0m
+2025-06-18 14:49:40 [INFO] [0;34m📝 Creating development environment file: /Users/joshrowles/github/brx-platform/brx-app/.env.local[0m
+2025-06-18 14:49:40 [SUCCESS] [0;32m✅ Development environment variables injected[0m
+2025-06-18 14:51:33 [INFO] [0;34m📊 1Password Integration Status[0m

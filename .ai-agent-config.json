@@ -1,0 +1,178 @@
+{
+  "version": "2.0",
+  "ai_agent": {
+    "autonomous_access": true,
+    "session_management": {
+      "auto_signin": true,
+      "session_timeout": 7200,
+      "refresh_threshold": 300,
+      "retry_attempts": 3,
+      "retry_delay": 5000
+    },
+    "permissions": {
+      "allowed_operations": [
+        "read_secrets",
+        "inject_env_vars",
+        "validate_credentials",
+        "start_development",
+        "run_tests",
+        "deploy_staging",
+        "generate_schemas",
+        "audit_visual",
+        "monitor_deployment"
+      ],
+      "restricted_operations": [
+        "rotate_production_keys",
+        "delete_vault_items",
+        "modify_vault_permissions",
+        "production_deployment",
+        "create_vault_items",
+        "share_vault_access"
+      ]
+    },
+    "workflows": {
+      "development_start": {
+        "auto_inject_env": true,
+        "validate_on_start": true,
+        "start_services": ["database", "redis", "api"],
+        "pre_checks": [
+          "verify_op_session",
+          "validate_node_version",
+          "check_port_availability"
+        ],
+        "post_start": [
+          "verify_api_health",
+          "check_database_connection",
+          "run_smoke_tests"
+        ]
+      },
+      "testing": {
+        "use_test_credentials": true,
+        "isolated_environment": true,
+        "auto_cleanup": true,
+        "parallel_execution": true
+      },
+      "deployment": {
+        "pre_deploy_checks": [
+          "validate_all_credentials",
+          "run_full_test_suite",
+          "verify_build_success"
+        ],
+        "staging_first": true,
+        "production_approval_required": true
+      }
+    },
+    "error_handling": {
+      "retry_on_auth_failure": true,
+      "fallback_to_unsafe_mode": false,
+      "log_all_errors": true,
+      "notify_on_critical_failure": true
+    },
+    "logging": {
+      "level": "info",
+      "file": "logs/ai-agent.log",
+      "structured": true,
+      "include_timestamps": true,
+      "include_context": true
+    },
+    "security": {
+      "vault_isolation": {
+        "development": "Development Credentials",
+        "staging": "Staging Credentials", 
+        "production": "Production Credentials"
+      },
+      "secret_caching": {
+        "enabled": true,
+        "ttl": 1800,
+        "encrypt_cache": true
+      },
+      "audit_trail": {
+        "log_secret_access": true,
+        "log_credential_validation": true,
+        "log_environment_injection": true
+      }
+    },
+    "performance": {
+      "batch_secret_retrieval": true,
+      "lazy_load_secrets": true,
+      "cache_validation_results": true,
+      "parallel_credential_checks": true
+    },
+    "development_preferences": {
+      "auto_format_on_save": true,
+      "auto_lint_on_commit": true,
+      "run_tests_before_push": true,
+      "validate_secrets_on_change": true
+    }
+  },
+  "1password_integration": {
+    "cli_version_required": "2.0.0",
+    "default_vault": "Development Credentials",
+    "session_management": {
+      "biometric_unlock": true,
+      "auto_lock_timeout": 7200,
+      "require_touch_id": false
+    },
+    "vault_mapping": {
+      "development": {
+        "vault": "Development Credentials",
+        "items": {
+          "database": "BRX Database",
+          "redis": "Redis Connection",
+          "supabase": "Supabase",
+          "openai": "OPENAI_API_KEY",
+          "anthropic": "Anthropic API",
+          "pinecone": "Pinecone",
+          "firecrawl": "FIRECRAWL_API_KEY",
+          "brx_api": "BRX API Credentials",
+          "brx_admin": "BRX Admin Credentials",
+          "nextauth": "NextAuth",
+          "jwt": "JWT Secrets",
+          "encryption": "Encryption Keys"
+        }
+      },
+      "production": {
+        "vault": "Production Credentials",
+        "require_additional_auth": true,
+        "audit_all_access": true
+      }
+    },
+    "secret_patterns": {
+      "api_keys": "op://vault/item/credential",
+      "connection_strings": "op://vault/item/connection_string",
+      "tokens": "op://vault/item/token",
+      "passwords": "op://vault/item/password"
+    }
+  },
+  "cursor_ai_settings": {
+    "autonomous_mode": "aggressive",
+    "auto_complete_secrets": false,
+    "suggest_1password_refs": true,
+    "validate_before_commit": true,
+    "integration_shortcuts": {
+      "start_dev": "Ctrl+Shift+D",
+      "inject_env": "Ctrl+Shift+E",
+      "validate_creds": "Ctrl+Shift+V",
+      "check_status": "Ctrl+Shift+S"
+    }
+  },
+  "monitoring": {
+    "health_checks": {
+      "interval": 300000,
+      "endpoints": [
+        "http://localhost:3000/api/health",
+        "http://localhost:3000/api/auth/session"
+      ]
+    },
+    "performance_metrics": {
+      "track_secret_retrieval_time": true,
+      "track_session_duration": true,
+      "track_validation_success_rate": true
+    },
+    "alerts": {
+      "session_expiry_warning": 300,
+      "failed_validation_threshold": 3,
+      "credential_rotation_reminder": 2592000
+    }
+  }
+}

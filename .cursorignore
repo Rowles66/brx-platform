@@ -2,3 +2,8 @@
 
 # IDE files from other editors
 .idea/
+
+# Ignore config and documentation
+*.md
+*.sh
+*.json

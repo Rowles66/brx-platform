@@ -1,0 +1,65 @@
+2025-06-18 14:46:29 [TEST] 🧪 Running: 1Password CLI Installation
+/opt/homebrew/bin/op
+2025-06-18 14:46:29 [TEST] 🧪 Running: 1Password CLI Version
+2.31.1
+2025-06-18 14:46:29 [TEST] 🧪 Running: 1Password Session Status
+URL                             EMAIL                      USER ID
+brxperformance.1password.com    josh@brxperformance.com    HBJF772XGFGTDJCC4YJEOR7RY4
+2025-06-18 14:46:29 [TEST] 🧪 Running: op-workflow Script Executable
+2025-06-18 14:46:29 [TEST] 🧪 Running: 1Password Config File
+2025-06-18 14:46:29 [TEST] 🧪 Running: AI Agent Config File
+2025-06-18 14:46:29 [TEST] 🧪 Running: Cursor Rules File
+2025-06-18 14:46:29 [TEST] 🧪 Running: op-workflow Status Command
+2025-06-18 14:46:29 [INFO] [0;34m📊 1Password Integration Status[0m
+==================================
+🔐 1Password CLI: ✅ Installed (2.31.1)
+🔑 1Password Session: ✅ Active
+📝 Environment File: ❌ Missing
+⚙️  Configuration: ✅ Present
+==================================
+2025-06-18 14:46:29 [TEST] 🧪 Running: Environment File Generation
+2025-06-18 14:46:29 [INFO] [0;34m🔐 Ensuring 1Password session...[0m
+2025-06-18 14:46:30 [SUCCESS] [0;32m✅ Already signed in to 1Password[0m
+2025-06-18 14:46:30 [INFO] [0;34m💉 Injecting environment variables for: development[0m
+2025-06-18 14:46:30 [INFO] [0;34m📝 Creating development environment file: /Users/joshrowles/github/brx-platform/brx-app/.env.local[0m
+2025-06-18 14:46:30 [SUCCESS] [0;32m✅ Development environment variables injected[0m
+2025-06-18 14:46:30 [TEST] 🧪 Running: Environment File Format
+2025-06-18 14:46:30 [TEST] 🧪 Running: Package.json 1Password Integration
+2025-06-18 14:46:34 [TEST] 🧪 Running: NPM Script 1Password Integration
+./scripts/test-1password-integration.sh: line 40: timeout: command not found
+2025-06-18 14:46:34 [TEST] 🧪 Running: Logs Directory
+2025-06-18 14:46:34 [TEST] 🧪 Running: VS Code Settings
+2025-06-18 14:49:39 [TEST] 🧪 Running: 1Password CLI Installation
+/opt/homebrew/bin/op
+2025-06-18 14:49:39 [TEST] 🧪 Running: 1Password CLI Version
+2.31.1
+2025-06-18 14:49:39 [TEST] 🧪 Running: 1Password Session Status
+URL                             EMAIL                      USER ID
+brxperformance.1password.com    josh@brxperformance.com    HBJF772XGFGTDJCC4YJEOR7RY4
+2025-06-18 14:49:40 [TEST] 🧪 Running: op-workflow Script Executable
+2025-06-18 14:49:40 [TEST] 🧪 Running: 1Password Config File
+2025-06-18 14:49:40 [TEST] 🧪 Running: AI Agent Config File
+2025-06-18 14:49:40 [TEST] 🧪 Running: Cursor Rules File
+2025-06-18 14:49:40 [TEST] 🧪 Running: op-workflow Status Command
+2025-06-18 14:49:40 [INFO] [0;34m📊 1Password Integration Status[0m
+==================================
+🔐 1Password CLI: ✅ Installed (2.31.1)
+🔑 1Password Session: ✅ Active
+📝 Environment File: ✅ Present
+   Location: /Users/joshrowles/github/brx-platform/brx-app/.env.local
+   Size:       40 lines
+⚙️  Configuration: ✅ Present
+==================================
+2025-06-18 14:49:40 [TEST] 🧪 Running: Environment File Generation
+2025-06-18 14:49:40 [INFO] [0;34m🔐 Ensuring 1Password session...[0m
+2025-06-18 14:49:40 [SUCCESS] [0;32m✅ Already signed in to 1Password[0m
+2025-06-18 14:49:40 [INFO] [0;34m💉 Injecting environment variables for: development[0m
+2025-06-18 14:49:40 [INFO] [0;34m📝 Creating development environment file: /Users/joshrowles/github/brx-platform/brx-app/.env.local[0m
+2025-06-18 14:49:40 [SUCCESS] [0;32m✅ Development environment variables injected[0m
+2025-06-18 14:49:40 [TEST] 🧪 Running: Environment File Format
+2025-06-18 14:49:40 [TEST] 🧪 Running: Package.json 1Password Integration
+2025-06-18 14:49:44 [TEST] 🧪 Running: NPM Script 1Password Integration
+./scripts/test-1password-integration.sh: line 40: timeout: command not found
+2025-06-18 14:49:44 [TEST] 🧪 Running: Logs Directory
+2025-06-18 14:49:44 [TEST] 🧪 Running: VS Code Settings
+2025-06-18 14:49:44 [TEST] 🧪 Running: GitHub Actions Workflow

@@ -1,0 +1,156 @@
+# 1Password CLI Configuration for Maximum AI Agent Autonomy
+# This configuration enables seamless secret management for development workflows
+
+# Global configuration
+global:
+  vault: "Development Credentials"
+  account: "josh.rowles@gmail.com"
+  
+# Environment configurations
+environments:
+  development:
+    vault: "Development Credentials"
+    items:
+      # Database & Infrastructure
+      - name: "DATABASE_URL"
+        item: "BRX Database"
+        field: "connection_string"
+      - name: "REDIS_URL"
+        item: "Redis Connection"
+        field: "url"
+      - name: "SUPABASE_URL"
+        item: "Supabase"
+        field: "url"
+      - name: "SUPABASE_ANON_KEY"
+        item: "Supabase"
+        field: "anon_key"
+      - name: "SUPABASE_SERVICE_ROLE_KEY"
+        item: "Supabase"
+        field: "service_role_key"
+        
+      # AI & ML Services
+      - name: "OPENAI_API_KEY"
+        item: "OPENAI_API_KEY"
+        field: "credential"
+      - name: "ANTHROPIC_API_KEY"
+        item: "Anthropic API"
+        field: "api_key"
+      - name: "PINECONE_API_KEY"
+        item: "Pinecone"
+        field: "api_key"
+      - name: "PINECONE_ENVIRONMENT"
+        item: "Pinecone"
+        field: "environment"
+        
+      # External APIs
+      - name: "FIRECRAWL_API_KEY"
+        item: "FIRECRAWL_API_KEY"
+        field: "credential"
+      - name: "BRX_API_TOKEN"
+        item: "BRX API Credentials"
+        field: "API_TOKEN"
+      - name: "BRX_BEARER_TOKEN"
+        item: "BRX API Credentials"
+        field: "BEARER_TOKEN"
+      - name: "BRX_API_DOCS_USERNAME"
+        item: "BRX API Credentials"
+        field: "BRX_API_DOCS_USERNAME"
+      - name: "BRX_API_DOCS_PASSWORD"
+        item: "BRX API Credentials"
+        field: "BRX_API_DOCS_PASSWORD"
+      - name: "BRX_API_BASE_URL"
+        item: "BRX API Credentials"
+        field: "baseUrl"
+      - name: "BRX_USERNAME"
+        item: "BRX Admin Credentials"
+        field: "username"
+      - name: "BRX_PASSWORD"
+        item: "BRX Admin Credentials"
+        field: "password"
+        
+      # Authentication & Security
+      - name: "NEXTAUTH_SECRET"
+        item: "NextAuth"
+        field: "secret"
+      - name: "NEXTAUTH_URL"
+        item: "NextAuth"
+        field: "url"
+      - name: "JWT_SECRET"
+        item: "JWT Secrets"
+        field: "secret"
+      - name: "ENCRYPTION_KEY"
+        item: "Encryption Keys"
+        field: "primary_key"
+        
+      # Deployment & CI/CD
+      - name: "VERCEL_TOKEN"
+        item: "Vercel"
+        field: "token"
+      - name: "GITHUB_TOKEN"
+        item: "GitHub Actions"
+        field: "token"
+      - name: "DOCKER_HUB_TOKEN"
+        item: "Docker Hub"
+        field: "token"
+        
+  production:
+    vault: "Production Credentials"
+    items:
+      # Production environment mirrors development but with production vault
+      - name: "DATABASE_URL"
+        item: "Production Database"
+        field: "connection_string"
+      - name: "REDIS_URL"
+        item: "Production Redis"
+        field: "url"
+      - name: "SUPABASE_URL"
+        item: "Production Supabase"
+        field: "url"
+      - name: "SUPABASE_SERVICE_ROLE_KEY"
+        item: "Production Supabase"
+        field: "service_role_key"
+        
+  staging:
+    vault: "Staging Credentials"
+    items:
+      # Staging environment for testing
+      - name: "DATABASE_URL"
+        item: "Staging Database"
+        field: "connection_string"
+      - name: "REDIS_URL"
+        item: "Staging Redis"
+        field: "url"
+
+# AI Agent specific configuration
+ai_agent:
+  autonomous_access: true
+  allowed_operations:
+    - read_secrets
+    - inject_env_vars
+    - validate_credentials
+    - rotate_dev_keys
+  restricted_operations:
+    - create_production_secrets
+    - delete_vault_items
+    - modify_vault_permissions
+  session_timeout: 7200  # 2 hours
+  
+# Workflow automation
+workflows:
+  development_start:
+    - validate_op_session
+    - inject_all_env_vars
+    - verify_database_connection
+    - start_development_services
+    
+  production_deploy:
+    - switch_to_production_vault
+    - inject_production_env_vars
+    - validate_all_credentials
+    - execute_deployment
+    
+  credential_rotation:
+    - backup_current_credentials
+    - generate_new_credentials
+    - update_vault_items
+    - verify_service_connectivity

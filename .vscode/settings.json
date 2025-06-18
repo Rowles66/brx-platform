@@ -1,0 +1,53 @@
+{
+  "cursor.ai.autonomousMode": "aggressive",
+  "cursor.ai.codeGeneration": {
+    "enabled": true,
+    "autoComplete": true,
+    "suggestions": true,
+    "1passwordIntegration": true
+  },
+  "cursor.ai.secretManagement": {
+    "provider": "1password",
+    "autoInject": true,
+    "validateBeforeCommit": true
+  },
+  "cursor.ai.workflows": {
+    "developmentStart": {
+      "enabled": true,
+      "command": "./scripts/op-workflow.sh start"
+    },
+    "credentialValidation": {
+      "enabled": true,
+      "command": "./scripts/op-workflow.sh validate"
+    },
+    "environmentInjection": {
+      "enabled": true,
+      "command": "./scripts/op-workflow.sh inject development"
+    }
+  },
+  "terminal.integrated.env.osx": {
+    "PATH": "/opt/homebrew/bin:${env:PATH}"
+  },
+  "terminal.integrated.profiles.osx": {
+    "bash-with-1password": {
+      "path": "/bin/bash",
+      "args": ["-c", "source ~/.bashrc && exec bash"],
+      "env": {
+        "OP_CLI_AVAILABLE": "true"
+      }
+    }
+  },
+  "terminal.integrated.defaultProfile.osx": "bash-with-1password",
+  "files.associations": {
+    "*.cursorrules": "yaml",
+    ".op-config.yaml": "yaml",
+    ".ai-agent-config.json": "jsonc"
+  },
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/logs": true,
+    "**/.env*": true,
+    "**/dist": true,
+    "**/.next": true
+  }
+}
