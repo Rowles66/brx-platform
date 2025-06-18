@@ -7,11 +7,19 @@ services:
     image: brx-mcp-server:latest
     environment:
       - NODE_ENV=development
+      # 1Password authentication - use one of these methods:
+      # Method 1: Pass session from host (set when running docker-compose)
+      - OP_SESSION_${OP_ACCOUNT:-}
+      # Method 2: Service account (uncomment and add your token)
+      # - OP_SERVICE_ACCOUNT_TOKEN=ops_xxx_your_token_here
     volumes:
       # Mount the entire project for the MCP server to analyze
       - ../:/workspace:ro
       # Mount source code for development
       - ./src:/app/src:ro
+      # Optional: Mount 1Password config from host (for desktop app integration)
+      # - ~/.config/op:/root/.config/op:ro
+      # - ~/.op:/root/.op:ro
     stdin_open: true
     tty: true
     # MCP servers need to stay running
@@ -19,3 +27,4 @@ services:
     labels:
       - "com.docker.compose.service=brx-mcp-server"
       - "mcp.server=true"
+      - "mcp.1password=enabled"
