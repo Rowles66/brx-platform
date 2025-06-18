@@ -3,3 +3,11 @@
 
 # IDE files
 /.idea/ 
+
+# Dependencies
+node_modules
+.pnpm-store/
+
+# Build outputs
+.next/
+dist/ 
