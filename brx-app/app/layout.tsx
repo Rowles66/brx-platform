@@ -1,8 +1,10 @@
-import type React from "react"
-import "./globals.css"
-import type { Metadata } from "next"
-import { Inter } from "next/font/google"
-import { TrpcProvider } from "@/lib/trpc-provider" // Updated path
+import { TrpcProvider } from "@/lib/trpc-provider"; // Updated path
+import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/next';
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
+import type React from "react";
+import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -21,6 +23,8 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
         <TrpcProvider>{children}</TrpcProvider>
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   )

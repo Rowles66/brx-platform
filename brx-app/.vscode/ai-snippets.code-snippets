@@ -1,0 +1,83 @@
+{
+  "AI Review Code": {
+    "prefix": "aireview",
+    "body": [
+      "import { reviewCode } from '@/lib/ai/dev-tools';",
+      "",
+      "// AI Code Review",
+      "const review = await reviewCode(`",
+      "$1",
+      "`);",
+      "console.log(review);"
+    ],
+    "description": "Get AI code review"
+  },
+  "AI Generate Types": {
+    "prefix": "aitypes",
+    "body": [
+      "import { generateTypesFromJSON } from '@/lib/ai/dev-tools';",
+      "",
+      "// Generate TypeScript types from JSON",
+      "const types = await generateTypesFromJSON(",
+      "  $1,",
+      "  '$2'",
+      ");",
+      "console.log(types);"
+    ],
+    "description": "Generate TypeScript types from JSON"
+  },
+  "AI Optimize Component": {
+    "prefix": "aioptimize",
+    "body": [
+      "import { optimizeReactComponent } from '@/lib/ai/dev-tools';",
+      "",
+      "// Optimize React component",
+      "const optimized = await optimizeReactComponent(`",
+      "$1",
+      "`);",
+      "console.log(optimized);"
+    ],
+    "description": "Optimize React component with AI"
+  },
+  "AI Chat Hook": {
+    "prefix": "aichat",
+    "body": [
+      "import { useAIChat } from '@/lib/ai/hooks';",
+      "",
+      "const { messages, input, handleInputChange, handleSubmit } = useAIChat();",
+      "",
+      "<form onSubmit={handleSubmit}>",
+      "  <input",
+      "    value={input}",
+      "    onChange={handleInputChange}",
+      "    placeholder=\"Ask me anything...\"",
+      "  />",
+      "</form>",
+      "",
+      "{messages.map(m => (",
+      "  <div key={m.id}>",
+      "    <strong>{m.role}:</strong> {m.content}",
+      "  </div>",
+      "))}"
+    ],
+    "description": "AI Chat component setup"
+  },
+  "AI Workout Generator": {
+    "prefix": "aiworkout",
+    "body": [
+      "import { useWorkoutGenerator } from '@/lib/ai/hooks';",
+      "",
+      "const { generate, workout, loading, error } = useWorkoutGenerator();",
+      "",
+      "const handleGenerate = () => {",
+      "  generate({",
+      "    fitnessLevel: '$1',",
+      "    goals: [$2],",
+      "    equipment: [$3],",
+      "    timeAvailable: $4",
+      "  });",
+      "};"
+    ],
+    "description": "AI Workout generator setup"
+  }
+} 

@@ -11,9 +11,9 @@
 
 # Development Workflow Automation
 development_workflow:
-  - Before ANY development task, run: `./scripts/op-workflow.sh init`
-  - Use `npm run dev` (which includes 1Password integration) for development
-  - ALWAYS validate credentials before starting work: `./scripts/op-workflow.sh validate`
+  - Before ANY development task, run: ./scripts/op-workflow.sh init
+  - Use npm run dev (which includes 1Password integration) for development
+  - ALWAYS validate credentials before starting work: ./scripts/op-workflow.sh validate
   - Log all 1Password operations for audit trail
   - Use the AI agent configuration in .ai-agent-config.json
 
@@ -52,7 +52,7 @@ file_organization:
 
 # Emergency Procedures
 emergency_access:
-  - If 1Password session expires, run: `op signin`
+  - If 1Password session expires, run: op signin
   - For urgent development without secrets: use *:unsafe npm scripts
   - Emergency credential access: use 1Password GUI application
   - Backup authentication method: SSH key authentication
@@ -111,4 +111,5 @@ testing_integration:
   - E2E tests can use development vault with test data
   - Never use production secrets in any tests
 
-This configuration maximizes AI agent autonomy while maintaining enterprise-grade security standards.
+# Final Comment
+final_comment: "This configuration maximizes AI agent autonomy while maintaining enterprise-grade security standards."

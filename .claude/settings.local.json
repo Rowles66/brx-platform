@@ -40,7 +40,14 @@
       "Bash(./scripts/ai-agent-setup.sh:*)",
       "Bash(./scripts/op-workflow.sh status:*)",
       "Bash(pkill:*)",
-      "Bash(./verify-mcp.sh:*)"
+      "Bash(./verify-mcp.sh:*)",
+      "Bash(crontab:*)",
+      "Bash(launchctl:*)",
+      "Bash(pnpm install:*)",
+      "Bash(curl:*)",
+      "Bash(rg:*)",
+      "Bash(yamllint:*)",
+      "Bash(./op-workflow.sh:*)"
     ],
     "deny": []
   }
