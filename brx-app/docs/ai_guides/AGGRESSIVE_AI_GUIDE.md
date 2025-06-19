@@ -153,7 +153,7 @@ Create your own trigger patterns:
 
 ### Safety Controls
 Even in aggressive mode, you can:
-- Set boundaries in `.cursorrules`
+- Set boundaries in AI configuration
 - Define no-go zones
 - Require approval for specific actions
 - Monitor AI decisions in logs

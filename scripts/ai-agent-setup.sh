@@ -96,7 +96,6 @@ setup_cursor_permissions() {
   },
   "terminal.integrated.defaultProfile.osx": "bash-with-1password",
   "files.associations": {
-    "*.cursorrules": "yaml",
     ".op-config.yaml": "yaml",
     ".ai-agent-config.json": "jsonc"
   },
@@ -366,13 +365,6 @@ validate_setup() {
         success "✅ AI agent configuration present"
     else
         warning "⚠️ AI agent configuration missing"
-    fi
-    
-    if [[ -f "$PROJECT_ROOT/.cursorrules" ]]; then
-        ((validation_count++))
-        success "✅ Cursor rules configured"
-    else
-        warning "⚠️ Cursor rules missing"
     fi
     
     # Check VS Code settings

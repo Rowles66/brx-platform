@@ -49,7 +49,7 @@ class AggressiveAIWorkflow:
             "README.md": self._generate_readme(),
             "ARCHITECTURE.md": architecture_md, # Use content from _generate_architecture
             "AI_DIRECTIVES.md": self._generate_ai_directives(),
-            ".cursorrules": self._generate_cursor_rules(),
+            ".ai-agent-config.json": self._generate_ai_agent_config(),
             "requirements.txt": requirements_txt, # Use content from _generate_architecture
             "package.json": package_json,       # Use content from _generate_architecture
             "src/": {},
@@ -210,7 +210,7 @@ See `ARCHITECTURE.md` for system design.
 *These directives enable fully autonomous development*
 """
 
-    def _generate_cursor_rules(self):
+    def _generate_ai_agent_config(self):
         return """# Cursor AI Rules - AGGRESSIVE MODE
 
 You are operating in AGGRESSIVE AUTONOMOUS MODE. Follow these rules:

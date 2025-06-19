@@ -198,7 +198,7 @@ The setup created desktop shortcuts in `~/Desktop/BRX-AI-Shortcuts/`:
 
 ## 🔧 **Cursor AI Configuration**
 
-The `.cursorrules` file tells Cursor AI to:
+The AI configuration tells Cursor AI to:
 
 1. **Always use 1Password** for any operation requiring secrets
 2. **Never hardcode credentials** in any generated code

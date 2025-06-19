@@ -64,7 +64,7 @@
 
 7. **Test Cursor AI Integration**
    - Open Cursor IDE in the project
-   - The `.cursorrules` file should be active
+   - The AI configuration should be active
    - Try asking Cursor to "start the development server"
    - It should automatically use the 1Password integration
 

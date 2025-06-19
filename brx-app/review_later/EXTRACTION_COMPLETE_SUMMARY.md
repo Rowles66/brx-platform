@@ -27,7 +27,7 @@ Located in `/review_later/`:
    - ROUTER_REVIEW.md
 
 2. **Other Files**
-   - cursorrules_from_extracted_auth.txt
+   - ai_config_from_extracted_auth.txt
    - cursor_chat_from_extracted.txt
 
 ## 🗑️ Deleted (Duplicates/Not Needed)

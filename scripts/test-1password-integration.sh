@@ -69,7 +69,6 @@ run_test "op-workflow Script Executable" "test -x '$PROJECT_ROOT/scripts/op-work
 # Test 5: Check configuration files
 run_test "1Password Config File" "test -f '$PROJECT_ROOT/.op-config.yaml'"
 run_test "AI Agent Config File" "test -f '$PROJECT_ROOT/.ai-agent-config.json'"
-run_test "Cursor Rules File" "test -f '$PROJECT_ROOT/.cursorrules'"
 
 # Test 6: Test op-workflow status command
 run_test "op-workflow Status Command" "$PROJECT_ROOT/scripts/op-workflow.sh status"

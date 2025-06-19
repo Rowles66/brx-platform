@@ -158,7 +158,6 @@ This is Phase 2 of a migration from Exercise.com to an independent fitness platf
 - UI/API mapping files for migration planning
 
 ### AI Integration Points
-- Cursor IDE configuration in `.cursorrules`
 - Aggressive AI workflow enabled for autonomous development
 - AI-assisted feature prioritization and code generation
 - Automated testing and deployment processes
