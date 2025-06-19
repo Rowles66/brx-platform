@@ -48,7 +48,8 @@
       "Bash(rg:*)",
       "Bash(yamllint:*)",
       "Bash(./op-workflow.sh:*)",
-      "Bash(git reset:*)"
+      "Bash(git reset:*)",
+      "Bash(npx prisma:*)"
     ],
     "deny": []
   }
