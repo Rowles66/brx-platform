@@ -5,7 +5,7 @@
       "args": [
         "compose",
         "-f",
-        "/Users/joshrowles/github/brx-platform/mcp-server/docker-compose.yml",
+        "/Users/joshrowles/github/brx-platform/docker-compose.yml",
         "run",
         "--rm",
         "-i",
