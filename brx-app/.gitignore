@@ -30,11 +30,12 @@ yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 
-# env files (can opt-in for committing if needed)
-.env*
+# env files - 1Password refs are safe to commit, only ignore actual secrets
+.env*.backup
+.env.local.temp
 
-# vercel
-.vercel
+# vercel - keep config for team collaboration
+.vercel/output/
 
 # typescript
 *.tsbuildinfo

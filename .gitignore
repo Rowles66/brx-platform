@@ -1,8 +1,7 @@
 # macOS
 .DS_Store
 
-# IDE files
-/.idea/ 
+
 
 # Dependencies
 node_modules
@@ -11,6 +10,18 @@ node_modules
 # Build outputs
 .next/
 dist/ 
-.vercel
-.env*.local
+# Vercel - keep config for team, ignore cache/output
+.vercel/output/
+!.vercel/project.json
+!.vercel/README.txt
+
+# Environment files - with 1Password refs, these are safe to commit
+# Only ignore files with actual secrets (none in this project)
+.env.local.backup
+.env.development.local.backup
+.env.test.local.backup
+.env.production.local.backup
+# Logs - keep useful ones, ignore noisy monitoring
 logs/ai-agent-monitor.log
+logs/monitor.out
+logs/monitor.err

@@ -47,7 +47,8 @@
       "Bash(curl:*)",
       "Bash(rg:*)",
       "Bash(yamllint:*)",
-      "Bash(./op-workflow.sh:*)"
+      "Bash(./op-workflow.sh:*)",
+      "Bash(git reset:*)"
     ],
     "deny": []
   }
