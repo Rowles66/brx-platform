@@ -82,25 +82,13 @@ async function importBRXData() {
   // Read API responses from collected data
   const apiResponsesPath = path.join(
     process.cwd(),
-    '../brx-core/app-replica/brx-app-replica-legacy/scraped_reference/auth_assets_from_auth_extract/api_calls/api_responses.json'
+    'scraped_reference/auth_assets_from_auth_extract/api_calls/api_responses.json'
   )
 
   if (!fs.existsSync(apiResponsesPath)) {
     console.log('❌ BRX API responses file not found at:', apiResponsesPath)
-    console.log('📁 Looking for alternative path...')
-    
-    // Try the brx-app scraped reference path
-    const altPath = path.join(
-      process.cwd(),
-      'scraped_reference/auth_assets_from_auth_extract/api_calls/api_responses.json'
-    )
-    
-    if (fs.existsSync(altPath)) {
-      console.log('✅ Found API responses at alternative path')
-    } else {
-      console.log('❌ Could not find BRX API responses. Please check the file path.')
-      return
-    }
+    console.log('Please ensure the file exists in the scraped_reference directory')
+    return
   }
 
   try {

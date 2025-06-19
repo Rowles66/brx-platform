@@ -49,7 +49,10 @@
       "Bash(yamllint:*)",
       "Bash(./op-workflow.sh:*)",
       "Bash(git reset:*)",
-      "Bash(npx prisma:*)"
+      "Bash(npx prisma:*)",
+      "Bash(npx tsx:*)",
+      "Bash(./scripts/update-api-docs.sh:*)",
+      "Bash(npx tsc:*)"
     ],
     "deny": []
   }

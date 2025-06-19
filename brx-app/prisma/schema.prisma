@@ -14,54 +14,62 @@ datasource db {
 
 // Core User model - merged from forms and API schemas + BRX API data
 model User {
-  id        String   @id @default(cuid())
-  email     String   @unique  // From SignIn/SignUp forms and API
-  name      String?             // From SignUp form and API
-  password  String              // From authentication forms
-  
+  id       String  @id @default(cuid())
+  email    String  @unique // From SignIn/SignUp forms and API
+  name     String? // From SignUp form and API
+  password String // From authentication forms
+
   // Authentication preferences
   rememberMe Boolean @default(false) // From SignIn form
-  
+
   // BRX Platform specific fields
-  brxUserId     Int?      // Original BRX user ID for data migration
-  firstName     String?
-  lastName      String?
-  nickname      String?
-  phoneNumber   String?
-  timeZone      String?
-  website       String?
-  trainerBio    String?
-  aboutMe       String?
-  profileImage  String?
-  
+  brxUserId    Int?    @unique // Original BRX user ID for data migration
+  firstName    String?
+  lastName     String?
+  nickname     String?
+  phoneNumber  String?
+  timeZone     String?
+  website      String?
+  trainerBio   String?
+  aboutMe      String?
+  profileImage String?
+
   // BRX Platform metrics
-  totalCalories      Int @default(0)
-  currentFrcScore    Int @default(0)
-  numWorkouts        Int @default(0)
-  numBadges          Int @default(0)
-  level              Int @default(1)
-  points             Int @default(0)
-  levelCompletion    Float @default(0)
-  pointsUntilNext    Int @default(0)
-  
+  totalCalories   Int   @default(0)
+  currentFrcScore Int   @default(0)
+  numWorkouts     Int   @default(0)
+  numBadges       Int   @default(0)
+  level           Int   @default(1)
+  points          Int   @default(0)
+  levelCompletion Float @default(0)
+  pointsUntilNext Int   @default(0)
+
   // User preferences and settings
-  hideMobileAppBanner Boolean @default(false)
-  showActivity        Boolean @default(true)
+  hideMobileAppBanner      Boolean @default(false)
+  showActivity             Boolean @default(true)
   trainerMessagingDisabled Boolean @default(false)
-  
+
   // User type and roles
-  roles             String[] // ["trainer", "user", "business"]
-  tags              String[]
-  
+  roles String[] // ["trainer", "user", "business"]
+  tags  String[]
+
   // Relationships
-  workouts       Workout[]
-  exercises      UserExercise[]
-  sessions       UserSession[]
-  programs       Program[]
-  messages       Message[]
-  measurements   UserMeasurement[]
-  favoriteExercises Int[]  // Exercise IDs
-  
+  workouts          Workout[]
+  exercises         UserExercise[]
+  sessions          UserSession[]
+  programs          Program[]
+  messages          Message[]
+  measurements      UserMeasurement[]
+  favoriteExercises Int[] // Exercise IDs
+
+  // FBM Business relationships
+  trainerAppointments FbmAppointment[]     @relation("TrainerAppointments")
+  clientAppointments  FbmAppointment[]     @relation("ClientAppointments")
+  trainerVisits       FbmVisit[]           @relation("TrainerVisits")
+  clientVisits        FbmVisit[]           @relation("ClientVisits")
+  packagePurchases    FbmPackagePurchase[] @relation("ClientPackages")
+  schedules           FbmSchedule[]
+
   // Timestamps
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -71,77 +79,77 @@ model User {
 
 // Enhanced Exercise model with BRX Performance specifics
 model Exercise {
-  id          String   @id @default(cuid())
+  id          String  @id @default(cuid())
   name        String
   description String?
-  category    String?  // e.g., "Strength", "Cardio", "Flexibility"
-  difficulty  String?  // e.g., "Beginner", "Intermediate", "Advanced"
-  
+  category    String? // e.g., "Strength", "Cardio", "Flexibility"
+  difficulty  String? // e.g., "Beginner", "Intermediate", "Advanced"
+
   // BRX Performance specific fields
   muscleGroups String[] // Array of targeted muscle groups
-  equipment    String?  // Required equipment
-  instructions String?  // Step-by-step instructions
-  
+  equipment    String? // Required equipment
+  instructions String? // Step-by-step instructions
+
   // Media and resources
-  imageUrl     String?
-  videoUrl     String?
-  
+  imageUrl String?
+  videoUrl String?
+
   // Relationships
-  userExercises UserExercise[]
+  userExercises    UserExercise[]
   workoutExercises WorkoutExercise[]
-  
+
   // Timestamps
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
   @@map("exercises")
 }
 
 // User's personalized exercise data
 model UserExercise {
-  id       String @id @default(cuid())
-  userId   String
+  id         String @id @default(cuid())
+  userId     String
   exerciseId String
-  
+
   // Personal records and preferences
-  personalBest Json?   // Store PR data as JSON
-  preferences  Json?   // User's exercise preferences
+  personalBest Json? // Store PR data as JSON
+  preferences  Json? // User's exercise preferences
   notes        String?
-  
+
   // Relationships
   user     User     @relation(fields: [userId], references: [id], onDelete: Cascade)
   exercise Exercise @relation(fields: [exerciseId], references: [id], onDelete: Cascade)
-  
+
   // Timestamps
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-  
+
   @@unique([userId, exerciseId])
   @@map("user_exercises")
 }
 
 // Workout sessions
 model Workout {
-  id          String   @id @default(cuid())
+  id          String  @id @default(cuid())
   userId      String
-  programId   String?  // Optional: workouts can be part of a program
+  programId   String? // Optional: workouts can be part of a program
   name        String
   description String?
-  
+
   // Workout metadata
-  duration    Int?     // Duration in minutes
-  status      WorkoutStatus @default(PLANNED)
-  
+  duration Int? // Duration in minutes
+  status   WorkoutStatus @default(PLANNED)
+
   // Relationships
-  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
-  program     Program? @relation(fields: [programId], references: [id], onDelete: SetNull)
-  exercises   WorkoutExercise[]
-  
+  user      User              @relation(fields: [userId], references: [id], onDelete: Cascade)
+  program   Program?          @relation(fields: [programId], references: [id], onDelete: SetNull)
+  exercises WorkoutExercise[]
+
   // Timestamps
   scheduledAt DateTime?
   completedAt DateTime?
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
 
   @@map("workouts")
 }
@@ -151,26 +159,26 @@ model WorkoutExercise {
   id         String @id @default(cuid())
   workoutId  String
   exerciseId String
-  
+
   // Exercise session data
-  sets       Int?
-  reps       Int?
-  weight     Float?
-  duration   Int?   // Duration in seconds for time-based exercises
-  rest       Int?   // Rest time in seconds
-  
+  sets     Int?
+  reps     Int?
+  weight   Float?
+  duration Int? // Duration in seconds for time-based exercises
+  rest     Int? // Rest time in seconds
+
   // Session notes and completion
-  notes      String?
-  completed  Boolean @default(false)
-  
+  notes     String?
+  completed Boolean @default(false)
+
   // Relationships
-  workout    Workout  @relation(fields: [workoutId], references: [id], onDelete: Cascade)
-  exercise   Exercise @relation(fields: [exerciseId], references: [id], onDelete: Cascade)
-  
+  workout  Workout  @relation(fields: [workoutId], references: [id], onDelete: Cascade)
+  exercise Exercise @relation(fields: [exerciseId], references: [id], onDelete: Cascade)
+
   // Timestamps
-  createdAt  DateTime @default(now())
-  updatedAt  DateTime @updatedAt
-  
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
   @@unique([workoutId, exerciseId])
   @@map("workout_exercises")
 }
@@ -181,14 +189,14 @@ model UserSession {
   userId    String
   token     String   @unique
   expiresAt DateTime
-  
+
   // Session metadata
   userAgent String?
   ipAddress String?
-  
+
   // Relationships
-  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
-  
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
   // Timestamps
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -198,55 +206,55 @@ model UserSession {
 
 // Program model for structured workout programs
 model Program {
-  id          String   @id @default(cuid())
+  id          String  @id @default(cuid())
   userId      String
   name        String
   description String?
-  
+
   // Program metadata
-  duration    Int?     // Duration in weeks
-  difficulty  String?  // e.g., "Beginner", "Intermediate", "Advanced"
-  goals       String[] // e.g., ["Strength", "Weight Loss", "Muscle Gain"]
-  
+  duration   Int? // Duration in weeks
+  difficulty String? // e.g., "Beginner", "Intermediate", "Advanced"
+  goals      String[] // e.g., ["Strength", "Weight Loss", "Muscle Gain"]
+
   // Program scheduling
-  status      ProgramStatus @default(ACTIVE)
-  startDate   DateTime?
-  endDate     DateTime?
-  
+  status    ProgramStatus @default(ACTIVE)
+  startDate DateTime?
+  endDate   DateTime?
+
   // Relationships
-  user        User      @relation(fields: [userId], references: [id], onDelete: Cascade)
-  workouts    Workout[]
-  
+  user     User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  workouts Workout[]
+
   // Timestamps
-  createdAt   DateTime  @default(now())
-  updatedAt   DateTime  @updatedAt
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
   @@map("programs")
 }
 
 // Message model for coach-client communication
 model Message {
-  id        String      @id @default(cuid())
-  userId    String
-  content   String
-  type      MessageType @default(TEXT)
-  
+  id      String      @id @default(cuid())
+  userId  String
+  content String
+  type    MessageType @default(TEXT)
+
   // Message metadata
-  isRead    Boolean     @default(false)
-  priority  MessagePriority @default(NORMAL)
-  
+  isRead   Boolean         @default(false)
+  priority MessagePriority @default(NORMAL)
+
   // Optional references
   workoutId String?
   programId String?
-  
+
   // Relationships
-  user      User        @relation(fields: [userId], references: [id], onDelete: Cascade)
-  
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
   // Timestamps
-  sentAt    DateTime    @default(now())
+  sentAt    DateTime  @default(now())
   readAt    DateTime?
-  createdAt DateTime    @default(now())
-  updatedAt DateTime    @updatedAt
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
 
   @@map("messages")
 }
@@ -285,109 +293,109 @@ enum MessagePriority {
 
 // Measurement types from BRX platform (100+ metrics)
 model MeasurementType {
-  id           String @id @default(cuid())
-  name         String @unique // e.g., "20-yd Dash", "Vertical Jump"
-  category     String // e.g., "Speed", "Power", "Strength"
-  unit         String? // e.g., "seconds", "inches", "mph"
-  description  String?
-  
+  id          String  @id @default(cuid())
+  name        String  @unique // e.g., "20-yd Dash", "Vertical Jump"
+  category    String // e.g., "Speed", "Power", "Strength"
+  unit        String? // e.g., "seconds", "inches", "mph"
+  description String?
+
   // BRX specific fields
-  brxStatKey   String? // Original BRX stat key
-  hidden       Boolean @default(false)
-  isDefault    Boolean @default(false)
-  
+  brxStatKey String? // Original BRX stat key
+  hidden     Boolean @default(false)
+  isDefault  Boolean @default(false)
+
   // Relationships
   measurements UserMeasurement[]
-  
-  createdAt    DateTime @default(now())
-  updatedAt    DateTime @updatedAt
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
   @@map("measurement_types")
 }
 
 // User measurements and performance tracking
 model UserMeasurement {
-  id              String @id @default(cuid())
-  userId          String
+  id                String @id @default(cuid())
+  userId            String
   measurementTypeId String
-  
+
   // Measurement data
-  value           Float
-  unit            String?
-  notes           String?
-  sessionId       String? // Reference to workout session if applicable
-  
+  value     Float
+  unit      String?
+  notes     String?
+  sessionId String? // Reference to workout session if applicable
+
   // BRX specific fields
-  isPersonalBest  Boolean @default(false)
-  
+  isPersonalBest Boolean @default(false)
+
   // Relationships
-  user            User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  user            User            @relation(fields: [userId], references: [id], onDelete: Cascade)
   measurementType MeasurementType @relation(fields: [measurementTypeId], references: [id], onDelete: Cascade)
-  
+
   // Timestamps
-  recordedAt      DateTime @default(now())
-  createdAt       DateTime @default(now())
-  updatedAt       DateTime @updatedAt
+  recordedAt DateTime @default(now())
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
 
   @@map("user_measurements")
 }
 
 // BRX Platform configuration (stores the massive platform JSON)
 model PlatformConfig {
-  id                String @id @default(cuid())
-  brxPlatformId     Int    @unique // Original BRX platform ID (111)
-  
+  id            String @id @default(cuid())
+  brxPlatformId Int    @unique // Original BRX platform ID (111)
+
   // Core platform info
-  brand             String
-  subdomain         String
-  host              String
-  trainerName       String
-  
+  brand       String
+  subdomain   String
+  host        String
+  trainerName String
+
   // Configuration JSON fields (store complex platform settings)
-  platformTabs      Json   // Navigation structure
-  customAppMenu     Json   // Mobile app menu configuration
-  businessMetrics   Json   // Business dashboard metrics
-  paymentOptions    Json   // Payment and subscription options
-  theme             Json   // Color scheme and branding
-  featureFlags      String[] // Enabled features
-  
+  platformTabs    Json // Navigation structure
+  customAppMenu   Json // Mobile app menu configuration
+  businessMetrics Json // Business dashboard metrics
+  paymentOptions  Json // Payment and subscription options
+  theme           Json // Color scheme and branding
+  featureFlags    String[] // Enabled features
+
   // Platform settings
-  enableFbm         Boolean @default(false)
+  enableFbm         Boolean  @default(false)
   useStripeExpress  Boolean?
-  hideClientLanding Boolean @default(false)
-  freeSignups       Boolean @default(true)
-  
+  hideClientLanding Boolean  @default(false)
+  freeSignups       Boolean  @default(true)
+
   // Contact and business info
-  contactPhone      String?
-  mailingAddress    String?
-  hoursOfOperation  String?
-  supportEmail      String?
-  
+  contactPhone     String?
+  mailingAddress   String?
+  hoursOfOperation String?
+  supportEmail     String?
+
   // Links and integrations
   iosDownloadLink     String?
   androidDownloadLink String?
   logoUrl             String?
   iconUrl             String?
-  
+
   // API endpoints configuration
-  apiLinks          Json
-  
-  createdAt         DateTime @default(now())
-  updatedAt         DateTime @updatedAt
+  apiLinks Json
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
   @@map("platform_configs")
 }
 
 // Client tags from BRX platform (extensive tagging system)
 model Tag {
-  id        String @id @default(cuid())
-  name      String @unique
-  category  TagCategory
-  color     String?
-  
+  id       String      @id @default(cuid())
+  name     String      @unique
+  category TagCategory
+  color    String?
+
   // BRX specific
   isDefault Boolean @default(false)
-  
+
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
@@ -396,25 +404,387 @@ model Tag {
 
 // Services from BRX FBM (Fitness Business Management)
 model Service {
-  id          String @id @default(cuid())
-  brxServiceId Int?   // Original BRX service ID
-  name        String
-  description String?
-  duration    Int?    // Duration in minutes
-  price       Float?
-  
+  id           String  @id @default(cuid())
+  brxServiceId Int? // Original BRX service ID
+  name         String
+  description  String?
+  duration     Int? // Duration in minutes
+  price        Float?
+
   // Service configuration
-  isActive    Boolean @default(true)
-  isPrivate   Boolean @default(false)
-  
+  isActive  Boolean @default(true)
+  isPrivate Boolean @default(false)
+
   // Booking settings
   requireTrainer Boolean @default(false)
   maxBookingDays Int?
-  
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
   @@map("services")
+}
+
+// Enhanced FBM Service model for business operations
+model FbmService {
+  id           String @id @default(cuid())
+  brxServiceId Int?   @unique // Original BRX service ID for migration
+
+  // Core service information
+  name        String
+  description String?
+  category    ServiceCategory @default(PERSONAL_TRAINING)
+
+  // Pricing and duration
+  price       Float? // Base price
+  duration    Int? // Duration in minutes
+  maxCapacity Int    @default(1) // Max clients per session
+
+  // Business settings
+  isActive        Boolean @default(true)
+  isPrivate       Boolean @default(false)
+  requiresPayment Boolean @default(true)
+
+  // Booking configuration
+  requireTrainer     Boolean @default(true)
+  maxAdvanceBooking  Int? // Days in advance
+  minAdvanceBooking  Int? // Minimum hours in advance
+  cancellationPolicy String? // Cancellation terms
+
+  // Service availability
+  availableDays      String[] // ["monday", "tuesday", ...]
+  availableTimeSlots Json? // Time slot configuration
+
+  // Relationships
+  locations    FbmServiceLocation[]
+  appointments FbmAppointment[]
+  packages     FbmPackageService[]
+  visits       FbmVisit[]
+
+  // Timestamps
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("fbm_services")
+}
+
+// FBM Business Locations
+model FbmLocation {
+  id            String @id @default(cuid())
+  brxLocationId Int?   @unique // Original BRX location ID
+
+  // Location details
+  name    String
+  address String?
+  city    String?
+  state   String?
+  zipCode String?
+  country String  @default("US")
+
+  // Contact information
+  phone   String?
+  email   String?
+  website String?
+
+  // Location settings
+  isActive       Boolean @default(true)
+  isMainLocation Boolean @default(false)
+  timezone       String  @default("America/New_York")
+
+  // Business hours (JSON format for flexibility)
+  businessHours Json? // {"monday": {"open": "09:00", "close": "17:00"}, ...}
+
+  // Relationships
+  services     FbmServiceLocation[]
+  appointments FbmAppointment[]
+  visits       FbmVisit[]
+  schedules    FbmSchedule[]
+
+  // Timestamps
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("fbm_locations")
+}
+
+// Many-to-many relationship between FbmService and FbmLocation
+model FbmServiceLocation {
+  id         String @id @default(cuid())
+  serviceId  String
+  locationId String
+
+  // Location-specific service settings
+  isActive    Boolean @default(true)
+  customPrice Float? // Override service price for this location
+
+  // Relationships
+  service  FbmService  @relation(fields: [serviceId], references: [id], onDelete: Cascade)
+  location FbmLocation @relation(fields: [locationId], references: [id], onDelete: Cascade)
+
+  // Timestamps
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([serviceId, locationId])
+  @@map("fbm_service_locations")
+}
+
+// FBM Appointment Booking System
+model FbmAppointment {
+  id               String @id @default(cuid())
+  brxAppointmentId Int?   @unique // Original BRX appointment ID
+
+  // Core appointment details
+  serviceId  String
+  locationId String
+  trainerId  String // User ID of the trainer
+  clientId   String? // User ID of the client (can be null for open slots)
+
+  // Scheduling
+  scheduledAt DateTime
+  endTime     DateTime
+  duration    Int // Duration in minutes
+
+  // Appointment status and metadata
+  status        AppointmentStatus @default(SCHEDULED)
+  notes         String?
+  internalNotes String? // Staff-only notes
+
+  // Pricing and payment
+  price         Float?
+  isPaid        Boolean       @default(false)
+  paymentStatus PaymentStatus @default(PENDING)
+
+  // Booking restrictions
+  maxCapacity     Int @default(1)
+  currentBookings Int @default(0)
+
+  // Cancellation and changes
+  cancellationReason String?
+  cancelledAt        DateTime?
+  rescheduledFromId  String? // If rescheduled, reference to original appointment
+
+  // Relationships
+  service  FbmService  @relation(fields: [serviceId], references: [id], onDelete: Restrict)
+  location FbmLocation @relation(fields: [locationId], references: [id], onDelete: Restrict)
+  trainer  User        @relation("TrainerAppointments", fields: [trainerId], references: [id], onDelete: Restrict)
+  client   User?       @relation("ClientAppointments", fields: [clientId], references: [id], onDelete: SetNull)
+  visits   FbmVisit[]
+
+  // Timestamps
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("fbm_appointments")
+}
+
+// FBM Visit Tracking (for billing and attendance)
+model FbmVisit {
+  id         String @id @default(cuid())
+  brxVisitId Int?   @unique // Original BRX visit ID
+
+  // Visit details
+  appointmentId String
+  serviceId     String
+  locationId    String
+  clientId      String
+  trainerId     String?
+
+  // Visit status and timing
+  status         VisitStatus @default(REGISTERED)
+  checkedInAt    DateTime?
+  checkedOutAt   DateTime?
+  actualDuration Int? // Actual duration in minutes
+
+  // Visit metadata
+  notes    String?
+  rating   Int? // 1-5 star rating
+  feedback String?
+
+  // Billing and payment
+  price          Float?
+  isPaid         Boolean @default(false)
+  packageVisitId String? // If part of a package
+
+  // Relationships
+  appointment  FbmAppointment   @relation(fields: [appointmentId], references: [id], onDelete: Restrict)
+  service      FbmService       @relation(fields: [serviceId], references: [id], onDelete: Restrict)
+  location     FbmLocation      @relation(fields: [locationId], references: [id], onDelete: Restrict)
+  client       User             @relation("ClientVisits", fields: [clientId], references: [id], onDelete: Restrict)
+  trainer      User?            @relation("TrainerVisits", fields: [trainerId], references: [id], onDelete: SetNull)
+  packageVisit FbmPackageVisit?
+
+  // Timestamps
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("fbm_visits")
+}
+
+// FBM Service Packages and Memberships
+model FbmPackage {
+  id           String @id @default(cuid())
+  brxPackageId Int?   @unique // Original BRX package ID
+
+  // Package details
+  name        String
+  description String?
+  packageType PackageType @default(SESSION_PACKAGE)
+
+  // Pricing and validity
+  price        Float
+  visitCount   Int? // Number of visits included (null for unlimited)
+  validityDays Int? // Package expiration in days (null for no expiration)
+
+  // Package settings
+  isActive        Boolean @default(true)
+  isRecurring     Boolean @default(false) // For membership packages
+  recurringPeriod Int? // Days between recurring charges
+
+  // Usage restrictions
+  maxUsagePerDay  Int? // Max visits per day
+  maxUsagePerWeek Int? // Max visits per week
+  transferable    Boolean @default(false) // Can be transferred to another client
+
+  // Relationships
+  services  FbmPackageService[]
+  purchases FbmPackagePurchase[]
+
+  // Timestamps
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("fbm_packages")
+}
+
+// Many-to-many relationship between FbmPackage and FbmService
+model FbmPackageService {
+  id        String @id @default(cuid())
+  packageId String
+  serviceId String
+
+  // Service-specific package settings
+  visitAllowance  Int? // How many visits of this service are included
+  discountPercent Float? // Discount for this service in the package
+
+  // Relationships
+  package FbmPackage @relation(fields: [packageId], references: [id], onDelete: Cascade)
+  service FbmService @relation(fields: [serviceId], references: [id], onDelete: Cascade)
+
+  @@unique([packageId, serviceId])
+  @@map("fbm_package_services")
+}
+
+// Track package purchases by clients
+model FbmPackagePurchase {
+  id        String @id @default(cuid())
+  packageId String
+  clientId  String
+
+  // Purchase details
+  purchasePrice   Float
+  visitCount      Int? // Visits included in this purchase
+  remainingVisits Int? // Visits remaining
+
+  // Validity
+  purchasedAt DateTime  @default(now())
+  expiresAt   DateTime?
+  isActive    Boolean   @default(true)
+
+  // Payment tracking
+  isPaid        Boolean       @default(false)
+  paymentStatus PaymentStatus @default(PENDING)
+
+  // Relationships
+  package FbmPackage        @relation(fields: [packageId], references: [id], onDelete: Restrict)
+  client  User              @relation("ClientPackages", fields: [clientId], references: [id], onDelete: Restrict)
+  visits  FbmPackageVisit[]
+
+  // Timestamps
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("fbm_package_purchases")
+}
+
+// Track individual visits used from packages
+model FbmPackageVisit {
+  id         String @id @default(cuid())
+  purchaseId String
+  visitId    String @unique
+
+  // Visit usage
+  usedAt DateTime @default(now())
+
+  // Relationships
+  purchase FbmPackagePurchase @relation(fields: [purchaseId], references: [id], onDelete: Cascade)
+  visit    FbmVisit           @relation(fields: [visitId], references: [id], onDelete: Cascade)
+
+  @@map("fbm_package_visits")
+}
+
+// Payment Options and Stripe Integration
+model PaymentOption {
+  id           String @id @default(cuid())
+  brxPaymentId Int?   @unique // Original BRX payment option ID
+
+  // Payment method details
+  name     String // "Credit Card", "PayPal", "Cash", etc.
+  type     PaymentType
+  isActive Boolean     @default(true)
+
+  // Stripe integration
+  stripeAccountId  String? // Stripe Connect account ID
+  stripeFeePercent Float? // Platform fee percentage
+
+  // Payment settings
+  requiresApproval Boolean @default(false)
+  allowRefunds     Boolean @default(true)
+
+  // Configuration
+  settings Json? // Payment-specific configuration
+
+  // Timestamps
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("payment_options")
+}
+
+// FBM Trainer/Location Scheduling
+model FbmSchedule {
+  id            String @id @default(cuid())
+  brxScheduleId Int?   @unique // Original BRX schedule ID
+
+  // Schedule details
+  trainerId  String
+  locationId String
+
+  // Time configuration
+  dayOfWeek Int // 0 = Sunday, 1 = Monday, etc.
+  startTime String // "09:00" format
+  endTime   String // "17:00" format
+
+  // Schedule metadata
+  isActive       Boolean   @default(true)
+  effectiveFrom  DateTime
+  effectiveUntil DateTime?
+
+  // Break and availability
+  breakStartTime  String? // "12:00" format
+  breakEndTime    String? // "13:00" format
+  maxAppointments Int? // Max appointments in this time slot
+
+  // Relationships
+  trainer  User        @relation(fields: [trainerId], references: [id], onDelete: Cascade)
+  location FbmLocation @relation(fields: [locationId], references: [id], onDelete: Cascade)
+
+  // Timestamps
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([trainerId, locationId, dayOfWeek, startTime])
+  @@map("fbm_schedules")
 }
 
 // Enums for BRX platform
@@ -441,4 +811,65 @@ enum MeasurementCategory {
   THROWING
   HITTING
   CUSTOM
+}
+
+// FBM Business Enums
+enum ServiceCategory {
+  PERSONAL_TRAINING
+  GROUP_FITNESS
+  SPORTS_TRAINING
+  NUTRITION_COACHING
+  RECOVERY_THERAPY
+  ASSESSMENT
+  CONSULTATION
+  OTHER
+}
+
+enum AppointmentStatus {
+  SCHEDULED
+  CONFIRMED
+  IN_PROGRESS
+  COMPLETED
+  CANCELLED
+  NO_SHOW
+  RESCHEDULED
+}
+
+enum VisitStatus {
+  REGISTERED
+  CHECKED_IN
+  IN_PROGRESS
+  COMPLETED
+  CANCELLED
+  NO_SHOW
+  LATE_CANCELLED
+}
+
+enum PaymentStatus {
+  PENDING
+  PROCESSING
+  COMPLETED
+  FAILED
+  CANCELLED
+  REFUNDED
+  PARTIALLY_REFUNDED
+}
+
+enum PackageType {
+  SESSION_PACKAGE
+  MEMBERSHIP
+  UNLIMITED
+  TRIAL
+  PROMOTIONAL
+}
+
+enum PaymentType {
+  CREDIT_CARD
+  DEBIT_CARD
+  PAYPAL
+  STRIPE
+  CASH
+  CHECK
+  BANK_TRANSFER
+  CRYPTOCURRENCY
 }

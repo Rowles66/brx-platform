@@ -5,6 +5,10 @@ import { authRouter } from './routers/auth';
 import { exercisesRouter } from './routers/exercises';
 import { workoutsRouter } from './routers/workouts';
 import { userProgressRouter } from './routers/user-progress';
+import { fbmServicesRouter } from './routers/fbm-services';
+import { fbmAppointmentsRouter } from './routers/fbm-appointments';
+import { fbmLocationsRouter } from './routers/fbm-locations';
+import { fbmPackagesRouter } from './routers/fbm-packages';
 
 /**
  * This is the primary router for your server.
@@ -21,6 +25,12 @@ export const appRouter = createTRPCRouter({
   exercises: exercisesRouter,
   workouts: workoutsRouter,
   userProgress: userProgressRouter,
+  
+  // FBM Business Management routers
+  fbmServices: fbmServicesRouter,
+  fbmAppointments: fbmAppointmentsRouter,
+  fbmLocations: fbmLocationsRouter,
+  fbmPackages: fbmPackagesRouter,
 });
 
 // export type definition of API
