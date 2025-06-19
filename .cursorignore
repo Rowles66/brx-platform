@@ -1,9 +1,0 @@
-# Add directories or file patterns to ignore during indexing (e.g. foo/ or *.csv)
-
-# IDE files from other editors
-.idea/
-
-# Ignore config and documentation
-*.md
-*.sh
-*.json
