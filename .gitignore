@@ -13,3 +13,4 @@ node_modules
 dist/ 
 .vercel
 .env*.local
+logs/ai-agent-monitor.log
