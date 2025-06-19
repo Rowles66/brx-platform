@@ -15,6 +15,22 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
+      # 1Password → makes secrets available to later steps
+      - name: Configure 1Password Service Account
+        uses: 1password/load-secrets-action/configure@v2
+        with:
+          service-account-token: ${{ secrets.OP_SERVICE_ACCOUNT_TOKEN }}
+
+      # (optional) load individual secrets as env vars
+      - name: Load app secrets
+        uses: 1password/load-secrets-action@v2
+        with:
+          export-env: true
+        env:
+          DATABASE_URL:  op://brx-ci/prod/DATABASE_URL
+          NEXTAUTH_SECRET: op://brx-ci/prod/NEXTAUTH_SECRET
+
       - uses: pnpm/action-setup@v3
         with: { version: ${{ env.PNPM_VERSION }} }
       - uses: actions/setup-node@v4
