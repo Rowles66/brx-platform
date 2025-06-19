@@ -1,8 +1,16 @@
 {
   "mcpServers": {
-    "brx-platform": {
-      "command": "node",
-      "args": ["/Users/joshrowles/github/brx-platform/mcp-server/src/index.js"],
+    "brx-platform-docker": {
+      "command": "docker",
+      "args": [
+        "compose",
+        "-f",
+        "/Users/joshrowles/github/brx-platform/mcp-server/docker-compose.yml",
+        "run",
+        "--rm",
+        "-i",
+        "brx-mcp-server"
+      ],
       "env": {
         "NODE_ENV": "development"
       }
@@ -15,16 +23,9 @@
       "command": "npx",
       "args": ["-y", "@modelcontextprotocol/server-git"]
     },
-    "docker": {
+    "docker-system": {
       "command": "npx",
       "args": ["-y", "@modelcontextprotocol/server-docker"]
-    },
-    "typescript": {
-      "command": "npx",
-      "args": ["-y", "@modelcontextprotocol/server-typescript"],
-      "env": {
-        "TYPESCRIPT_PROJECT_ROOT": "/Users/joshrowles/github/brx-platform"
-      }
     }
   }
 }
