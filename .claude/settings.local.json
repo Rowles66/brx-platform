@@ -54,7 +54,8 @@
       "Bash(./scripts/update-api-docs.sh:*)",
       "Bash(npx tsc:*)",
       "WebFetch(domain:online.brxperformance.com)",
-      "Bash(claude mcp:*)"
+      "Bash(claude mcp:*)",
+      "Bash(sudo ln:*)"
     ],
     "deny": []
   }
