@@ -1,0 +1,46 @@
+version: "3.8"
+
+services:
+  brx-app:
+    build:
+      context: ./brx-app
+      dockerfile: Dockerfile
+    container_name: brx-app
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - NEXT_PUBLIC_SUPABASE_URL=${NEXT_PUBLIC_SUPABASE_URL}
+      - NEXT_PUBLIC_SUPABASE_ANON_KEY=${NEXT_PUBLIC_SUPABASE_ANON_KEY}
+      - SUPABASE_SERVICE_KEY=${SUPABASE_SERVICE_KEY}
+    networks:
+      - brx-network
+    restart: unless-stopped
+
+  brx-mcp-server:
+    build:
+      context: ./mcp-server
+      dockerfile: Dockerfile
+    container_name: brx-mcp-server
+    image: brx-mcp-server:latest
+    environment:
+      - NODE_ENV=development
+      - OP_SESSION_my=${OP_SESSION}
+    volumes:
+      # Mount the entire project for the MCP server to analyze
+      - ./:/workspace:ro
+      # Mount 1Password socket if available (macOS)
+      - ~/.config/op:/root/.config/op:ro
+    stdin_open: true
+    tty: true
+    # MCP servers need to stay running
+    command: node src/index.js
+    labels:
+      - "com.docker.compose.service=brx-mcp-server"
+      - "mcp.server=true"
+    networks:
+      - brx-network
+
+networks:
+  brx-network:
+    driver: bridge
