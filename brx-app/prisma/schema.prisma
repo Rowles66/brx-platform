@@ -70,6 +70,10 @@ model User {
   packagePurchases    FbmPackagePurchase[] @relation("ClientPackages")
   schedules           FbmSchedule[]
 
+  // Analytics relationships
+  clientAnalytics     ClientAnalytics?     @relation("ClientAnalytics")
+  trainerAnalytics    TrainerAnalytics[]   @relation("TrainerAnalytics")
+
   // Timestamps
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -872,4 +876,519 @@ enum PaymentType {
   CHECK
   BANK_TRANSFER
   CRYPTOCURRENCY
+}
+
+// REPORTING & ANALYTICS TABLES
+// Designed for data export to Google Cloud, HubSpot, and BI tools
+
+// Daily revenue aggregation for easy export to financial systems
+model RevenueReport {
+  id          String @id @default(cuid())
+  
+  // Time period
+  reportDate  DateTime @unique // Daily aggregation
+  periodType  ReportPeriod @default(DAILY)
+  
+  // Location and service breakdown
+  locationId  String?
+  serviceId   String?
+  
+  // Core revenue metrics
+  totalRevenue        Float @default(0)
+  packageRevenue      Float @default(0)
+  directPayRevenue    Float @default(0)
+  totalVisits         Int   @default(0)
+  paidVisits          Int   @default(0)
+  packageVisits       Int   @default(0)
+  
+  // Performance metrics
+  averageSessionPrice Float @default(0)
+  conversionRate      Float @default(0) // Appointments to completed visits
+  noShowRate          Float @default(0)
+  
+  // Growth indicators
+  newClients          Int   @default(0)
+  returningClients    Int   @default(0)
+  
+  // Relationships for drill-down analysis
+  location    FbmLocation? @relation(fields: [locationId], references: [id])
+  service     FbmService?  @relation(fields: [serviceId], references: [id])
+  
+  // Export tracking
+  exportedToGCP       Boolean   @default(false)
+  exportedToHubSpot   Boolean   @default(false)
+  lastExportedAt      DateTime?
+  
+  // Timestamps
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  @@unique([reportDate, locationId, serviceId])
+  @@map("revenue_reports")
+}
+
+// Detailed visit analytics for business intelligence
+model VisitReport {
+  id          String @id @default(cuid())
+  visitId     String @unique // References FbmVisit
+  
+  // Visit details (denormalized for fast export)
+  visitDate           DateTime
+  clientId            String
+  clientName          String
+  clientEmail         String
+  trainerId           String?
+  trainerName         String?
+  serviceId           String
+  serviceName         String
+  locationId          String
+  locationName        String
+  
+  // Session metrics
+  scheduledDuration   Int?    // Minutes
+  actualDuration      Int?    // Minutes
+  sessionPrice        Float?
+  paymentMethod       String?
+  isPaid              Boolean @default(false)
+  
+  // Package information
+  isPackageVisit      Boolean @default(false)
+  packageId           String?
+  packageName         String?
+  remainingVisits     Int?
+  
+  // Quality metrics
+  clientRating        Int?    // 1-5 stars
+  trainerNotes        String?
+  clientFeedback      String?
+  
+  // Business intelligence fields
+  isNewClient         Boolean @default(false)
+  clientLifetimeValue Float   @default(0)
+  sessionProfitMargin Float?
+  
+  // Status tracking
+  visitStatus         VisitStatus
+  appointmentStatus   AppointmentStatus
+  
+  // Export metadata
+  exportedToGCP       Boolean   @default(false)
+  exportedToHubSpot   Boolean   @default(false)
+  gccObjectId         String?   // Google Cloud Console ID
+  hubspotDealId       String?   // HubSpot deal/activity ID
+  
+  // Relationships
+  visit       FbmVisit @relation(fields: [visitId], references: [id], onDelete: Cascade)
+  
+  // Timestamps
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  @@map("visit_reports")
+}
+
+// Client analytics and lifetime value tracking
+model ClientAnalytics {
+  id              String @id @default(cuid())
+  clientId        String @unique
+  
+  // Client information (denormalized for export)
+  clientName      String
+  clientEmail     String
+  phoneNumber     String?
+  signupDate      DateTime
+  
+  // Engagement metrics
+  totalVisits             Int     @default(0)
+  completedVisits         Int     @default(0)
+  cancelledVisits         Int     @default(0)
+  noShowVisits            Int     @default(0)
+  
+  // Financial metrics
+  lifetimeValue           Float   @default(0)
+  totalSpent              Float   @default(0)
+  averageSessionPrice     Float   @default(0)
+  outstandingBalance      Float   @default(0)
+  
+  // Package metrics
+  packagesOwned           Int     @default(0)
+  activePackages          Int     @default(0)
+  totalPackageValue       Float   @default(0)
+  packageUtilizationRate  Float   @default(0) // % of purchased visits used
+  
+  // Engagement patterns
+  lastVisitDate           DateTime?
+  averageVisitsPerMonth   Float   @default(0)
+  preferredServices       String[] // Top service IDs
+  preferredTrainers       String[] // Top trainer IDs
+  preferredLocations      String[] // Top location IDs
+  preferredTimeSlots      String[] // e.g., ["morning", "evening"]
+  
+  // Churn prediction metrics
+  daysSinceLastVisit      Int?
+  churnRisk              ChurnRisk @default(LOW)
+  engagementScore        Float     @default(0) // 0-100
+  
+  // Satisfaction metrics
+  averageRating          Float?   // Average of all session ratings
+  npsScore               Int?     // Net Promoter Score (-100 to 100)
+  lastFeedbackDate       DateTime?
+  
+  // Business intelligence tags
+  clientSegment          ClientSegment @default(REGULAR)
+  acquisitionChannel     String?       // How they found the business
+  referralSource         String?       // Who referred them
+  
+  // CRM integration
+  hubspotContactId       String?
+  googleCrmId            String?
+  salesforceContactId    String?
+  
+  // Export tracking
+  exportedToHubSpot      Boolean   @default(false)
+  exportedToGCP          Boolean   @default(false)
+  lastSyncedAt           DateTime?
+  
+  // Relationships
+  client      User @relation("ClientAnalytics", fields: [clientId], references: [id], onDelete: Cascade)
+  
+  // Timestamps
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  @@map("client_analytics")
+}
+
+// Service performance metrics for business optimization
+model ServicePerformance {
+  id                String @id @default(cuid())
+  serviceId         String
+  reportPeriod      DateTime // Monthly aggregation
+  
+  // Service details (denormalized)
+  serviceName       String
+  serviceCategory   ServiceCategory
+  basePrice         Float?
+  
+  // Volume metrics
+  totalBookings     Int   @default(0)
+  completedSessions Int   @default(0)
+  cancelledSessions Int   @default(0)
+  noShowSessions    Int   @default(0)
+  
+  // Revenue metrics
+  totalRevenue      Float @default(0)
+  packageRevenue    Float @default(0)
+  directRevenue     Float @default(0)
+  averagePrice      Float @default(0)
+  
+  // Efficiency metrics
+  utilizationRate   Float @default(0) // % of available slots booked
+  completionRate    Float @default(0) // % of bookings completed
+  clientRetention   Float @default(0) // % of clients who rebook
+  
+  // Quality metrics
+  averageRating     Float?
+  clientSatisfaction Float @default(0)
+  trainerEfficiency Float @default(0) // Sessions per trainer hour
+  
+  // Profitability analysis
+  operatingCost     Float @default(0) // Trainer cost + overhead
+  grossProfit       Float @default(0)
+  profitMargin      Float @default(0)
+  roi               Float @default(0)
+  
+  // Demand patterns
+  peakHours         String[] // Most popular time slots
+  seasonalTrends    Json?    // Monthly demand patterns
+  waitlistDemand    Int      @default(0)
+  
+  // Competition analysis
+  marketPrice       Float?   // Average market price for similar services
+  pricePositioning  String?  // "premium", "competitive", "budget"
+  
+  // Export metadata
+  exportedToGCP     Boolean   @default(false)
+  exportedToBI      Boolean   @default(false)
+  
+  // Relationships
+  service   FbmService @relation(fields: [serviceId], references: [id], onDelete: Cascade)
+  
+  // Timestamps
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  
+  @@unique([serviceId, reportPeriod])
+  @@map("service_performance")
+}
+
+// Location-based business metrics
+model LocationMetrics {
+  id                String @id @default(cuid())
+  locationId        String
+  reportPeriod      DateTime // Monthly aggregation
+  
+  // Location details (denormalized)
+  locationName      String
+  city              String?
+  state             String?
+  
+  // Operational metrics
+  totalAppointments Int   @default(0)
+  completedVisits   Int   @default(0)
+  utilizedHours     Float @default(0) // Hours with appointments
+  availableHours    Float @default(0) // Total business hours
+  utilizationRate   Float @default(0) // % of hours utilized
+  
+  // Revenue metrics
+  totalRevenue      Float @default(0)
+  revenuePerHour    Float @default(0)
+  revenuePerSqFt    Float? // If square footage is tracked
+  
+  // Staff metrics
+  activeTrainers    Int   @default(0)
+  trainerHours      Float @default(0)
+  averageTrainerUtilization Float @default(0)
+  
+  // Client metrics
+  uniqueClients     Int   @default(0)
+  newClients        Int   @default(0)
+  clientRetention   Float @default(0)
+  
+  // Service breakdown
+  topServices       String[] // Most popular service IDs
+  serviceRevenue    Json?    // Revenue by service type
+  
+  // Operational costs
+  staffCosts        Float @default(0)
+  utilityCosts      Float @default(0)
+  maintenanceCosts  Float @default(0)
+  totalOperatingCosts Float @default(0)
+  
+  // Profitability
+  grossProfit       Float @default(0)
+  netProfit         Float @default(0)
+  profitMargin      Float @default(0)
+  
+  // Capacity planning
+  peakCapacity      Float @default(0) // Max simultaneous clients
+  averageCapacity   Float @default(0)
+  growthPotential   Float @default(0) // Estimated revenue increase at full capacity
+  
+  // Export integration
+  exportedToGCP     Boolean   @default(false)
+  gccDatasetId      String?   // Google Cloud dataset ID
+  
+  // Relationships
+  location  FbmLocation @relation(fields: [locationId], references: [id], onDelete: Cascade)
+  
+  // Timestamps
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  
+  @@unique([locationId, reportPeriod])
+  @@map("location_metrics")
+}
+
+// Trainer performance and productivity analytics
+model TrainerAnalytics {
+  id              String @id @default(cuid())
+  trainerId       String
+  reportPeriod    DateTime // Monthly aggregation
+  
+  // Trainer details (denormalized)
+  trainerName     String
+  trainerEmail    String
+  hireDate        DateTime?
+  
+  // Productivity metrics
+  scheduledHours      Float @default(0)
+  workedHours         Float @default(0)
+  billableHours       Float @default(0)
+  utilizationRate     Float @default(0) // Billable / Scheduled
+  
+  // Session metrics
+  totalSessions       Int   @default(0)
+  completedSessions   Int   @default(0)
+  cancelledSessions   Int   @default(0)
+  noShowSessions      Int   @default(0)
+  completionRate      Float @default(0)
+  
+  // Revenue generation
+  totalRevenue        Float @default(0)
+  revenuePerHour      Float @default(0)
+  averageSessionPrice Float @default(0)
+  
+  // Client relationships
+  activeClients       Int   @default(0)
+  newClientsAcquired  Int   @default(0)
+  clientRetentionRate Float @default(0)
+  
+  // Quality metrics
+  averageClientRating Float?
+  clientSatisfactionScore Float @default(0)
+  sessionRatingDistribution Json? // Rating breakdown
+  
+  // Professional development
+  certifications      String[] // List of current certifications
+  trainingHours       Float @default(0) // Continuing education
+  skillsAssessed      Json?    // Skills and proficiency levels
+  
+  // Performance rankings
+  revenueRank         Int?   // Rank among all trainers
+  clientSatisfactionRank Int?
+  utilizationRank     Int?
+  
+  // Goals and targets
+  monthlyRevenueTarget Float?
+  clientTarget        Int?
+  hoursTarget         Float?
+  targetAchievementRate Float @default(0)
+  
+  // Export tracking
+  exportedToHR        Boolean   @default(false)
+  exportedToPayroll   Boolean   @default(false)
+  
+  // Relationships
+  trainer   User @relation("TrainerAnalytics", fields: [trainerId], references: [id], onDelete: Cascade)
+  
+  // Timestamps
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  
+  @@unique([trainerId, reportPeriod])
+  @@map("trainer_analytics")
+}
+
+// Package performance and profitability analysis
+model PackageAnalytics {
+  id                String @id @default(cuid())
+  packageId         String
+  reportPeriod      DateTime // Monthly aggregation
+  
+  // Package details (denormalized)
+  packageName       String
+  packageType       PackageType
+  price             Float
+  visitCount        Int?
+  validityDays      Int?
+  
+  // Sales metrics
+  packagesSold      Int   @default(0)
+  totalRevenue      Float @default(0)
+  averageSalePrice  Float @default(0)
+  
+  // Usage metrics
+  totalVisitsUsed   Int   @default(0)
+  averageUsageRate  Float @default(0) // % of visits actually used
+  averageDaysToExpiry Int @default(0)
+  
+  // Client behavior
+  newClientSales    Int   @default(0) // Packages sold to new clients
+  existingClientSales Int @default(0) // Packages sold to existing clients
+  renewalRate       Float @default(0) // % who buy another package
+  
+  // Profitability
+  directCosts       Float @default(0) // Cost of delivering services
+  grossProfit       Float @default(0)
+  profitMargin      Float @default(0)
+  
+  // Market performance
+  conversionRate    Float @default(0) // % of package views that result in sales
+  priceElasticity   Float? // How sales respond to price changes
+  competitorComparison Json? // Comparison with similar market packages
+  
+  // Utilization patterns
+  peakUsageHours    String[] // When package visits are most commonly used
+  serviceDistribution Json?  // Which services are used most with this package
+  
+  // Export metadata
+  exportedToFinance Boolean   @default(false)
+  exportedToMarketing Boolean @default(false)
+  
+  // Relationships
+  package   FbmPackage @relation(fields: [packageId], references: [id], onDelete: Cascade)
+  
+  // Timestamps
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  
+  @@unique([packageId, reportPeriod])
+  @@map("package_analytics")
+}
+
+// Data export log for tracking what's been synced to external systems
+model DataExportLog {
+  id              String @id @default(cuid())
+  
+  // Export details
+  exportType      ExportType
+  tableName       String    // Which table was exported
+  recordId        String?   // Specific record ID (optional)
+  
+  // Destination system
+  destinationSystem String  // "google-cloud", "hubspot", "salesforce", etc.
+  destinationId   String?   // External system record ID
+  
+  // Export metadata
+  recordsExported Int       @default(0)
+  exportStatus    ExportStatus @default(PENDING)
+  errorMessage    String?
+  
+  // Timing
+  startedAt       DateTime  @default(now())
+  completedAt     DateTime?
+  
+  // File information (for batch exports)
+  fileName        String?
+  fileSize        Int?      // Bytes
+  fileFormat      String?   // "json", "csv", "parquet"
+  bucketPath      String?   // Cloud storage path
+  
+  // Timestamps
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+  
+  @@map("data_export_logs")
+}
+
+
+// New enums for reporting
+enum ReportPeriod {
+  DAILY
+  WEEKLY
+  MONTHLY
+  QUARTERLY
+  YEARLY
+}
+
+enum ChurnRisk {
+  LOW
+  MEDIUM
+  HIGH
+  CRITICAL
+}
+
+enum ClientSegment {
+  NEW
+  REGULAR
+  VIP
+  CHAMPION
+  AT_RISK
+  CHURNED
+}
+
+enum ExportType {
+  FULL_SYNC
+  INCREMENTAL
+  SINGLE_RECORD
+  BULK_EXPORT
+}
+
+enum ExportStatus {
+  PENDING
+  IN_PROGRESS
+  COMPLETED
+  FAILED
+  CANCELLED
 }
