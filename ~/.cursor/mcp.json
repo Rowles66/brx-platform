@@ -1,0 +1,39 @@
+{
+  "mcpServers": {
+    "brx-platform-docker": {
+      "command": "sudo",
+      "args": [
+        "docker",
+        "compose",
+        "-f",
+        "/workspace/mcp-server/docker-compose.yml",
+        "run",
+        "--rm",
+        "-i",
+        "brx-mcp-server"
+      ],
+      "env": {
+        "NODE_ENV": "development"
+      }
+    },
+    "brx-platform-local": {
+      "command": "node",
+      "args": ["/workspace/mcp-server/src/index.js"],
+      "env": {
+        "NODE_ENV": "development"
+      }
+    },
+    "filesystem": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-filesystem", "/workspace"]
+    },
+    "git": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-git"]
+    },
+    "docker-system": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-docker"]
+    }
+  }
+}
